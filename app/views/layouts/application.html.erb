@@ -3,16 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <%= title %>
+    <link rel="icon"
+          type="image/png"
+          href="<%= image_path("favicon_b.png")  %> ">
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/desktop_navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+    <%= render 'shared/mobile_navbar' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

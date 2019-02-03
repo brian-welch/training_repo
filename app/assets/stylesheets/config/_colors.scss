@@ -1,10 +1,22 @@
 // Define variables for your color scheme
 
 // For example:
-$red: #EE5F5B;
-$blue: #469AE0;
-$yellow: #FDB631;
-$orange: #E67E22;
-$green: #32B796;
-$gray: #000000;
-$light-gray: #F4F4F4;
+// $red_var:        #EE5F5B;
+// $blue_var:       #469AE0;
+// $yellow_var:     #FDB631;
+// $orange_var:     #E67E22;
+// $green_var:      #32B796;
+// $gray_var:       #000000;
+// $light-gray_var: #F4F4F4;
+
+$site_danger:     rgba(224,89,40,1);       // $brand-danger
+$site_primary:    rgba(58,130,180,1);      // $brand-primary
+$site_info:       #FDB631;                 // $brand-info
+$site_warning:    #E67E22;                 // $brand-warning
+$site_success:    rgba(37,210,0,1);        // $brand-success
+$site_background: #000000;                 // $body-bg
+// $site_textcolor:  rgba(198, 236, 255, 1);  // $text-color
+// $site_textcolor:  rgba(108, 149, 178, 1);  // $text-color
+$site_textcolor:  rgba(58,130,180, 1);  // $text-color
+$gray_var:        #000000;                 // $gray-base
+

@@ -1,1 +1,15 @@
-// Specific CSS for your home-page
+.logo-centerer {
+  display: flex;
+  // height: calc(100vh - 50px);
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  padding: 20px;
+  div {
+    // outline: dotted green 1px;
+    text-align: center;
+    img {
+      width: 100%;
+    }
+  }
+}

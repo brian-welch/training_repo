@@ -10,10 +10,77 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_08_163723) do
+ActiveRecord::Schema.define(version: 2019_01_27_064350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bodyparts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exercise_bodyparts", force: :cascade do |t|
+    t.bigint "exercise_id"
+    t.bigint "bodypart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bodypart_id"], name: "index_exercise_bodyparts_on_bodypart_id"
+    t.index ["exercise_id"], name: "index_exercise_bodyparts_on_exercise_id"
+  end
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "name"
+    t.integer "pully_count"
+    t.boolean "unilateral"
+    t.integer "movement_class"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "session_exercises", force: :cascade do |t|
+    t.integer "weight_kg"
+    t.integer "reps"
+    t.integer "session_number"
+    t.bigint "exercise_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_session_exercises_on_exercise_id"
+    t.index ["user_id"], name: "index_session_exercises_on_user_id"
+  end
+
+  create_table "session_strategies", force: :cascade do |t|
+    t.string "name"
+    t.text "description", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.integer "session_number"
+    t.boolean "open"
+    t.bigint "session_strategy_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_strategy_id"], name: "index_sessions_on_session_strategy_id"
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +90,25 @@ ActiveRecord::Schema.define(version: 2019_01_08_163723) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birthdate"
+    t.boolean "active", default: false
+    t.integer "weight"
+    t.bigint "role_id"
+    t.bigint "gender_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["gender_id"], name: "index_users_on_gender_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "exercise_bodyparts", "bodyparts"
+  add_foreign_key "exercise_bodyparts", "exercises"
+  add_foreign_key "session_exercises", "exercises"
+  add_foreign_key "session_exercises", "users"
+  add_foreign_key "sessions", "session_strategies"
+  add_foreign_key "sessions", "users"
+  add_foreign_key "users", "genders"
+  add_foreign_key "users", "roles"
 end

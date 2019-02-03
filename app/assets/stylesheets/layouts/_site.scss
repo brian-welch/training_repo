@@ -1,0 +1,45 @@
+html {
+  background: $site_background;
+}
+
+body {
+  padding: 0 0 50px 0;
+}
+
+div, p, i, li, th, td, span, ul, ol, button, input, tr, a {
+  transition: all ease 400ms;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  i {
+    margin: 0 5px 0 0;
+  }
+}
+
+hr {
+  border-top: 1px solid darken($site_primary, 5%);
+}
+
+th {
+  text-align: center;
+}
+
+select {
+  border-radius: 1px !important;
+  -webkit-appearance: none;
+  -moz-appearance:none;
+}
+
+.content-page-h1 {
+  font-size: 1.75em;
+}
+
+.brand_font {
+  font-family: "Tron", "Raleway", "Helvetica", "sans-serif";
+}
+
+
+.add-absolute-position {
+  position: absolute;
+  z-index: 1000;
+}

@@ -1,0 +1,2 @@
+class SessionStrategy < ApplicationRecord
+end

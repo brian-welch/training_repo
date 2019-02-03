@@ -6,10 +6,16 @@
   margin: 0;
   text-align: center;
   color: white;
+  right: 0;
+  button > span{
+    color: white !important;
+    opacity: 1 !important;
+  }
 }
 .alert-info {
-  background: $green;
+  background: $site_success;
 }
-.alert-warning {
-  background: $red;
+.alert-warning, .alert-danger {
+  background: $site_danger;
 }
+

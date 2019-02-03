@@ -1,0 +1,31 @@
+    <% if user_signed_in? %>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to destroy_user_session_path do %>
+            <i class="fas fa-dumbbell"></i> New Sesh!
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </li>
+
+      </ul>
+    <% else %>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to new_user_registration_path, class: "" do %>
+            <i class="fas fa-sign-in-alt"></i> <%= t(".sign_up", default: "Sign up") %>
+          <% end %>
+        </li>
+        <!-- <li><span class="singup_login_navbar_divider">/</span></li> -->
+        <li role="separator" class="divider"></li>
+        <li>
+          <%= link_to new_user_session_path, class: "" do %>
+            <i class="fas fa-sign-in-alt"></i> <%= t(".sign_in", default: "Log in") %>
+          <% end %>
+        </li>
+
+    <% end %>
