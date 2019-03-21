@@ -1,0 +1,13 @@
+.training_session_start_stop_button {
+  padding-top: 12.5px;
+  padding-bottom: 12.5px;
+  line-height: 25px;
+  position: relative;
+  display: block;
+  color: #1b3c54;
+  border: none;
+  background-color: transparent;
+  &:hover {
+    background-color: #EEEEEE;
+  }
+}

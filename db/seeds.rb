@@ -5,6 +5,8 @@ require_relative 'seed_data/session_strategies.rb'
 require_relative 'seed_data/exercise_bodyparts.rb'
 require_relative 'seed_data/exercises.rb'
 require_relative 'seed_data/users.rb'
+require_relative 'seed_data/brands.rb'
+require_relative 'seed_data/machines.rb'
 
 
 ## clears terminal window
@@ -21,8 +23,10 @@ puts "\nDestroying the database!!"
 sleep 0.5
 
 ExerciseBodypart.destroy_all
+Machine.destroy_all
+Brand.destroy_all
 SessionExercise.destroy_all
-Session.destroy_all
+TrainingSession.destroy_all
 SessionStrategy.destroy_all
 Bodypart.destroy_all
 Exercise.destroy_all
@@ -47,7 +51,7 @@ sleep 0.5
 
 gender_list = %w(m f)
 gender_list.each do |gender|
-  Gender.create!(name: gender)
+  Gender.create!(name: gender.upcase)
 end
 
 puts "\n#{Gender.count} Genders created....  because there are only 2!"
@@ -76,7 +80,10 @@ sleep 0.5
 exercise_list.each do |exercise|
   Exercise.create!(
     name: exercise[:name],
-    unilateral:  exercise[:unilateral]
+    mech_ad: exercise[:mech_ad],
+    unilateral: exercise[:unilateral],
+    machine: exercise[:machine],
+    bodyweight: exercise[:bodyweight]
     )
 end
 
@@ -108,7 +115,7 @@ user_list.each do |user|
     birthdate: DateTime.strptime(user[:birthdate], "%Y/%m/%d"),
     weight: user[:weight],
     active: user[:active],
-    gender: Gender.find_by_name(user[:gender]),
+    gender: Gender.find_by_name(user[:gender].upcase),
     role: Role.find_by_name(user[:role])
     )
 end
@@ -116,7 +123,25 @@ end
 puts "\n#{User.count} Users created."
 sleep 0.5
 
+brand_list.each do |brand|
+  Brand.create!(
+    name: brand
+    )
+end
 
+puts "\n#{Brand.count} Brands created."
+sleep 0.5
+
+machine_list.each do |machine|
+  Machine.create!(
+    brand: Brand.where(name: machine[:brand])[0],
+    name: machine[:name].capitalize,
+    mech_ad: machine[:mech_ad]
+    )
+end
+
+puts "\n#{Machine.count} Machines created."
+sleep 0.5
 
 puts '- ' * 30 + "\n"
 puts '*' * 23

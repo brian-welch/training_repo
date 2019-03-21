@@ -15,4 +15,5 @@ class User < ApplicationRecord
   validates :role, presence: true
   validates :weight, presence: true
 
+
 end

@@ -1,9 +1,22 @@
     <% if user_signed_in? %>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to destroy_user_session_path do %>
-            <i class="fas fa-dumbbell"></i> New Sesh!
+          <%if open_session_status[:has_open_sesh?]  %>
+
+            <%= simple_form_for open_session_status[:get_open_sesh_instance], id: "end_training_session_form", data: {confirm: "Are you sure you want to end your training session?"} do |f| %>
+
+              <button class="training_session_start_stop_button" type="submit">
+                <i class="fas fa-dumbbell"></i> End Current Sesh!
+              </button>
+            <% end %>
+
+          <% else %>
+
+            <%= link_to new_training_session_path do %>
+                <i class="fas fa-dumbbell"></i> Start New Sesh!
+            <% end %>
           <% end %>
+
         </li>
 
         <li>

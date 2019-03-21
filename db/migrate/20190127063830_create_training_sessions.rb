@@ -1,10 +1,11 @@
-class CreateSessions < ActiveRecord::Migration[5.2]
+class CreateTrainingSessions < ActiveRecord::Migration[5.2]
   def change
-    create_table :sessions do |t|
+    create_table :training_sessions do |t|
       t.integer :session_number
-      t.boolean :open
+      t.boolean :open, default: true
       t.references :session_strategy, foreign_key: true
       t.references :user, foreign_key: true
+
       t.timestamps
     end
   end

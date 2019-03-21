@@ -1,0 +1,71 @@
+/*------------- INDEX ----------------*/
+
+
+
+.session-summary-table-container {
+}
+
+.session-summary-table {
+  width: 100%;
+  font-size: 0.9em;
+  th {
+    background: $site_primary;
+    color: black;
+  }
+  tr {
+    :first-child {
+      text-align: right;
+    }
+    :nth-child(2n) {
+      text-align: center;
+    }
+  }
+}
+
+.training_session_index_active_notice {
+  color: $site_success;
+  margin: 0 0 0 10px;
+}
+
+
+/*------------- NEW ----------------*/
+
+
+.session_strategy_dropdown_arrow {
+  position: relative;
+  top: 8px;
+  left: 5px;
+  font-size: 1.75em;
+}
+
+#session_strategy_info_box {
+  font-size: 0.8em;
+  color: lighten($site_primary, 20%);
+  margin-top: 20px;
+}
+
+.reveal_caret {
+  font-size: 1.5em;
+}
+
+#session_strategy_info_button {
+  font-size: 0.75em;
+}
+
+/*------------- INDEX ----------------*/
+
+.session_history_list {
+  list-style: none;
+  li {
+    position: relative;
+    li {
+      color: lighten($site_primary, 15%);
+      font-size: 0.9em;
+    }
+  }
+}
+
+.session_history_bullet {
+  position: absolute;
+  left: -30px;
+}

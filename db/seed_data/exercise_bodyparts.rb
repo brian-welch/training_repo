@@ -121,16 +121,24 @@ def exercise_bodyparts_list
       bodyparts: ["Front Delts","Triceps","Pecs"]
     },
     {
+      name: "Bodyweight Dips Plus Weight",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
       name: "Bodyweight Jump Lunges",
       bodyparts: ["Gastrocs","Soleus","Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes","Lower Back","Abs","Obliques"]
     },
     {
-      name: "Bodyweight One Legged Squats",
+      name: "Bodyweight Squats Unilateral",
       bodyparts: ["Gastrocs","Soleus","Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes","Lower Back","Abs","Obliques"]
     },
     {
-      name: "Bodyweight Pronate Pull-ups",
-      bodyparts: ["Lats","Rear Delts","Biceps","Forearms"]
+      name: "Bodyweight Pull-ups Plus Weight",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Bodyweight Pull-ups",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
     },
     {
       name: "Bodyweight Push-ups",
@@ -141,8 +149,12 @@ def exercise_bodyparts_list
       bodyparts: ["Gastrocs","Soleus","Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes","Lower Back","Abs"]
     },
     {
-      name: "Bodyweight Supinate Pull-ups",
-      bodyparts: ["Lats","Rear Delts","Biceps","Forearms"]
+      name: "Bodyweight Chin-ups[underhand]",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Bodyweight Chin-ups[underhand] Plus Weight",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
     },
     {
       name: "Bodyweight Triangle Push-ups",
@@ -155,14 +167,6 @@ def exercise_bodyparts_list
     {
       name: "Bodyweight Wide Stance Push-ups",
       bodyparts: ["Lower Back","Abs","Front Delts","Triceps","Pecs"]
-    },
-    {
-      name: "Crossover 'Y' Pulldowns: 1 Pully",
-      bodyparts: ["Lats","Traps","Biceps"]
-    },
-    {
-      name: "Crossover 'Y' Pulldowns: 2 Pullies",
-      bodyparts: ["Lats","Traps","Biceps"]
     },
     {
       name: "Cable Biceps Curls ~0°: 1 Pully",
@@ -187,6 +191,174 @@ def exercise_bodyparts_list
     {
       name: "Cable Biceps Curls ~90°: 2 Pullies",
       bodyparts: ["Biceps","Forearms"]
+    },
+    {
+      name: "Cable Front Raises: 1 Pully",
+      bodyparts: ["Front Delts"]
+    },
+    {
+      name: "Cable Front Raises: 2 Pullies",
+      bodyparts: ["Front Delts"]
+    },
+    {
+      name: "Cable Hammer Biceps Curls: 1 Pully",
+      bodyparts: ["Biceps","Forearms"]
+    },
+    {
+      name: "Cable Hammer Biceps Curls: 2 Pullies",
+      bodyparts: ["Biceps","Forearms"]
+    },
+    {
+      name: "Cable Horizontal Rows Unilateral: 1 Pully",
+      bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
+    },
+    {
+      name: "Cable Horizontal Rows Unilateral: 2 Pullies",
+      bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
+    },
+    {
+      name: "Cable Horizontal Rows - Underhanded: 1 Pully",
+      bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
+    },
+    {
+      name: "Cable Horizontal Rows - Underhanded: 2 Pullies",
+      bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
+    },
+    {
+      name: "Cable Horizontal Rows - Parallel-grip: 1 Pully",
+      bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
+    },
+    {
+      name: "Cable Horizontal Rows - Parallel-grip: 2 Pullies",
+      bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
+    },
+    {
+      name: "Cable Parallel-grip Pulldowns Narrow: 1 Pully",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps"]
+    },
+    {
+      name: "Cable Parallel-grip Pulldowns Narrow: 2 Pullies",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps"]
+    },
+    {
+      name: "Cable Parallel-grip Pulldowns Wide: 1 Pully",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps"]
+    },
+    {
+      name: "Cable Parallel-grip Pulldowns Wide: 2 Pullies",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps"]
+    },
+    {
+      name: "Cable Pulldowns Underhanded: 1 Pully",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Cable Pulldowns Underhanded: 2 Pullies",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Cable Pulldowns: 1 Pully",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Cable Pulldowns: 2 Pullies",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Cable Reverse Grip Standing Tricep Extensions Unilateral: 1 Pully",
+      bodyparts: ["Triceps"]
+    },
+    {
+      name: "Cable Reverse Grip Standing Tricep Extensions Unilateral: 2 Pullies",
+      bodyparts: ["Triceps"]
+    },
+    {
+      name: "Cable Reverse Grip Standing Tricep Extensions: 1 Pully",
+      bodyparts: ["Triceps"]
+    },
+    {
+      name: "Cable Reverse Grip Standing Tricep Extensions: 2 Pullies",
+      bodyparts: ["Triceps"]
+    },
+    {
+      name: "Cable Shoulder Raises ~0°: 1 Pully",
+      bodyparts: ["Rear Delts","Delts"]
+    },
+    {
+      name: "Cable Shoulder Raises ~0°: 2 Pullies",
+      bodyparts: ["Rear Delts","Delts"]
+    },
+    {
+      name: "Cable Shoulder Raises ~45°: 1 Pully",
+      bodyparts: ["Rear Delts","Delts"]
+    },
+    {
+      name: "Cable Shoulder Raises ~45°: 2 Pullies",
+      bodyparts: ["Rear Delts","Delts"]
+    },
+    {
+      name: "Cable Shoulder Raises ~30°: 1 Pully",
+      bodyparts: ["Rear Delts"]
+    },
+    {
+      name: "Cable Shoulder Raises ~30°: 2 Pullies",
+      bodyparts: ["Rear Delts"]
+    },
+    {
+      name: "Cable Triceps Extensions  ~0°: 1 Pully",
+      bodyparts: ["Triceps"]
+    },
+    {
+      name: "Cable Triceps Extensions  ~0°: 2 Pullies",
+      bodyparts: ["Triceps"]
+    },
+    {
+      name: "Cable Triceps Extensions  ~90°: 1 Pully",
+      bodyparts: ["Triceps"]
+    },
+    {
+      name: "Cable Triceps Extensions  ~90°: 2 Pullies",
+      bodyparts: ["Triceps"]
+    },
+    {
+      name: "Crossover Reverse Flies: 1 Pully",
+      bodyparts: ["Triceps"]
+    },
+    {
+      name: "Crossover Reverse Flies: 2 Pullies",
+      bodyparts: ["Triceps"]
+    },
+    {
+      name: "Crossover Shoulder Raises ~0°: 1 Pully",
+      bodyparts: ["Rear Delts","Delts"]
+    },
+    {
+      name: "Crossover Shoulder Raises ~0°: 2 Pullies",
+      bodyparts: ["Rear Delts","Delts"]
+    },
+    {
+      name: "Crossover Shoulder Raises ~45°: 1 Pully",
+      bodyparts: ["Rear Delts","Delts"]
+    },
+    {
+      name: "Crossover Shoulder Raises ~45°: 2 Pullies",
+      bodyparts: ["Rear Delts","Delts"]
+    },
+    {
+      name: "Crossover Shoulder Raises ~30°: 1 Pully",
+      bodyparts: ["Rear Delts"]
+    },
+    {
+      name: "Crossover Shoulder Raises ~30°: 2 Pullies",
+      bodyparts: ["Rear Delts"]
+    },
+    {
+      name: "Crossover 'Y' Pulldowns: 1 Pully",
+      bodyparts: ["Lats","Traps","Biceps"]
+    },
+    {
+      name: "Crossover 'Y' Pulldowns: 2 Pullies",
+      bodyparts: ["Lats","Traps","Biceps"]
     },
     {
       name: "Crossover Butterflies: 1 Pully",
@@ -229,30 +401,6 @@ def exercise_bodyparts_list
       bodyparts: ["Front Delts","Triceps","Pecs"]
     },
     {
-      name: "Cable Front Raises: 1 Pully",
-      bodyparts: ["Front Delts"]
-    },
-    {
-      name: "Cable Front Raises: 2 Pullies",
-      bodyparts: ["Front Delts"]
-    },
-    {
-      name: "Cable Hammer Biceps Curls: 1 Pully",
-      bodyparts: ["Biceps","Forearms"]
-    },
-    {
-      name: "Cable Hammer Biceps Curls: 2 Pullies",
-      bodyparts: ["Biceps","Forearms"]
-    },
-    {
-      name: "Cable Horizontal Rows: 1 Pully",
-      bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
-    },
-    {
-      name: "Cable Horizontal Rows: 2 Pullies",
-      bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
-    },
-    {
       name: "Crossover Incline Bench Press <15°: 1 Pully",
       bodyparts: ["Front Delts","Triceps","Forearms","Pecs"]
     },
@@ -291,86 +439,6 @@ def exercise_bodyparts_list
     {
       name: "Crossover Incline Bench Press ~60°: 2 Pullies",
       bodyparts: ["Front Delts","Triceps","Forearms","Pecs"]
-    },
-    {
-      name: "Cable Neutral-grip Pulldowns Narrow: 1 Pully",
-      bodyparts: ["Obliques","Lats","Rear Delts","Biceps"]
-    },
-    {
-      name: "Cable Neutral-grip Pulldowns Narrow: 2 Pullies",
-      bodyparts: ["Obliques","Lats","Rear Delts","Biceps"]
-    },
-    {
-      name: "Cable Neutral-grip Pulldowns Wide: 1 Pully",
-      bodyparts: ["Obliques","Lats","Rear Delts","Biceps"]
-    },
-    {
-      name: "Cable Neutral-grip Pulldowns Wide: 2 Pullies",
-      bodyparts: ["Obliques","Lats","Rear Delts","Biceps"]
-    },
-    {
-      name: "Cable Pronate Pulldowns: 1 Pully",
-      bodyparts: ["Obliques","Lats","Rear Delts","Biceps"]
-    },
-    {
-      name: "Cable Pronate Pulldowns: 2 Pullies",
-      bodyparts: ["Obliques","Lats","Rear Delts","Biceps"]
-    },
-    {
-      name: "Cable Reverse Grip Standing Tricep Extensions: 1 Pully",
-      bodyparts: ["Triceps"]
-    },
-    {
-      name: "Cable Reverse Grip Standing Tricep Extensions: 2 Pullies",
-      bodyparts: ["Triceps"]
-    },
-    {
-      name: "Cable Shoulder Abductions ~0°: 1 Pully",
-      bodyparts: ["Rear Delts","Delts","Front Delts"]
-    },
-    {
-      name: "Cable Shoulder Abductions ~0°: 2 Pullies",
-      bodyparts: ["Rear Delts","Delts","Front Delts"]
-    },
-    {
-      name: "Cable Shoulder Abductions ~45°: 1 Pully",
-      bodyparts: ["Rear Delts","Delts"]
-    },
-    {
-      name: "Cable Shoulder Abductions ~45°: 2 Pullies",
-      bodyparts: ["Rear Delts","Delts"]
-    },
-    {
-      name: "Cable Shoulder Abductions ~90°: 1 Pully",
-      bodyparts: ["Rear Delts"]
-    },
-    {
-      name: "Cable Shoulder Abductions ~90°: 2 Pullies",
-      bodyparts: ["Rear Delts"]
-    },
-    {
-      name: "Cable Supinate Pulldowns: 1 Pully",
-      bodyparts: ["Lats","Traps","Biceps"]
-    },
-    {
-      name: "Cable Supinate Pulldowns: 2 Pullies",
-      bodyparts: ["Lats","Traps","Biceps"]
-    },
-    {
-      name: "Cable Triceps Extensions  ~0°: 1 Pully",
-      bodyparts: ["Triceps"]
-    },
-    {
-      name: "Cable Triceps Extensions  ~0°: 2 Pullies",
-      bodyparts: ["Triceps"]
-    },
-    {
-      name: "Cable Triceps Extensions  ~90°: 1 Pully",
-      bodyparts: ["Triceps"]
-    },
-    {
-      name: "Cable Triceps Extensions  ~90°: 2 Pullies",
-      bodyparts: ["Triceps"]
     },
     {
       name: "Dumbbell Biceps Curls ~0°",
@@ -457,11 +525,11 @@ def exercise_bodyparts_list
       bodyparts: ["Biceps","Forearms"]
     },
     {
-      name: "Dumbbell Shoulder Abductions ~0°",
+      name: "Dumbbell Shoulder Raises ~0°",
       bodyparts: ["Rear Delts","Delts","Front Delts"]
     },
     {
-      name: "Dumbbell Shoulder Abductions ~45°",
+      name: "Dumbbell Shoulder Raises ~45°",
       bodyparts: ["Rear Delts","Delts"]
     },
     {
@@ -493,6 +561,38 @@ def exercise_bodyparts_list
       bodyparts: ["Gastrocs","Soleus","Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes","Lower Back","Abs","Obliques","Lats","Traps","Rear Delts","Delts","Front Delts","Rotator Cuff","Triceps","Biceps","Forearms","Pecs","Neck Flexors"]
     },
     {
+      name: "Machine Bicep Unilateral Curls ~0°: 1 Pully",
+      bodyparts: ["Biceps","Forearms"]
+    },
+    {
+      name: "Machine Bicep Unilateral Curls ~0°: 2 Pullies",
+      bodyparts: ["Biceps","Forearms"]
+    },
+    {
+      name: "Machine Bicep Unilateral Curls ~45°: 1 Pully",
+      bodyparts: ["Biceps","Forearms"]
+    },
+    {
+      name: "Machine Bicep Unilateral Curls ~45°: 2 Pullies",
+      bodyparts: ["Biceps","Forearms"]
+    },
+    {
+      name: "Machine Bicep Unilateral Curls ~90°: 1 Pully",
+      bodyparts: ["Biceps","Forearms"]
+    },
+    {
+      name: "Machine Bicep Unilateral Curls ~90°: 2 Pullies",
+      bodyparts: ["Biceps","Forearms"]
+    },
+    {
+      name: "Machine Bicep Unilateral Curls Incline: 1 Pully",
+      bodyparts: ["Biceps","Forearms"]
+    },
+    {
+      name: "Machine Bicep Unilateral Curls Incline: 2 Pullies",
+      bodyparts: ["Biceps","Forearms"]
+    },
+    {
       name: "Machine Biceps Curls ~0°: 1 Pully",
       bodyparts: ["Biceps","Forearms"]
     },
@@ -517,11 +617,19 @@ def exercise_bodyparts_list
       bodyparts: ["Biceps","Forearms"]
     },
     {
-      name: "Machine Butterflies: 1 Pully",
+      name: "Machine Biceps Curls Incline: 1 Pully",
+      bodyparts: ["Biceps","Forearms"]
+    },
+    {
+      name: "Machine Biceps Curls Incline: 2 Pullies",
+      bodyparts: ["Biceps","Forearms"]
+    },
+    {
+      name: "Machine Flies: 1 Pully",
       bodyparts: ["Pecs"]
     },
     {
-      name: "Machine Butterflies: 2 Pullies",
+      name: "Machine Flies: 2 Pullies",
       bodyparts: ["Pecs"]
     },
     {
@@ -533,6 +641,14 @@ def exercise_bodyparts_list
       bodyparts: ["Front Delts","Triceps"]
     },
     {
+      name: "Machine Flat Bench Press Unilateral: 1 Pully",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
+      name: "Machine Flat Bench Press Unilateral: 2 Pullies",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
       name: "Machine Flat Bench Press: 1 Pully",
       bodyparts: ["Front Delts","Triceps","Pecs"]
     },
@@ -541,12 +657,20 @@ def exercise_bodyparts_list
       bodyparts: ["Front Delts","Triceps","Pecs"]
     },
     {
-      name: "Machine Glute Kick-backs: 1 Pully",
+      name: "Machine Glute Kick-backs Unilateral: 1 Pully",
       bodyparts: ["Hamstrings","Glutes","Lower Back"]
     },
     {
-      name: "Machine Glute Kick-backs: 2 Pullies",
+      name: "Machine Glute Kick-backs Unilateral: 2 Pullies",
       bodyparts: ["Hamstrings","Glutes","Lower Back"]
+    },
+    {
+      name: "Machine Horizontal Rows Unilateral: 1 Pully",
+      bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
+    },
+    {
+      name: "Machine Horizontal Rows Unilateral: 2 Pullies",
+      bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
     },
     {
       name: "Machine Horizontal Rows: 1 Pully",
@@ -557,19 +681,27 @@ def exercise_bodyparts_list
       bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
     },
     {
-      name: "Machine Incline Bench Press <15°: 1 Pully",
+      name: "Machine Incline Bench Press Unilateral ~30°: 1 Pully",
       bodyparts: ["Front Delts","Triceps","Pecs"]
     },
     {
-      name: "Machine Incline Bench Press <15°: 2 Pullies",
+      name: "Machine Incline Bench Press Unilateral ~30°: 2 Pullies",
       bodyparts: ["Front Delts","Triceps","Pecs"]
     },
     {
-      name: "Machine Incline Bench Press ~15°: 1 Pully",
+      name: "Machine Incline Bench Press Unilateral ~45°: 1 Pully",
       bodyparts: ["Front Delts","Triceps","Pecs"]
     },
     {
-      name: "Machine Incline Bench Press ~15°: 2 Pullies",
+      name: "Machine Incline Bench Press Unilateral ~45°: 2 Pullies",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
+      name: "Machine Incline Bench Press Unilateral ~60°: 1 Pully",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
+      name: "Machine Incline Bench Press Unilateral ~60°: 2 Pullies",
       bodyparts: ["Front Delts","Triceps","Pecs"]
     },
     {
@@ -613,6 +745,14 @@ def exercise_bodyparts_list
       bodyparts: ["Adductors"]
     },
     {
+      name: "Machine Leg Extensions Unilateral: 1 Pully",
+      bodyparts: ["Quads"]
+    },
+    {
+      name: "Machine Leg Extensions Unilateral: 2 Pullies",
+      bodyparts: ["Quads"]
+    },
+    {
       name: "Machine Leg Extensions: 1 Pully",
       bodyparts: ["Quads"]
     },
@@ -621,8 +761,28 @@ def exercise_bodyparts_list
       bodyparts: ["Quads"]
     },
     {
+      name: "Machine Leg Press Sled Unilateral",
+      bodyparts: ["Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes"]
+    },
+    {
+      name: "Machine Leg Press Unilateral: 1 Pully",
+      bodyparts: ["Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes"]
+    },
+    {
+      name: "Machine Leg Press Unilateral: 2 Pullies",
+      bodyparts: ["Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes"]
+    },
+    {
       name: "Machine Leg Press Sled",
       bodyparts: ["Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes"]
+    },
+    {
+      name: "Machine Bent Arm Shoulder Abductions: 1 Pully",
+      bodyparts: ["Rear Delts","Delts","Front Delts"]
+    },
+    {
+      name: "Machine Bent Arm Shoulder Abductions: 2 Pullies",
+      bodyparts: ["Rear Delts","Delts","Front Delts"]
     },
     {
       name: "Machine Leg Press: 1 Pully",
@@ -633,6 +793,14 @@ def exercise_bodyparts_list
       bodyparts: ["Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes"]
     },
     {
+      name: "Machine Lying Leg Curls Unilateral: 1 Pully",
+      bodyparts: ["Hamstrings"]
+    },
+    {
+      name: "Machine Lying Leg Curls Unilateral: 2 Pullies",
+      bodyparts: ["Hamstrings"]
+    },
+    {
       name: "Machine Lying Leg Curls: 1 Pully",
       bodyparts: ["Hamstrings"]
     },
@@ -641,24 +809,28 @@ def exercise_bodyparts_list
       bodyparts: ["Hamstrings"]
     },
     {
-      name: "Machine Neutral-grip Pulldowns Narrow: 1 Pully",
+      name: "Machine Parallel-grip Pulldowns Narrow: 1 Pully",
       bodyparts: ["Lats"]
     },
     {
-      name: "Machine Neutral-grip Pulldowns Narrow: 2 Pullies",
+      name: "Machine Parallel-grip Pulldowns Narrow: 2 Pullies",
       bodyparts: ["Lats"]
     },
     {
-      name: "Machine Neutral-grip Pulldowns Wide: 1 Pully",
+      name: "Machine Parallel-grip Pulldowns Wide: 1 Pully",
       bodyparts: ["Lats"]
     },
     {
-      name: "Machine Neutral-grip Pulldowns Wide: 2 Pullies",
+      name: "Machine Parallel-grip Pulldowns Wide: 2 Pullies",
       bodyparts: ["Lats"]
     },
     {
-      name: "Machine One Legged Leg Press Sled",
-      bodyparts: ["Gastrocs","Soleus","Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes","Lower Back"]
+      name: "Machine Overhead Press Unilateral: 1 Pully",
+      bodyparts: ["Rear Delts","Delts","Front Delts","Triceps"]
+    },
+    {
+      name: "Machine Overhead Press Unilateral: 2 Pullies",
+      bodyparts: ["Rear Delts","Delts","Front Delts","Triceps"]
     },
     {
       name: "Machine Overhead Press: 1 Pully",
@@ -669,20 +841,12 @@ def exercise_bodyparts_list
       bodyparts: ["Rear Delts","Delts","Front Delts","Triceps"]
     },
     {
-      name: "Machine Preacher/Supported Biceps Curls: 1 Pully",
-      bodyparts: ["Biceps","Forearms"]
+      name: "Machine Pulldowns: 1 Pully",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
     },
     {
-      name: "Machine Preacher/Supported Biceps Curls: 2 Pullies",
-      bodyparts: ["Biceps","Forearms"]
-    },
-    {
-      name: "Machine Pronate Pulldowns: 1 Pully",
-      bodyparts: ["Lats","Biceps"]
-    },
-    {
-      name: "Machine Pronate Pulldowns: 2 Pullies",
-      bodyparts: ["Lats","Biceps"]
+      name: "Machine Pulldowns: 2 Pullies",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
     },
     {
       name: "Machine Pullovers: 1 Pully",
@@ -721,14 +885,6 @@ def exercise_bodyparts_list
       bodyparts: ["Gastrocs"]
     },
     {
-      name: "Machine Supinate Pulldowns: 1 Pully",
-      bodyparts: ["Lats","Traps","Biceps"]
-    },
-    {
-      name: "Machine Supinate Pulldowns: 2 Pullies",
-      bodyparts: ["Lats","Traps","Biceps"]
-    },
-    {
       name: "Machine Triceps Extensions  ~0°: 1 Pully",
       bodyparts: ["Triceps"]
     },
@@ -745,9 +901,116 @@ def exercise_bodyparts_list
       bodyparts: ["Triceps"]
     },
     {
-      name: "Machine Reverse Flies",
-      bodyparts: ["Rear Delts"]
+      name: "Machine Underhand Pulldowns: 1 Pully",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Machine Underhand Pulldowns: 2 Pullies",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Plate-loaded Bent Leg Calf Raises",
+      bodyparts: ["Gastrocs","Soleus","Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes","Lower Back","Abs","Obliques","Lats","Traps","Rear Delts","Delts","Front Delts","Rotator Cuff","Triceps","Biceps","Forearms","Pecs","Neck Flexors"]
+    },
+    {
+      name: "Plate-loaded Dips Unilateral",
+      bodyparts: ["Front Delts","Triceps"]
+    },
+    {
+      name: "Plate-loaded Dips",
+      bodyparts: ["Front Delts","Triceps"]
+    },
+    {
+      name: "Plate-loaded Flat Bench Press Unilateral",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
+      name: "Plate-loaded Flat Bench Press",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
+      name: "Plate-loaded Horizontal Rows Unilateral",
+      bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
+    },
+    {
+      name: "Plate-loaded Horizontal Rows",
+      bodyparts: ["Lats","Traps","Rear Delts","Biceps"]
+    },
+    {
+      name: "Plate-loaded Incline Bench Press Unilateral ~30°",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
+      name: "Plate-loaded Incline Bench Press Unilateral ~45°",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
+      name: "Plate-loaded Incline Bench Press Unilateral ~60°",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
+      name: "Plate-loaded Incline Bench Press ~30°",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
+      name: "Plate-loaded Incline Bench Press ~45°",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
+      name: "Plate-loaded Incline Bench Press ~60°",
+      bodyparts: ["Front Delts","Triceps","Pecs"]
+    },
+    {
+      name: "Plate-loaded Leg Extensions Unilateral",
+      bodyparts: ["Quads"]
+    },
+    {
+      name: "Plate-loaded Leg Extensions",
+      bodyparts: ["Quads"]
+    },
+    {
+      name: "Plate-loaded Leg Press Unilateral",
+      bodyparts: ["Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes"]
+    },
+    {
+      name: "Plate-loaded Leg Press",
+      bodyparts: ["Quads","Hamstrings","Adductors","Abductors","Hip Flexors","Glutes"]
+    },
+    {
+      name: "Plate-loaded Overhead Press Unilateral",
+      bodyparts: ["Rear Delts","Delts","Front Delts","Triceps"]
+    },
+    {
+      name: "Plate-loaded Overhead Press",
+      bodyparts: ["Rear Delts","Delts","Front Delts","Triceps"]
+    },
+    {
+      name: "Plate-loaded Pulldowns Unilateral",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Plate-loaded Pulldowns",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Plate-loaded Straight Leg Calf Raises",
+      bodyparts: ["Gastrocs"]
+    },
+    {
+      name: "Plate-loaded Parallel-grip Pulldowns Unilateral",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Plate-loaded Underhand Pulldowns Unilateral",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Plate-loaded Parallel-grip Pulldowns",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
+    },
+    {
+      name: "Plate-loaded Underhand Pulldowns",
+      bodyparts: ["Obliques","Lats","Rear Delts","Biceps","Forearms"]
     }
   ]
-
 end

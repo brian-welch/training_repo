@@ -2,10 +2,11 @@ class CreateExercises < ActiveRecord::Migration[5.2]
   def change
     create_table :exercises do |t|
       t.string :name
-      t.integer :pully_count
+      t.integer :mech_ad
       t.boolean :unilateral
-      t.integer :movement_class
-      t.text :note
+      t.boolean :machine, default: false
+      t.boolean :bodyweight, default: false
+
       t.timestamps
     end
   end

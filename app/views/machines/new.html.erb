@@ -1,0 +1,36 @@
+
+<div class="container">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3  col-md-4 col-md-offset-4">
+    <h1>Add Machine to Database</h1>
+    <%= simple_form_for [@new_machine], html: { autocomplete: "off" }  do |f| %>
+    <% # byebug %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+
+        <%= f.association :brand,
+                          label: "Select the Brand",
+                          selected: @brand_default_select,
+                          input_html: { style: "cursor: pointer; font-variant: small-caps;" } %>
+
+
+        <%= f.input :name,
+                    input_html: { placeholder: "'Model Series - Movement'" } %>
+
+        <div class="col-xs-6">
+          <%= f.input :mech_ad,
+                      input_html: {  } %>
+        </div>
+
+      </div>
+
+      <div class="col-xs-12">
+        <hr>
+        <div class="form-actions">
+          <%= f.button :submit, "Save", class: "btn-primary" %>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

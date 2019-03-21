@@ -1,2 +1,55 @@
-<h1>SessionExercises#new</h1>
-<p>Find me in app/views/session_exercises/new.html.erb</p>
+
+<div class="container">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3  col-md-4 col-md-offset-4">
+    <h1>Add Set!</h1>
+    <%= simple_form_for [@new_session_exercise], html: { autocomplete: "off" } do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+
+        <%= f.association :exercise,
+                          input_html: { style: "cursor: pointer;",
+                                        # class: "session_strategy_dropdown",
+                                        onchange: "machineExerciseCheck(#{@all_exercise_json}[this.value],#{@machine_default_select.id})" } %>
+
+        <div id="machine_input_new_session_exercise">
+          <%= f.association :machine,
+                            selected: @machine_default_select.id,
+                            required: true %>
+          <% if current_user.role.name == "admin" %>
+            <%= link_to new_machine_path do %>
+              <button type="button" class="btn btn-primary">Machine not listed? Add it here!</button>
+            <% end %>
+          <% else %>
+            <div class="non_admin_machine_message">
+              <li>Is the machine you're going to use not listed in the menu?</li>
+              <li>Please use the '<span>All Purpose Machine</span>' as a default ('<span>one</span>' or '<span>two</span>' pully option as it applies).</li>
+              <li>Please contact the admin to have the machine added.</li>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-xs-6">
+          <%= f.input :weight_kg,
+                      required: true %>
+        </div>
+
+        <div class="col-xs-6">
+          <%= f.input :reps,
+                      required: true %>
+        </div>
+
+        <%= f.association :training_session,
+                    # as: :input,
+                    as: :hidden,
+                    input_html: {  } %>
+
+      </div>
+      <div class="col-xs-12"><hr></div>
+      <div class="form-actions col-xs-12">
+        <%= f.button :submit, "Save", class: "btn-primary" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
