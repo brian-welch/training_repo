@@ -18,3 +18,14 @@ function machineExerciseCheck(exercise, select_id){
     });
   }
 };
+
+function wrongMachineCheck() {
+  let input = $('#session_set_machine_id option:selected').text();
+  if (input == "No Machine") {
+    alert("\n\nAny Machine or Plate-loaded exercise must have a listed machine selected.\n\n'No Machine' is not valid.\n\n");
+    $('#session_set_machine_id').val(null);
+  } else {
+    return false
+  }
+
+}

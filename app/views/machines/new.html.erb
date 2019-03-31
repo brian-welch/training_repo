@@ -14,6 +14,7 @@
 
         <div id="machine_duplicate_warning" class="contrast_buzzword" style="font-size:0.75em;"></div>
         <%= f.input :name,
+                    hint: "(There is a naming convention. <span style=\"cursor: pointer;\" onclick=\"namingConventionInfo()\")><i class=\"fas fa-question-circle\"></i></span>)".html_safe,
                     input_html: { placeholder: "'Model Series - Movement'",
                                   onkeyup: "check_machine_name(#{@all_machine_json}[document.getElementById('machine_brand_id').value],this.value)" } %>
                     <!-- onkeyup: "check_machine_name(#{@all_machine_json}[document.getElementById('machine_brand_id').value],this.value)"  -->
