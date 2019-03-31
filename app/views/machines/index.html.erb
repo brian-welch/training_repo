@@ -7,14 +7,12 @@
       <h3>There are no machines in the database yet.</h3>
     <% else %>
       <% @brand_machine_hash.sort_by {|x,y| x }.each do |brand, machines| %>
-        <ul>
           <%= brand %><span style="position: relative; top: -0.5em; font-size: 80%;"> <i class="far fa-registered"></i></span>
           <ul>
             <% machines.each do |machine| %>
               <li> <%= machine.split(" ").map{|x| x.capitalize}.join(" ") %></li>
             <% end %>
           </ul>
-        </ul>
         <hr>
       <% end %>
     <% end %>
