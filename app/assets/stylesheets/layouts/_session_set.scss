@@ -5,7 +5,7 @@
   color: lighten($site_primary, 0%);
   font-size: 0.8em;
   padding: 5px;
-  margin: 0 10px 0 0;
+  margin: 0 5px 0 0;
   border-radius: 2px;
   border: 1px solid lighten($site_primary, 35%);
 }
@@ -54,10 +54,30 @@
 
 .exercise_set_container {
   background-color: lighten($site_background, 7%);
-  margin: 40px 0;
-  border-radius: calc(1px * 0.1);
-  padding: 5px;
-  box-shadow: 0 0 0 5px lighten($site_background, 7%), 0 0 0 6px darken($site_primary, 20%);
+  //margin: 40px 0;
+  border-radius: 1px;
+  padding: 10px 10px 20px 10px;
+  box-shadow: 0 0 0 1px lighten($site_background, 7%), 0 0 0 2px darken($site_primary, 20%);
+}
+
+
+.exercise_set_marker {
+  margin-bottom: 30px;
+}
+
+.sesion_set_add_new_exercise_btn {
+  margin: 20px 0 0 20px;
+}
+
+.sesion_set_add_new_set_btn {
+  margin: 0 0 0 10px;
+}
+
+.total_weight_calculation_reminder {
+  font-size: 0.8em;
+  margin-top: 30px;
+  padding: 0 50px;
+  font-style: italic;
 }
 
 /*------------- NEW ----------------*/

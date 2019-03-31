@@ -9,6 +9,7 @@
         <div class="simple_form_select_arrow"></div>
         <%= f.association :exercise,
                           required: true,
+                          error: "Exercise must be selected from the list",
                           input_html: { style: "cursor: pointer;",
                                         onchange: "machineExerciseCheck(#{@all_exercise_json}[this.value],#{@machine_default_select.id})" } %>
 
@@ -16,7 +17,10 @@
           <div class="simple_form_select_arrow"></div>
           <%= f.association :machine,
                             selected: @machine_default_select.id,
-                            required: true %>
+                            required: true,
+                            error: "Machine must be selected from the list",
+                            input_html: { style: "cursor: pointer;",
+                                          onchange: "wrongMachineCheck()" } %>
           <% if current_user.role.name == "admin" %>
             <%= link_to new_machine_path do %>
               <button type="button" class="btn btn-primary btn-xs">Machine not listed? Add it here!</button>

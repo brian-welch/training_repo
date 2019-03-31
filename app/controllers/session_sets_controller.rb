@@ -11,11 +11,11 @@ class SessionSetsController < ApplicationController
       @exercise_set_hash = {}
       @last_set_saved_id = all_sets_current_instances.last.id if all_sets_current_instances.count > 0
       all_sets_current_instances.each do |set|
-        if @exercise_set_hash[set.exercise.name].nil?
-          @exercise_set_hash[set.exercise.name] = []
-          @exercise_set_hash[set.exercise.name] << set
+        if @exercise_set_hash[set.exercise].nil?
+          @exercise_set_hash[set.exercise] = []
+          @exercise_set_hash[set.exercise] << set
         else
-          @exercise_set_hash[set.exercise.name] << set
+          @exercise_set_hash[set.exercise] << set
         end
       end
     else
@@ -66,7 +66,7 @@ class SessionSetsController < ApplicationController
   end
 
   def make_default_machine
-    @machine_default_select = Machine.find_by_name("Placeholder")
+    @machine_default_select = Machine.find_by_name("No Machine")
   end
 
   def approved_session_set_params
