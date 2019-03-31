@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_27_064350) do
+ActiveRecord::Schema.define(version: 2019_03_27_043318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_01_27_064350) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_machines_on_brand_id"
+    t.index ["name", "brand_id"], name: "index_machines_on_name_and_brand_id", unique: true
   end
 
   create_table "roles", force: :cascade do |t|
@@ -67,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_01_27_064350) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "session_exercises", force: :cascade do |t|
+  create_table "session_sets", force: :cascade do |t|
     t.integer "weight_kg"
     t.integer "reps"
     t.bigint "training_session_id"
@@ -75,9 +76,9 @@ ActiveRecord::Schema.define(version: 2019_01_27_064350) do
     t.bigint "machine_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["exercise_id"], name: "index_session_exercises_on_exercise_id"
-    t.index ["machine_id"], name: "index_session_exercises_on_machine_id"
-    t.index ["training_session_id"], name: "index_session_exercises_on_training_session_id"
+    t.index ["exercise_id"], name: "index_session_sets_on_exercise_id"
+    t.index ["machine_id"], name: "index_session_sets_on_machine_id"
+    t.index ["training_session_id"], name: "index_session_sets_on_training_session_id"
   end
 
   create_table "session_strategies", force: :cascade do |t|
@@ -121,9 +122,9 @@ ActiveRecord::Schema.define(version: 2019_01_27_064350) do
 
   add_foreign_key "exercise_bodyparts", "bodyparts"
   add_foreign_key "exercise_bodyparts", "exercises"
-  add_foreign_key "session_exercises", "exercises"
-  add_foreign_key "session_exercises", "machines"
-  add_foreign_key "session_exercises", "training_sessions"
+  add_foreign_key "session_sets", "exercises"
+  add_foreign_key "session_sets", "machines"
+  add_foreign_key "session_sets", "training_sessions"
   add_foreign_key "training_sessions", "session_strategies"
   add_foreign_key "training_sessions", "users"
   add_foreign_key "users", "genders"

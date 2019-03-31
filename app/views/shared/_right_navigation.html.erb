@@ -1,5 +1,17 @@
     <% if user_signed_in? %>
       <ul class="nav navbar-nav navbar-right">
+
+          <%= add_button_case(request.path) %>
+
+        <% if active_session? %>
+          <li>
+            <%= link_to new_session_set_path do %>
+              <i class="fas fa-plus-circle"></i> Add a Set!
+            <% end %>
+
+          </li>
+        <% end %>
+
         <li>
           <%if open_session_status[:has_open_sesh?]  %>
 

@@ -1,12 +1,15 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible add-absolute-position" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <div class="alert alert-info alert-dismissible desktop_flash_position" role="alert">
+    <button type="button" class="close tr_flash_close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="far fa-window-close"></i></span></button>
     <%= notice.html_safe %>
   </div>
 <% end %>
 <% if alert %>
-  <div class="alert alert-warning alert-dismissible add-absolute-position" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <div class="alert alert-warning alert-dismissible desktop_flash_position" role="alert">
+    <button type="button" class="close tr_flash_close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="far fa-window-close"></i></span></button>
     <%= alert.html_safe %>
   </div>
+<% end %>
+<% if just_saved %>
+    <%= just_saved.html_safe %>
 <% end %>

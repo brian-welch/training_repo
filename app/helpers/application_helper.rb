@@ -20,4 +20,15 @@ module ApplicationHelper
     end
   end
 
+  def add_button_case(path)
+    case path
+    # when "/session_sets"
+    #   "<li><a href=\"#{new_session_set_path}\"><i class=\"fas fa-plus-circle\"></i> Add a Set!</a></li>".html_safe
+    when "/machines"
+      "<li><a href=\"#{new_machine_path}\"><i class=\"fas fa-plus-circle\"></i> Add a Machine!</a></li>".html_safe
+    else
+      nil
+    end
+  end
+
 end

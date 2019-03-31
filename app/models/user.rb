@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :session_exercises
+  has_many :session_sets
   belongs_to :gender
   belongs_to :role
 
@@ -14,6 +14,7 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validates :role, presence: true
   validates :weight, presence: true
+  validates :email, uniqueness: true
 
 
 end

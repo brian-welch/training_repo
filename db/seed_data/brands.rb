@@ -1,6 +1,5 @@
 def brand_list
   return [
-    "-- Select --",
     "TechnoGym",
     "Nautilus",
     "Freemotion",
@@ -19,6 +18,6 @@ def brand_list
     "BodyTone",
     "StairMaster",
     "TKO",
-    "Unlisted"
+    "'Temporary'"
   ]
 end

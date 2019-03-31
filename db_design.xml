@@ -98,7 +98,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="433" y="35" name="session_exercises">
+<table x="433" y="35" name="session_sets">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>

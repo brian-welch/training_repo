@@ -11,10 +11,8 @@
                     as: :hidden,
                     input_html: { value: current_user.id } %>
 
-
+        <div class="simple_form_select_arrow"></div>
         <%= f.association :session_strategy,
-                          label: "Select the Session Strategy<span class='session_strategy_dropdown_arrow'><i class='fas fa-arrow-circle-down'></i></span><br>".html_safe,
-                          required: false,
                           selected: 1,
                           input_html: { style: "cursor: pointer;",
                                         class: "session_strategy_dropdown",

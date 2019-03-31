@@ -1,4 +1,4 @@
-class SessionExercise < ApplicationRecord
+class SessionSet < ApplicationRecord
   belongs_to :training_session
   belongs_to :machine
   belongs_to :exercise

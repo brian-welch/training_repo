@@ -1,13 +1,13 @@
 def machine_list
   return [
+    # {
+    #   brand: "-- Select --",
+    #   name: "-- Select --",
+    #   mech_ad: 1
+    # },
     {
-      brand: "-- Select --",
-      name: "-- Select --",
-      mech_ad: 1
-    },
-    {
-      brand: "Unlisted",
-      name: "All Purpose Machine",
+      brand: "'Temporary'",
+      name: "Placeholder",
       mech_ad: 3
     },
   ]

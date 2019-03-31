@@ -3,24 +3,33 @@
   <div class="col-xs-12 col-sm-6 col-sm-offset-3  col-md-4 col-md-offset-4">
     <h1>Add Machine to Database</h1>
     <%= simple_form_for [@new_machine], html: { autocomplete: "off" }  do |f| %>
-    <% # byebug %>
-      <%= f.error_notification %>
+      <%#= f.error_notification %>
       <div class="form-inputs">
 
+        <div class="simple_form_select_arrow"></div>
         <%= f.association :brand,
                           label: "Select the Brand",
-                          selected: @brand_default_select,
+                          error: "You must select from the given brands",
                           input_html: { style: "cursor: pointer; font-variant: small-caps;" } %>
 
-
+        <div id="machine_duplicate_warning" class="contrast_buzzword" style="font-size:0.75em;"></div>
         <%= f.input :name,
-                    input_html: { placeholder: "'Model Series - Movement'" } %>
+                    input_html: { placeholder: "'Model Series - Movement'",
+                                  onkeyup: "check_machine_name(#{@all_machine_json}[document.getElementById('machine_brand_id').value],this.value)" } %>
+                    <!-- onkeyup: "check_machine_name(#{@all_machine_json}[document.getElementById('machine_brand_id').value],this.value)"  -->
 
-        <div class="col-xs-6">
+        <div class="col-xs-12">
           <%= f.input :mech_ad,
+                      label: "Mechanical Advantage",
+                      hint: "<em>(a whole number or decimal using '.')</em>".html_safe,
+                      error: "Mechanical Advantage must be given",
                       input_html: {  } %>
+          <%= link_to "https://www.sophia.org/tutorials/simple-machines-levers--2", target: "new", style: "font-style: italic;" do %>
+            <button class="btn-xs" type="button" style="font-size: 0.8em;">
+               &nbsp;How to calculate mechanical advantage?&nbsp;
+            </button>
+          <% end %>
         </div>
-
       </div>
 
       <div class="col-xs-12">

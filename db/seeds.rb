@@ -25,7 +25,7 @@ sleep 0.5
 ExerciseBodypart.destroy_all
 Machine.destroy_all
 Brand.destroy_all
-SessionExercise.destroy_all
+SessionSet.destroy_all
 TrainingSession.destroy_all
 SessionStrategy.destroy_all
 Bodypart.destroy_all
@@ -135,7 +135,7 @@ sleep 0.5
 machine_list.each do |machine|
   Machine.create!(
     brand: Brand.where(name: machine[:brand])[0],
-    name: machine[:name].capitalize,
+    name: machine[:name],
     mech_ad: machine[:mech_ad]
     )
 end
