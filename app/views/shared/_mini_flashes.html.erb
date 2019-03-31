@@ -1,0 +1,10 @@
+<% if notice %>
+  <span class="alert alert-info alert-dismissible" role="alert">
+    <%= notice.html_safe %>
+  </span>
+<% end %>
+<% if alert %>
+  <div class="alert alert-warning alert-dismissible" role="alert">
+    <%= alert.html_safe %>
+  </div>
+<% end %>

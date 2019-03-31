@@ -1,9 +1,14 @@
-.wo_log-mobile-navbar {
+.tr_repo-mobile-navbar {
   position: fixed;
   width: 100%;
   bottom: 0;
   left: 0;
   z-index: 500;
+  box-shadow: 0 2px 0 3px $site_background,
+              0 1px 0 3px $site_primary,
+              0 -1px 0 3px $site_background;//,
+              // 0 -3px 0 3px $site_primary,
+              // 0 -4px 0 3px $site_background;
 }
 
 .mobile_navbar_spacer {

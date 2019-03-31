@@ -1,5 +1,5 @@
 {
-  "name": "workout_logger",
+  "name": "training_repo",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",

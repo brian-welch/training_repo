@@ -1,0 +1,76 @@
+/*------------- INDEX ----------------*/
+.saved_set_data_box {
+  position: relative;
+  display: inline-block;
+  color: lighten($site_primary, 0%);
+  font-size: 0.8em;
+  padding: 5px;
+  margin: 0 10px 0 0;
+  border-radius: 2px;
+  border: 1px solid lighten($site_primary, 35%);
+}
+
+.set_data_weight, .set_data_reps {
+  span {
+    font-size: 0.6em;
+    color: darken($site_primary, 10%);
+    font-variant: small-caps;
+  }
+}
+
+.set_data_reps {
+  box-shadow: 0 -5px 0 -4px lighten(rgba(58,130,180,0.5), 20%);
+  margin-top: 2px;
+
+}
+
+.save_set_data_total_weight {
+  font-size: 0.8em;
+  padding: 5px 5px 5px 5px;
+  margin: 10px 0;
+  border-top: 2px dotted $site_primary;
+}
+
+.latest_set_marker {
+  color: $site_success;
+  margin-left: 10px;
+}
+
+.last_saved_set_marker {
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  background-color: $site_success;
+  right: -5px;
+  top: -5px;
+  border-radius: 4px;
+  z-index: 50;
+  border: 2px solid $site_background;
+}
+
+.last_saved_set_border {
+  border: 1px solid lighten($site_success, 40%);
+}
+
+.exercise_set_container {
+  background-color: lighten($site_background, 7%);
+  margin: 40px 0;
+  border-radius: calc(1px * 0.1);
+  padding: 5px;
+  box-shadow: 0 0 0 5px lighten($site_background, 7%), 0 0 0 6px darken($site_primary, 20%);
+}
+
+/*------------- NEW ----------------*/
+
+#machine_input_new_session_set {
+  display: none;
+  margin: 0 0 20px 0;
+}
+
+.non_admin_machine_message {
+  font-size: 0.75em;
+  color: lighten($site_primary,25%);
+  span {
+    color: $site_info;
+  }
+}

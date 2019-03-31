@@ -1,30 +1,31 @@
-
 <div class="container">
   <div class="col-xs-12 col-sm-6 col-sm-offset-3  col-md-4 col-md-offset-4">
     <h1>Add Set!</h1>
-    <%= simple_form_for [@new_session_exercise], html: { autocomplete: "off" } do |f| %>
+    <%= simple_form_for [@new_session_set], html: { autocomplete: "off" } do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
 
+        <div class="simple_form_select_arrow"></div>
         <%= f.association :exercise,
+                          required: true,
                           input_html: { style: "cursor: pointer;",
-                                        # class: "session_strategy_dropdown",
                                         onchange: "machineExerciseCheck(#{@all_exercise_json}[this.value],#{@machine_default_select.id})" } %>
 
-        <div id="machine_input_new_session_exercise">
+        <div id="machine_input_new_session_set">
+          <div class="simple_form_select_arrow"></div>
           <%= f.association :machine,
                             selected: @machine_default_select.id,
                             required: true %>
           <% if current_user.role.name == "admin" %>
             <%= link_to new_machine_path do %>
-              <button type="button" class="btn btn-primary">Machine not listed? Add it here!</button>
+              <button type="button" class="btn btn-primary btn-xs">Machine not listed? Add it here!</button>
             <% end %>
           <% else %>
             <div class="non_admin_machine_message">
               <li>Is the machine you're going to use not listed in the menu?</li>
-              <li>Please use the '<span>All Purpose Machine</span>' as a default ('<span>one</span>' or '<span>two</span>' pully option as it applies).</li>
-              <li>Please contact the admin to have the machine added.</li>
+              <li>Please use the '<span class="contrast_buzzword">Placeholder Machine</span>' as a default.</li>
+              <li>Please <%= link_to "contact the admin", "#", class: "contrast_buzzword" %> to have the machine added.</li>
             </div>
           <% end %>
         </div>
@@ -40,10 +41,8 @@
         </div>
 
         <%= f.association :training_session,
-                    # as: :input,
                     as: :hidden,
                     input_html: {  } %>
-
       </div>
       <div class="col-xs-12"><hr></div>
       <div class="form-actions col-xs-12">
@@ -53,3 +52,6 @@
 
   </div>
 </div>
+<script>
+  // $(".form-group-invalid").show()
+</script>

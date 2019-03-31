@@ -1,6 +1,6 @@
-class CreateSessionExercises < ActiveRecord::Migration[5.2]
+class CreateSessionSets < ActiveRecord::Migration[5.2]
   def change
-    create_table :session_exercises do |t|
+    create_table :session_sets do |t|
       t.integer :weight_kg
       t.integer :reps
       t.references :training_session, foreign_key: true

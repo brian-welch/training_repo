@@ -7,11 +7,12 @@
         <li> <%= link_to "My Sessions", training_sessions_path %> </li>
         <% if active_session? %>
           <li role="separator" class="divider"></li>
-          <li> <%= link_to "Active Session's Saved Sets", session_exercises_path %></li>
-          <li> <%= link_to "Add a Set to Current Session", new_session_exercise_path %></li>
+          <li> <%= link_to "Active Session's Sets", session_sets_path %></li>
+          <li> <%= link_to "Add a Set to Current Session", new_session_set_path %></li>
         <% else %>
         <% end %>
         <li role="separator" class="divider"></li>
+        <li><%= link_to "Strength Machine List", machines_path %></li>
       </ul>
     </li>
   </ul>

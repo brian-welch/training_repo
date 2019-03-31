@@ -1,29 +1,29 @@
-<div class="container col-xs-12">
-  <div class="active-session-warning">
-  </div>
-  <h1 class="content-page-h1"> <%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}'s Training Session History" %> </h1>
-  <hr>
-  <div class="session-summary-table-container col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+<div class="container">
+  <div class="col-xs-12">
+    <div class="active-session-warning">
+    </div>
+    <h1 class="content-page-h1">Training Session Log</h1>
+    <hr>
+    <div class="session-summary-table-container col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 
-    <ul class="session_history_list">
+<!--       <ul class="session_history_list">
+ -->
+        <% @all_my_sessions.each do |session| %>
+            <%= link_to training_session_path(session) do %>
+              <span class="session_history_bullet">
+                <i class="fas fa-dumbbell"></i></span> <%= session.created_at.to_date %>
+            <% end %>
+            <ul>
+              <li>
+                <%= session.session_strategy.name %>
+                <%= "<span class='training_session_index_active_notice'>[active]</span>".html_safe if session.open == true %>
+              </li>
+            </ul>
+          <hr>
+        <% end %>
 
-      <% @all_my_sessions.each do |session| %>
-        <li>
-          <%= link_to training_session_path(session) do %>
-            <span class="session_history_bullet"><i class="fas fa-dumbbell"></i></span>
-            <%= session.created_at.to_date %>
-          <% end %>
-          <ul>
-            <li>
-              <%= session.session_strategy.name %>
-              <%= "<span class='training_session_index_active_notice'>[active]</span>".html_safe if session.open == true %>
-            </li>
-          </ul>
-        </li>
-        <hr>
-      <% end %>
-
-    </ul>
-
+<!--       </ul>
+ -->
+    </div>
   </div>
 </div>

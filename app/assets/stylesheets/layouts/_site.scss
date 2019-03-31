@@ -1,9 +1,9 @@
 html {
-  background: $site_background;
+  background: $site_primary;
 }
 
 body {
-  padding: 0 0 50px 0;
+  // padding: 0 0 50px 0;
 }
 
 div, p, i, li, th, td, span, ul, ol, button, input, tr, a {
@@ -14,6 +14,25 @@ h1, h2, h3, h4, h5, h6 {
   i {
     margin: 0 5px 0 0;
   }
+}
+
+h1 {
+  font-size: 2.2em;
+}
+h2 {
+  font-size: 1.8em;
+}
+h3 {
+  font-size: 1.4em;
+}
+h4 {
+  font-size: 1.2em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 0.9em;
 }
 
 hr {
@@ -39,12 +58,85 @@ select {
 }
 
 
-.add-absolute-position {
+.desktop_flash_position {
   position: absolute;
   z-index: 1000;
 }
 
 .container {
-  padding: 0 15px 50px 15px;
+  padding: 0 0 50px 0;
   /* Making space for mobile navbar */
 }
+
+.contrast_buzzword {
+  color: lighten($site_info, 5%);
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+    color: darken($site_info, 5%);
+  }
+}
+
+.tr_flash_close {
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+    //color: black;
+    // text-shadow:
+    //              1px 1px 0 $site_background,
+    //              -1px -1px 0 $site_background,
+    //              -1px 1px 0 $site_background,
+    //              1px -1px 0 $site_background;
+  }
+}
+
+.simple_form_select_arrow::after {
+  color: $site_primary;
+  border-top-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+  height: 39px;
+  width: 29px;
+  line-height: 35px;
+  text-align: center;
+  position: absolute;
+  z-index:1;
+  font-size:1.35em;
+  left: 0;
+  margin-left: 15px;
+  margin-top: 31px;
+  padding-bottom: 5px;
+  content: "⧨";
+}
+
+select.form-control {
+  padding-left: 25px;
+}
+
+.tr_add_new_box_right {
+  position: relative;
+  text-align: right;
+  padding: 10px 30px 0 0;
+  i {
+    color: lighten($site_primary, 20%);
+    background-color: $site_background;
+    padding: 3px;
+    position: fixed;
+    z-index: 995;
+    font-size: 40px;
+    //border: calc(1px * 1.5) solid black;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px $site_primary;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

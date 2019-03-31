@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="col-xs-12">
+    <h1>This Session's Sets</h1>
+    <%= "<hr><h3>0 sets on this session.<br><br>#{link_to 'Add sets! <i class="fas fa-external-link-alt"></i>'.html_safe, new_session_set_path}</h3>".html_safe if  @exercise_set_hash.count == 0 %>
+      <% @exercise_set_hash.each do |name, sets| %>
+
+        <div id="set-<%= sets.last.id %>"></div>
+
+        <div class="exercise_set_container">
+
+          <i class="fas fa-check-circle"></i> <%= name.split(" ").map{|x| x.capitalize}.join(" ") %>
+
+          <ul>
+            <% if name.split(" ")[0].downcase == "machine" || name.split(" ")[0].downcase == "plate-loaded" %>
+              <ul><li><%= @exercise_set_hash[name][0].machine.name.split(" ").map{|x| x.capitalize}.join(" ") %> Machine by <%= @exercise_set_hash[name][0].machine.brand.name %></li></ul>
+            <% end %>
+          </ul>
+
+            <% sets.each do |set_instance| %>
+              <div class="saved_set_data_box <%= "last_saved_set_border" if set_instance.id == @last_set_saved_id %>" >
+                <%= "<div class=\"last_saved_set_marker\"></div>".html_safe if set_instance.id == @last_set_saved_id  %>
+                <div class="set_data_weight">
+                  <%= "#{set_instance.weight_kg}" %> <span>kg</span>
+                </div>
+                <div class="set_data_reps">
+                  <%= "#{set_instance.reps}" %> <span>reps</span>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="save_set_data_total_weight">
+              <span class="set_data_total_weight_title">
+                Total kg:
+              </span>
+              <span class="set_data_total_weight_sum">
+                1000 kg
+              </span>
+            </div>
+
+          <%= link_to new_session_set_path(exercise_id: @exercise_set_hash[name][0].exercise.id) do %>
+          <button class="btn btn-xs btn-info">
+            <i class="fas fa-plus-circle"></i> Set of This
+          </button>
+          <% end %>
+
+        </div>
+      <% end %>
+
+      <%= link_to new_session_set_path do %>
+      <button class="btn btn-xs btn-info">
+        <i class="fas fa-plus-circle"></i> New Exercise
+      </button>
+      <% end %>
+
+  </div>
+</div>

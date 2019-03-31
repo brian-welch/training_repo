@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'my_tr', to: 'dashboards#index', as: "my_tr"
 
   resources :training_sessions
-  resources :session_exercises
+  resources :session_sets
   resources :session_strategies
 
   resources :brands

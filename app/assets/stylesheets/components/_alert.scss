@@ -19,3 +19,12 @@
   background: $site_danger;
 }
 
+.mini_alert {
+}
+
+.mini_alert-info {
+  color: $site_success;
+}
+.mini_alert-warning, .mini_alert-danger {
+  color: $site_danger;
+}

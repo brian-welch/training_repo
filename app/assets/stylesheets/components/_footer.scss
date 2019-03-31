@@ -1,0 +1,23 @@
+.footer_contianer {
+  background-color: $site_primary;
+  color: $site_background;
+  padding: 35px 35px 70px 35px;
+  box-shadow: inset 0 2px 0 $site_primary,
+              inset 0 6px 0 -2px $site_background,
+              inset 0 8px 0 -2px $site_primary,
+              inset 0 9px 0 -2px $site_background;
+
+  div {
+    div:nth-child(3) {
+      p:first-child {
+        padding: 0 0 0 20px;
+        i {
+          margin: 0 0 0 -20px;
+        }
+      }
+    }
+    div:nth-child(1), div:nth-child(5) {
+      text-align: center;
+    }
+  }
+}
