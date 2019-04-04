@@ -1,5 +1,7 @@
 class TrainingSessionsController < ApplicationController
 
+  # before_action :set_show_training_session, only: [:show]
+
   def index
     @title = "#{current_user.first_name.capitalize}'s Session Histroy on Training Repo"
     @all_my_sessions = TrainingSession.where(user: current_user)
@@ -20,6 +22,35 @@ class TrainingSessionsController < ApplicationController
 
   def show
     @title = "#{current_user.first_name.capitalize}'s Training Session Details on Training Repo"
+
+    set_training_session
+
+    if @training_session.nil?
+      flash[:alert] = "This was not a link to a valid training session."
+      redirect_to training_sessions_path
+    else
+      all_session_sets_instances = SessionSet.where("training_session_id = ?", @training_session.id)
+
+      build_session_set_hash(all_session_sets_instances)
+
+      total_min = (@training_session.updated_at - @training_session.created_at).round / 60
+      hours = (total_min / 60).to_i
+      hours_exact = (total_min / 60)
+      minutes = total_min % 60
+
+
+      @total_weight_session = all_session_sets_instances.sum do |instance|
+        bodyweight = instance.exercise.bodyweight == true ? current_user.weight : 0
+        unilat = instance.exercise.unilateral == true ?  2 : 1
+        ( (((instance.weight_kg * unilat) + bodyweight) * instance.reps) / (instance.machine.mech_ad * instance.machine.pulley_count) ).to_i
+      end
+
+      @elapsed_time = "#{hours}hrs, #{minutes}min"
+      @session_start_time = @training_session.created_at
+      @session_finish_time = @training_session.updated_at
+      @kg_per_hour = ((@total_weight_session * 60) / total_min)
+
+    end
   end
 
   def create
@@ -60,6 +91,31 @@ class TrainingSessionsController < ApplicationController
 
   def approved_training_session_params
     params.require(:training_session).permit(:user_id, :session_strategy_id)
+  end
+
+
+
+  def build_session_set_hash(all_session_sets_instances)
+    @session_set_hash = {}
+    all_session_sets_instances.each_with_index do |set, i|
+      j = i + 1
+      if @session_set_hash[set.exercise].nil?
+        @session_set_hash[set.exercise] = []
+        @session_set_hash[set.exercise] << {
+          set: set,
+          order: j
+        }
+      else
+        @session_set_hash[set.exercise] << {
+          set: set,
+          order: j
+        }
+      end
+    end
+  end
+
+  def set_training_session
+    @training_session = TrainingSession.where("id = ? AND user_id = ? AND open = ?", params[:id], current_user.id, false)[0]
   end
 
 end

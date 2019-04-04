@@ -48,7 +48,7 @@ class MachinesController < ApplicationController
   end
 
   def approve_machine_params
-    params.require(:machine).permit(:mech_ad, :brand_id, :name)
+    params.require(:machine).permit(:mech_ad, :pulley_count, :brand_id, :name)
   end
 
 end

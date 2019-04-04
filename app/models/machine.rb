@@ -3,6 +3,7 @@ class Machine < ApplicationRecord
   belongs_to :brand
 
   validates :mech_ad, presence: true
+  validates :pulley_count, presence: true
   validates :name, presence: true
   validates :name, uniqueness: { scope: [:brand],
     message: "- This machine already exists!" }

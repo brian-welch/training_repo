@@ -31,12 +31,21 @@ module ApplicationHelper
     end
   end
 
-  def total_weight_calculator(exercise_inst, sets_arr)
+  def total_weight_calculator_active_session(exercise_inst, sets_arr)
     bodyweight = exercise_inst.bodyweight == true ? current_user.weight : 0
     unilat = exercise_inst.unilateral == true ?  2 : 1
     sets_arr.sum do |set|
       ((set.weight_kg * unilat) + bodyweight) * set.reps
     end
   end
+
+  def total_weight_calculator_show_session(exercise_inst, sets_arr)
+    bodyweight = exercise_inst.bodyweight == true ? current_user.weight : 0
+    unilat = exercise_inst.unilateral == true ?  2 : 1
+    sets_arr.sum do |set_hash|
+      ((set_hash[:set].weight_kg * unilat) + bodyweight) * set_hash[:set].reps
+    end
+  end
+
 
 end

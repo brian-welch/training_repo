@@ -1,7 +1,7 @@
     <% if user_signed_in? %>
       <ul class="nav navbar-nav navbar-right">
 
-          <%= add_button_case(request.path) %>
+        <%= add_button_case(request.path) %>
 
         <% if active_session? %>
           <li>
@@ -40,13 +40,15 @@
       </ul>
     <% else %>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to new_user_registration_path, class: "" do %>
-            <i class="fas fa-sign-in-alt"></i> <%= t(".sign_up", default: "Sign up") %>
-          <% end %>
+        <!-- <li>
+          <%#= link_to new_user_registration_path, class: "" do %>
+            <i class="fas fa-sign-in-alt"></i> <%#= t(".sign_up", default: "Sign up") %>
+          <%# end %>
         </li>
-        <!-- <li><span class="singup_login_navbar_divider">/</span></li> -->
-        <li role="separator" class="divider"></li>
+        <li role="separator" class="divider"></li> -->
+        <li>
+          <%= link_to "<i class=\"fas fa-question-circle\"></i> About".html_safe, about_path %>
+        </li>
         <li>
           <%= link_to new_user_session_path, class: "" do %>
             <i class="fas fa-sign-in-alt"></i> <%= t(".sign_in", default: "Log in") %>

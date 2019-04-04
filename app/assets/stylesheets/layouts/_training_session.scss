@@ -70,3 +70,50 @@
   // left: -30px;
   margin: 0 13px 0 0;
 }
+
+
+
+/*------------- SHOW ----------------*/
+
+.set_order_marker {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  line-height: 20px;
+  font-size: 10px;
+  background-color: lighten($site_background, 7%);
+  box-shadow: inset 0 0 0 1px darken($site_success, 20%);
+  color: darken($site_success, 20%);
+  right: -7px;
+  top: -11px;
+  text-align: center;
+  border-radius: 4px;
+  z-index: 50;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid lighten($site_background, 7%);
+}
+
+
+.training_session_summary_matrix_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+
+.training_session_matrix_key_box {
+  text-align: right;
+  padding: 5px;
+}
+
+.training_session_matrix_value_box {
+  text-align: left;
+  padding: 5px;
+  div {
+    color: lighten($site_primary, 20%);
+  }
+}
+
+

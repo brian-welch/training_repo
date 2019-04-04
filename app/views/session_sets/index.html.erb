@@ -33,8 +33,7 @@
                 Total:
               </span>
               <span class="set_data_total_weight_sum">
-                <%= (total_weight_calculator(exercise, sets) / sets[0].machine.mech_ad).round %> kg *<br>
-                <%#= sets[0].machine.mech_ad %>
+                <%= (total_weight_calculator_active_session(exercise, sets) / (sets[0].machine.mech_ad * sets[0].machine.pulley_count)).round %> kg *<br>
               </span>
             </div>
 
@@ -52,6 +51,6 @@
           <i class="fas fa-plus-circle"></i> New Exercise
         </button>
       <% end %>
-  <div class="total_weight_calculation_reminder">* Remember: The total weight is calculated including bodyweight when applicable and reductions for the mechanical advantage of machines. This produces a more reliable measure of total weight lifted when comparing different workout sessions.</div>
+  <%= "<div class=\"total_weight_calculation_reminder\">* Remember: The total weight is calculated including bodyweight when applicable and reductions for the mechanical advantage of machines. This produces a more reliable measure of total weight lifted when comparing different workout sessions.</div>".html_safe if @exercise_set_hash.count > 0 %>
   </div>
 </div>
