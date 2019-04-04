@@ -1,2 +1,61 @@
-<h1>Sessions#show</h1>
-<p>Find me in app/views/sessions/show.html.erb</p>
+<div class="container">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <h1>Training Session <%= @training_session.session_number %> Details</h1>
+    <h3>- <%= @training_session.session_strategy.name %> -</h3>
+    <hr>
+    <div class="training_session_summary_matrix_box">
+      <div class="training_session_matrix_key_box">
+        <div>Date:</div>
+        <div>Elapsed Time:</div>
+        <div>Total Weight Lifted:</div>
+        <div>Kg Per Hour Pace:</div>
+      </div>
+      <div class="training_session_matrix_value_box">
+        <div><%= local_time(@session_start_time, "%B %-d, %Y" ) %></div> <!-- .strftime("%Y-%m-%d") -->
+        <div><%= @elapsed_time %> [ <%= local_time(@session_start_time, "%H:%M") %> - <%= local_time(@session_finish_time, "%H:%M") %> ]</div>
+        <div><%= @total_weight_session %> kg</div>
+        <div><%= @kg_per_hour %></div>
+      </div>
+    </div>
+
+    <% @session_set_hash.each do |exercise, sets_and_order_array| %>
+
+      <div class="exercise_set_marker" id="set-<%= sets_and_order_array.last[:set].id %>"></div>
+
+      <div class="exercise_set_container">
+
+        <i class="fas fa-check-circle"></i> <%= exercise.name.split(" ").map{|x| x.capitalize}.join(" ") %>
+
+        <ul>
+          <% if exercise.name.split(" ")[0].downcase == "machine" || exercise.name.split(" ")[0].downcase == "plate-loaded" %>
+            <ul><li><%= @exercise_set_hash[exercise]["sets"][0].machine.name.split(" ").map{|x| x.capitalize}.join(" ") %> Machine by <%= @exercise_set_hash[exercise]["sets"][0].machine.brand.name %></li></ul>
+          <% end %>
+        </ul>
+
+        <% sets_and_order_array.each do |set_hash| %>
+          <div class="saved_set_data_box" >
+            <%= "<div class=\"set_order_marker\">#{set_hash[:order]}</div>".html_safe %>
+            <div class="set_data_weight">
+              <%= "#{set_hash[:set].weight_kg}" %> <span>kg</span>
+            </div>
+            <div class="set_data_reps">
+              <%= "#{set_hash[:set].reps}" %> <span>reps</span>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="save_set_data_total_weight">
+          <span class="set_data_total_weight_title">
+            Total:
+          </span>
+          <span class="set_data_total_weight_sum">
+            <%= (total_weight_calculator_show_session(exercise, sets_and_order_array) / (sets_and_order_array[0][:set].machine.mech_ad * sets_and_order_array[0][:set].machine.pulley_count)).round %> kg *<br>
+          </span>
+        </div>
+      </div>
+    <% end %>
+
+
+    <div class="total_weight_calculation_reminder">* Remember: The total weight is calculated including bodyweight when applicable and reductions for the mechanical advantage of machines. This produces a more reliable measure of total weight lifted when comparing different workout sessions.</div>
+  </div>
+</div>

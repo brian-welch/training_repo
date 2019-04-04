@@ -31,6 +31,20 @@
             </button>
           <% end %>
         </div>
+
+        <div class="col-xs-12">
+          <%= f.input :pulley_count,
+                      label: "Number of Pulleys",
+                      hint: "<em>(a whole number; usually 1 - rarely 2; possible but unheard of is 3+ pullies)</em>".html_safe,
+                      error: "Number of Pulleys must be given",
+                      input_html: {  } %>
+          <%= link_to "https://i.pinimg.com/originals/57/0e/06/570e06b8027cadd279645d200298241b.png", target: "new", style: "font-style: italic;" do %>
+            <button class="btn-xs" type="button" style="font-size: 0.8em;">
+               &nbsp;Pulleys...?  What? Who? How? Why?&nbsp;
+            </button>
+          <% end %>
+        </div>
+
       </div>
 
       <div class="col-xs-12">

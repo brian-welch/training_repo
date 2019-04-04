@@ -20,6 +20,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+gem 'letter_opener', group: :development
+
+gem 'local_time'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

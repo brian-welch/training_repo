@@ -136,7 +136,8 @@ machine_list.each do |machine|
   Machine.create!(
     brand: Brand.where(name: machine[:brand])[0],
     name: machine[:name],
-    mech_ad: machine[:mech_ad]
+    mech_ad: machine[:mech_ad],
+    pulley_count: machine[:pulley_count]
     )
 end
 
