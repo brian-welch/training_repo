@@ -29,12 +29,18 @@ class MachinesController < ApplicationController
 
   def create
     @new_machine = Machine.new(approve_machine_params)
-    @new_machine.name = @new_machine.name.downcase.strip
+    @new_machine.name = proper_string(@new_machine.name.downcase.strip)
+    @new_machine.brand = nil if @new_machine.brand.name.downcase == 'placeholder'
+
     if @new_machine.save
       flash[:notice] = "<u>#{@new_machine.name.split(" ").map{|x| x.capitalize}.join(" ")}</u> by \"#{@new_machine.brand.name}\" has been added to the database!"
       redirect_to machines_path
     else
-      flash[:alert] = "Something Went Pair Shaped"
+      if @new_machine.brand.nil?
+        flash[:alert] = "'Placeholder' is not a real brand."
+      else
+        flash[:alert] = "Something Went Pair Shaped"
+      end
       render :new
     end
 

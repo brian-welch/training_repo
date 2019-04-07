@@ -24,11 +24,11 @@
 
       <div class="exercise_set_container">
 
-        <i class="fas fa-check-circle"></i> <%= exercise.name.split(" ").map{|x| x.capitalize}.join(" ") %>
+        <i class="fas fa-check-circle"></i> <%= proper_string(exercise.name) %>
 
         <ul>
-          <% if exercise.name.split(" ")[0].downcase == "machine" || exercise.name.split(" ")[0].downcase == "plate-loaded" %>
-            <ul><li><%= @exercise_set_hash[exercise]["sets"][0].machine.name.split(" ").map{|x| x.capitalize}.join(" ") %> Machine by <%= @exercise_set_hash[exercise]["sets"][0].machine.brand.name %></li></ul>
+          <% if exercise.machine %>
+            <ul><li><%= proper_string(@exercise_set_hash[exercise]["sets"][0].machine.name) %> Machine by <%= @exercise_set_hash[exercise]["sets"][0].machine.brand.name %></li></ul>
           <% end %>
         </ul>
 

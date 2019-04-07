@@ -18,6 +18,6 @@ def brand_list
     "BodyTone",
     "StairMaster",
     "TKO",
-    "'Temporary'"
+    "Placeholder"
   ]
 end

@@ -47,5 +47,18 @@ module ApplicationHelper
     end
   end
 
+  def mechanical_deductions(set)
+    if !set.machine.nil?
+      (set.machine.mech_ad * set.machine.pulley_count * set.pulley_count)
+    else
+      return set.pulley_count
+    end
+  end
+
+
+  def proper_string(string)
+    return string.split(" ").map{|x| x.capitalize}.join(" ")
+  end
+
 
 end

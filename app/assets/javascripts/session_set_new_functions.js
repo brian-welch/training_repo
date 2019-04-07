@@ -1,31 +1,27 @@
-function machineExerciseCheck(exercise, select_id){
+function machineExerciseCheck(){ //, select_id){
+
   // console.log(exercise);
   // console.log(exercise.split(" "));
-  arr = exercise.split(" ");
-  function resestMachine(){
-    $('#session_set_machine_id').val(select_id);
-  };
-  function zeroOutMachine(){
+  let keyword = $("#session_set_exercise_id option:selected").text().split(" ")[0];
+  // function resestMachine(){
+  //   $('#session_set_machine_id').val(select_id);
+  // };
+  function resetMachinePulley(){
     $('#session_set_machine_id').val(null);
+    $('#session_set_pulley_count').val(1);
   };
 
-  if (arr[0].toLowerCase() == "machine" || arr[0].toLowerCase() == "plate-loaded"){
+  if (keyword.toLowerCase() == "machine" || keyword.toLowerCase() == "plate-loaded"){
     $('#machine_input_new_session_set').show(500);
-    zeroOutMachine();
+    $('#pulley_input_new_session_set').hide(500);
+    resetMachinePulley();
+  } else if (keyword.toLowerCase() == "cable" || keyword.toLowerCase() == "crossover") {
+    $('#machine_input_new_session_set').hide(500);
+    $('#pulley_input_new_session_set').show(500);
+    resetMachinePulley();
   } else {
-    $('#machine_input_new_session_set').hide(500, function(){
-      resestMachine();
-    });
+    $('#pulley_input_new_session_set').hide(500);
+    $('#machine_input_new_session_set').hide(500);
+      resetMachinePulley();
   }
 };
-
-function wrongMachineCheck() {
-  let input = $('#session_set_machine_id option:selected').text();
-  if (input == "No Machine") {
-    alert("\n\nAny Machine or Plate-loaded exercise must have a listed machine selected.\n\n'No Machine' is not valid.\n\n");
-    $('#session_set_machine_id').val(null);
-  } else {
-    return false
-  }
-
-}

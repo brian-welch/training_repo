@@ -2,7 +2,7 @@
   <div class="col-xs-12 col-sm-6 col-sm-offset-3  col-md-4 col-md-offset-4">
     <h1>Add Set!</h1>
     <%= simple_form_for [@new_session_set], html: { autocomplete: "off" } do |f| %>
-      <%= f.error_notification %>
+      <%#= f.error_notification %>
 
       <div class="form-inputs">
 
@@ -11,19 +11,18 @@
                           required: true,
                           error: "Exercise must be selected from the list",
                           input_html: { style: "cursor: pointer;",
-                                        onchange: "machineExerciseCheck(#{@all_exercise_json}[this.value],#{@machine_default_select.id})" } %>
+                                        onchange: "machineExerciseCheck()" } %><!-- #{@all_exercise_json}[this.value] -->
 
         <div id="machine_input_new_session_set">
           <div class="simple_form_select_arrow"></div>
           <%= f.association :machine,
-                            selected: @machine_default_select.id,
+                            # selected: @machine_default_select.id,
                             required: true,
                             error: "Machine must be selected from the list",
-                            input_html: { style: "cursor: pointer;",
-                                          onchange: "wrongMachineCheck()" } %>
+                            input_html: { style: "cursor: pointer;" } %>
           <% if current_user.role.name == "admin" %>
             <%= link_to new_machine_path do %>
-              <button type="button" class="btn btn-primary btn-xs">Machine not listed? Add it here!</button>
+              <button type="button" class="btn-xs new_menu_info_button">Machine not listed? Add it here!</button>
             <% end %>
           <% else %>
             <div class="non_admin_machine_message">
@@ -34,14 +33,28 @@
           <% end %>
         </div>
 
-        <div class="col-xs-6">
-          <%= f.input :weight_kg,
-                      required: true %>
+        <div id="pulley_input_new_session_set">
+          <%= f.input :pulley_count,
+                      hint: "1 or 2; unlikely ≥ 3",
+                      error: "There has to be at least 1 pully",
+                      label: "Pulleys",
+                      input_html: { style: "width: 33%;" } %>
+          <%= link_to "https://i.pinimg.com/originals/57/0e/06/570e06b8027cadd279645d200298241b.png", target: "new", style: "font-style: italic;" do %>
+            <button class="btn-xs new_menu_info_button" type="button" style="font-size: 0.8em;">
+               &nbsp;Pulleys...?  What? Who? How? Why?&nbsp;
+            </button>
+          <% end %>
         </div>
 
         <div class="col-xs-6">
-          <%= f.input :reps,
-                      required: true %>
+            <%= f.input :weight_kg,
+                        label: "Kg",
+                        required: true %>
+        </div>
+
+        <div class="col-xs-6">
+            <%= f.input :reps,
+                        required: true %>
         </div>
 
         <%= f.association :training_session,

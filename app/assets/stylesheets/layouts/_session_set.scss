@@ -5,7 +5,7 @@
   color: lighten($site_primary, 0%);
   font-size: 0.8em;
   padding: 5px;
-  margin: 0 5px 0 0;
+  margin: 0 5px 10px 0;
   border-radius: 2px;
   border: 1px solid lighten($site_primary, 35%);
 }
@@ -80,9 +80,13 @@
   font-style: italic;
 }
 
+.session_set_list_block {
+  box-shadow: -1px 0 0 $site_primary;
+}
+
 /*------------- NEW ----------------*/
 
-#machine_input_new_session_set {
+#machine_input_new_session_set, #pulley_input_new_session_set {
   display: none;
   margin: 0 0 20px 0;
 }

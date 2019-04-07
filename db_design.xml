@@ -230,7 +230,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="434" y="365" name="brands">
+<table x="435" y="387" name="brands">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>

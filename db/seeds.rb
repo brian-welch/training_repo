@@ -80,7 +80,6 @@ sleep 0.5
 exercise_list.each do |exercise|
   Exercise.create!(
     name: exercise[:name],
-    mech_ad: exercise[:mech_ad],
     unilateral: exercise[:unilateral],
     machine: exercise[:machine],
     bodyweight: exercise[:bodyweight]

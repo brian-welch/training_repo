@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_033512) do
+ActiveRecord::Schema.define(version: 2019_04_05_111753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2019_04_04_033512) do
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
-    t.integer "mech_ad"
     t.boolean "unilateral"
     t.boolean "machine", default: false
     t.boolean "bodyweight", default: false
@@ -77,6 +76,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_033512) do
     t.bigint "machine_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pulley_count", default: 1
     t.index ["exercise_id"], name: "index_session_sets_on_exercise_id"
     t.index ["machine_id"], name: "index_session_sets_on_machine_id"
     t.index ["training_session_id"], name: "index_session_sets_on_training_session_id"

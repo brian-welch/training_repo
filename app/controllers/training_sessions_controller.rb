@@ -42,7 +42,7 @@ class TrainingSessionsController < ApplicationController
       @total_weight_session = all_session_sets_instances.sum do |instance|
         bodyweight = instance.exercise.bodyweight == true ? current_user.weight : 0
         unilat = instance.exercise.unilateral == true ?  2 : 1
-        ( (((instance.weight_kg * unilat) + bodyweight) * instance.reps) / (instance.machine.mech_ad * instance.machine.pulley_count) ).to_i
+        ( (((instance.weight_kg * unilat) + bodyweight) * instance.reps) / mechanical_deductions(instance) ).to_i
       end
 
       @elapsed_time = "#{hours}hrs, #{minutes}min"
@@ -93,7 +93,13 @@ class TrainingSessionsController < ApplicationController
     params.require(:training_session).permit(:user_id, :session_strategy_id)
   end
 
-
+  def mechanical_deductions(set)
+    if !set.machine.nil?
+      (set.machine.mech_ad * set.machine.pulley_count * set.pulley_count)
+    else
+      return set.pulley_count
+    end
+  end
 
   def build_session_set_hash(all_session_sets_instances)
     @session_set_hash = {}

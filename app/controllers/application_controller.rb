@@ -28,6 +28,10 @@ class ApplicationController < ActionController::Base
     "#{n}#{ending}"
   end
 
+  def proper_string(string)
+    return string.split(" ").map{|x| x.capitalize}.join(" ")
+  end
+
   private
   # Its important that the location is NOT stored if:
   # - The request method is not GET (non idempotent)

@@ -22,9 +22,4 @@ class Machine < ApplicationRecord
     return all_machine_hash
   end
 
-  def self.all_but_temp_machine
-    temp = self.all
-    temp.delete(temp.where(brand: Brand.find_by_name("'Temporary'"))[0])
-  end
-
 end

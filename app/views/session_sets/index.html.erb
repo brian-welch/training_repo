@@ -1,18 +1,25 @@
 <div class="container">
+  <div class="col-xs-12">
+  </div>
+  <!-- <div class="col-xs-2 col-md-1 col-md-offset-1">
+    <i class="fas fa-stopwatch" style="border: solid 1px blue;"></i><br>
+    Now</div> -->
   <div class="col-xs-12 col-md-8 col-md-offset-2">
     <h1>This Session's Sets</h1>
-    <%= "<hr><h3>0 sets on this session.<br><br>#{link_to 'Add sets! <i class="fas fa-external-link-alt"></i>'.html_safe, new_session_set_path}</h3>".html_safe if  @exercise_set_hash.count == 0 %>
+    <h3><%= @active_tr_sesh_inst.session_strategy.name %></h3>
+
+    <%= "<hr><h3>0 sets on this session</h3>".html_safe if @exercise_set_hash.count == 0 %>
       <% @exercise_set_hash.each do |exercise, sets| %>
 
         <div class="exercise_set_marker" id="set-<%= sets.last.id %>"></div>
 
         <div class="exercise_set_container">
 
-          <i class="fas fa-check-circle"></i> <%= exercise.name.split(" ").map{|x| x.capitalize}.join(" ") %>
+          <i class="fas fa-check-circle"></i> <%= proper_string(exercise.name) %>
 
           <ul>
-            <% if exercise.name.split(" ")[0].downcase == "machine" || exercise.name.split(" ")[0].downcase == "plate-loaded" %>
-              <ul><li><%= @exercise_set_hash[exercise][0].machine.name.split(" ").map{|x| x.capitalize}.join(" ") %> Machine by <%= @exercise_set_hash[exercise][0].machine.brand.name %></li></ul>
+            <% if exercise.machine %>
+              <li><%= proper_string(@exercise_set_hash[exercise][0].machine.name) %> Machine by <%= @exercise_set_hash[exercise][0].machine.brand.name %></li>
             <% end %>
           </ul>
 
@@ -33,7 +40,8 @@
                 Total:
               </span>
               <span class="set_data_total_weight_sum">
-                <%= (total_weight_calculator_active_session(exercise, sets) / (sets[0].machine.mech_ad * sets[0].machine.pulley_count)).round %> kg *<br>
+                <br><%= (total_weight_calculator_active_session(exercise, sets) / mechanical_deductions(sets[0])).round %> kg *
+                <br>Mechanical deduction: <%= mechanical_deductions(sets[0]) %>
               </span>
             </div>
 
@@ -51,6 +59,6 @@
           <i class="fas fa-plus-circle"></i> New Exercise
         </button>
       <% end %>
-  <%= "<div class=\"total_weight_calculation_reminder\">* Remember: The total weight is calculated including bodyweight when applicable and reductions for the mechanical advantage of machines. This produces a more reliable measure of total weight lifted when comparing different workout sessions.</div>".html_safe if @exercise_set_hash.count > 0 %>
+    <%= "<div class=\"total_weight_calculation_reminder\">* Remember: The total weight is calculated including bodyweight when applicable and reductions for the mechanical advantage of machines. This produces a more reliable measure of total weight lifted when comparing different workout sessions.</div>".html_safe if @exercise_set_hash.count > 0 %>
   </div>
 </div>

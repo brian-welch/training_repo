@@ -1,6 +1,6 @@
 class SessionSetsController < ApplicationController
   before_action :make_exercise_json, only: [:new, :create]
-  before_action :make_default_machine, only: [:new, :create]
+  # before_action :make_default_machine, only: [:new, :create]
   before_action :call_active_training_session_instance, only: [:index, :new, :create]
 
 
@@ -8,8 +8,8 @@ class SessionSetsController < ApplicationController
     if @active_tr_sesh_inst
       @title = "Saved Sets on #{current_user.first_name.capitalize}'s #{ordinal(@active_tr_sesh_inst.session_number)} Training Session on Training Repo"
       all_sets_current_instances = SessionSet.where(training_session: @active_tr_sesh_inst)
-      @exercise_set_hash = {}
       @last_set_saved_id = all_sets_current_instances.last.id if all_sets_current_instances.count > 0
+      @exercise_set_hash = {}
       all_sets_current_instances.each do |set|
         if @exercise_set_hash[set.exercise].nil?
           @exercise_set_hash[set.exercise] = []
@@ -18,6 +18,7 @@ class SessionSetsController < ApplicationController
           @exercise_set_hash[set.exercise] << set
         end
       end
+
     else
       flash[:alert] = "You do not have any active training sessions.<br>You can review previous sessions here."
       redirect_to training_sessions_path
@@ -30,6 +31,7 @@ class SessionSetsController < ApplicationController
   def new
     if @active_tr_sesh_inst
       @new_session_set = SessionSet.new(training_session: @active_tr_sesh_inst, exercise_id: params[:exercise_id])
+      # byebug
       if params[:exercise_id]
         @new_session_set.exercise_id = params[:exercise_id]
       end
@@ -42,9 +44,9 @@ class SessionSetsController < ApplicationController
 
   def create
     @new_session_set = SessionSet.new(approved_session_set_params)
-    @new_session_set.training_session_id = @active_tr_sesh_inst.id
+
     if @new_session_set.save
-      redirect_to session_sets_path(anchor: "set-#{@new_session_set.id}")#, set: "saved")
+      redirect_to session_sets_path(anchor: "set-#{@new_session_set.id}")
     else
       flash[:alert] = "Something Went Pair Shaped"
       render :new
@@ -70,7 +72,7 @@ class SessionSetsController < ApplicationController
   end
 
   def approved_session_set_params
-    params.require(:session_set).permit(:weight_kg, :reps, :exercise_id, :machine_id)
+    params.require(:session_set).permit(:weight_kg, :reps, :exercise_id, :machine_id, :pulley_count, :training_session_id)
   end
 
 end

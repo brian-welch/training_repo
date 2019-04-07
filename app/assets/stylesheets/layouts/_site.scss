@@ -70,7 +70,7 @@ select {
 }
 
 .container {
-  padding: 0 0 50px 0;
+  padding: 0 0 15px 0;
   /* Making space for mobile navbar */
 }
 
@@ -87,12 +87,6 @@ select {
   opacity: 0.7;
   &:hover {
     opacity: 1;
-    //color: black;
-    // text-shadow:
-    //              1px 1px 0 $site_background,
-    //              -1px -1px 0 $site_background,
-    //              -1px 1px 0 $site_background,
-    //              1px -1px 0 $site_background;
   }
 }
 
@@ -108,14 +102,32 @@ select {
   z-index:1;
   font-size:1.35em;
   left: 0;
-  margin-left: 15px;
+  margin-left: 25px;
   margin-top: 31px;
   padding-bottom: 5px;
   content: "⧨";
 }
 
-select.form-control {
-  padding-left: 25px;
+.form-group {
+  input, small, select, div {
+    margin: 0 0 0 10px;
+    width: calc(100% - 10px)
+  }
+  input[type=checkbox] {
+    margin: 0 0 0 10px;
+    width: inherit;
+    // height: 20px;
+    // width: 20px;
+  }
+  select {
+    padding-left: 25px;
+  }
+  input, select {
+    border-top-left-radius: 5px 50% !important;
+    border-bottom-left-radius: 5px 50% !important;
+    border-bottom-right-radius: 5px 50% !important;
+    border-top-right-radius: 5px 50% !important;
+  }
 }
 
 .tr_add_new_box_right {
