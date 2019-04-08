@@ -2,35 +2,47 @@
     <div class="row">
 
       <div class="col-xs-12 col-md-3 hidden-md hidden-lg hidden-xl">
-        <!-- center column mobile -->
-        Copyright © <%= "#{Time.now.strftime("%Y-%m-%d")}" %><br>
-        by Brian Welch.<br>
-        All rights reserved.
+        <div class="center_footer_block">
+          <!-- center column mobile -->
+          Copyright © <%= "#{Time.now.strftime("%Y-%m-%d")}" %><br>
+          by Brian Welch.<br>
+          All rights reserved.
+        </div>
       </div>
 
       <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl"><hr></div>
 
       <div class="col-xs-12 col-md-3">
-        <!-- left column -->
+        <div class="left_footer_block">
+          <!-- left column -->
           <p class="reverse_indent">
             <i class="far fa-question-circle"></i> Are you a personal trainer or experienced fitness enthusiast that wants to help test to this beta launch?
           </p>
           <p>
             <%= link_to "Contact admin", "#", class: "contrast_buzzword" %> for information!
           </p>
+        </div>
       </div>
 
       <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl"><hr></div>
 
       <div class="col-xs-12 col-md-6 hidden-xs hidden-sm">
-        <!-- center column desktop -->
-        Copyright © <%= "#{Time.now.strftime("%Y-%m-%d")}" %> by Brian Welch.<br>
-        All rights reserved.
+        <div class="center_footer_block">
+          <!-- center column desktop -->
+          Copyright © <%= "#{Time.now.strftime("%Y-%m-%d")}" %> by Brian Welch.<br>
+          All rights reserved.
+        </div>
       </div>
 
       <div class="col-xs-12 col-md-3">
-        <!-- right column -->
-        <span>right/bottom column</span>
+        <div class="right_footer_block">
+          <!-- right column -->
+          <div class="social_media_block">
+            <%= link_to "https://www.linkedin.com/in/bcwelch/", target: "new" do %>
+              <%= image_tag "soc_media_icons/In-Black-108px-R.png" %>
+            <% end %>
+          </div>
+        </div>
       </div>
 
     </div>

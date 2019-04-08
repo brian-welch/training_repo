@@ -31,7 +31,7 @@ class TrainingSessionsController < ApplicationController
     else
       all_session_sets_instances = SessionSet.where("training_session_id = ?", @training_session.id)
 
-      build_session_set_hash(all_session_sets_instances)
+      build_session_set_hash(all_session_sets_instances) # produces @session_set_hash
 
       total_min = (@training_session.updated_at - @training_session.created_at).round / 60
       hours = (total_min / 60).to_i

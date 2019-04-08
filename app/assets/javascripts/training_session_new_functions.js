@@ -13,3 +13,7 @@ function getSessionStrategyInfo(array) {
   $(".reveal_caret").hide();
 
 };
+
+function orderMessage() {
+  alert("\n\nThese green boxes represent the order which you completed a set during this session;\n\n")
+}

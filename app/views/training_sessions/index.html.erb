@@ -1,13 +1,10 @@
 <div class="container">
-  <div class="col-xs-12">
-    <div class="active-session-warning">
-    </div>
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+
     <h1 class="content-page-h1">Training Session Log</h1>
     <hr>
-    <div class="session-summary-table-container col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 
-<!--       <ul class="session_history_list">
- -->
+    <div class="exercise_set_container">
         <% @all_my_sessions.each do |session| %>
             <%= link_to training_session_path(session) do %>
               <span class="session_history_bullet">
@@ -19,11 +16,8 @@
                 <%= "<span class='training_session_index_active_notice'>[active]</span>".html_safe if session.open == true %>
               </li>
             </ul>
-          <hr>
+    </div>
         <% end %>
 
-<!--       </ul>
- -->
-    </div>
   </div>
 </div>

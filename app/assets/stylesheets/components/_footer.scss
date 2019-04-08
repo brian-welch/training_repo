@@ -6,18 +6,31 @@
               inset 0 6px 0 -2px $site_background,
               inset 0 8px 0 -2px $site_primary,
               inset 0 9px 0 -2px $site_background;
-
   div {
-    div:nth-child(3) {
-      p:first-child {
-        padding: 0 0 0 20px;
-        i {
-          margin: 0 0 0 -20px;
-        }
-      }
-    }
-    div:nth-child(1), div:nth-child(5) {
-      text-align: center;
+    div {
+
     }
   }
 }
+
+.center_footer_block {
+  text-align: center;
+}
+
+.left_footer_block {
+  p:first-child {
+    padding: 0 0 0 20px;
+    i {
+      margin: 0 0 0 -20px;
+    }
+  }
+}
+
+.right_footer_block {
+  img {
+    width: 40px;
+    margin: 10px;
+  }
+
+}
+

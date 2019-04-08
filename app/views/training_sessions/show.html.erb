@@ -1,21 +1,28 @@
 <div class="container">
-  <div class="col-xs-12 col-md-8 col-md-offset-2">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
     <h1>Training Session <%= @training_session.session_number %> Details</h1>
-    <h3>- <%= @training_session.session_strategy.name %> -</h3>
+    <h3><%= @training_session.session_strategy.name %></h3>
     <hr>
-    <div class="training_session_summary_matrix_box">
-      <div class="training_session_matrix_key_box">
-        <div>Date:</div>
-        <div>Elapsed Time:</div>
-        <div>Total Weight Lifted:</div>
-        <div>Kg Per Hour Pace:</div>
-      </div>
-      <div class="training_session_matrix_value_box">
-        <div><%= local_time(@session_start_time, "%B %-d, %Y" ) %></div> <!-- .strftime("%Y-%m-%d") -->
-        <div><%= @elapsed_time %> [ <%= local_time(@session_start_time, "%H:%M") %> - <%= local_time(@session_finish_time, "%H:%M") %> ]</div>
-        <div><%= @total_weight_session %> kg</div>
-        <div><%= @kg_per_hour %></div>
-      </div>
+    <!-- <span class="set_order_marker_explained">* order completed</span> -->
+    <div class="training_session_summary_table_container">
+      <table class="training_session_summary_table">
+        <tr>
+          <td class="training_session_summary_key">Date:</td>
+          <td class="training_session_summary_value"><%= local_time(@session_start_time, "%B %-d, %Y" ) %></td>
+        </tr>
+        <tr>
+          <td class="training_session_summary_key">Elapsed Time:</td>
+          <td class="training_session_summary_value"><%= @elapsed_time %></td>
+        </tr>
+        <tr>
+          <td class="training_session_summary_key">Total Weight Lifted:</td>
+          <td class="training_session_summary_value"><%= @total_weight_session %> kg</td>
+        </tr>
+        <tr>
+          <td class="training_session_summary_key">Kg Per Hour Pace:</td>
+          <td class="training_session_summary_value"><%= @kg_per_hour %></td>
+        </tr>
+      </table>
     </div>
 
     <% @session_set_hash.each do |exercise, sets_and_order_array| %>
@@ -28,13 +35,13 @@
 
         <ul>
           <% if exercise.machine %>
-            <ul><li><%= proper_string(@exercise_set_hash[exercise]["sets"][0].machine.name) %> Machine by <%= @exercise_set_hash[exercise]["sets"][0].machine.brand.name %></li></ul>
+            <li><%= proper_string(sets_and_order_array[0][:set].machine.name) %> Machine by <%= proper_string(sets_and_order_array[0][:set].machine.brand.name) %></li>
           <% end %>
         </ul>
 
         <% sets_and_order_array.each do |set_hash| %>
           <div class="saved_set_data_box" >
-            <%= "<div class=\"set_order_marker\">#{set_hash[:order]}</div>".html_safe %>
+            <div class="set_order_marker" onclick="orderMessage();"><%= set_hash[:order] %></div>
             <div class="set_data_weight">
               <%= "#{set_hash[:set].weight_kg}" %> <span>kg</span>
             </div>
@@ -49,7 +56,7 @@
             Total:
           </span>
           <span class="set_data_total_weight_sum">
-            <%= (total_weight_calculator_show_session(exercise, sets_and_order_array) / (sets_and_order_array[0][:set].machine.mech_ad * sets_and_order_array[0][:set].machine.pulley_count)).round %> kg *<br>
+            <%= (total_weight_calculator_show_session(exercise, sets_and_order_array) / mechanical_deductions(sets_and_order_array[0][:set])).round %> kg *<br>
           </span>
         </div>
       </div>
