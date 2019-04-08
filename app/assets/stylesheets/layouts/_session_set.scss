@@ -54,6 +54,8 @@
 
 .exercise_set_container {
   background-color: lighten($site_background, 7%);
+  background: linear-gradient(165deg, lighten($site_background, 10%) 0%, darken($site_background, 5%) 45%, darken($site_primary, 45%) 55%, lighten($site_background, 10%) 100%);
+
   //margin: 40px 0;
   border-radius: 1px;
   padding: 10px 10px 20px 10px;

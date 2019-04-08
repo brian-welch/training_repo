@@ -93,27 +93,50 @@
   justify-content: space-around;
   align-items: center;
   border: 2px solid lighten($site_background, 7%);
+  cursor: pointer;
 }
 
-
-.training_session_summary_matrix_box {
+.set_order_marker_explained {
+  position: absolute;
+  padding: 2px 4px;
+  height: 18px;
+  line-height: 20px;
+  font-size: 10px;
+  background-color: lighten($site_background, 7%);
+  box-shadow: inset 0 0 0 1px darken($site_success, 20%);
+  color: darken($site_success, 20%);
+  text-align: center;
+  border-radius: 2px;
+  z-index: 50;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  padding: 0px;
 }
 
-.training_session_matrix_key_box {
-  text-align: right;
-  padding: 5px;
+
+.training_session_summary_table_container {
+  border-radius: 5px;
+  border: 1px solid $site_primary;
+  overflow: hidden;
 }
 
-.training_session_matrix_value_box {
-  text-align: left;
-  padding: 5px;
-  div {
-    color: lighten($site_primary, 20%);
+.training_session_summary_table {
+  width: 100%;
+  // border: 1px solid $site_primary;
+  color: lighten($site_primary, 20%);
+  background: linear-gradient(165deg, darken($site_primary, 28%) 0%, darken($site_primary, 38%) 45%, darken($site_primary, 38%) 55%, darken($site_primary, 28%) 100%);
+  td {
+    padding: 5px;
+    width: 50% !important;
   }
 }
 
+.training_session_summary_key {
+  text-align: right;
+  font-variant: small-caps;
+  max-width: 50%;
+}
 
+.training_session_summary_value {
+  color: lighten($site_primary, 35%);
+}

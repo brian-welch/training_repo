@@ -39,11 +39,11 @@ module ApplicationHelper
     end
   end
 
-  def total_weight_calculator_show_session(exercise_inst, sets_arr)
+  def total_weight_calculator_show_session(exercise_inst, sets_order_arr)
     bodyweight = exercise_inst.bodyweight == true ? current_user.weight : 0
     unilat = exercise_inst.unilateral == true ?  2 : 1
-    sets_arr.sum do |set_hash|
-      ((set_hash[:set].weight_kg * unilat) + bodyweight) * set_hash[:set].reps
+    sets_order_arr.sum do |set_order_hash|
+      ((set_order_hash[:set].weight_kg * unilat) + bodyweight) * set_order_hash[:set].reps
     end
   end
 
