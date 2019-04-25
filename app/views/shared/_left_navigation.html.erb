@@ -3,17 +3,41 @@
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="brand_font_nav">MY TR</span> <span class="caret"></span></a>
       <ul class="dropdown-menu">
-        <li> <%= link_to "Dashboard", my_tr_path %> </li>
-        <li> <%= link_to "My Sessions", training_sessions_path %> </li>
-        <% if active_session? %>
-          <li role="separator" class="divider"></li>
-          <li> <%= link_to "Active Session's Sets", session_sets_path %></li>
-          <li> <%= link_to "Add a Set to Current Session", new_session_set_path %></li>
+        <li>
+          <%= link_to my_tr_path do %>
+            <i class="fas fa-tachometer-alt"></i> Dashboard
+          <% end %>
+        </li>
+        <li>
+          <%= link_to training_sessions_path  do %>
+            <i class="far fa-calendar-alt"></i> My Sessions
+          <% end %>
+        </li>
+        <% if @is_active_session %>
+          <!-- <li role="separator" class="divider"></li> -->
+          <li>
+            <%= link_to session_sets_path do %>
+              <i class="fas fa-list-alt"></i> Active Session's Sets
+            <% end %>
+          </li>
         <% else %>
         <% end %>
         <li role="separator" class="divider"></li>
-        <li><%= link_to "Strength Machine List", machines_path %></li>
-        <li><%= link_to "About TR", about_path %></li>
+        <li>
+          <%= link_to machines_path do %>
+            <i class="fas fa-cogs"></i> Strength Machine List
+          <% end %>
+        </li>
+        <!-- <li>
+          <%#= link_to about_path do %>
+            <i class="fas fa-question-circle"></i> About TR
+          <%# end %>
+        </li> -->
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </li>
       </ul>
     </li>
   </ul>

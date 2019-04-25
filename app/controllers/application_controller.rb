@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
-  before_action :last_page
-  # before_action :active_session?
+
+  before_action :active_session?
   # The callback which stores the current location must be added before you authenticate the user
   # as `authenticate_user!` (or whatever your resource is) will halt the filter chain and redirect
   # before the location can be stored.
@@ -47,8 +47,16 @@ class ApplicationController < ActionController::Base
     store_location_for(:user, request.fullpath)
   end
 
-  def last_page
-    session[:last_page] = request.env['HTTP_REFERER']
+  def user_is_active?
+    return current_user.active
+  end
+
+  def active_session?
+    if user_signed_in?
+      @is_active_session = TrainingSession.active_session_call(current_user).count == 0 ? false : true
+    else
+      @is_active_session = false
+    end
   end
 
 end

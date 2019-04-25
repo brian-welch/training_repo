@@ -9,7 +9,7 @@ class SessionSet < ApplicationRecord
   validates :machine, presence: true, if: :machine_id_required?
 
   def machine_id_required?
-    temp = exercise.name.split(" ")[0].downcase
+    temp = exercise.name.split(" ").last.downcase
     if temp == "machine" || temp == "plate-loaded"
       return true
     else

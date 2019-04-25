@@ -31,6 +31,15 @@ def strategy_list
         ]
     },
     {
+      name: "Upperbody: Improvised",
+      description: [
+        "'Upperbody' is any upperbody exercise full stop.",
+        "These exercises classically are done alternating between pushers and pullers to allow for recovery of complementary muscle groups.",
+        "'Upperbody' exercises include, bench press, pulldowns, shoulder press, horizontal rows, tricep extensions.",
+        "Using 'Improvised' strategy is designed to be spontaneous and go as you feel."
+        ]
+    },
+    {
       name: "Complementary Super-sets: Heavy Weight",
       description: [
         "'Complementary Super-sets' is a strategy that involves training complementary muscle groups with very little or no rest between movements.",
@@ -58,6 +67,15 @@ def strategy_list
         "An exmaple might be doing a set of bench press and immediately after the last rep moving to do a set of pull-downs.",
         "Using 'high reps' strategy is designed to help in increasing muscle cell mitochondria, improved muscular endurance, and a bigger 'pump'.",
         "Some theories exist that increase intersticial fluid and space in the muscle may be where new muscle grows."
+        ]
+    },
+    {
+      name: "Complementary Super-sets: Improvised",
+      description: [
+        "'Complementary Super-sets' is a strategy that involves training complementary muscle groups with very little or no rest between movements.",
+        "This strategy can give benefets of cross-training, as you are starting new sets while mataining a higher heart rate.",
+        "An exmaple might be doing a set of bench press and immediately after the last rep moving to do a set of pull-downs.",
+        "Using 'Improvised' strategy is designed to be spontaneous and go as you feel."
         ]
     },
     {
@@ -92,6 +110,15 @@ def strategy_list
         ]
     },
     {
+      name: "Push: Improvised",
+      description: [
+        "'Push' is any upperbody exercise which has a movement of repelling or moving resistance away from the body.",
+        "These exercises classically involve training the chest, shoulders & tricps, generally speaking.",
+        "'Push' exercises include, bench press, shoulder press, tricep extension, shoulder raises.",
+        "Using 'Improvised' strategy is designed to be spontaneous and go as you feel."
+        ]
+    },
+    {
       name: "Pull: Heavy Weight",
       description: [
         "'Pull' is any upperbody exercise which has a movement of drawing in a resistance to the body to being it closer.",
@@ -120,6 +147,15 @@ def strategy_list
         "'High Reps' is a load strategy that involves weights which can produce a higher number of reps; somewhere between 12 and 20 per set.",
         "Using 'high reps' strategy is designed to help in increasing muscle cell mitochondria, improved muscular endurance, and a bigger 'pump'.",
         "Some theories exist that increase intersticial fluid and space in the muscle may be where new muscle grows."
+        ]
+    },
+    {
+      name: "Pull: Improvised",
+      description: [
+        "'Pull' is any upperbody exercise which has a movement of drawing in a resistance to the body to being it closer.",
+        "These exercises classically involve training the back, traps & biceps, generally speaking.",
+        "'Pull' exercises include, pulldowns, chin ups, rows, bicep curls.",
+        "Using 'Improvised' strategy is designed to be spontaneous and go as you feel."
         ]
     },
     {
@@ -154,6 +190,15 @@ def strategy_list
         ]
     },
     {
+      name: "Legs: Improvised",
+      description: [
+        "'Legs' is any and all lowerbody exercise full stop.",
+        "These exercises classically involve training the glutes, lowerback, quads, hamstrings, groin and calves.",
+        "'Legs' exercises include, squats, leg press, leg extensions, leg curls, calf raises, dead lifts.",
+        "Using 'Improvised' strategy is designed to be spontaneous and go as you feel."
+        ]
+    },
+    {
       name: "Chest: Heavy Weight",
       description: [
         "'Chest' is an exercise movement focusing on the Pectoralis muscules.",
@@ -179,6 +224,14 @@ def strategy_list
         "'High Reps' is a load strategy that involves weights which can produce a higher number of reps; somewhere between 12 and 20 per set.",
         "Using 'high reps' strategy is designed to help in increasing muscle cell mitochondria, improved muscular endurance, and a bigger 'pump'.",
         "Some theories exist that increase intersticial fluid and space in the muscle may be where new muscle grows."
+        ]
+    },
+    {
+      name: "Chest: Improvised",
+      description: [
+        "'Chest' is an exercise movement focusing on the Pectoralis muscules.",
+        "'Chest' exercises include, bench press, inclined bench press, push ups, flies.",
+        "Using 'Improvised' strategy is designed to be spontaneous and go as you feel."
         ]
     },
     {
@@ -210,6 +263,14 @@ def strategy_list
         ]
     },
     {
+      name: "Back: Improvised",
+      description: [
+        "'Back' is an exercise movement focusing on the Latissimus Dorsi muscules.",
+        "'Back' exercises include, pulldowns, chin ups, rows, pullovers.",
+        "Using 'Improvised' strategy is designed to be spontaneous and go as you feel."
+        ]
+    },
+    {
       name: "Shoulders: Heavy Weight",
       description: [
         "'Shoulders' is an exercise movement focusing on the Deltiodeus muscules.",
@@ -238,6 +299,23 @@ def strategy_list
         ]
     },
     {
+      name: "Shoulders: Improvised",
+      description: [
+        "'Shoulders' is an exercise movement focusing on the Deltiodeus muscules.",
+        "'Shoulders' exercises include, shoulder press, lateral raises, reverse flies.",
+        "Using 'Improvised' strategy is designed to be spontaneous and go as you feel."
+        ]
+    },
+    {
+      name: "Arms: Heavy Weight",
+      description: [
+        "'Arms' is an exercise movement focusing on the Biceps, Bracialis, Triceps and Brachioradialis muscules.",
+        "'Arms' exercises include, tricep extensions, bicep curls, hammer curls.",
+        "'Heavy Weight' is a load strategy that involves weights which can produce a low number of reps; somewhere between 4 and 6 per set.",
+        "Using 'heavy weight' strategy is designed to help in motor unit receruitment, improved power, and joint and bone health."
+        ]
+    },
+    {
       name: "Arms: Standard",
       description: [
         "'Arms' is an exercise movement focusing on the Biceps, Bracialis, Triceps and Brachioradialis muscules.",
@@ -254,6 +332,14 @@ def strategy_list
         "'High Reps' is a load strategy that involves weights which can produce a higher number of reps; somewhere between 12 and 20 per set.",
         "Using 'high reps' strategy is designed to help in increasing muscle cell mitochondria, improved muscular endurance, and a bigger 'pump'.",
         "Some theories exist that increase intersticial fluid and space in the muscle may be where new muscle grows."
+        ]
+    },
+    {
+      name: "Arms: Improvised",
+      description: [
+        "'Arms' is an exercise movement focusing on the Biceps, Bracialis, Triceps and Brachioradialis muscules.",
+        "'Arms' exercises include, tricep extensions, bicep curls, hammer curls.",
+        "Using 'Improvised' strategy is designed to be spontaneous and go as you feel."
         ]
     },
     {

@@ -4,8 +4,6 @@ class Exercise < ApplicationRecord
 
   private
 
-  private
-
   def self.all_exercise_hash
     all_exercise_inst = self.all
     all_exercise_hash = {}

@@ -1,5 +1,8 @@
 .footer_contianer {
+  background: linear-gradient(0deg, rgba(58,130,180,0.94) 0%, rgba(58,130,180,0.94) 100% ), url('background/hexagon_pattern_03_b.svg');
+  background-size: 50px;
   background-color: $site_primary;
+  background-position: bottom left;
   color: $site_background;
   padding: 35px 35px 70px 35px;
   box-shadow: inset 0 2px 0 $site_primary,

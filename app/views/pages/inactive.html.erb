@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+
+    <div class="logo_centerer">
+      <div>
+        <%= image_tag "logo_and_branding/tran_logo_c_200x200.png", style: "" %>
+      </div>
+    </div>
+    <h1>Hi <%= current_user.first_name.capitalize %>, You're <span class="brand_font">INACTIVE</span>?</h1>
+    <p>
+      Either your account has not been activated by the admin or was set to inactive at your own request. While your account exists, you will still have access to your saved training repo data. However, you will not be able to add new sessions or save any other data
+    </p>
+  </div>
+</div>

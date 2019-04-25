@@ -12,4 +12,6 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'Welcome to Training Repo!')
   end
+
+
 end

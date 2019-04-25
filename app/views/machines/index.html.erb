@@ -1,20 +1,31 @@
 <div class="container">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <h1>All Machines in Training Repo's Database</h1>
-    <hr>
+    <div class="dotted_hr"></div>
     <% @brand_machine_hash.delete("Placeholder") %>
     <% if @brand_machine_hash.count == 0 %>
-      <h3>There are no machines in the database yet.</h3>
+
+    <div class="exercise_set_container">
+      <div class="session_set_index_exercise_name">
+        <h3><%= image_tag "icons_symbols/tr_cross_a.svg", style: "width: 30px;" %> There are no machines in the database yet.</h3>
+      </div>
+    </div>
+
     <% else %>
+
       <% @brand_machine_hash.sort_by {|x,y| x }.each do |brand, machines| %>
-          <%= brand %><span style="position: relative; top: -0.5em; font-size: 80%;"> <i class="far fa-registered"></i></span>
-          <ul>
-            <% machines.each do |machine| %>
-              <li> <%= machine.split(" ").map{|x| x.capitalize}.join(" ") %></li>
-            <% end %>
-          </ul>
-        <hr>
+        <div class="exercise_set_container">
+          <div class="session_set_index_exercise_name">
+            <%= image_tag "icons_symbols/tr_check_a.svg", style: "height: 22px; position: relative; bottom: 1px;" %> <%= brand %><span style="position: relative; top: -0.5em; font-size: 80%;"> <i class="far fa-registered"></i></span>
+          </div>
+          <% machines.each do |machine| %>
+            <div class="session_set_index_machine_name">
+              <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %> <%= machine.split(" ").map{|x| x.capitalize}.join(" ") %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     <% end %>
+
   </div>
 </div>

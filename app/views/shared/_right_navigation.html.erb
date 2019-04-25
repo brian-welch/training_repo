@@ -1,51 +1,58 @@
     <% if user_signed_in? %>
-      <ul class="nav navbar-nav navbar-right">
+      <% if user_is_active? %>
+        <ul class="nav navbar-nav navbar-right">
 
-        <%= add_button_case(request.path) %>
+          <%= add_button_case(request.path) %>
 
-        <% if active_session? %>
+          <% if @is_active_session %>
+
+            <li>
+              <%= link_to new_session_set_path do %>
+                <i class="fas fa-plus-circle"></i> Add a Set!
+              <% end %>
+            </li>
+
+            <% if !last_session_this_strategy.nil? && request.path == "/session_sets" %>
+              <li>
+                <%= link_to training_session_path(last_session_this_strategy) do %>
+                  <i class="fas fa-angle-double-left"></i> Prior <%= last_session_this_strategy.session_strategy.name %>
+                <% end %>
+              </li>
+            <% end %>
+
+          <% end %>
+
           <li>
-            <%= link_to new_session_set_path do %>
-              <i class="fas fa-plus-circle"></i> Add a Set!
+            <%if open_session_status[:has_open_sesh?]  %>
+
+              <%= simple_form_for open_session_status[:get_open_sesh_instance], id: "end_training_session_form", data: {confirm: "Are you sure you want to end your training session?"} do |f| %>
+
+                <button class="training_session_start_stop_button" type="submit">
+              <%= image_tag "icons_symbols/stopwatch_cross_e.svg", style: "height: 26px;" %> End Current Sesh!
+                </button>
+              <% end %>
+
+            <% else %>
+
+              <%= link_to new_training_session_path do %>
+              <%= image_tag "icons_symbols/stopwatch_plus_e.svg", style: "height: 26px;" %> Start New Sesh!
+              <% end %>
             <% end %>
 
           </li>
-        <% end %>
-
-        <li>
-          <%if open_session_status[:has_open_sesh?]  %>
-
-            <%= simple_form_for open_session_status[:get_open_sesh_instance], id: "end_training_session_form", data: {confirm: "Are you sure you want to end your training session?"} do |f| %>
-
-              <button class="training_session_start_stop_button" type="submit">
-                <i class="fas fa-dumbbell"></i> End Current Sesh!
-              </button>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to inactive_path do %>
+            <i class="fas fa-ban" style="color: FireBrick; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);"></i> Account is Currently Inactive
             <% end %>
-
-          <% else %>
-
-            <%= link_to new_training_session_path do %>
-                <i class="fas fa-dumbbell"></i> Start New Sesh!
-            <% end %>
-          <% end %>
-
-        </li>
-
-        <li>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Log out") %>
-          <% end %>
-        </li>
-
-      </ul>
+          </li>
+        </ul>
+      <% end %>
     <% else %>
+      <!-- NOT SIGNED IN -->
       <ul class="nav navbar-nav navbar-right">
-        <!-- <li>
-          <%#= link_to new_user_registration_path, class: "" do %>
-            <i class="fas fa-sign-in-alt"></i> <%#= t(".sign_up", default: "Sign up") %>
-          <%# end %>
-        </li>
-        <li role="separator" class="divider"></li> -->
         <li>
           <%= link_to "<i class=\"fas fa-question-circle\"></i> About".html_safe, about_path %>
         </li>
