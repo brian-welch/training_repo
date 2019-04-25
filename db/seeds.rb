@@ -7,6 +7,8 @@ require_relative 'seed_data/exercises.rb'
 require_relative 'seed_data/users.rb'
 require_relative 'seed_data/brands.rb'
 require_relative 'seed_data/machines.rb'
+require_relative 'seed_data/training_sessions.rb'
+require_relative 'seed_data/session_sets.rb'
 
 
 ## clears terminal window
@@ -23,9 +25,9 @@ puts "\nDestroying the database!!"
 sleep 0.5
 
 ExerciseBodypart.destroy_all
-Machine.destroy_all
 Brand.destroy_all
 SessionSet.destroy_all
+Machine.destroy_all
 TrainingSession.destroy_all
 SessionStrategy.destroy_all
 Bodypart.destroy_all
@@ -141,6 +143,31 @@ machine_list.each do |machine|
 end
 
 puts "\n#{Machine.count} Machines created."
+sleep 0.5
+
+user = User.find_by_first_name("brian")
+
+training_session_list.each do |sesh_details|
+#  user = User.find_by_first_name("brian")
+  new_t = TrainingSession.new(sesh_details)
+  new_t.user_id = user.id
+  new_t.save!
+end
+
+puts "\n#{TrainingSession.count} Training Sessions created."
+sleep 0.5
+
+session_set_list.each do |set_details_arr|
+#  user = User.find_by_first_name("brian")
+  tr = TrainingSession.where("session_number = ? AND user_id = ?", set_details_arr[0], user.id)[0]
+  new_s = SessionSet.new(set_details_arr[1])
+    new_s.training_session_id = tr.id
+    new_s.created_at = tr.created_at + 1800
+    new_s.updated_at = tr.created_at + 1920
+    new_s.save!
+end
+
+puts "\n#{SessionSet.count} Sets created."
 sleep 0.5
 
 puts '- ' * 30 + "\n"

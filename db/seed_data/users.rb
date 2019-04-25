@@ -21,6 +21,17 @@ def user_list
       active: false,
       gender: "m",
       role: "user"
+    },
+    {
+      first_name: "John",
+      last_name: "Doe",
+      email: "demo@demo.com",
+      password: "23456789",
+      birthdate: "1970/01/01",
+      weight: 85,
+      active: false,
+      gender: "m",
+      role: "user"
     }
   ]
 end

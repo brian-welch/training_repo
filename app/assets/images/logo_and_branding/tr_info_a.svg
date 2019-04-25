@@ -1,0 +1,80 @@
+<svg width="640" height="640" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet">
+ <defs>
+  <path id="a1BXL7MTTo" d="m313.660004,14.04l-269.140003,154.480004l0,308.969986l269.140003,154.47998l269.149994,-154.47998l0,-308.969986l-269.149994,-154.480004z"/>
+  <clipPath id="clipdHbBwjmLH">
+   <use id="svg_1" xlink:href="#a1BXL7MTTo"/>
+  </clipPath>
+  <path id="l2bkFHr9AD" d="m343.480011,39.82l-261.540009,115.640007l-29.760002,283.139999l231.779991,167.499969l261.529999,-115.649963l29.76001,-283.140015l-231.769989,-167.489998z"/>
+  <clipPath id="clipd10J8Zothn">
+   <use id="svg_2" xlink:href="#l2bkFHr9AD"/>
+  </clipPath>
+  <path id="bi4reGOFA" d="m409.609985,113.779999l-229.559982,23.540009l-93.440002,209.869995l136.110001,186.340027l229.549988,-23.530029l93.449982,-209.880005l-136.109985,-186.339996z"/>
+  <clipPath id="clipk3Jk9aB4cq">
+   <use id="svg_3" xlink:href="#bi4reGOFA"/>
+  </clipPath>
+  <path id="a973DNgk6" d="m422.950012,137.809998l-216.410019,-0.209991l-108.019997,187.109985l108.390007,187.310028l216.410004,0.209961l108.02002,-187.109985l-108.390015,-187.309998z"/>
+  <clipPath id="clipb2sQe1YQ86">
+   <use id="svg_4" xlink:href="#a973DNgk6"/>
+  </clipPath>
+  <path id="b4rQNXSnKp" d="m390.820007,88.68l-242.320007,50.859993l-76.169998,234.440018l166.139999,183.589996l242.320007,-50.869995l76.179962,-234.440002l-166.149963,-183.580009z"/>
+  <clipPath id="clipcloQXBK1S">
+   <use id="svg_5" xlink:href="#b4rQNXSnKp"/>
+  </clipPath>
+  <path id="c5s7jZsMAb" d="m371.269989,63.77l-253.389992,81.619999l-55.099998,259.229996l198.279999,177.619995l253.380005,-81.609985l55.109985,-259.240005l-198.279999,-177.619999z"/>
+  <clipPath id="clipah5Ay9QAs">
+   <use id="svg_6" xlink:href="#c5s7jZsMAb"/>
+  </clipPath>
+  <path id="cKwDs82xu" d="m378.359985,399.980011l0.02002,0.019989l-90.27002,103.820007l-167.229988,-192.320007l90.280006,-103.820007l76.919983,88.470001l229.490021,-263.919994l90.27002,103.820004l-229.480042,263.930008z"/>
+  <clipPath id="clipan8ajvdzh">
+   <use id="svg_7" xlink:href="#cKwDs82xu"/>
+  </clipPath>
+  <linearGradient y2="0" x2="1" y1="0.458594" x1="0.011719" id="svg_41">
+   <stop offset="0" stop-opacity="0.996094" stop-color="#b7e886"/>
+   <stop offset="0.996094" stop-opacity="0.992188" stop-color="#007c00"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_10">
+   <use id="svg_11" fill-opacity="0" fill="#000000" xlink:href="#a1BXL7MTTo"/>
+   <g id="svg_12" clip-path="url(#clipdHbBwjmLH)">
+    <use id="svg_13" stroke-width="16" stroke="#54a5cb" fill-opacity="0" xlink:href="#a1BXL7MTTo"/>
+   </g>
+  </g>
+  <g id="svg_14">
+   <use id="svg_15" fill-opacity="0" fill="#70197b" xlink:href="#l2bkFHr9AD"/>
+   <g id="svg_16" clip-path="url(#clipd10J8Zothn)">
+    <use id="svg_17" stroke-width="14" stroke="#54a5cb" fill-opacity="0" xlink:href="#l2bkFHr9AD"/>
+   </g>
+  </g>
+  <g id="svg_18">
+   <use id="svg_19" fill-opacity="0" fill="#70197b" xlink:href="#bi4reGOFA"/>
+   <g id="svg_20" clip-path="url(#clipk3Jk9aB4cq)">
+    <use id="svg_21" stroke-width="8" stroke="#54a5cb" fill-opacity="0" xlink:href="#bi4reGOFA"/>
+   </g>
+  </g>
+  <g id="svg_22">
+   <use id="svg_23" fill-opacity="0" fill="#70197b" xlink:href="#a973DNgk6"/>
+   <g id="svg_24" clip-path="url(#clipb2sQe1YQ86)">
+    <use id="svg_25" stroke-width="8" stroke="#54a5cb" fill-opacity="0" xlink:href="#a973DNgk6"/>
+   </g>
+  </g>
+  <g id="svg_26">
+   <use id="svg_27" fill-opacity="0" fill="#70197b" xlink:href="#b4rQNXSnKp"/>
+   <g id="svg_28" clip-path="url(#clipcloQXBK1S)">
+    <use id="svg_29" stroke-width="10" stroke="#54a5cb" fill-opacity="0" xlink:href="#b4rQNXSnKp"/>
+   </g>
+  </g>
+  <g id="svg_30">
+   <use id="svg_31" fill-opacity="0" fill="#70197b" xlink:href="#c5s7jZsMAb"/>
+   <g id="svg_32" clip-path="url(#clipah5Ay9QAs)">
+    <use id="svg_33" stroke-width="12" stroke="#54a5cb" fill-opacity="0" xlink:href="#c5s7jZsMAb"/>
+   </g>
+  </g>
+  <path id="svg_42" d="m320,121.5c-109.627823,0 -198.5,88.873108 -198.5,198.499939c0,109.629944 88.872177,198.500061 198.5,198.500061c109.631104,0 198.5,-88.870117 198.5,-198.500061c0,-109.626831 -88.868896,-198.499939 -198.5,-198.499939zm-16.975708,89.242615l33.052917,0l0,35.152939l-33.052917,0l0,-35.152939zm54.698425,213.359741l-36.353638,0c-14.123657,0 -20.148071,-6.009277 -20.148071,-20.432861l0,-93.758484c0,-4.506958 -2.400757,-6.612122 -6.60791,-6.612122l-12.020447,0l0,-32.463501l36.358582,0c14.133484,0 20.130615,6.309021 20.130615,20.4328l0,94.058411c0,4.222412 2.4021,6.609131 6.610229,6.609131l12.018494,0l0,32.166626l0.012146,0z" stroke-width="10" stroke="#000000" fill="url(#svg_41)"/>
+ </g>
+</svg>

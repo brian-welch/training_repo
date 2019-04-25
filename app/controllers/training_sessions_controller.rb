@@ -25,6 +25,8 @@ class TrainingSessionsController < ApplicationController
 
     set_training_session
 
+
+
     if @training_session.nil?
       flash[:alert] = "This was not a link to a valid training session."
       redirect_to training_sessions_path
@@ -101,24 +103,67 @@ class TrainingSessionsController < ApplicationController
     end
   end
 
+  # def build_session_set_hash(all_session_sets_instances)
+  #   @session_set_hash = {}
+  #   all_session_sets_instances.each_with_index do |set, i|
+  #     j = i + 1
+  #     if @session_set_hash[set.exercise].nil?
+  #       @session_set_hash[set.exercise] = []
+  #       @session_set_hash[set.exercise] << {
+  #         set: set,
+  #         order: j
+  #       }
+  #     else
+  #       @session_set_hash[set.exercise] << {
+  #         set: set,
+  #         order: j
+  #       }
+  #     end
+  #   end
+  # end
+
   def build_session_set_hash(all_session_sets_instances)
     @session_set_hash = {}
     all_session_sets_instances.each_with_index do |set, i|
       j = i + 1
       if @session_set_hash[set.exercise].nil?
-        @session_set_hash[set.exercise] = []
-        @session_set_hash[set.exercise] << {
-          set: set,
-          order: j
-        }
+
+        @session_set_hash[set.exercise] = {}
+
+        if @session_set_hash[set.exercise][set.machine].nil?
+          @session_set_hash[set.exercise][set.machine] = []
+          @session_set_hash[set.exercise][set.machine] << {
+            set: set,
+            order: j
+          }
+        else
+          @session_set_hash[set.exercise][set.machine] << {
+            set: set,
+            order: j
+          }
+        end
+
       else
-        @session_set_hash[set.exercise] << {
-          set: set,
-          order: j
-        }
+
+        if @session_set_hash[set.exercise][set.machine].nil?
+          @session_set_hash[set.exercise][set.machine] = []
+          @session_set_hash[set.exercise][set.machine] << {
+            set: set,
+            order: j
+          }
+        else
+          @session_set_hash[set.exercise][set.machine] << {
+            set: set,
+            order: j
+          }
+        end
+
       end
+
     end
+
   end
+
 
   def set_training_session
     @training_session = TrainingSession.where("id = ? AND user_id = ? AND open = ?", params[:id], current_user.id, false)[0]

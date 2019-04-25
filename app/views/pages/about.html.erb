@@ -1,35 +1,116 @@
-<div class="container">
-  <div class="col-xs-12 col-md-6 col-md-offset-3">
+<%
 
-    <div class="logo-centerer">
-      <div>
-        <%= image_tag "logo_and_branding/tran_logo_c_450x450.png", style: "" %>
+copy_block_one = "<span class=\"brand_font\">TR</span><span style=\"font-family: 'Courier New', Courier, monospace;position:relative;bottom: 1px;font-weight:600;\">[G1]?</span> is new training workout app that is specifically design for your individualization. No false promises on contrived routines; you train how you like and when you like. <span style=\"font-family: 'Courier New', Courier, monospace;position:relative;bottom: 1px;font-weight:600;\">[G1]</span> is only focused on strength training. Future versions will incorporate cardio and more functional training tactics. ".html_safe
+
+copy_block_two = "<span class=\"brand_font\">TR</span><span style=\"font-family: 'Courier New', Courier, monospace;position:relative;bottom: 1px;font-weight:600;\">[G1]?</span> is a repository for you to keep track of your sets and reps and provide you with dashboards and matracies to keep your data easy to access. More fun and accurate than a paper workout log".html_safe
+
+copy_block_three = "<span class=\"brand_font\">TR</span><span style=\"font-family: 'Courier New', Courier, monospace;position:relative;bottom: 1px;font-weight:600;\">[G1]?</span> takes your tracking to a more precise level by using physics based logic and calculations to more accurately represent your data. Using the basic calculations of simple machines in physics, we can start to compare apples and oranges; machines and free weights.".html_safe
+
+copy_block_four = "<span class=\"brand_font\">TR</span><span style=\"font-family: 'Courier New', Courier, monospace;position:relative;bottom: 1px;font-weight:600;\">[G1]?</span> is designed for a 'kaizen' approach to training. That through measured KPI's, you'll be able to reliably show a consistant improvement trend. You don't have to break every record, every time to still improve.".html_safe
+
+ %>
+
+<div class="container">
+
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="logo_centerer">
+          <div style="max-width: 200px;">
+            <%= image_tag "logo_and_branding/tr_question_mark_a.svg", style: "" %>
+          </div>
+        </div>
+        <h1>What is <span class="brand_font">TRAINING REPO</span> <span style="font-family: 'Courier New', Courier, monospace; font-size: 22px; position: relative; bottom: 4px;">[Gen-1 beta]?</span></h1>
+    <div class="dotted_hr"></div>
+      </div>
+
+</div>
+<div class="container">
+
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="logo_centerer">
+        <div style="max-width: 150px;">
+        <%= image_tag "logo_and_branding/tr_spiral_with_hand_dumbbell_a.svg", style: "" %>
       </div>
     </div>
-    <h1>What is <span class="brand_font">TRAINING REPO</span>?</h1>
-    <p>
-      <span class="brand_font">TR</span> is a science based strength training workout analytics app where you can enter the sets &amp; reps data for your workouts and you can then analyze your progress on some specific matrices.
-    </p>
-    <p>Such as:
-      <ul>
-        <li>Predicted 1RM</li>
-        <li>Total Weight Lifted</li>
-        <li>Training Session Comparisons</li>
-        <li>Body Weight (if that's your bag)</li>
-        <li>More on the way...</li>
-      </ul>
-    </p>
-    <hr>
-    <h2>What <span class="brand_font">TRAINING REPO</span> is <em>NOT</em>.</h2>
-    <p>
-      <span class="brand_font">TR</span> is not the be-all, end-all workout app, nore is it for everyone. <span class="brand_font">TR</span> is not some form of virtual personal trainer which will prescribe your routine for you, or give you virtual backslapping. It was designed to add scientific analytics to help stear your strength training progress.
-    </p>
-    <hr>
-    <h2><span class="brand_font">TRAINING REPO</span> Gen-1.</h2>
-    <p>
-      Gen-1 is essentially a replacement for a pen and paper workout log. the added bonus is built-in dashboards and charts tracking progress.
-    </p>
-    <p>Gen-2 will include smarter information such as real-time workout tracking progress, comparative matrices to help guide workouts, and even routine selectors. Gen-2 will also include cardio tracking</p>
-    <p>Gen-3 is as yet undefined. Such improvements could be a social media integrations and even real-time, virtual workout partners....  who knows</p>
   </div>
+  <div class="col-xs-12 col-sm-6 col-md-3 hidden-sm hidden-md hidden-lg hidden-xl pages_about_text_block single_column">
+    <%= copy_block_one %>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="logo_centerer">
+        <div style="max-width: 150px;">
+        <%= image_tag "logo_and_branding/tr_spiral_with_tracking_a.svg", style: "" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-3 hidden-sm hidden-md hidden-lg hidden-xl pages_about_text_block single_column">
+    <%= copy_block_two %>
+  </div>
+
+<div class="row hidden-md hidden-lg hidden-xl hidden-xs">
+  <div class="col-xs-12 col-sm-6 col-md-3 hidden-xs hidden-md hidden-lg hidden-xl pages_about_text_block double_column">
+    <%= copy_block_one %>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-3 hidden-xs hidden-md hidden-lg hidden-xl pages_about_text_block double_column">
+    <%= copy_block_two %>
+  </div>
+
+</div>
+    <!-- small size screens -->
+
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="logo_centerer">
+        <div style="max-width: 150px;">
+        <%= image_tag "logo_and_branding/tr_spiral_with_physics_a.svg", style: "" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-3 hidden-sm hidden-md hidden-lg hidden-xl pages_about_text_block single_column">
+    <%= copy_block_three %>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="logo_centerer">
+        <div style="max-width: 150px;">
+        <%= image_tag "logo_and_branding/tr_spiral_with_upward_trend_a.svg", style: "" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-3 hidden-sm hidden-md hidden-lg hidden-xl pages_about_text_block ">
+    <%= copy_block_four %>
+  </div>
+
+
+<div class="row hidden-md hidden-lg hidden-xl hidden-xs">
+  <div class="col-xs-12 col-sm-6 col-md-3 hidden-xs hidden-md hidden-lg hidden-xl pages_about_text_block double_column">
+    <%= copy_block_three %>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-3 hidden-xs hidden-md hidden-lg hidden-xl pages_about_text_block double_column">
+    <%= copy_block_four %>
+  </div>
+
+</div>
+
+
+
+  <!-- medium size screens and up -->
+  <div class="col-xs-12 col-sm-6 col-md-3 hidden-xs hidden-sm pages_about_text_block">
+    <%= copy_block_one %>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-3 hidden-xs hidden-sm pages_about_text_block">
+    <%= copy_block_two %>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-3 hidden-xs hidden-sm pages_about_text_block">
+    <%= copy_block_three %>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-3 hidden-xs hidden-sm pages_about_text_block">
+    <%= copy_block_four %>
+  </div>
+
+
 </div>

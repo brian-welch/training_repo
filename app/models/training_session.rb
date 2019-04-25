@@ -2,6 +2,8 @@ class TrainingSession < ApplicationRecord
   belongs_to :session_strategy
   belongs_to :user
 
+  has_many :session_sets
+
   validates :session_strategy_id, presence: true
 
   def self.active_session_number(user)

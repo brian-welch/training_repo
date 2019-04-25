@@ -24,9 +24,11 @@
         What is '<%= @first_session_strat[1][0] %>'?
       </button>
       <div id="session_strategy_info_box" class="collapse">
-        <% @first_session_strat[1][1].each do |array_element| %>
-          <li><%= array_element %></li>
-        <% end %>
+        <ul style="padding: 0 0 0 15px;">
+          <% @first_session_strat[1][1].each do |array_element| %>
+            <li><%= array_element %></li>
+          <% end %>
+        </ul>
       </div>
       <hr>
       <div class="form-actions">

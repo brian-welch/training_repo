@@ -69,8 +69,18 @@
   // position: absolute;
   // left: -30px;
   margin: 0 13px 0 0;
+  img {
+    margin: 0 5px 0 0;
+    opacity: 0.75;
+  }
 }
 
+.session_history_bullet:hover {
+  color: lighten($site_primary, 30%) !important;
+  img {
+    opacity: 1;
+  }
+}
 
 
 /*------------- SHOW ----------------*/
@@ -140,3 +150,21 @@
 .training_session_summary_value {
   color: lighten($site_primary, 35%);
 }
+
+.back_to_link {
+  margin: 10px 0 10px 0;
+  img {
+    opacity: 0.9;
+  }
+}
+
+.back_to_link:hover {
+  img {
+    opacity: 1;
+  }
+  a {
+    color: lighten($site_primary, 30%) !important;
+  }
+}
+
+

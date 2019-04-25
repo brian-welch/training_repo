@@ -1,3 +1,7 @@
-<h1>Dashboards#index</h1>
-<p>Find me in app/views/dashboards/index.html.erb</p>
-<h3>Welcome <%= @user.first_name.capitalize %>!</h3>
+<div class="container">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <h1><%= image_tag "logo_and_branding/tr_spiral_with_analytics_a.svg", width: "50", style: "position:relative; bottom: 5px;" %> <%= proper_string(current_user.first_name) %>'s Dashboard</h1>
+    <div class="dotted_hr"></div>
+    <h2>Under Development!</h2>
+  </div>
+</div>

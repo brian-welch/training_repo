@@ -1,35 +1,72 @@
 html {
-  background: $site_primary;
+  background: linear-gradient(0deg, rgba(58,130,180,0.94) 0%, rgba(58,130,180,0.94) 100% ), url('background/hexagon_pattern_03_b.svg');
+  background-size: 50px;
+  background-color: $site_primary;
+  // background: linear-gradient(135deg, rgba(30,15,15,0.95) 0%, rgba(0,0,0,0.65) 50%, rgba(30,15,15,1) 100%), url('background/hexagon_pattern.svg');
 }
 
 body {
+  background: url('background/hexagon_pattern_02_b.svg');
+  // linear-gradient(135deg, rgba(0,0,0,.06) 0%, rgba(0,0,0,.06) 100%),
+  background-size: 50px;
+  background-color: rgba(0, 0, 0, 1);
+  // background-color: linear-gradient(135deg, rgba(50, 0, 0, 0.6) 0%, rgba(0, 0, 50, 0.6) 100%);
   // padding: 0 0 50px 0;
 }
 
-div, p, i, li, th, td, span, ul, ol, button, input, tr, a {
+div, p, i, li, th, td, span, ul, ol, button, input, tr, a, img {
   transition: all ease 400ms;
 }
 
 h1, h2, h3, h4, h5, h6 {
+  color: lighten(#62C0F2, 10%);
+  font-weight: 200;
+  text-shadow:
+    calc(1px * 0.75) calc(1px * 0.75) 0px $site_primary,
+    calc(1px * 0.75) calc(-1px * 0.75) 0px $site_primary,
+    calc(-1px * 0.75) calc(1px * 0.75) 0px $site_primary,
+    calc(-1px * 0.75) calc(-1px * 0.75) 0px $site_primary,
+    calc(1px * 0.75) 0px 0px $site_primary,
+    calc(-1px * 0.75) 0px 0px $site_primary,
+    0px calc(1px * 0.75) 0px $site_primary,
+    0px calc(-1px * 0.75) 0px $site_primary;
   i {
     margin: 0 5px 0 0;
   }
+  .brand_font {
+    font-family: "Tron", "Raleway", "Helvetica", "sans-serif";
+    color: lighten(#62C0F2, 5%);
+    // color: $site_primary;
+    text-shadow:
+      calc(1px * 0.3) calc(1px * 0.3) 0 darken($site_primary, 15%),
+      calc(1px * 0.3) calc(-1px * 0.3) 0 darken($site_primary, 15%),
+      calc(-1px * 0.3) calc(1px * 0.3) 0 darken($site_primary, 15%),
+      calc(-1px * 0.3) calc(-1px * 0.3) 0 darken($site_primary, 15%),
+      calc(1px * 0.3) 0 0 darken($site_primary, 15%),
+      calc(1px * 0.3) 0 0 darken($site_primary, 15%),
+      calc(-1px * 0.3) 0 0 darken($site_primary, 15%),
+      calc(-1px * 0.3) 0 0 darken($site_primary, 15%);
+  }
+}
+
+a {
+  text-decoration: none !important;
 }
 
 h1 {
-  font-size: 2.2em;
+  font-size: 1.5em;
   margin: 12px 0 10px 0;
 }
 h2 {
-  font-size: 1.8em;
+  font-size: 1.3em;
   margin: 10px 0 8px 0;
 }
 h3 {
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin: 8px 0 6px 0;
 }
 h4 {
-  font-size: 1.2em;
+  font-size: 1em;
   margin: 6px 0 4px 0;
 }
 h5 {
@@ -37,7 +74,7 @@ h5 {
   margin: 4px 0 2px 0;
 }
 h6 {
-  font-size: 0.9em;
+  font-size: 0.8em;
   margin: 0;
 }
 
@@ -147,14 +184,11 @@ select {
   }
 }
 
+.add_absolute {
+  position: absolute;
+}
 
-
-
-
-
-
-
-
-
-
-
+.dotted_hr {
+  margin: 15px 0 0 0;
+  border-bottom: dotted 2px darken($site_primary, 20%);
+}
