@@ -48,7 +48,7 @@ class SessionSetsController < ApplicationController
       if params[:exercise_id]
         @new_session_set.exercise_id = params[:exercise_id]
         if params[:machine]
-          @new_session_set.machine_id = params[:machine].id
+          @new_session_set.machine_id = params[:machine]
         end
         if params[:pulley_count].to_i > 1
           @new_session_set.pulley_count = params[:pulley_count].to_i

@@ -2,7 +2,9 @@ class TrainingSession < ApplicationRecord
   belongs_to :session_strategy
   belongs_to :user
 
-  has_many :session_sets
+
+
+  has_many :session_sets, dependent: :destroy
 
   validates :session_strategy_id, presence: true
 
