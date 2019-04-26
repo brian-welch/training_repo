@@ -5,7 +5,7 @@
     <h1>This Session's Sets</h1>
     <h3><%= @active_tr_sesh_inst.session_strategy.name %></h3>
     <div class="dotted_hr"></div>
-    <%= "<hr><h3>0 sets on this session</h3>".html_safe if @exercise_set_hash.count == 0 %>
+    <%= "<h3>0 sets on this session</h3>".html_safe if @exercise_set_hash.count == 0 %>
       <% @exercise_set_hash.each_with_index do |(exercise, machine_set_hash), i| %>
 
         <div class="exercise_set_marker" id="set-<%= machine_set_hash.to_a.last[1].last.id %>"></div>
