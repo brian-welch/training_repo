@@ -5,6 +5,8 @@ class TrainingSessionsController < ApplicationController
   def index
     @title = "#{current_user.first_name.capitalize}'s Session Histroy on Training Repo"
     @all_my_sessions = TrainingSession.where(user: current_user)
+    @all_my_sessions_month_hash = @all_my_sessions.group_by {|sesh| [sesh.created_at.month, sesh.created_at.year]}
+    @all_my_sessions_date_hash = @all_my_sessions.group_by {|sesh| sesh.created_at.strftime("%F")} # (&:created_at)
   end
 
   def new

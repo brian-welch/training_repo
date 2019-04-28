@@ -128,6 +128,7 @@
   border-radius: 5px;
   border: 1px solid $site_primary;
   overflow: hidden;
+  margin-bottom: 30px;
 }
 
 .training_session_summary_table {
@@ -167,4 +168,102 @@
   }
 }
 
+/*------------  calendar_viewer_table  -----------------*/
 
+
+.calendar_viewer_table {
+  width: 100%;
+  border-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.7);
+  // border: 1px blue solid;
+  box-shadow:
+    0 0 0 2px $site_background,
+    calc(-1px * 0.5) calc(-1px * 0.8) 0 2px lighten($site_primary, 20%),
+    0 0 0 calc(3px * 1.15) darken($site_primary, 25%);
+  tr > th {
+    border-radius: 2px;
+    position: relative;
+    width: calc(100% / 7);
+    padding-top: calc(100% / 7);
+    color: $site_background;
+    background-color: darken($site_primary, 10%);
+    box-shadow:
+      inset 0 0 0 calc(1px * 0.75) $site_background,
+      inset 0 2px 0 -1px lighten($site_primary, 8%),
+      inset -10px -15px 40px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 calc(1px * 0.6) 0 lighten($site_primary, 7%);
+    // background: linear-gradient(165deg, darken($site_primary, 28%) 0%, darken($site_primary, 38%) 45%, darken($site_primary, 38%) 55%, darken($site_primary, 28%) 100%);
+    div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      font-size: 18px;
+      line-height: 18px;
+      text-align: center;
+      margin-top: calc(50% - 9px);
+    }
+  }
+  tr > th:nth-of-type(1) {
+    border-top-left-radius: 4px;
+  }
+  tr > th:nth-of-type(7) {
+    border-top-right-radius: 4px;
+  }
+  tr > td {
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 calc(1px * 0.5) lighten($site_background, 7%)
+  }
+  tr > td:hover {
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 calc(1px * 0.5) lighten($site_success, 25%)
+  }
+
+}
+
+.calendar_contianer {
+  h3 {
+    // text-align: center;
+  }
+}
+
+.not_current_month {
+  color: red;
+}
+
+.day_box {
+  position: relative;
+  width: calc(100% / 7);
+  padding-top: calc(100% / 7);
+}
+
+.day_content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  margin-top: calc(50% - 15px);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
+
+.todays_box {
+  box-shadow: inset 0 0 1px 1px $site_success !important;
+}
+
+.not_current_month_content {
+  display: none;
+}
+
+.training_session_name_display {
+  text-align: center;
+  padding: 10px 0;
+}
