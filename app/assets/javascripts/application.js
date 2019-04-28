@@ -22,12 +22,20 @@ $(document).ready(function() {
   });
 
   $(".exercise_toggle").on('click', function(){
-    console.log(this.dataset.buttonSetGroup);
-    console.log($("div[data-button-set-group=" + this.dataset.buttonSetGroup + "]"));
+    // console.log(this.dataset.buttonSetGroup);
+    // console.log($("div[data-button-set-group=" + this.dataset.buttonSetGroup + "]"));
     $("div[data-button-set-group=" + this.dataset.buttonSetGroup + "]").each(function(){
       $(this).toggleClass("active");
     })
     $("div[data-content-set-group=" + this.dataset.buttonSetGroup + "]").toggle();
   });
+
+  $(".link_to_training_session").hover(function(){
+    $("#month-" + this.dataset.monthYear).html(this.dataset.seshStrat);
+  });
+  $(".link_to_training_session").mouseout(function(){
+    $("#month-" + this.dataset.monthYear).html(" &nbsp;");
+  });
+
 
 });
