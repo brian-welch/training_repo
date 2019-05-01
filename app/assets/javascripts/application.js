@@ -22,20 +22,22 @@ $(document).ready(function() {
   });
 
   $(".exercise_toggle").on('click', function(){
-    // console.log(this.dataset.buttonSetGroup);
-    // console.log($("div[data-button-set-group=" + this.dataset.buttonSetGroup + "]"));
     $("div[data-button-set-group=" + this.dataset.buttonSetGroup + "]").each(function(){
       $(this).toggleClass("active");
     })
     $("div[data-content-set-group=" + this.dataset.buttonSetGroup + "]").toggle();
   });
 
+  // hover functionality to show what the session strategy was on a given day in the training session index calendar
   $(".link_to_training_session").hover(function(){
     $("#month-" + this.dataset.monthYear).html(this.dataset.seshStrat);
+    $(this).parent().parent().addClass('day_hover');
   });
   $(".link_to_training_session").mouseout(function(){
     $("#month-" + this.dataset.monthYear).html(" &nbsp;");
+    $(this).parent().parent().removeClass('day_hover');
   });
+
 
 
 });
