@@ -35,8 +35,13 @@ module CalendarViewerHelper
     end
 
     def day_cell(day)
+      added_class = day.day.even? ? " test" : ""
       content_tag :td, class: day_box_classes(day) do
-        content_tag :div, view.capture(day, &callback), class: day_content_classes(day)
+        content_tag :div, view.capture(day, &callback),
+        # if day.day.even?
+        #   "test"
+        # end
+        class: day_content_classes(day) + added_class
       end
     end
 
