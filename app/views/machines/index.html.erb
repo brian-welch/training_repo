@@ -4,15 +4,12 @@
     <div class="dotted_hr"></div>
     <% @brand_machine_hash.delete("Placeholder") %>
     <% if @brand_machine_hash.count == 0 %>
-
-    <div class="exercise_set_container">
-      <div class="session_set_index_exercise_name">
-        <h3><%= image_tag "icons_symbols/tr_cross_a.svg", style: "width: 30px;" %> There are no machines in the database yet.</h3>
+      <div class="exercise_set_container">
+        <div class="session_set_index_exercise_name">
+          <h3><%= image_tag "icons_symbols/tr_cross_a.svg", style: "width: 30px;" %> There are no machines in the database yet.</h3>
+        </div>
       </div>
-    </div>
-
     <% else %>
-
       <% @brand_machine_hash.sort_by {|x,y| x }.each do |brand, machines| %>
         <div class="exercise_set_container">
           <div class="session_set_index_exercise_name">
@@ -20,12 +17,11 @@
           </div>
           <% machines.each do |machine| %>
             <div class="session_set_index_machine_name">
-              <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %> <%= machine.split(" ").map{|x| x.capitalize}.join(" ") %>
+              <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %> <%= proper_string(machine.name) %>
             </div>
           <% end %>
         </div>
       <% end %>
     <% end %>
-
   </div>
 </div>

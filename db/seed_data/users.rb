@@ -1,8 +1,8 @@
 def user_list
   return [
     {
-      first_name: "brian",
-      last_name: "welch",
+      first_name: "Brian",
+      last_name: "Welch",
       email: "brian.c.welch@gmail.com",
       password: "12345678",
       birthdate: "1974/12/10",
@@ -12,8 +12,8 @@ def user_list
       role: "admin"
     },
     {
-      first_name: "niels",
-      last_name: "hemmingsen",
+      first_name: "Niels",
+      last_name: "Hemmingsen",
       email: "nhe@boozt.com",
       password: "87654321",
       birthdate: "1962/01/01",

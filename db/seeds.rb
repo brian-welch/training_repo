@@ -145,30 +145,34 @@ end
 puts "\n#{Machine.count} Machines created."
 sleep 0.5
 
-user = User.find_by_first_name("brian")
+users = ["Brian", "John"].each_with_object([]) {|user, arr| arr << User.find_by_first_name(user)}
 
-training_session_list.each do |sesh_details|
-#  user = User.find_by_first_name("brian")
-  new_t = TrainingSession.new(sesh_details)
-  new_t.user_id = user.id
-  new_t.save!
+users.each do |user|
+  training_session_list.each do |sesh_details|
+    new_t = TrainingSession.new(sesh_details)
+    new_t.user_id = user.id
+    new_t.save!
+  end
+  puts "\n#{TrainingSession.where(user: user).count} Training Sessions created for #{user.first_name}."
+  sleep 0.5
 end
 
-puts "\n#{TrainingSession.count} Training Sessions created."
-sleep 0.5
+users.each do |user|
+  session_set_list.each_with_index do |set_details_arr, index|
+    tr = TrainingSession.where("session_number = ? AND user_id = ?", set_details_arr[0], user.id)[0]
+    new_s = SessionSet.new(set_details_arr[1])
+      new_s.training_session_id = tr.id
+      new_s.created_at = tr.created_at + 1800 + index
+      new_s.updated_at = tr.created_at + 1920 + index
+      new_s.save!
+      sleep 0.01
+  end
 
-session_set_list.each_with_index do |set_details_arr, index|
-#  user = User.find_by_first_name("brian")
-  tr = TrainingSession.where("session_number = ? AND user_id = ?", set_details_arr[0], user.id)[0]
-  new_s = SessionSet.new(set_details_arr[1])
-    new_s.training_session_id = tr.id
-    new_s.created_at = tr.created_at + 1800 + index
-    new_s.updated_at = tr.created_at + 1920 + index
-    new_s.save!
+  puts "\n#{SessionSet.where(user: user).count} Sets created for #{user.first_name}."
+  sleep 0.5
 end
 
-puts "\n#{SessionSet.count} Sets created."
-sleep 0.5
+
 
 puts '- ' * 30 + "\n"
 puts '*' * 23

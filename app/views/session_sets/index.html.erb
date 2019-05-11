@@ -1,155 +1,56 @@
 <div class="container">
-  <div class="col-xs-12">
-  </div>
   <div class="col-xs-12 col-md-8 col-md-offset-2">
     <h1>This Session's Sets</h1>
     <h3><%= @active_tr_sesh_inst.session_strategy.name %></h3>
     <div class="dotted_hr"></div>
-    <%= "<h3>0 sets on this session</h3>".html_safe if @exercise_set_hash.count == 0 %>
-      <% @exercise_set_hash.each_with_index do |(exercise, machine_set_hash), i| %>
-
-        <div class="exercise_set_marker" id="set-<%= machine_set_hash.to_a.last[1].last.id %>"></div>
-
-        <div class="exercise_toggle_container">
-          <div class="exercise_toggle active" data-button-set-group="<%= i + 1 %>">Current</div>
-          <div class="exercise_toggle" data-button-set-group="<%= i + 1 %>">Previous</div>
-        </div>
-
-        <div class="exercise_set_container" data-content-set-group="<%= i + 1 %>">
-        <!-- Current training session exercise data block -->
-
-          <div class="session_set_index_exercise_name">
-            <%= image_tag "logo_and_branding/tr_check_a.svg", style: "height: 22px; position: relative; bottom: 1px;" %> <%= proper_string(exercise.name) %>
-          </div>
-
-            <% if exercise.machine %>
-
-              <% machine_set_hash.each do |machine_inst, set_array| %>
-                <div class="session_set_index_machine_name">
-                  <%= image_tag "logo_and_branding/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %><%= proper_string(machine_inst.name) %> :: <%= proper_string(machine_inst.brand.name) %>
-                </div>
-
-                <% set_array.each do |set_instance| %>
-                  <div class="saved_set_data_box <%= "last_saved_set_border" if set_instance.id == @last_set_saved_id %>" >
-                    <%= "<div class=\"last_saved_set_marker\"></div>".html_safe if set_instance.id == @last_set_saved_id  %>
-                    <div class="set_data_weight">
-                      <%= "#{set_instance.weight_kg}" %> <span>kg</span>
-                    </div>
-                    <div class="set_data_reps">
-                      <%= "#{set_instance.reps}" %> <span>reps</span>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-
-              <div class="save_set_data_total_weight">
-                <span class="set_data_total_weight_title">
-                  Total:
-                </span>
-                <span class="set_data_total_weight_sum">
-                  <br><%= total_weight_calculator_active_session(exercise, machine_set_hash) %> kg *
-                </span>
-              </div>
-
-            <% else %>
-
-              <% machine_set_hash.each do |machine_inst, set_array| %>
-
-                <% set_array.each do |set_instance| %>
-                  <div class="saved_set_data_box <%= "last_saved_set_border" if set_instance.id == @last_set_saved_id %>" >
-                    <%= "<div class=\"last_saved_set_marker\"></div>".html_safe if set_instance.id == @last_set_saved_id  %>
-                    <div class="set_data_weight">
-                      <%= "#{set_instance.weight_kg}" %> <span>kg</span>
-                    </div>
-                    <div class="set_data_reps">
-                      <%= "#{set_instance.reps}" %> <span>reps</span>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-
-              <div class="save_set_data_total_weight">
-                <span class="set_data_total_weight_title">
-                  Total:
-                </span>
-                <span class="set_data_total_weight_sum">
-                  <br><%= total_weight_calculator_active_session(exercise, machine_set_hash) %> kg *
-                </span>
-              </div>
-            <% end %>
-
-          <%= link_to new_session_set_path(
-            exercise_id: @exercise_set_hash[exercise].to_a.flatten[1].exercise.id,
-            machine: @exercise_set_hash[exercise].to_a.flatten[1].machine,
-            pulley_count: @exercise_set_hash[exercise].to_a.flatten[1].pulley_count ) do %>
-
-            <button class="btn btn-xs btn-info sesion_set_add_new_set_btn">
-              <i class="fas fa-plus-circle"></i> Set of This
-            </button>
-          <% end %>
-
-        </div>
-
-
-
-        <% last_sets = get_sets_last_inactive_sesh_with_exercise(exercise)  %>
-        <% if last_sets.count > 0 %>
-
-          <div class="exercise_set_container prior_saved_exercise" data-content-set-group="<%= i + 1 %>">
-          <!-- Prior Exercise Data Block -->
-
-            <div class="session_set_index_exercise_name">
-              <%= image_tag "logo_and_branding/tr_check_a.svg", style: "height: 22px; position: relative; bottom: 1px;" %> <%= proper_string(last_sets.first.exercise.name) %>
-            </div>
-
-            <% if last_sets.first.exercise.machine %>
-              <div class="session_set_index_machine_name">
-                <%= image_tag "logo_and_branding/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %><%= proper_string(last_sets.first.machine.name) %> :: <%= proper_string(last_sets.first.machine.brand.name) %>
-              </div>
-            <% end %>
-
-            <div class="session_set_index_machine_name">
-              <%= image_tag "logo_and_branding/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %><%= last_sets.first.training_session.created_at.to_date %>
-            </div>
-
-            <% last_sets.each do |set| %>
-
-              <div class="saved_set_data_box" >
-                <div class="set_data_weight">
-                  <%= "#{set.weight_kg}" %> <span>kg</span>
-                </div>
-                <div class="set_data_reps">
-                  <%= "#{set.reps}" %> <span>reps</span>
-                </div>
-              </div>
-
-            <% end %>
-
-            <div class="save_set_data_total_weight">
-              <span class="set_data_total_weight_title">
-                Total:
-              </span>
-              <span class="set_data_total_weight_sum">
-                <br><%= total_weight_calculator_prior_session(last_sets) %> kg *
-              </span>
-            </div>
-          </div>
-
-        <% else %>
-          <div class="exercise_set_container prior_saved_exercise" data-content-set-group="<%= i + 1 %>">
-            <div class="session_set_index_exercise_name">
-              <%= image_tag "logo_and_branding/tr_info_a.svg", style: "height: 22px; position: relative; bottom: 1px;" %> This is Your First Time Doing This Exercise
-            </div>
-          </div>
-        <% end %>
-
+    <%= "<h3>0 sets on this session</h3>".html_safe if @all_sets_hash_by_exercise.count == 0 %>
+    <% @all_sets_hash_by_exercise.each_with_index do |(exercise_inst, sets), index| %>
+      <% args = { exercise_inst: exercise_inst,
+                  sets: sets,
+                  index: index,
+                  last_set_saved_id: @last_set_saved_id} %>
+      <%= render_session_sets args do |args| %>
       <% end %>
 
-      <%= link_to new_session_set_path do %>
-        <button class="btn btn-xs btn-info sesion_set_add_new_exercise_btn">
-          <i class="fas fa-plus-circle"></i> New Exercise
-        </button>
+      <% prior_args = { exercise_inst: exercise_inst,
+                  sets: get_sets_last_inactive_sesh_with_exercise(exercise_inst),
+                  index: index,
+                  last_set_saved_id: @last_set_saved_id,
+                  archived: true } %>
+      <%= render_prior_session_sets prior_args do |prior_args| %>
       <% end %>
-    <%= "<div class=\"total_weight_calculation_reminder\">* Remember: The total weight is calculated including bodyweight when applicable and reductions for the mechanical advantage of machines. This produces a more reliable measure of total weight lifted when comparing different workout sessions.</div>".html_safe if @exercise_set_hash.count > 0 %>
+
+
+    <% end %>
+
+    <%= link_to new_session_set_path do %>
+      <button class="btn btn-xs btn-info sesion_set_add_new_exercise_btn">
+        <i class="fas fa-plus-circle"></i> New Exercise
+      </button>
+    <% end %>
+    <%= "<div class=\"total_weight_calculation_reminder\">* Remember: The total weight is calculated including bodyweight when applicable and reductions for the mechanical advantage of machines. This produces a more reliable measure of total weight lifted when comparing different workout sessions.</div>".html_safe if @all_sets_hash_by_exercise.count > 0 %>
+
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

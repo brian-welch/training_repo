@@ -1,8 +1,4 @@
 function getSessionStrategyInfo(array) {
-  // alert('app/assets/javascripts/channels/application.js');
-  // console.log(array[0]);
-  // console.log(array[1]);
-  console.log(array);
   let desc_array = array[1];
   let temp = "";
   desc_array.forEach(function(e) {
