@@ -11,17 +11,7 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-    <style>
-      /*.page_background_pattern {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(255, 255, 255, 0.5);
-        z-index: ;
-      }*/
-    </style>
+
   </head>
   <body>
     <%= render 'shared/desktop_navbar' %>
@@ -31,6 +21,5 @@
     <%= render 'shared/mobile_navbar' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <!-- <div class="page_background_pattern"></div> -->
   </body>
 </html>
