@@ -3,16 +3,7 @@ class MachinesController < ApplicationController
 
   def index
     @title = "A List of All Strength Training Machines in Training Repo's Database"
-    all_machine_instances = Machine.all
-    @brand_machine_hash = {};
-    all_machine_instances.each do |machine|
-        if @brand_machine_hash[machine.brand.name].nil?
-          @brand_machine_hash[machine.brand.name] = []
-          @brand_machine_hash[machine.brand.name] << machine.name
-        else
-          @brand_machine_hash[machine.brand.name] << machine.name
-        end
-    end
+    @brand_machine_hash = Machine.all.group_by {|x| x.brand.name}
   end
 
   def new

@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :weight, presence: true
   validates :email, uniqueness: true
 
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   private
 

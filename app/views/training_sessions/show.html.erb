@@ -6,8 +6,6 @@
     <h2><%= @training_session.session_strategy.name %></h2>
     <div class="dotted_hr"></div>
 
-    <!-- <hr> -->
-
     <div class="back_to_link">
       <%= link_to training_sessions_path do %>
         <%= image_tag "icons_symbols/tr_arrow_left_a.svg", style: "height: 22px; position: relative; bottom: 1px;" %> back to ALL sessions
@@ -21,7 +19,6 @@
       </div>
     <% end %>
 
-    <!-- <span class="set_order_marker_explained">* order completed</span> -->
     <div class="training_session_summary_table_container">
       <table class="training_session_summary_table">
         <tr>
@@ -49,27 +46,28 @@
 
       <div class="exercise_set_container">
 
-        <!-- <i class="fas fa-check-circle"></i> -->
         <div class="session_set_index_exercise_name">
           <%= image_tag "icons_symbols/tr_check_a.svg", style: "height: 22px; position: relative; bottom: 1px;" %> <%= proper_string(exercise.name) %>
         </div>
 
-        <% if exercise.machine %>
+          <% machine_sets_order_hash.each do |machine_inst, order_set_arrays| %>
 
-          <% machine_sets_order_hash.each do |machine_inst, set_order_hash_array| %>
+            <% if machine_inst %>
 
-            <div class="session_set_index_machine_name">
-              <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %><%= proper_string(machine_inst.name) %> :: <%= proper_string(machine_inst.brand.name) %>
-            </div>
+              <div class="session_set_index_machine_name">
+                <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %><%= proper_string(machine_inst.name) %> :: <%= proper_string(machine_inst.brand.name) %>
+              </div>
 
-            <% set_order_hash_array.each do |set_order_hash| %>
+            <% end %>
+
+            <% order_set_arrays.each do |order_set_array| %>
               <div class="saved_set_data_box" >
-                <div class="set_order_marker" onclick="orderMessage();"><%= set_order_hash[:order] %></div>
+                <div class="set_order_marker" onclick="orderMessage();"><%= order_set_array[0] %></div>
                 <div class="set_data_weight">
-                  <%= "#{set_order_hash[:set].weight_kg}" %> <span>kg</span>
+                  <%= "#{order_set_array[1].weight_kg}" %> <span>kg</span>
                 </div>
                 <div class="set_data_reps">
-                  <%= "#{set_order_hash[:set].reps}" %> <span>reps</span>
+                  <%= "#{order_set_array[1].reps}" %> <span>reps</span>
                 </div>
               </div>
             <% end %>
@@ -84,36 +82,6 @@
               <br><%= total_weight_calculator_show_session(exercise, machine_sets_order_hash) %> kg *
             </span>
           </div>
-
-        <% else %>
-
-          <% machine_sets_order_hash.each do |machine_inst, set_order_hash_array| %>
-
-            <% set_order_hash_array.each do |set_order_hash| %>
-              <div class="saved_set_data_box" >
-                <div class="set_order_marker" onclick="orderMessage();"><%= set_order_hash[:order] %></div>
-                <div class="set_data_weight">
-                  <%= "#{set_order_hash[:set].weight_kg}" %> <span>kg</span>
-                </div>
-                <div class="set_data_reps">
-                  <%= "#{set_order_hash[:set].reps}" %> <span>reps</span>
-                </div>
-              </div>
-            <% end %>
-
-          <% end %>
-
-          <div class="save_set_data_total_weight">
-            <span class="set_data_total_weight_title">
-              Total:
-            </span>
-            <span class="set_data_total_weight_sum">
-              <br><%= total_weight_calculator_show_session(exercise, machine_sets_order_hash) %> kg *
-            </span>
-          </div>
-
-        <% end %>
-
 
       </div>
 
