@@ -21,7 +21,9 @@ class SessionSetsController < ApplicationController
 
 
   def new
-    if @active_tr_sesh_inst
+    if !user_is_active?
+      redirect_to inactive_path
+    elsif @active_tr_sesh_inst
       @new_session_set = SessionSet.new(training_session: @active_tr_sesh_inst, exercise_id: params[:exercise_id])
       if params[:exercise_id]
         @new_session_set.exercise_id = params[:exercise_id]

@@ -8,7 +8,9 @@ class MachinesController < ApplicationController
 
   def new
     requester_role = current_user.role.name
-    if requester_role != "admin"
+    if !user_is_active?
+      redirect_to inactive_path
+    elsif requester_role != "admin"
       if requester_role != "pt"
         flash[:alert] = "You do not have permissions to add new machnines.<br>Please contact the admin or your personal trainer to add machines."
         redirect_to machines_path
