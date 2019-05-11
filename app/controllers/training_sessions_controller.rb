@@ -10,7 +10,9 @@ class TrainingSessionsController < ApplicationController
   end
 
   def new
-    if TrainingSession.active_session_number(current_user.id)
+    if !user_is_active?
+      redirect_to inactive_path
+    elsif TrainingSession.active_session_number(current_user.id)
       flash[:alert] = "You already have any active training sessions.<br>You must end the session or save a set."
       redirect_to session_sets_path
     else
