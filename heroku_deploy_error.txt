@@ -1,0 +1,443 @@
+Compressing source files... done.
+Building source:
+
+ !     Warning: Multiple default buildpacks reported the ability to handle this app. The first buildpack in the list below will be used.
+      Detected buildpacks: Ruby,Node.js
+      See https://devcenter.heroku.com/articles/buildpacks#buildpack-detect-order
+-----> Ruby app detected
+-----> Compiling Ruby/Rails
+-----> Using Ruby version: ruby-2.4.4
+-----> Installing dependencies using bundler 2.0.1
+       Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin -j4 --deployment
+       Fetching gem metadata from https://rubygems.org/............
+       Fetching rake 12.3.2
+       Installing rake 12.3.2
+       Fetching concurrent-ruby 1.1.4
+       Fetching minitest 5.11.3
+       Fetching thread_safe 0.3.6
+       Installing minitest 5.11.3
+       Installing thread_safe 0.3.6
+       Installing concurrent-ruby 1.1.4
+       Fetching builder 3.2.3
+       Installing builder 3.2.3
+       Fetching erubi 1.8.0
+       Installing erubi 1.8.0
+       Fetching mini_portile2 2.4.0
+       Fetching crass 1.0.4
+       Installing mini_portile2 2.4.0
+       Installing crass 1.0.4
+       Fetching rack 2.0.6
+       Installing rack 2.0.6
+       Fetching nio4r 2.3.1
+       Installing nio4r 2.3.1 with native extensions
+       Fetching websocket-extensions 0.1.3
+       Installing websocket-extensions 0.1.3
+       Fetching mini_mime 1.0.1
+       Installing mini_mime 1.0.1
+       Fetching arel 9.0.0
+       Installing arel 9.0.0
+       Fetching mimemagic 0.3.3
+       Fetching execjs 2.7.0
+       Installing execjs 2.7.0
+       Installing mimemagic 0.3.3
+       Fetching bcrypt 3.1.12
+       Installing bcrypt 3.1.12 with native extensions
+       Fetching msgpack 1.2.6
+       Installing msgpack 1.2.6 with native extensions
+       Fetching ffi 1.9.25
+       Installing ffi 1.9.25 with native extensions
+       Fetching browser 2.0.3
+       Installing browser 2.0.3
+       Using bundler 2.0.1
+       Fetching orm_adapter 0.5.0
+       Installing orm_adapter 0.5.0
+       Fetching method_source 0.9.2
+       Installing method_source 0.9.2
+       Fetching thor 0.20.3
+       Installing thor 0.20.3
+       Fetching multi_json 1.13.1
+       Installing multi_json 1.13.1
+       Fetching local_time 2.1.0
+       Installing local_time 2.1.0
+       Fetching pg 0.21.0
+       Installing pg 0.21.0 with native extensions
+       Fetching puma 3.12.0
+       Installing puma 3.12.0 with native extensions
+       Fetching redis 4.1.0
+       Installing redis 4.1.0
+       Fetching tilt 2.0.9
+       Installing tilt 2.0.9
+       Fetching tzinfo 1.2.5
+       Installing tzinfo 1.2.5
+       Fetching nokogiri 1.10.0
+       Installing nokogiri 1.10.0 with native extensions
+       Fetching i18n 1.5.1
+       Installing i18n 1.5.1
+       Fetching websocket-driver 0.7.0
+       Installing websocket-driver 0.7.0 with native extensions
+       Fetching mail 2.7.1
+       Installing mail 2.7.1
+       Fetching rack-test 1.1.0
+       Installing rack-test 1.1.0
+       Fetching warden 1.2.8
+       Installing warden 1.2.8
+       Fetching rack-proxy 0.6.5
+       Installing rack-proxy 0.6.5
+       Fetching sprockets 3.7.2
+       Installing sprockets 3.7.2
+       Fetching autoprefixer-rails 9.4.4
+       Installing autoprefixer-rails 9.4.4
+       Fetching uglifier 4.1.20
+       Installing uglifier 4.1.20
+       Fetching marcel 0.3.3
+       Installing marcel 0.3.3
+       Fetching bootsnap 1.3.2
+       Installing bootsnap 1.3.2 with native extensions
+       Fetching sassc 2.0.0
+       Installing sassc 2.0.0 with native extensions
+       Fetching activesupport 5.2.2
+       Installing activesupport 5.2.2
+       Fetching loofah 2.2.3
+       Installing loofah 2.2.3
+       Fetching rails-dom-testing 2.0.3
+       Installing rails-dom-testing 2.0.3
+       Fetching globalid 0.4.1
+       Installing globalid 0.4.1
+       Fetching activemodel 5.2.2
+       Installing activemodel 5.2.2
+       Fetching jbuilder 2.8.0
+       Fetching rails-html-sanitizer 1.0.4
+       Installing jbuilder 2.8.0
+       Installing rails-html-sanitizer 1.0.4
+       Fetching activejob 5.2.2
+       Installing activejob 5.2.2
+       Fetching activerecord 5.2.2
+       Fetching actionview 5.2.2
+       Installing activerecord 5.2.2
+       Installing actionview 5.2.2
+       Fetching actionpack 5.2.2
+       Installing actionpack 5.2.2
+       Fetching actioncable 5.2.2
+       Fetching actionmailer 5.2.2
+       Installing actionmailer 5.2.2
+       Installing actioncable 5.2.2
+       Fetching activestorage 5.2.2
+       Installing activestorage 5.2.2
+       Fetching railties 5.2.2
+       Installing railties 5.2.2
+       Fetching sprockets-rails 3.2.1
+       Installing sprockets-rails 3.2.1
+       Fetching simple_form 4.1.0
+       Installing simple_form 4.1.0
+       Fetching responders 2.4.0
+       Fetching jquery-rails 4.3.3
+       Installing responders 2.4.0
+       Installing jquery-rails 4.3.3
+       Fetching rails 5.2.2
+       Installing rails 5.2.2
+       Fetching webpacker 3.5.5
+       Installing webpacker 3.5.5
+       Fetching devise 4.5.0
+       Installing devise 4.5.0
+       Fetching font-awesome-sass 5.5.0.1
+       Fetching bootstrap-sass 3.4.0
+       Fetching sassc-rails 2.1.0
+       Installing sassc-rails 2.1.0
+       Installing bootstrap-sass 3.4.0
+       Installing font-awesome-sass 5.5.0.1
+       Bundle complete! 25 Gemfile dependencies, 68 gems now installed.
+       Gems in the groups development and test were not installed.
+       Bundled gems are installed into `./vendor/bundle`
+       Post-install message from i18n:
+
+       HEADS UP! i18n 1.1 changed fallbacks to exclude default locale.
+       But that may break your application.
+
+       Please check your Rails app for 'config.i18n.fallbacks = true'.
+       If you're using I18n (>= 1.1.0) and Rails (< 5.2.2), this should be
+       'config.i18n.fallbacks = [I18n.default_locale]'.
+       If not, fallbacks will be broken in your app by I18n 1.1.x.
+
+       For more info see:
+       https://github.com/svenfuchs/i18n/releases/tag/v1.1.0
+
+       Bundle completed (182.54s)
+       Cleaning up the bundler cache.
+-----> Installing node-v10.14.1-linux-x64
+-----> Installing yarn-v1.12.3
+-----> Detecting rake tasks
+-----> Preparing app for Rails asset pipeline
+       Running: rake assets:precompile
+       yarn install v1.12.3
+       [1/4] Resolving packages...
+       [2/4] Fetching packages...
+       info fsevents@1.2.4: The platform "linux" is incompatible with this module.
+       info "fsevents@1.2.4" is an optional dependency and failed compatibility check. Excluding it from installation.
+       [3/4] Linking dependencies...
+       warning "@rails/webpacker > postcss-cssnext@3.1.0" has unmet peer dependency "caniuse-lite@^1.0.30000697".
+       warning " > webpack-dev-server@2.11.2" has unmet peer dependency "webpack@^2.2.0 || ^3.0.0".
+       warning "webpack-dev-server > webpack-dev-middleware@1.12.2" has unmet peer dependency "webpack@^1.0.0 || ^2.0.0 || ^3.0.0".
+       [4/4] Building fresh packages...
+       Done in 24.71s.
+       I, [2019-05-11T13:56:16.494561 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-brands-400-9158ee2ef88ea648444ba1c9fcea310baa1e5e4e5fe86e338dcd29fcb081cfc7.eot
+       I, [2019-05-11T13:56:16.495569 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-brands-400-9158ee2ef88ea648444ba1c9fcea310baa1e5e4e5fe86e338dcd29fcb081cfc7.eot.gz
+       I, [2019-05-11T13:56:16.500163 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-regular-400-169416887c9d3c310bf02a12eaf82269d4cf77b16af2e91745b1c152bba0061d.eot
+       I, [2019-05-11T13:56:16.501087 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-regular-400-169416887c9d3c310bf02a12eaf82269d4cf77b16af2e91745b1c152bba0061d.eot.gz
+       I, [2019-05-11T13:56:16.509215 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-solid-900-690be61fe58020511558ce4b04375178872629f6c737ed1b332aec65855fd937.eot
+       I, [2019-05-11T13:56:16.510517 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-solid-900-690be61fe58020511558ce4b04375178872629f6c737ed1b332aec65855fd937.eot.gz
+       I, [2019-05-11T13:56:16.522831 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-brands-400-7aadbc4ac7f80413de00052694c1a44e0b0dbf0e2d7f739c628b88b28bb72bfa.svg
+       I, [2019-05-11T13:56:16.524896 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-brands-400-7aadbc4ac7f80413de00052694c1a44e0b0dbf0e2d7f739c628b88b28bb72bfa.svg.gz
+       I, [2019-05-11T13:56:16.531138 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-regular-400-59dc408283c57a47d27b2a2852726f43db3285cab7e3d6297e8da7c901857f7b.svg
+       I, [2019-05-11T13:56:16.531885 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-regular-400-59dc408283c57a47d27b2a2852726f43db3285cab7e3d6297e8da7c901857f7b.svg.gz
+       I, [2019-05-11T13:56:16.541096 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-solid-900-22f6af77ffeeb267c5270fa1e50681ae01a9a19f8e9ef976798e0196c941ade6.svg
+       I, [2019-05-11T13:56:16.544071 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-solid-900-22f6af77ffeeb267c5270fa1e50681ae01a9a19f8e9ef976798e0196c941ade6.svg.gz
+       I, [2019-05-11T13:56:16.555424 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-brands-400-dbd08d025602b79ce71910b2a68577959cbf2ef02fc664e243bf50277754fdfc.ttf
+       I, [2019-05-11T13:56:16.569469 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-brands-400-dbd08d025602b79ce71910b2a68577959cbf2ef02fc664e243bf50277754fdfc.ttf.gz
+       I, [2019-05-11T13:56:16.582789 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-regular-400-ecb5719eb6408359d91fd2530646064a3f251aed691fd48277289cc8d6d53dfa.ttf
+       I, [2019-05-11T13:56:16.591910 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-regular-400-ecb5719eb6408359d91fd2530646064a3f251aed691fd48277289cc8d6d53dfa.ttf.gz
+       I, [2019-05-11T13:56:16.602820 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-solid-900-b97adad7ece9792af4122ae88103cad8fab54558a529c4ba79b5224c2b02ebe9.ttf
+       I, [2019-05-11T13:56:16.603253 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-solid-900-b97adad7ece9792af4122ae88103cad8fab54558a529c4ba79b5224c2b02ebe9.ttf.gz
+       I, [2019-05-11T13:56:16.614941 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-brands-400-ca441c07992a7160e4d2622e78f8970c9b92f176694c8dc07592326496a801d6.woff
+       I, [2019-05-11T13:56:16.625446 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-regular-400-f101b8f70e36be2e9004222875e9fd45b263f72769c68e25e3c7525d3871728b.woff
+       I, [2019-05-11T13:56:16.631174 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-solid-900-8fb19633f125ca466a45da9e4cf291d8b9519dd74c214f99dde835ef83f3ab96.woff
+       I, [2019-05-11T13:56:16.645064 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-brands-400-05dbc51654b96590d176c27efbcef2cf4ac0497499a9f28b731b73eea399070c.woff2
+       I, [2019-05-11T13:56:16.650732 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-regular-400-92ba7bfaa43a35c94353e96860d99376313ee9b5fce6124d4e64067280f9a841.woff2
+       I, [2019-05-11T13:56:16.656448 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/font-awesome/fa-solid-900-7798165ee5a3c6809310d8261dcbe7c8d0c12d795b7b09a71af3eb86ec8f33f2.woff2
+       I, [2019-05-11T13:56:16.663315 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern-b102a3a1d0a1eb53e80431254df00de6eaaae190405323fd8f8d284d0c587a6c.svg
+       I, [2019-05-11T13:56:16.665487 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern-b102a3a1d0a1eb53e80431254df00de6eaaae190405323fd8f8d284d0c587a6c.svg.gz
+       I, [2019-05-11T13:56:16.669406 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_02_a-a343de3292b036f1a8145c9207813a5d4ad5e346f120bf4c04d590610f31b957.svg
+       I, [2019-05-11T13:56:16.671571 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_02_a-a343de3292b036f1a8145c9207813a5d4ad5e346f120bf4c04d590610f31b957.svg.gz
+       I, [2019-05-11T13:56:16.675346 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_02_b-3b788a784936971c62c8223c8d886a3199e6ca92791072370c17651914e1d361.svg
+       I, [2019-05-11T13:56:16.676879 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_02_b-3b788a784936971c62c8223c8d886a3199e6ca92791072370c17651914e1d361.svg.gz
+       I, [2019-05-11T13:56:16.684952 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_02_c-116742f4313c050392d8f7be664a108f8c88f5aad2d874517abaedd7af592769.svg
+       I, [2019-05-11T13:56:16.685723 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_02_c-116742f4313c050392d8f7be664a108f8c88f5aad2d874517abaedd7af592769.svg.gz
+       I, [2019-05-11T13:56:16.689544 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_03_a-252e739e88d6732621d5d246453c89db57afdcfed56ee3d9b744ad55157c31c6.svg
+       I, [2019-05-11T13:56:16.691765 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_03_a-252e739e88d6732621d5d246453c89db57afdcfed56ee3d9b744ad55157c31c6.svg.gz
+       I, [2019-05-11T13:56:16.694845 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_03_b-bff36b731b126b0f09d575742e5385ea0601deec2b95fdffd29b430095f9e708.svg
+       I, [2019-05-11T13:56:16.701929 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_03_b-bff36b731b126b0f09d575742e5385ea0601deec2b95fdffd29b430095f9e708.svg.gz
+       I, [2019-05-11T13:56:16.705028 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_b-aa53c20f8dc8833f41223676ffe23f1399dd10e5ad147d1115a9a06082cfefc5.svg
+       I, [2019-05-11T13:56:16.708928 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_b-aa53c20f8dc8833f41223676ffe23f1399dd10e5ad147d1115a9a06082cfefc5.svg.gz
+       I, [2019-05-11T13:56:16.712275 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_c-527822c377d8caa4159a571e4299fa4461728ef0578cc2ab088aab63fabac0d5.svg
+       I, [2019-05-11T13:56:16.713146 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/background/hexagon_pattern_c-527822c377d8caa4159a571e4299fa4461728ef0578cc2ab088aab63fabac0d5.svg.gz
+       I, [2019-05-11T13:56:16.719998 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/analytics_01_a-74938274f495537c9d18f6ca22c62d3f4a5eae3b530f1cfc882264b13b87c7f2.svg
+       I, [2019-05-11T13:56:16.720877 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/analytics_01_a-74938274f495537c9d18f6ca22c62d3f4a5eae3b530f1cfc882264b13b87c7f2.svg.gz
+       I, [2019-05-11T13:56:16.731615 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_2_a-8561cd2bf75d87a6694260660301db7f4e8f76e627ff131a31f62d95b76c4898.svg
+       I, [2019-05-11T13:56:16.732224 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_2_a-8561cd2bf75d87a6694260660301db7f4e8f76e627ff131a31f62d95b76c4898.svg.gz
+       I, [2019-05-11T13:56:16.735948 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_2_d-cb0e875ddb6000c9f9ccbe0c05511399f088e22d3316d38c9406b3341f3104a1.svg
+       I, [2019-05-11T13:56:16.737002 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_2_d-cb0e875ddb6000c9f9ccbe0c05511399f088e22d3316d38c9406b3341f3104a1.svg.gz
+       I, [2019-05-11T13:56:16.740495 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_3_a-df7877fd2fc1ee473dcbe8ab87dd2d7d3717e64ee7393e26807692a1c373d0ff.svg
+       I, [2019-05-11T13:56:16.741390 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_3_a-df7877fd2fc1ee473dcbe8ab87dd2d7d3717e64ee7393e26807692a1c373d0ff.svg.gz
+       I, [2019-05-11T13:56:16.744683 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_3_d-82b5c30e160a0c744aacbef485dc3ba27ae22d7871c80e8421e5e6a20a5a5968.svg
+       I, [2019-05-11T13:56:16.745588 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_3_d-82b5c30e160a0c744aacbef485dc3ba27ae22d7871c80e8421e5e6a20a5a5968.svg.gz
+       I, [2019-05-11T13:56:16.749107 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_3_e-18f204c73420232e9329f88d38f9904380d7b74c649da374df6fa201bb565ba3.svg
+       I, [2019-05-11T13:56:16.749965 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_3_e-18f204c73420232e9329f88d38f9904380d7b74c649da374df6fa201bb565ba3.svg.gz
+       I, [2019-05-11T13:56:16.753376 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_3_f-c0516aa6f88fa3bf686b67c6f9da3e84ca0dda4241083d47312b74b2cf368f0a.svg
+       I, [2019-05-11T13:56:16.754235 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_3_f-c0516aa6f88fa3bf686b67c6f9da3e84ca0dda4241083d47312b74b2cf368f0a.svg.gz
+       I, [2019-05-11T13:56:16.757737 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_a-d22b6c97533f43bf5a871c6801bbdb60ed3fa29c1a0bd54780642f02e02a9b24.svg
+       I, [2019-05-11T13:56:16.758333 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/check_in_circle_a-d22b6c97533f43bf5a871c6801bbdb60ed3fa29c1a0bd54780642f02e02a9b24.svg.gz
+       I, [2019-05-11T13:56:16.761115 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/clipboard_a-956912b210d8b564517cbe9beb3553d006a5735c3b75505d37cfc6b29151dd8c.svg
+       I, [2019-05-11T13:56:16.761725 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/clipboard_a-956912b210d8b564517cbe9beb3553d006a5735c3b75505d37cfc6b29151dd8c.svg.gz
+       I, [2019-05-11T13:56:16.764851 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/diagonal_dumbbell-8ee7f0940002c0ceda9910c55ae0078addd67d24837a763f3757d1afe085481c.svg
+       I, [2019-05-11T13:56:16.765068 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/diagonal_dumbbell-8ee7f0940002c0ceda9910c55ae0078addd67d24837a763f3757d1afe085481c.svg.gz
+       I, [2019-05-11T13:56:16.768202 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/down_right_arrow_d-6939ed1dea579fbb378c7f8e2d53700116b67622b8901ef9d3b07ea92fbb1b5a.svg
+       I, [2019-05-11T13:56:16.768893 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/down_right_arrow_d-6939ed1dea579fbb378c7f8e2d53700116b67622b8901ef9d3b07ea92fbb1b5a.svg.gz
+       I, [2019-05-11T13:56:16.771470 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/dumbbell_a-ffa67ead8275e7136ee2a0bc15cdeea7ece9a4d6be7052c247aae68eea22ac11.svg
+       I, [2019-05-11T13:56:16.772124 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/dumbbell_a-ffa67ead8275e7136ee2a0bc15cdeea7ece9a4d6be7052c247aae68eea22ac11.svg.gz
+       I, [2019-05-11T13:56:16.774769 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/dumbbell_b-fe4564ea796a0bb6dea8c036033fb6097bfc55a561b3157f415c6af9b3590eb8.svg
+       I, [2019-05-11T13:56:16.775470 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/dumbbell_b-fe4564ea796a0bb6dea8c036033fb6097bfc55a561b3157f415c6af9b3590eb8.svg.gz
+       I, [2019-05-11T13:56:16.778426 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/enter_arrow_2_a-09d38773b8777f832063099cc7a5f28f50594c3172b3f3a8b3a425ef6729851e.svg
+       I, [2019-05-11T13:56:16.779011 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/enter_arrow_2_a-09d38773b8777f832063099cc7a5f28f50594c3172b3f3a8b3a425ef6729851e.svg.gz
+       I, [2019-05-11T13:56:16.782115 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/enter_arrow_2_b-9566a9b267097fc5cc16aa9de4efc6eff29f9d423e47c830a177476bd5c28508.svg
+       I, [2019-05-11T13:56:16.782319 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/enter_arrow_2_b-9566a9b267097fc5cc16aa9de4efc6eff29f9d423e47c830a177476bd5c28508.svg.gz
+       I, [2019-05-11T13:56:16.785213 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/enter_arrow_2_c-0066a0e9d68c2c0e378ad13be3d12d5bed7a212b6fcb996fe433a25e408eba5d.svg
+       I, [2019-05-11T13:56:16.785939 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/enter_arrow_2_c-0066a0e9d68c2c0e378ad13be3d12d5bed7a212b6fcb996fe433a25e408eba5d.svg.gz
+       I, [2019-05-11T13:56:16.788991 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/enter_arrow_2_d-37d910a419e5ad4b93106aebdf24592aa94b234d15f73e16186c6c025278dfea.svg
+       I, [2019-05-11T13:56:16.789547 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/enter_arrow_2_d-37d910a419e5ad4b93106aebdf24592aa94b234d15f73e16186c6c025278dfea.svg.gz
+       I, [2019-05-11T13:56:16.792524 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/enter_arrow_a-19554e42240be7db860885ec38817bf2ce42831a07351aed9c3e9a429fc86b83.svg
+       I, [2019-05-11T13:56:16.792724 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/enter_arrow_a-19554e42240be7db860885ec38817bf2ce42831a07351aed9c3e9a429fc86b83.svg.gz
+       I, [2019-05-11T13:56:16.795878 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/enter_arrow_b-e5d8b554105f2b7a01e1e057dd8af1b1199afe3e53275f25c76399dee1245206.svg
+       I, [2019-05-11T13:56:16.796550 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/enter_arrow_b-e5d8b554105f2b7a01e1e057dd8af1b1199afe3e53275f25c76399dee1245206.svg.gz
+       I, [2019-05-11T13:56:16.799683 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/exit_arrow_2_a-305bd310a85dbd2f57f6d5e9560b248cf78c85baf1bccd0f1fa5cca8019059f7.svg
+       I, [2019-05-11T13:56:16.799884 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/exit_arrow_2_a-305bd310a85dbd2f57f6d5e9560b248cf78c85baf1bccd0f1fa5cca8019059f7.svg.gz
+       I, [2019-05-11T13:56:16.802580 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/exit_arrow_2_d-3d5dfcb3c8ebabe324c4a20aa98b38266198df8bf55955b76eaffacbf177a97a.svg
+       I, [2019-05-11T13:56:16.803406 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/exit_arrow_2_d-3d5dfcb3c8ebabe324c4a20aa98b38266198df8bf55955b76eaffacbf177a97a.svg.gz
+       I, [2019-05-11T13:56:16.806148 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/exit_arrow_a-2619cf42bb8c74c8a0b67c71448b4a0f6304aa32ed47358f87e4814da4588b2b.svg
+       I, [2019-05-11T13:56:16.806743 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/exit_arrow_a-2619cf42bb8c74c8a0b67c71448b4a0f6304aa32ed47358f87e4814da4588b2b.svg.gz
+       I, [2019-05-11T13:56:16.809817 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/hand_dumbbell_a-94da3e74f110d463fd741359560744abe1d91b3cd597b6c5f82b16066480ed95.svg
+       I, [2019-05-11T13:56:16.810025 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/hand_dumbbell_a-94da3e74f110d463fd741359560744abe1d91b3cd597b6c5f82b16066480ed95.svg.gz
+       I, [2019-05-11T13:56:16.812940 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/notebook_a-3f5e4165c79d905bc82b9137d740dd2ca3e22e4cdcf20d763d5e4e1c8bd31304.svg
+       I, [2019-05-11T13:56:16.813574 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/notebook_a-3f5e4165c79d905bc82b9137d740dd2ca3e22e4cdcf20d763d5e4e1c8bd31304.svg.gz
+       I, [2019-05-11T13:56:16.816472 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/notebook_b-5cfeae40df4e94ce49b4710483c92473e6dd7eb9f9f032142664d77b72cc0ce0.svg
+       I, [2019-05-11T13:56:16.817148 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/notebook_b-5cfeae40df4e94ce49b4710483c92473e6dd7eb9f9f032142664d77b72cc0ce0.svg.gz
+       I, [2019-05-11T13:56:16.820396 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/notebook_c-0a850e761defc8536d53213593df126af719f1a7747037c6d6436d6f2e0b983b.svg
+       I, [2019-05-11T13:56:16.820683 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/notebook_c-0a850e761defc8536d53213593df126af719f1a7747037c6d6436d6f2e0b983b.svg.gz
+       I, [2019-05-11T13:56:16.824465 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/physics_01_a-610576a6be5e3f463bfff06c7a1bd895d8d15b4a04cf4272fda1bcb0ff6a9c04.svg
+       I, [2019-05-11T13:56:16.825101 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/physics_01_a-610576a6be5e3f463bfff06c7a1bd895d8d15b4a04cf4272fda1bcb0ff6a9c04.svg.gz
+       I, [2019-05-11T13:56:16.828134 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/pulley-8ddd9ab2aad2103883d2769776b89a33157f4c1fe2f64e3c8db1c0a3d9e8d24d.svg
+       I, [2019-05-11T13:56:16.828496 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/pulley-8ddd9ab2aad2103883d2769776b89a33157f4c1fe2f64e3c8db1c0a3d9e8d24d.svg.gz
+       I, [2019-05-11T13:56:16.831543 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/pulley_a-8ddd9ab2aad2103883d2769776b89a33157f4c1fe2f64e3c8db1c0a3d9e8d24d.svg
+       I, [2019-05-11T13:56:16.831811 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/pulley_a-8ddd9ab2aad2103883d2769776b89a33157f4c1fe2f64e3c8db1c0a3d9e8d24d.svg.gz
+       I, [2019-05-11T13:56:16.835126 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/pulley_d-14fa6a016fd5a16a0d99b979eea5b4e793309ade61fd0bd7b3aa2059f510cf53.svg
+       I, [2019-05-11T13:56:16.835861 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/pulley_d-14fa6a016fd5a16a0d99b979eea5b4e793309ade61fd0bd7b3aa2059f510cf53.svg.gz
+       I, [2019-05-11T13:56:16.838934 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/pulley_f-b5f0360c529fa92cc4148c8cb44392f07b4c9397aee5213ad87bff98a2378e33.svg
+       I, [2019-05-11T13:56:16.839246 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/pulley_f-b5f0360c529fa92cc4148c8cb44392f07b4c9397aee5213ad87bff98a2378e33.svg.gz
+       I, [2019-05-11T13:56:16.842708 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_check_a-d36c59baebae1c97454d23322fab2661097fc1a794fecd216432b550754cf593.svg
+       I, [2019-05-11T13:56:16.842912 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_check_a-d36c59baebae1c97454d23322fab2661097fc1a794fecd216432b550754cf593.svg.gz
+       I, [2019-05-11T13:56:16.845959 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_check_b-15c8aa9f1b2133c2de5e36fce9b16035c2e3322869ea5bb8130e5e5f0c7a4dea.svg
+       I, [2019-05-11T13:56:16.846338 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_check_b-15c8aa9f1b2133c2de5e36fce9b16035c2e3322869ea5bb8130e5e5f0c7a4dea.svg.gz
+       I, [2019-05-11T13:56:16.849358 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_check_c-30a2a0bb294eeaadff1b7c7ca1a8c35d25a0cfc9deb5732a5e26d5de28a4fa99.svg
+       I, [2019-05-11T13:56:16.849933 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_check_c-30a2a0bb294eeaadff1b7c7ca1a8c35d25a0cfc9deb5732a5e26d5de28a4fa99.svg.gz
+       I, [2019-05-11T13:56:16.852522 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_cross_a-529d24397f6e402e42df7548e138d84330ef5fdb92a4397ccc433094f1cbe196.svg
+       I, [2019-05-11T13:56:16.852731 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_cross_a-529d24397f6e402e42df7548e138d84330ef5fdb92a4397ccc433094f1cbe196.svg.gz
+       I, [2019-05-11T13:56:16.864866 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_cross_b-15c10ccf37f4dc067830891a306b8b537399346448e6db47fcd43a238acd765f.svg
+       I, [2019-05-11T13:56:16.865854 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_cross_b-15c10ccf37f4dc067830891a306b8b537399346448e6db47fcd43a238acd765f.svg.gz
+       I, [2019-05-11T13:56:16.868954 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_cross_c-637bc0042d78dd09b4a84e9233cd7e9929edfdd45ccb5b410592e59e87bc9096.svg
+       I, [2019-05-11T13:56:16.869565 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_cross_c-637bc0042d78dd09b4a84e9233cd7e9929edfdd45ccb5b410592e59e87bc9096.svg.gz
+       I, [2019-05-11T13:56:16.872854 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_cross_d-335796b50f808ee79ff1eed2022c14bf8edebb0af5ff82fda28d6f4dc6cf186e.svg
+       I, [2019-05-11T13:56:16.873055 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_cross_d-335796b50f808ee79ff1eed2022c14bf8edebb0af5ff82fda28d6f4dc6cf186e.svg.gz
+       I, [2019-05-11T13:56:16.876435 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_cross_e-198c1933959ee63707d3db1694fb932e9c071870dcca2bdcefe4c3b650a92f9d.svg
+       I, [2019-05-11T13:56:16.876852 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_cross_e-198c1933959ee63707d3db1694fb932e9c071870dcca2bdcefe4c3b650a92f9d.svg.gz
+       I, [2019-05-11T13:56:16.880176 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_plus_a-6cb436094a66c4d9da79d02779b0cf7b542a3a7cb4006d8e25b068fb7bdc5efa.svg
+       I, [2019-05-11T13:56:16.880613 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_plus_a-6cb436094a66c4d9da79d02779b0cf7b542a3a7cb4006d8e25b068fb7bdc5efa.svg.gz
+       I, [2019-05-11T13:56:16.883909 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_plus_b-3366c1145187c764830a4370534d3dbae2210d45a20eaac9dc7b195f14d34444.svg
+       I, [2019-05-11T13:56:16.884271 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_plus_b-3366c1145187c764830a4370534d3dbae2210d45a20eaac9dc7b195f14d34444.svg.gz
+       I, [2019-05-11T13:56:16.887753 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_plus_c-fffa0b3c6ac877c70a8eb4605b96b70c3c091322b596da436621b10374ece9aa.svg
+       I, [2019-05-11T13:56:16.888106 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_plus_c-fffa0b3c6ac877c70a8eb4605b96b70c3c091322b596da436621b10374ece9aa.svg.gz
+       I, [2019-05-11T13:56:16.891339 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_plus_d-369c41ed50fe836357046d113587b6a5e787d1020a2bbbf541e56b2becca0f9b.svg
+       I, [2019-05-11T13:56:16.892011 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_plus_d-369c41ed50fe836357046d113587b6a5e787d1020a2bbbf541e56b2becca0f9b.svg.gz
+       I, [2019-05-11T13:56:16.895025 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_plus_e-44bcd0f816561038fbdb0edef11f6964c1eeb05205631213be0e5aef84bab567.svg
+       I, [2019-05-11T13:56:16.895241 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/stopwatch_plus_e-44bcd0f816561038fbdb0edef11f6964c1eeb05205631213be0e5aef84bab567.svg.gz
+       I, [2019-05-11T13:56:16.898436 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_arrow_left_a-bd3d7d3b2c36d1bb1970a217cde1dffaaeeebdd6f3257b0717ed5bdb1f7d4c12.svg
+       I, [2019-05-11T13:56:16.898643 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_arrow_left_a-bd3d7d3b2c36d1bb1970a217cde1dffaaeeebdd6f3257b0717ed5bdb1f7d4c12.svg.gz
+       I, [2019-05-11T13:56:16.902140 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_arrow_right_a-4e874737cdc0f26e4560c608639f024ed81179bd8db09ed3ccf0253ef23a5e2d.svg
+       I, [2019-05-11T13:56:16.902362 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_arrow_right_a-4e874737cdc0f26e4560c608639f024ed81179bd8db09ed3ccf0253ef23a5e2d.svg.gz
+       I, [2019-05-11T13:56:16.905339 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_check_a-782f275fce2037d740134378d6cf91e50f50d7e767f7a4363c15cad4099e1cb7.svg
+       I, [2019-05-11T13:56:16.905864 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_check_a-782f275fce2037d740134378d6cf91e50f50d7e767f7a4363c15cad4099e1cb7.svg.gz
+       I, [2019-05-11T13:56:16.909075 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_cross_a-548c577e296fa4640741c162b729422e9d7c465a8ee655cd4b99332578b61db4.svg
+       I, [2019-05-11T13:56:16.909328 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_cross_a-548c577e296fa4640741c162b729422e9d7c465a8ee655cd4b99332578b61db4.svg.gz
+       I, [2019-05-11T13:56:16.912630 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_favicon_a-7e1da28c5c635d93f44c2e8f80f8ee8a0882deecf4fa71cd8a5d04540d459b75.svg
+       I, [2019-05-11T13:56:16.913037 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_favicon_a-7e1da28c5c635d93f44c2e8f80f8ee8a0882deecf4fa71cd8a5d04540d459b75.svg.gz
+       I, [2019-05-11T13:56:16.916116 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_point_a-2dfc74f3aed5a17c579a75d163b15f7e512eb752ef94d085ad580caae0a96634.svg
+       I, [2019-05-11T13:56:16.916743 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_point_a-2dfc74f3aed5a17c579a75d163b15f7e512eb752ef94d085ad580caae0a96634.svg.gz
+       I, [2019-05-11T13:56:16.919678 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_question_mark_a-e5527ecbc744aa12f5b602bdffb59d3c4b4f7b7533e9ea548897eb065f59794d.svg
+       I, [2019-05-11T13:56:16.920077 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_question_mark_a-e5527ecbc744aa12f5b602bdffb59d3c4b4f7b7533e9ea548897eb065f59794d.svg.gz
+       I, [2019-05-11T13:56:16.923241 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_a-4c5ccf8fa1969943ba7a6a649925540d34ff826afc423e792d504dcf70e0e634.svg
+       I, [2019-05-11T13:56:16.923590 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_a-4c5ccf8fa1969943ba7a6a649925540d34ff826afc423e792d504dcf70e0e634.svg.gz
+       I, [2019-05-11T13:56:16.926352 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_b-97f13234a9e0805b437c4d5f26f37c43de46ff6b3864c7a959d5c94049e1d50b.svg
+       I, [2019-05-11T13:56:16.927497 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_b-97f13234a9e0805b437c4d5f26f37c43de46ff6b3864c7a959d5c94049e1d50b.svg.gz
+       I, [2019-05-11T13:56:16.931941 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_c-bde636dd584c77240977430cadebb6bc0247101f818bb9e7a7da98c64e81c2df.svg
+       I, [2019-05-11T13:56:16.932862 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_c-bde636dd584c77240977430cadebb6bc0247101f818bb9e7a7da98c64e81c2df.svg.gz
+       I, [2019-05-11T13:56:16.935768 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_d-8c3435cdbefbf376eccb0a078e169d1ac2bd549be55cba5f578221ee2549a0a7.svg
+       I, [2019-05-11T13:56:16.935987 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_d-8c3435cdbefbf376eccb0a078e169d1ac2bd549be55cba5f578221ee2549a0a7.svg.gz
+       I, [2019-05-11T13:56:16.939455 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_with_hand_dumbbell_a-de286c7b66c08aeb2e7b67bf0d70b3b76771e6e3ebbbf03dde3559fe6f532bc0.svg
+       I, [2019-05-11T13:56:16.940179 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_with_hand_dumbbell_a-de286c7b66c08aeb2e7b67bf0d70b3b76771e6e3ebbbf03dde3559fe6f532bc0.svg.gz
+       I, [2019-05-11T13:56:16.943548 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_with_physics_a-2c76e0ceb992ebebab04a7e0786c6bdc69b597ea24adc96c9ba76bcdf6e998ad.svg
+       I, [2019-05-11T13:56:16.943938 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_with_physics_a-2c76e0ceb992ebebab04a7e0786c6bdc69b597ea24adc96c9ba76bcdf6e998ad.svg.gz
+       I, [2019-05-11T13:56:16.947804 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_with_tracking_a-e556d4d60c341d0e23cd850a3804e0748f8035cd666ff437913a71eedb0f4105.svg
+       I, [2019-05-11T13:56:16.948614 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_with_tracking_a-e556d4d60c341d0e23cd850a3804e0748f8035cd666ff437913a71eedb0f4105.svg.gz
+       I, [2019-05-11T13:56:16.954082 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_with_upward_trend_a-977afe5b8791abdc67cd7f44b3d4b46e24989002c0bd837f3b6843d14b3629dc.svg
+       I, [2019-05-11T13:56:16.954735 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tr_spiral_with_upward_trend_a-977afe5b8791abdc67cd7f44b3d4b46e24989002c0bd837f3b6843d14b3629dc.svg.gz
+       I, [2019-05-11T13:56:16.957895 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tracking_a-09883eae68c4ec1f763fb2e7678fd7907ab7f3b456b2c9be887ca010fc149742.svg
+       I, [2019-05-11T13:56:16.958128 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/tracking_a-09883eae68c4ec1f763fb2e7678fd7907ab7f3b456b2c9be887ca010fc149742.svg.gz
+       I, [2019-05-11T13:56:16.961109 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/trending_up_01_a-6de2e3ca91e748ac0205cd2da9c1230f70aa4853d021bb88459f2d57a97dc534.svg
+       I, [2019-05-11T13:56:16.961558 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/icons_symbols/trending_up_01_a-6de2e3ca91e748ac0205cd2da9c1230f70aa4853d021bb88459f2d57a97dc534.svg.gz
+       I, [2019-05-11T13:56:16.964861 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/favicon-0ef0cf0e04ef999ec28aa23458894c6ce5cf40686063ebab8ae789175e199416.png
+       I, [2019-05-11T13:56:16.967235 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/favicon_b-8af732a8cd020a073363836a3eb17d14b99a1f3ddd49904eb2f576a2ac1c4ab8.png
+       I, [2019-05-11T13:56:16.969677 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_arrow_left_a-bd3d7d3b2c36d1bb1970a217cde1dffaaeeebdd6f3257b0717ed5bdb1f7d4c12.svg
+       I, [2019-05-11T13:56:16.969882 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_arrow_left_a-bd3d7d3b2c36d1bb1970a217cde1dffaaeeebdd6f3257b0717ed5bdb1f7d4c12.svg.gz
+       I, [2019-05-11T13:56:16.972811 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_arrow_right_a-4e874737cdc0f26e4560c608639f024ed81179bd8db09ed3ccf0253ef23a5e2d.svg
+       I, [2019-05-11T13:56:16.973455 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_arrow_right_a-4e874737cdc0f26e4560c608639f024ed81179bd8db09ed3ccf0253ef23a5e2d.svg.gz
+       I, [2019-05-11T13:56:16.976125 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_check_a-782f275fce2037d740134378d6cf91e50f50d7e767f7a4363c15cad4099e1cb7.svg
+       I, [2019-05-11T13:56:16.976836 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_check_a-782f275fce2037d740134378d6cf91e50f50d7e767f7a4363c15cad4099e1cb7.svg.gz
+       I, [2019-05-11T13:56:16.979844 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_cross_a-548c577e296fa4640741c162b729422e9d7c465a8ee655cd4b99332578b61db4.svg
+       I, [2019-05-11T13:56:16.980715 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_cross_a-548c577e296fa4640741c162b729422e9d7c465a8ee655cd4b99332578b61db4.svg.gz
+       I, [2019-05-11T13:56:16.983794 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_favicon_a-7e1da28c5c635d93f44c2e8f80f8ee8a0882deecf4fa71cd8a5d04540d459b75.svg
+       I, [2019-05-11T13:56:16.983996 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_favicon_a-7e1da28c5c635d93f44c2e8f80f8ee8a0882deecf4fa71cd8a5d04540d459b75.svg.gz
+       I, [2019-05-11T13:56:16.987258 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_info_a-be954bd63e2442025bca5fc7fd6f5d2fa19bfee93a40bfc30e290ee82784dd91.svg
+       I, [2019-05-11T13:56:16.987478 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_info_a-be954bd63e2442025bca5fc7fd6f5d2fa19bfee93a40bfc30e290ee82784dd91.svg.gz
+       I, [2019-05-11T13:56:16.990796 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_point_a-2dfc74f3aed5a17c579a75d163b15f7e512eb752ef94d085ad580caae0a96634.svg
+       I, [2019-05-11T13:56:16.991557 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_point_a-2dfc74f3aed5a17c579a75d163b15f7e512eb752ef94d085ad580caae0a96634.svg.gz
+       I, [2019-05-11T13:56:16.994659 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_question_mark_a-e5527ecbc744aa12f5b602bdffb59d3c4b4f7b7533e9ea548897eb065f59794d.svg
+       I, [2019-05-11T13:56:16.995446 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_question_mark_a-e5527ecbc744aa12f5b602bdffb59d3c4b4f7b7533e9ea548897eb065f59794d.svg.gz
+       I, [2019-05-11T13:56:16.999161 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_a-4c5ccf8fa1969943ba7a6a649925540d34ff826afc423e792d504dcf70e0e634.svg
+       I, [2019-05-11T13:56:16.999769 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_a-4c5ccf8fa1969943ba7a6a649925540d34ff826afc423e792d504dcf70e0e634.svg.gz
+       I, [2019-05-11T13:56:17.003353 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_b-97f13234a9e0805b437c4d5f26f37c43de46ff6b3864c7a959d5c94049e1d50b.svg
+       I, [2019-05-11T13:56:17.003914 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_b-97f13234a9e0805b437c4d5f26f37c43de46ff6b3864c7a959d5c94049e1d50b.svg.gz
+       I, [2019-05-11T13:56:17.007508 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_c-bde636dd584c77240977430cadebb6bc0247101f818bb9e7a7da98c64e81c2df.svg
+       I, [2019-05-11T13:56:17.007814 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_c-bde636dd584c77240977430cadebb6bc0247101f818bb9e7a7da98c64e81c2df.svg.gz
+       I, [2019-05-11T13:56:17.011780 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_d-8c3435cdbefbf376eccb0a078e169d1ac2bd549be55cba5f578221ee2549a0a7.svg
+       I, [2019-05-11T13:56:17.011987 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_d-8c3435cdbefbf376eccb0a078e169d1ac2bd549be55cba5f578221ee2549a0a7.svg.gz
+       I, [2019-05-11T13:56:17.015388 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_with_analytics_a-dd81e43968ab92f574ddd4352fbfe5679c8dcb0d01d89b834686176028edaf51.svg
+       I, [2019-05-11T13:56:17.016162 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_with_analytics_a-dd81e43968ab92f574ddd4352fbfe5679c8dcb0d01d89b834686176028edaf51.svg.gz
+       I, [2019-05-11T13:56:17.019523 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_with_hand_dumbbell_a-de286c7b66c08aeb2e7b67bf0d70b3b76771e6e3ebbbf03dde3559fe6f532bc0.svg
+       I, [2019-05-11T13:56:17.020200 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_with_hand_dumbbell_a-de286c7b66c08aeb2e7b67bf0d70b3b76771e6e3ebbbf03dde3559fe6f532bc0.svg.gz
+       I, [2019-05-11T13:56:17.024183 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_with_physics_a-2c76e0ceb992ebebab04a7e0786c6bdc69b597ea24adc96c9ba76bcdf6e998ad.svg
+       I, [2019-05-11T13:56:17.025136 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_with_physics_a-2c76e0ceb992ebebab04a7e0786c6bdc69b597ea24adc96c9ba76bcdf6e998ad.svg.gz
+       I, [2019-05-11T13:56:17.029454 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_with_tracking_a-e556d4d60c341d0e23cd850a3804e0748f8035cd666ff437913a71eedb0f4105.svg
+       I, [2019-05-11T13:56:17.029850 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_with_tracking_a-e556d4d60c341d0e23cd850a3804e0748f8035cd666ff437913a71eedb0f4105.svg.gz
+       I, [2019-05-11T13:56:17.033438 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_with_upward_trend_a-977afe5b8791abdc67cd7f44b3d4b46e24989002c0bd837f3b6843d14b3629dc.svg
+       I, [2019-05-11T13:56:17.034062 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tr_spiral_with_upward_trend_a-977afe5b8791abdc67cd7f44b3d4b46e24989002c0bd837f3b6843d14b3629dc.svg.gz
+       I, [2019-05-11T13:56:17.038369 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tran_logo_200x200-55f2ea97d1defa204d682fc1d17b5afddfc8b18792de302ee7b1d1a7590583b4.png
+       I, [2019-05-11T13:56:17.043726 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tran_logo_300x300-b4b1005bd246f1c7188bb187116b9235628cc2eae7e8284997f0ddcc3b501897.png
+       I, [2019-05-11T13:56:17.047685 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tran_logo_450x450-54f9bc1ef57de1cf0ec4c9146cdd55ff6ebfaa7c19483c804e328ea8a8354a6f.png
+       I, [2019-05-11T13:56:17.052659 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tran_logo_b_200x200-fb46d4abc488e30a6f1a89aa40bf9a8af719a37594eb0c08208d9de75e58370d.png
+       I, [2019-05-11T13:56:17.057452 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tran_logo_b_300x300-d138695c821171235c83bbc7d08bd055b5150941cff4b427faaac1f2e01f447a.png
+       I, [2019-05-11T13:56:17.062781 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tran_logo_b_450x450-c429e16a8bca327ab8692ec7bea3778673af3a5a2db252f312958e8c1cc2e823.png
+       I, [2019-05-11T13:56:17.067356 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tran_logo_c_200x200-5af40bbdd984c8d182de1212476a72deba7a2361df4b727f53dc2fc75036edad.png
+       I, [2019-05-11T13:56:17.072267 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tran_logo_c_300x300-09e9867438fe89441f12bd196af74c7caf1309cdad7a33c7e57dfada20a84f37.png
+       I, [2019-05-11T13:56:17.077447 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/logo_and_branding/tran_logo_c_450x450-68b083b28565f70444bc2e27f19e833389b0666de759c0865438b3e25fa06dc4.png
+       I, [2019-05-11T13:56:17.082592 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/soc_media_icons/In-2C-108px-R-832affe2b64d241eed9509d6d0ae3b4105bfc9b79881f7ea5cbc6493fbf52ea7.png
+       I, [2019-05-11T13:56:17.087315 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/soc_media_icons/In-Black-108px-R-ee93091be8a6ba09b9a1905bcf94b4bca27e327c01029bd8a2ea37bcd2b02649.png
+       I, [2019-05-11T13:56:17.091958 #1671]  INFO -- : Writing /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/public/assets/soc_media_icons/In-White-108px-R-6e9c2db6f4f547c89b5c59ef16949daf15334d64b6447a6f78acf4183e5ca27f.png
+       rake aborted!
+       Uglifier::Error: Unexpected token: name (keyword). To use ES6 syntax, harmony mode must be enabled with Uglifier.new(:harmony => true).
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/uglifier-4.1.20/lib/uglifier.rb:234:in `parse_result'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/uglifier-4.1.20/lib/uglifier.rb:216:in `run_uglifyjs'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/uglifier-4.1.20/lib/uglifier.rb:168:in `compile'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/uglifier_compressor.rb:53:in `call'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/uglifier_compressor.rb:28:in `call'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/processor_utils.rb:75:in `call_processor'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/processor_utils.rb:57:in `block in call_processors
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/processor_utils.rb:56:in `reverse_each'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/processor_utils.rb:56:in `call_processors'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/loader.rb:134:in `load_from_unloaded'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/loader.rb:60:in `block in load'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/loader.rb:44:in `load'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/cached_environment.rb:20:in `block in initialize'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/cached_environment.rb:47:in `load'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/base.rb:66:in `find_asset'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/base.rb:73:in `find_all_linked_assets'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/manifest.rb:142:in `block in find'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/legacy.rb:114:in `block (2 levels) in logical_paths'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/path_utils.rb:228:in `block in stat_tree'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/path_utils.rb:212:in `block in stat_directory'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/path_utils.rb:209:in `each'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/path_utils.rb:209:in `stat_directory'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/path_utils.rb:227:in `stat_tree'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/legacy.rb:105:in `each'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/legacy.rb:105:in `block in logical_paths'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/legacy.rb:104:in `each'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/legacy.rb:104:in `logical_paths'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/manifest.rb:140:in `find'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/sprockets/manifest.rb:186:in `compile'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/task.rb:68:in `block (3 levels) in define'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-3.7.2/lib/rake/sprocketstask.rb:147:in `with_logger'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/task.rb:67:in `block (2 levels) in define'
+       /tmp/build_cfa5cdd4af85f7accd0f33c263830eb1/vendor/bundle/ruby/2.4.0/gems/rake-12.3.2/exe/rake:27:in `<top (required)>'
+       Tasks: TOP => assets:precompile
+       (See full trace by running task with --trace)
+
+ !
+ !     Precompiling assets failed.
+ !
+ !     Push rejected, failed to compile Ruby app.
+
+ !     Push failed
+Verifying deploy...
+
+! Push rejected to training-repo.
+
+To https://git.heroku.com/training-repo.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/training-repo.git'
