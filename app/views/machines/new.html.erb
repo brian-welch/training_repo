@@ -43,6 +43,14 @@
           <% end %>
         </div>
 
+        <div class="col-xs-12">
+          <%= f.input :inherit_weight,
+                      label: "Inherited kg from Apparatus",
+                      input_html: { style: "width: 30%;" },
+                      hint: "*not required; blank in most instances".html_safe
+                       %>
+        </div>
+
       </div>
 
       <div class="col-xs-12">
