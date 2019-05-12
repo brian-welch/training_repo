@@ -168,7 +168,7 @@ users.each do |user|
       sleep 0.01
   end
 
-  puts "\n#{SessionSet.where(user: user).count} Sets created for #{user.first_name}."
+  puts "\nSets created for #{user.first_name}."
   sleep 0.5
 end
 
