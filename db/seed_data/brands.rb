@@ -18,6 +18,7 @@ def brand_list
     "BodyTone",
     "StairMaster",
     "TKO",
-    "Placeholder"
+    "Placeholder",
+    "Gym80"
   ]
 end
