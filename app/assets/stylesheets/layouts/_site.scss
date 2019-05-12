@@ -2,16 +2,13 @@ html {
   background: linear-gradient(0deg, rgba(58,130,180,0.94) 0%, rgba(58,130,180,0.94) 100% ), url('background/hexagon_pattern_03_b.svg');
   background-size: 50px;
   background-color: $site_primary;
-  // background: linear-gradient(135deg, rgba(30,15,15,0.95) 0%, rgba(0,0,0,0.65) 50%, rgba(30,15,15,1) 100%), url('background/hexagon_pattern.svg');
 }
 
 body {
   background: url('background/hexagon_pattern_02_b.svg');
-  // linear-gradient(135deg, rgba(0,0,0,.06) 0%, rgba(0,0,0,.06) 100%),
   background-size: 50px;
   background-color: rgba(0, 0, 0, 1);
-  // background-color: linear-gradient(135deg, rgba(50, 0, 0, 0.6) 0%, rgba(0, 0, 50, 0.6) 100%);
-  // padding: 0 0 50px 0;
+
 }
 
 div, p, i, li, th, td, span, ul, ol, button, input, tr, a, img {
@@ -36,7 +33,6 @@ h1, h2, h3, h4, h5, h6 {
   .brand_font {
     font-family: "Trontron", "Raleway", "Helvetica", "sans-serif";
     color: lighten(#62C0F2, 5%);
-    // color: $site_primary;
     text-shadow:
       calc(1px * 0.3) calc(1px * 0.3) 0 darken($site_primary, 15%),
       calc(1px * 0.3) calc(-1px * 0.3) 0 darken($site_primary, 15%),
@@ -178,7 +174,6 @@ select {
     position: fixed;
     z-index: 995;
     font-size: 40px;
-    //border: calc(1px * 1.5) solid black;
     border-radius: 50%;
     box-shadow: inset 0 0 0 2px $site_primary;
   }

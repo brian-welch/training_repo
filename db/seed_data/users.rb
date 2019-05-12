@@ -4,7 +4,7 @@ def user_list
       first_name: "Brian",
       last_name: "Welch",
       email: "brian.c.welch@gmail.com",
-      password: "12345678",
+      password: "64206420",
       birthdate: "1974/12/10",
       weight: 94,
       active: true,
