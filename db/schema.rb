@@ -55,9 +55,10 @@ ActiveRecord::Schema.define(version: 2019_04_05_111753) do
     t.bigint "brand_id"
     t.string "name"
     t.float "mech_ad"
+    t.integer "pulley_count"
+    t.integer "inherit_weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "pulley_count"
     t.index ["brand_id"], name: "index_machines_on_brand_id"
     t.index ["name", "brand_id"], name: "index_machines_on_name_and_brand_id", unique: true
   end
