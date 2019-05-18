@@ -133,7 +133,7 @@ module SessionSetsHelper
       if set.machine.nil?
         (((set.weight_kg * unilat) + bodyweight) * set.reps) / set.pulley_count
       else
-        (((set.weight_kg * unilat) + bodyweight) * set.reps) / (set.machine.mech_ad * set.machine.pulley_count * set.pulley_count)
+        ((((set.weight_kg * unilat) + bodyweight) * set.reps) / (set.machine.mech_ad * set.machine.pulley_count * set.pulley_count)) + set.machine.inherit_weight
       end
     end
     return temp.round
