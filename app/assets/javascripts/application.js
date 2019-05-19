@@ -2,10 +2,9 @@
 //= require rails-ujs
 //= require_tree .
 //= require local-time
+//= require jquery.ui.all
 
 $(document).ready(function() {
-  // console.log($(".form-group-invalid"));
-
   // If a form has an error, make sure children elements are visible
   $(".form-group-invalid").each(function(){
     $(this).parent().show();
