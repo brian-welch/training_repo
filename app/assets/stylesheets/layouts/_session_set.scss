@@ -142,3 +142,44 @@
     color: $site_info;
   }
 }
+
+
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul.ui-autocomplete {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #999;
+  cursor: default;
+  transition: none !important;
+  li, li:hover,  {
+    background-color: #FFF !important;
+    border-top: solid 1px #DDD !important;
+    margin: 0px !important;
+    padding: 0 !important;
+    a {
+      color: #000;
+      display: block;
+      padding: 3px;
+    }
+    div {
+      padding: 5px !important;
+      border: none;
+      &:hover {
+        padding: 5px !important;
+        border: none;
+      }
+    }
+  }
+}
+
+
+// <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none; width: 350px; top: 192.717px; left: 463.483px;">
+// <li class="ui-menu-item">
+// <div id="ui-id-2" tabindex="-1" class="ui-menu-item-wrapper">Bench Press: Decline Low - Barbell</div></li>
+
+
