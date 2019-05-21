@@ -43,12 +43,13 @@ class SessionSetsController < ApplicationController
 
 
   def create
+    # byebug
     @new_session_set = SessionSet.new(approved_session_set_params)
 
     if @new_session_set.save
       redirect_to session_sets_path(anchor: "set-#{@new_session_set.id}")
     else
-      flash[:alert] = "Something Went Pair Shaped"
+      flash[:alert] = "Something went sideways...<br>Was that an exercise from<br>the database list?"
       render :new
     end
   end
@@ -69,7 +70,7 @@ class SessionSetsController < ApplicationController
 
 
   def approved_session_set_params
-    params.require(:session_set).permit(:weight_kg, :reps, :exercise_id, :machine_id, :pulley_count, :training_session_id)
+    params.require(:session_set).permit(:weight_kg, :reps, :exercise_id, :exercise_name, :machine_id, :pulley_count, :training_session_id)
   end
 
 end

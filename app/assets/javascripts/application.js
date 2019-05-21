@@ -1,8 +1,8 @@
-//= require jquery3
+//= require jquery
+//= require jquery-ui
 //= require rails-ujs
-//= require_tree .
 //= require local-time
-//= require jquery.ui.all
+//= require_tree .
 
 $(document).ready(function() {
   // If a form has an error, make sure children elements are visible
@@ -11,8 +11,9 @@ $(document).ready(function() {
     $(this).children("select").val(null);
   });
 
-  machineExerciseCheck($("#session_set_exercise_id option:selected").text());
-  console.log($("#session_set_exercise_id option:selected").text());
+  // machineExerciseCheck($("#session_set_exercise_id option:selected").text());
+  // console.log($("#session_set_exercise_id option:selected").text());
+
 
   $(".email_anchor_link").hover(function(){
     console.log('test');
@@ -37,6 +38,19 @@ $(document).ready(function() {
     $(this).parent().parent().removeClass('day_hover');
   });
 
+  $('#session_set_exercise_name').autocomplete({
+    source: $('#session_set_exercise_name').data('autocomplete-source')
+    // source: ['apple', 'apricot', 'avocado']
+  });
 
+  $('.ui-autocomplete').bind('click keyup select',function(e){
+    machineExerciseCheckName();
+  });
 
 });
+
+
+
+
+
+

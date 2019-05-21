@@ -2,16 +2,26 @@
   <div class="col-xs-12 col-sm-6 col-sm-offset-3  col-md-4 col-md-offset-4">
     <h1> <%= image_tag "logo_and_branding/tr_spiral_with_hand_dumbbell_a.svg", width: "50", style: "position:relative; bottom: 5px;" %> Add Set!</h1>
     <%= simple_form_for [@new_session_set], html: { autocomplete: "off" } do |f| %>
-      <%#= f.error_notification %>
+      <%= f.error_notification %>
 
       <div class="form-inputs">
 
         <div class="simple_form_select_arrow"></div>
-        <%= f.association :exercise,
+
+        <%= f.input :exercise_name,
+                          label: "Exercise",
+                          required: true,
+                          error: "Exercise must be selected from the database",
+                          hint: " *<em>MUST</em> be selected from drop down list".html_safe,
+                          input_html: { style: "padding-left: 30px;",
+                                        data: { autocomplete_source: exercises_path},
+                                        onkeyup: "machineExerciseCheckName()" } %>
+
+        <%#= f.association :exercise,
                           required: true,
                           error: "Exercise must be selected from the list",
                           input_html: { style: "cursor: pointer;",
-                                        onchange: "machineExerciseCheck()" } %>
+                                        onchange: "machineExerciseCheckId()" } %>
 
         <div id="machine_input_new_session_set">
           <div class="simple_form_select_arrow"></div>

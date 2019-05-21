@@ -9,12 +9,24 @@ class SessionSet < ApplicationRecord
   validates :machine, presence: true, if: :machine_id_required?
 
   def machine_id_required?
-    temp = exercise.name.split(" ").last.downcase
-    if temp == "machine" || temp == "plate-loaded"
-      return true
+    if exercise
+      temp = exercise.name.split(" ").last.downcase
+      if temp == "machine" || temp == "plate-loaded"
+        return true
+      else
+        return false
+      end
     else
       return false
     end
+  end
+
+  def exercise_name
+    exercise.try(:name)
+  end
+
+  def exercise_name=(name)
+    self.exercise = Exercise.find_by(name: name) if name.present? # find_or_create_by
   end
 
 end
