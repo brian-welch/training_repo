@@ -53,7 +53,9 @@ class ApplicationController < ActionController::Base
 
   def active_session?
     if user_signed_in?
-      @is_active_session = TrainingSession.active_session_call(current_user).count == 0 ? false : true
+      current_session_arr = TrainingSession.active_session_call(current_user)
+      @current_session = current_session_arr[0]
+      @is_active_session = current_session_arr.count == 0 ? false : true
     else
       @is_active_session = false
     end
