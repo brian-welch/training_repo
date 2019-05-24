@@ -42,15 +42,16 @@ $(document).ready(function() {
   $('#session_set_exercise_name').autocomplete({
     source: $('#session_set_exercise_name').data('autocomplete-source')
   });
-
   $('.ui-autocomplete').bind('click keyup select',function(e){
     machineExerciseCheckName();
   });
 
+  // session timer functionality
   $("#stopwatch_toggle").on("click", function(){
-    session_timer_start();
     show_hide_session_timer();
   });
+
+  session_timer_start();
 
 
 });
