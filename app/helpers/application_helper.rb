@@ -35,4 +35,12 @@ module ApplicationHelper
     return temp
   end
 
+  def active_session?
+    if user_signed_in?
+      @is_active_session = TrainingSession.active_session_call(current_user).count == 0 ? false : true
+    else
+      @is_active_session = false
+    end
+  end
+
 end

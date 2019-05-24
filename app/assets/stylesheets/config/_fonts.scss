@@ -19,3 +19,23 @@ $headers-font: "Raleway", "Helvetica", "sans-serif";
     font-family: "Trontron";
     src: font-url('config/fonts/Trontron.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: "Linebeam";
+    src: font-url('config/fonts/Linebeam.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Futured";
+    src: font-url('config/fonts/Futured.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "DotBoundaryJustified";
+    src: font-url('config/fonts/DotBoundaryJustified.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "DotBoundaryFixed";
+    src: font-url('config/fonts/DotBoundaryFixed.otf') format('opentype');
+}

@@ -1,0 +1,72 @@
+  .timer_container_outer {
+    padding: 5px 5px 0;
+    position: fixed;
+    width: 100%;
+    bottom: -27px;
+  }
+
+  .reveal_session_timer {
+    bottom: 55px;
+  }
+  .timer_container_inner {
+    padding: 5px 5px 0;
+    /*box-shadow: 0 0 0 1px rgba(58,130,180,1);*/
+    border-radius: 3px;
+    /*outline: red 1px dotted;*/
+  }
+  .timer_button_container {
+    /*outline: purple dotted 1px;*/
+    position: relative;
+    height: 47px;
+  }
+
+  .timer_clock_container {
+    /*outline: green dotted 1px;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 0 0 calc(1px * 1) rgba(58,130,180,1);
+    border-radius: 2px;
+    border-top-right-radius: 0;
+  }
+  .timer_button_box {
+    padding: 2px;
+    border-radius: 1px;
+    border-top-left-radius: 50% 10px;
+    border-top-right-radius: 50% 10px;
+    box-shadow: 0 -1px 0 calc(1px * -0.5) rgba(0,0,0,1), 0 -1px 0 calc(1px * 1) rgba(58,130,180,1);
+    position: absolute;
+    right: 0;
+    background: #000;
+    img {
+      cursor: pointer;
+    }
+  }
+
+  #session_timer_outer {
+    text-align: center;
+    padding: 15px;
+  }
+
+  #session_timer_inner {
+    font-family: "DotBoundaryJustified", Monospace, sans-serif;
+    font-size: 1.65em;
+    letter-spacing: 4px;
+    padding: 10px 20px;
+    background-color: rgba(58,130,180,1);
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 25%, rgba(255,255,255,0.2) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0) 65%, rgba(255,255,255,0.2) 100% ) rgba(58,130,180,1);
+    /*background: linear-gradient(165deg, darken($site_primary, 28%) 0%, darken($site_primary, 38%) 45%, darken($site_primary, 38%) 55%, darken($site_primary, 28%) 100%);*/
+
+    line-height: 1em;
+    border-radius: 50px;
+    color: rgba(0, 0, 0, 1);
+    text-shadow:
+      calc(1px * 0.5) calc(-1px * 0.5) 0 rgba(255, 255, 255, 0.15),
+      calc(1px * 0.5) calc(1px * 0.5) 0 rgba(255, 255, 255, 0.15),
+      calc(-1px * 0.5) calc(-1px * 0.5) 0 rgba(255, 255, 255, 0.15),
+      calc(-1px * 0.5) calc(1px * 0.5) 0 rgba(255, 255, 255, 0.15),
+      0 0 5px rgba(255, 255, 255, 0.2),
+      0 0 5px rgba(255, 255, 255, 0.2);
+    box-shadow: inset -20px -15px 40px rgba(0, 0, 0, 0.3), calc(1px * 0.27) calc(1px * 0.37) 0 calc(1px * 0.5) rgba(78,150,200,1), inset 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }

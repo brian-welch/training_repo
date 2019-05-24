@@ -38,14 +38,20 @@ $(document).ready(function() {
     $(this).parent().parent().removeClass('day_hover');
   });
 
+  // Autocomplete/serch for exercise names
   $('#session_set_exercise_name').autocomplete({
     source: $('#session_set_exercise_name').data('autocomplete-source')
-    // source: ['apple', 'apricot', 'avocado']
   });
 
   $('.ui-autocomplete').bind('click keyup select',function(e){
     machineExerciseCheckName();
   });
+
+  $("#stopwatch_toggle").on("click", function(){
+    session_timer_start();
+    show_hide_session_timer();
+  });
+
 
 });
 
