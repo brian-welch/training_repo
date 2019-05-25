@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'home', to: 'pages#home'
   get 'about', to: 'pages#about'
   get 'inactive', to: 'pages#inactive'
+  get 'your_privacy', to: 'pages#your_privacy'
 
   get 'contact_us', to: 'pages#contact_us'
 
