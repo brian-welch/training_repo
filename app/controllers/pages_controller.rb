@@ -14,6 +14,9 @@ class PagesController < ApplicationController
     end
   end
 
+  def your_privacy
+  end
+
   def contact_us
   end
 
