@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_111753) do
     t.string "name"
     t.float "mech_ad"
     t.integer "pulley_count"
-    t.integer "inherit_weight"
+    t.integer "inherit_weight", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_machines_on_brand_id"
