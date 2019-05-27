@@ -24,9 +24,10 @@ class MachinesController < ApplicationController
     @new_machine = Machine.new(approve_machine_params)
     @new_machine.name = proper_string(@new_machine.name.downcase.strip)
     @new_machine.brand = nil if @new_machine.brand.name.downcase == 'placeholder'
+    #@new_machine.inherit_weight = 0 if @new_machine.inherit_weight == nil
 
     if @new_machine.save
-      flash[:notice] = "<u>#{@new_machine.name.split(" ").map{|x| x.capitalize}.join(" ")}</u> by \"#{@new_machine.brand.name}\" has been added to the database!"
+      flash[:notice] = "<u>#{@new_machine.name}</u> by \"#{@new_machine.brand.name}\" has been added to the database!"
       redirect_to machines_path
     else
       if @new_machine.brand.nil?
@@ -47,7 +48,7 @@ class MachinesController < ApplicationController
   end
 
   def approve_machine_params
-    params.require(:machine).permit(:mech_ad, :pulley_count, :brand_id, :name)
+    params.require(:machine).permit(:mech_ad, :pulley_count, :brand_id, :name, :inherit_weight)
   end
 
 end
