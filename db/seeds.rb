@@ -177,7 +177,7 @@ end
 users[1] do |user|
   (1..12).each do |x|
     t = TrainingSession.where("session_number = ?", x)[0]
-    new_t = t
+    new_t = t.clone
     new_t.user_id = user.id
     new_t.save!
   end
@@ -193,13 +193,13 @@ users[1] do |user|
       sets_array << set_details_arr[1] if set_details_arr[0] == x
     end
 
-    tr_id = TrainingSession.where("session_number = ? AND user_id = ?", x, user.id)[0].id
+    tr = TrainingSession.where("session_number = ? AND user_id = ?", x, user.id)[0]
 
     sets_array.each_with_index do |set_details, i|
       new_s = SessionSet.new(set_details)
-      new_s.training_session_id = tr_id
-      new_s.created_at = tr.created_at + 1800 + index
-      new_s.updated_at = tr.created_at + 1920 + index
+      new_s.training_session_id = tr.id
+      new_s.created_at = tr.created_at + 1800 + i
+      new_s.updated_at = tr.created_at + 1920 + i
       new_s.save!
       sleep 0.01
       count = i
