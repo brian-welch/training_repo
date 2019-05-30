@@ -147,7 +147,7 @@ sleep 0.5
 
 users = ["Brian", "John"].each_with_object([]) {|user, arr| arr << User.find_by_first_name(user)}
 
-users.each do |user|
+users[0] do |user|
   training_session_list.each do |sesh_details|
     new_t = TrainingSession.new(sesh_details)
     new_t.user_id = user.id
@@ -157,7 +157,8 @@ users.each do |user|
   sleep 0.5
 end
 
-users.each do |user|
+users[0] do |user|
+  count = 0
   session_set_list.each_with_index do |set_details_arr, index|
     tr = TrainingSession.where("session_number = ? AND user_id = ?", set_details_arr[0], user.id)[0]
     new_s = SessionSet.new(set_details_arr[1])
@@ -166,11 +167,49 @@ users.each do |user|
       new_s.updated_at = tr.created_at + 1920 + index
       new_s.save!
       sleep 0.01
+      count = index
   end
 
-  puts "\nSets created for #{user.first_name}."
+  puts "\n#{count} Sets created for #{user.first_name}."
   sleep 0.5
 end
+
+users[1] do |user|
+  (1..12).each do |x|
+    t = TrainingSession.where("session_number = ?", x)[0]
+    new_t = t
+    new_t.user_id = user.id
+    new_t.save!
+  end
+  puts "\n#{TrainingSession.where(user: user).count} Training Sessions created for #{user.first_name}."
+  sleep 0.5
+end
+
+users[1] do |user|
+  count = 0
+  (1..12).each_with_index do |x, i|
+    sets_array = []
+    session_set_list.each do |set_details_arr|
+      sets_array << set_details_arr[1] if set_details_arr[0] == x
+    end
+
+    tr_id = TrainingSession.where("session_number = ? AND user_id = ?", x, user.id)[0].id
+
+    sets_array.each_with_index do |set_details, i|
+      new_s = SessionSet.new(set_details)
+      new_s.training_session_id = tr_id
+      new_s.created_at = tr.created_at + 1800 + index
+      new_s.updated_at = tr.created_at + 1920 + index
+      new_s.save!
+      sleep 0.01
+      count = i
+    end
+
+  end
+  puts "\n#{count} Sets created for #{user.first_name}."
+  sleep 0.5
+end
+
 
 
 
