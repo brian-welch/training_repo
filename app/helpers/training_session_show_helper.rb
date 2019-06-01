@@ -10,7 +10,7 @@ module TrainingSessionShowHelper
         if machine_inst.nil?
           (((set[1].weight_kg * unilat) + bodyweight) * set[1].reps) / set[1].pulley_count
         else
-          ((((set[1].weight_kg * unilat) + bodyweight) * set[1].reps) / (set[1].machine.mech_ad * set[1].machine.pulley_count * set[1].pulley_count)) + set[1].machine.inherit_weight
+          (((( (set[1].weight_kg + set[1].machine.inherit_weight) * unilat) + bodyweight) * set[1].reps) / (set[1].machine.mech_ad * set[1].machine.pulley_count * set[1].pulley_count))
         end
       end
     end
