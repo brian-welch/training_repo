@@ -172,7 +172,7 @@ users = ["Brian", "John"].each_with_object([]) {|user, arr| arr << User.find_by_
 
   (1..12).each do |x|
     t = TrainingSession.where("session_number = ?", x)[0]
-    new_t = t.clone
+    new_t = t.dup
     new_t.user_id = users[1].id
     new_t.save!
   end
