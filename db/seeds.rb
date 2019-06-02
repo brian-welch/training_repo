@@ -147,20 +147,17 @@ sleep 0.5
 
 users = ["Brian", "John"].each_with_object([]) {|user, arr| arr << User.find_by_first_name(user)}
 
-users[0] do |user|
   training_session_list.each do |sesh_details|
     new_t = TrainingSession.new(sesh_details)
-    new_t.user_id = user.id
+    new_t.user_id = users[0].id
     new_t.save!
   end
-  puts "\n#{TrainingSession.where(user: user).count} Training Sessions created for #{user.first_name}."
+  puts "\n#{TrainingSession.where(user: users[0]).count} Training Sessions created for #{users[0].first_name}."
   sleep 0.5
-end
 
-users[0] do |user|
   count = 0
   session_set_list.each_with_index do |set_details_arr, index|
-    tr = TrainingSession.where("session_number = ? AND user_id = ?", set_details_arr[0], user.id)[0]
+    tr = TrainingSession.where("session_number = ? AND user_id = ?", set_details_arr[0], users[0].id)[0]
     new_s = SessionSet.new(set_details_arr[1])
       new_s.training_session_id = tr.id
       new_s.created_at = tr.created_at + 1800 + index
@@ -170,22 +167,18 @@ users[0] do |user|
       count = index
   end
 
-  puts "\n#{count} Sets created for #{user.first_name}."
+  puts "\n#{count} Sets created for #{users[0].first_name}."
   sleep 0.5
-end
 
-users[1] do |user|
   (1..12).each do |x|
     t = TrainingSession.where("session_number = ?", x)[0]
-    new_t = t.clone
-    new_t.user_id = user.id
+    new_t = t.dup
+    new_t.user_id = users[1].id
     new_t.save!
   end
-  puts "\n#{TrainingSession.where(user: user).count} Training Sessions created for #{user.first_name}."
+  puts "\n#{TrainingSession.where(user: users[1]).count} Training Sessions created for #{users[1].first_name}."
   sleep 0.5
-end
 
-users[1] do |user|
   count = 0
   (1..12).each_with_index do |x, i|
     sets_array = []
@@ -193,7 +186,7 @@ users[1] do |user|
       sets_array << set_details_arr[1] if set_details_arr[0] == x
     end
 
-    tr = TrainingSession.where("session_number = ? AND user_id = ?", x, user.id)[0]
+    tr = TrainingSession.where("session_number = ? AND user_id = ?", x, users[1].id)[0]
 
     sets_array.each_with_index do |set_details, i|
       new_s = SessionSet.new(set_details)
@@ -206,9 +199,8 @@ users[1] do |user|
     end
 
   end
-  puts "\n#{count} Sets created for #{user.first_name}."
+  puts "\n#{count} Sets created for #{users[1].first_name}."
   sleep 0.5
-end
 
 
 

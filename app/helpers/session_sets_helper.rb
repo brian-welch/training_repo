@@ -131,7 +131,7 @@ module SessionSetsHelper
     temp = 0
     temp += sets.sum do |set|
       if set.machine.nil?
-        ((((set.weight_kg * unilat) + bodyweight) * set.reps) / set.pulley_count
+        (((set.weight_kg * unilat) + bodyweight) * set.reps) / set.pulley_count
       else
         (((((set.weight_kg + set.machine.inherit_weight) * unilat) + bodyweight) * set.reps) / (set.machine.mech_ad * set.machine.pulley_count * set.pulley_count))
       end
