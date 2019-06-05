@@ -20,5 +20,5 @@ function session_timer_run() {
 }
 
 function show_hide_session_timer() {
-  $(".timer_container_outer").toggleClass("reveal_session_timer");
+  $(".timer_clock_container").toggleClass("reveal_session_timer");
 }
