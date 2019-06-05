@@ -6,7 +6,7 @@
   }
 
   .reveal_session_timer {
-    bottom: 55px;
+    bottom: 55px !important;
   }
   .timer_container_inner {
     padding: 5px 5px 0;
@@ -22,13 +22,17 @@
 
   .timer_clock_container {
     /*outline: green dotted 1px;*/
+    position: fixed;
     display: flex;
     align-items: center;
+    width: calc(100% - 40px);
+    margin-left: 20px;
     justify-content: space-around;
     background: rgba(0, 0, 0, 0.95);
     box-shadow: 0 0 0 calc(1px * 1) rgba(58,130,180,1);
     border-radius: 2px;
     border-top-right-radius: 0;
+    bottom: -27px;
   }
   .timer_button_box {
     padding: 2px;
@@ -38,6 +42,7 @@
     box-shadow: 0 -1px 0 calc(1px * -0.5) rgba(0,0,0,1), 0 -1px 0 calc(1px * 1) rgba(58,130,180,1);
     position: absolute;
     right: 0;
+    top: -48px;
     background: #000;
     img {
       cursor: pointer;
