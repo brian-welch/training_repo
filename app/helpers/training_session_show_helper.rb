@@ -7,7 +7,7 @@ module TrainingSessionShowHelper
 
     machine_sets_order_arr.each do |machine_inst, order_sets_array|
       total += order_sets_array.sum do |set|
-        if machine_inst.nil?
+        if machine_inst.is_a? Integer
           (((set[1].weight_kg * unilat) + bodyweight) * set[1].reps) / set[1].pulley_count
         else
           (((( (set[1].weight_kg + set[1].machine.inherit_weight) * unilat) + bodyweight) * set[1].reps) / (set[1].machine.mech_ad * set[1].machine.pulley_count * set[1].pulley_count))
