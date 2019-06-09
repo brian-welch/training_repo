@@ -40,7 +40,7 @@
       </table>
     </div>
 
-    <% @session_set_hash.each do |exercise, machine_sets_order_hash| %>
+    <% @session_set_hash.each do |exercise, machine_pulley_sets_order_hash| %>
 
       <div class="exercise_set_marker"></div>
 
@@ -50,12 +50,18 @@
           <%= image_tag "icons_symbols/tr_check_a.svg", style: "height: 22px; position: relative; bottom: 1px;" %> <%= proper_string(exercise.name) %>
         </div>
 
-          <% machine_sets_order_hash.each do |machine_inst, order_set_arrays| %>
+          <% machine_pulley_sets_order_hash.each do |machine_pulley_inst, order_set_arrays| %>
 
-            <% if machine_inst %>
+            <% if pulley_check(exercise) %>
 
               <div class="session_set_index_machine_name">
-                <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %><%= proper_string(machine_inst.name) %> :: <%= proper_string(machine_inst.brand.name) %>
+                <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %><%= "#{machine_pulley_inst} Pulley#{'s' if machine_pulley_inst > 1}" %>
+              </div>
+
+            <% elsif (!machine_pulley_inst.is_a? Integer) %>
+
+              <div class="session_set_index_machine_name">
+                <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %><%= proper_string(machine_pulley_inst.name) %> :: <%= proper_string(machine_pulley_inst.brand.name) %>
               </div>
 
             <% end %>
@@ -79,7 +85,7 @@
               Total:
             </span>
             <span class="set_data_total_weight_sum">
-              <br><%= total_weight_calculator_show_session(exercise, machine_sets_order_hash) %> kg *
+              <br><%= total_weight_calculator_show_session(exercise, machine_pulley_sets_order_hash) %> kg *
             </span>
           </div>
 

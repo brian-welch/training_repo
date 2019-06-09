@@ -55,7 +55,8 @@ class TrainingSessionsController < ApplicationController
 
       all_session_sets_instances.map!.with_index {|set, i| x = []; x << (i + 1); x << set}
       temp = all_session_sets_instances.group_by {|x,y| y.exercise}
-      @session_set_hash = temp.map {|x,y| [x,y.group_by {|arr| arr[1].machine}]}
+      # @session_set_hash = temp.map {|x,y| [x,y.group_by {|arr| arr[1].machine}]}
+      @session_set_hash = temp.map {|x,y| [x,y.group_by {|arr| !arr[1].machine.nil? ? arr[1].machine : arr[1].pulley_count}]}
     end
   end
 
