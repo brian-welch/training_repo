@@ -154,7 +154,7 @@ module SessionSetsHelper
 
   def get_sets_last_inactive_sesh_with_exercise(exercise)
 
-    temp =  SessionSet.where("exercise_id = ?", exercise.id).select{|x| x if x.training_session.open == false}
+    temp =  SessionSet.where("exercise_id = ?", exercise.id).sort_by { |set| set.created_at }.select{|set| set if set.training_session.open == false}
     temp = temp.select{|x| x.training_session_id == temp.last.training_session_id}
     return temp
   end
