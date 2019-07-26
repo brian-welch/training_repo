@@ -1,6 +1,6 @@
 class CreateSessionCardioBouts < ActiveRecord::Migration[5.2]
   def change
-    create_table :roles do |t|
+    create_table :session_cardio_bouts do |t|
       t.float :distance
       t.datetime :duration
 
