@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_05_111753) do
+ActiveRecord::Schema.define(version: 2019_07_26_104709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 2019_04_05_111753) do
   end
 
   create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cardio_bouts", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,6 +75,17 @@ ActiveRecord::Schema.define(version: 2019_04_05_111753) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "session_cardio_bouts", force: :cascade do |t|
+    t.float "distance"
+    t.datetime "duration"
+    t.bigint "training_session_id"
+    t.bigint "cardio_bout_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cardio_bout_id"], name: "index_session_cardio_bouts_on_cardio_bout_id"
+    t.index ["training_session_id"], name: "index_session_cardio_bouts_on_training_session_id"
+  end
+
   create_table "session_sets", force: :cascade do |t|
     t.integer "weight_kg"
     t.integer "reps"
@@ -78,6 +95,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_111753) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "pulley_count", default: 1
+    t.text "notes"
     t.index ["exercise_id"], name: "index_session_sets_on_exercise_id"
     t.index ["machine_id"], name: "index_session_sets_on_machine_id"
     t.index ["training_session_id"], name: "index_session_sets_on_training_session_id"
@@ -97,6 +115,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_111753) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "notes"
     t.index ["session_strategy_id"], name: "index_training_sessions_on_session_strategy_id"
     t.index ["user_id"], name: "index_training_sessions_on_user_id"
   end
@@ -124,6 +143,8 @@ ActiveRecord::Schema.define(version: 2019_04_05_111753) do
 
   add_foreign_key "exercise_bodyparts", "bodyparts"
   add_foreign_key "exercise_bodyparts", "exercises"
+  add_foreign_key "session_cardio_bouts", "cardio_bouts"
+  add_foreign_key "session_cardio_bouts", "training_sessions"
   add_foreign_key "session_sets", "exercises"
   add_foreign_key "session_sets", "machines"
   add_foreign_key "session_sets", "training_sessions"
