@@ -5,7 +5,7 @@ def brand_list
     "Freemotion",
     "Casall",
     "Cybex",
-    'Hammer Strength',
+    "Hammer Strength",
     "Badger Fitness",
     "Life Fitness",
     "Atlantis Strength",
