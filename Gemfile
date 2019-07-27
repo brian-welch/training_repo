@@ -21,7 +21,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
-gem 'yaml_db', '~> 0.3.0'
+# gem 'yaml_db', '~> 0.3.0'
 
 gem 'letter_opener', group: :development
 
