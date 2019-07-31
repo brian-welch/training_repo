@@ -13,7 +13,7 @@ class TrainingSession < ApplicationRecord
     if active_sesh.count == 0
       return false
     else
-      return active_sesh.last.session_number
+      return active_sesh.sort_by{|x|x.created_at}.last.session_number
     end
   end
 
@@ -24,7 +24,7 @@ class TrainingSession < ApplicationRecord
     if previous_sesh.count == 0
       return 1
     else
-      return previous_sesh.last.session_number + 1
+      return previous_sesh.sort_by{|x|x.created_at}.last.session_number + 1
     end
   end
 
