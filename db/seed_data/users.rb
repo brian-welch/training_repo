@@ -12,11 +12,11 @@ def user_list
       role: "admin"
     },
     {
-      first_name: "Niels",
-      last_name: "Hemmingsen",
-      email: "nhe@boozt.com",
+      first_name: "Jack",
+      last_name: "Schmitt",
+      email: "jack@bobshouse.com",
       password: "87654321",
-      birthdate: "1962/01/01",
+      birthdate: "1972/01/01",
       weight: 80,
       active: false,
       gender: "m",
