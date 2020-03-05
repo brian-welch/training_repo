@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_27_094734) do
+ActiveRecord::Schema.define(version: 2019_04_05_111753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,12 +22,6 @@ ActiveRecord::Schema.define(version: 2019_07_27_094734) do
   end
 
   create_table "brands", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "cardio_bouts", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,8 +43,6 @@ ActiveRecord::Schema.define(version: 2019_07_27_094734) do
     t.boolean "bodyweight", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "resistance_method_id"
-    t.index ["resistance_method_id"], name: "index_exercises_on_resistance_method_id"
   end
 
   create_table "genders", force: :cascade do |t|
@@ -67,36 +59,14 @@ ActiveRecord::Schema.define(version: 2019_07_27_094734) do
     t.integer "inherit_weight", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "model_series_id"
     t.index ["brand_id"], name: "index_machines_on_brand_id"
-    t.index ["model_series_id"], name: "index_machines_on_model_series_id"
     t.index ["name", "brand_id"], name: "index_machines_on_name_and_brand_id", unique: true
-  end
-
-  create_table "model_series", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "resistance_methods", force: :cascade do |t|
-    t.string "name"
   end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "session_cardio_bouts", force: :cascade do |t|
-    t.float "distance"
-    t.datetime "duration"
-    t.bigint "training_session_id"
-    t.bigint "cardio_bout_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "sub_type"
-    t.index ["cardio_bout_id"], name: "index_session_cardio_bouts_on_cardio_bout_id"
-    t.index ["training_session_id"], name: "index_session_cardio_bouts_on_training_session_id"
   end
 
   create_table "session_sets", force: :cascade do |t|
@@ -108,7 +78,6 @@ ActiveRecord::Schema.define(version: 2019_07_27_094734) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "pulley_count", default: 1
-    t.text "notes"
     t.index ["exercise_id"], name: "index_session_sets_on_exercise_id"
     t.index ["machine_id"], name: "index_session_sets_on_machine_id"
     t.index ["training_session_id"], name: "index_session_sets_on_training_session_id"
@@ -128,7 +97,6 @@ ActiveRecord::Schema.define(version: 2019_07_27_094734) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "notes"
     t.index ["session_strategy_id"], name: "index_training_sessions_on_session_strategy_id"
     t.index ["user_id"], name: "index_training_sessions_on_user_id"
   end
@@ -156,10 +124,6 @@ ActiveRecord::Schema.define(version: 2019_07_27_094734) do
 
   add_foreign_key "exercise_bodyparts", "bodyparts"
   add_foreign_key "exercise_bodyparts", "exercises"
-  add_foreign_key "exercises", "resistance_methods"
-  add_foreign_key "machines", "model_series"
-  add_foreign_key "session_cardio_bouts", "cardio_bouts"
-  add_foreign_key "session_cardio_bouts", "training_sessions"
   add_foreign_key "session_sets", "exercises"
   add_foreign_key "session_sets", "machines"
   add_foreign_key "session_sets", "training_sessions"
