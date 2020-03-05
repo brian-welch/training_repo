@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
   add_flash_types :just_saved
 
   def after_sign_in_path_for(resource_or_scope)
-    stored_location_for(resource_or_scope) || super
+    # stored_location_for(resource_or_scope) || super
+    my_tr_path
   end
 
   def ordinal(n)
