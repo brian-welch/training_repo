@@ -11,6 +11,9 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
+
+    <%= yield :head %>
+
   </head>
   <body>
     <%= render 'shared/desktop_navbar' %>
