@@ -7,16 +7,21 @@
     <h1><%= image_tag "logo_and_branding/tr_spiral_with_analytics_a.svg", width: "50", style: "position:relative; bottom: 5px;" %> <%= proper_string(current_user.first_name) %>'s Dashboard</h1>
     <div class="dotted_hr"></div>
     <h2>Under Development! ... perhaps</h2>
-    <div class="container">
-    	<canvas id="chartTest">
-    	</canvas>
+  </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+    		<div class="dashboard_block_container">
+    			<h3>Tonage</h3>
+    			<div class="dotted_hr"></div>
+    			<canvas id="chartTest"></canvas>
+    		</div>
+    	</div>
     	  <script>
 		    let myChart = document.getElementById('chartTest').getContext('2d');
 
 		    // Global Options
-		    Chart.defaults.global.defaultFontFamily = 'Lato';
+/*		    Chart.defaults.global.defaultFontFamily = 'Lato';
 		    Chart.defaults.global.defaultFontSize = 18;
-		    Chart.defaults.global.defaultFontColor = '#777';
+		    Chart.defaults.global.defaultFontColor = '#777';*/
 
 		    let massPopChart = new Chart(myChart, {
 		      type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
@@ -49,7 +54,7 @@
 		        }]
 		      },
 		      options:{
-		        title:{
+/*		        title:{
 		          display:true,
 		          text:'Largest Cities In Massachusetts',
 		          fontSize:25
@@ -60,21 +65,21 @@
 		          labels:{
 		            fontColor:'#000'
 		          }
-		        },
+		        },*/
 		        layout:{
 		          padding:{
-		            left:50,
+		            left:0,
 		            right:0,
-		            bottom:0,
+		            bottom:100,
 		            top:0
 		          }
 		        },
 		        tooltips:{
 		          enabled:true
-		        }
+		        },
+		        //responsive: true,
+		        maintainAspectRatio: false
 		      }
 		    });
 		  </script>
-    </div>
-  </div>
 </div>

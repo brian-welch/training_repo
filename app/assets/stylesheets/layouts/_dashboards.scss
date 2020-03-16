@@ -1,0 +1,15 @@
+
+.dashboard_block_container {
+	width: 100%;
+ 	border-radius: 4px;
+ 	border-bottom-left-radius: 4px;
+ 	border-bottom-right-radius: 4px;
+ 	overflow: hidden;
+ 	background-color: rgba(0, 0, 0, 0.7);
+ 	// border: 1px blue solid;
+ 	box-shadow:
+    	0 0 0 2px $site_background,
+    	calc(-1px * 0.5) calc(-1px * 0.8) 0 2px lighten($site_primary, 20%),
+    	0 0 0 calc(3px * 1.15) darken($site_primary, 25%);
+    	height: 300px;
+}
