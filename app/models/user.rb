@@ -26,6 +26,7 @@ class User < ApplicationRecord
   validates :role, presence: true
   validates :weight, presence: true
   validates :email, uniqueness: true
+  validates :units_of_measure, presence: true
 
   # after_create :send_welcome_email
 
