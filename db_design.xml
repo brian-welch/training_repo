@@ -74,11 +74,14 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="roles" row="id" />
 </row>
+<row name="units_of_measure(next deployment)" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="1063" y="262" name="exercises">
+<table x="1239" y="267" name="exercises">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -102,7 +105,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="745" y="14" name="session_sets">
+<table x="921" y="19" name="session_sets">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -134,7 +137,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1151" y="162" name="bodyparts">
+<table x="1327" y="167" name="bodyparts">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -145,7 +148,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1088" y="51" name="exercise_bodyparts">
+<table x="1264" y="56" name="exercise_bodyparts">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -161,7 +164,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="117" y="188" name="session_strategies">
+<table x="293" y="193" name="session_strategies">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -175,7 +178,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="182" y="291" name="genders">
+<table x="358" y="296" name="genders">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -186,7 +189,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="201" y="372" name="roles">
+<table x="377" y="377" name="roles">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -197,7 +200,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="126" y="12" name="training_sessions">
+<table x="302" y="17" name="training_sessions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -222,7 +225,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="702" y="259" name="machines">
+<table x="878" y="264" name="machines">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -250,7 +253,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="684" y="542" name="brands">
+<table x="860" y="547" name="brands">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -261,7 +264,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="332" y="95" name="session_cardio_bouts(next deployment)">
+<table x="508" y="100" name="session_cardio_bouts(next deployment)">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -286,7 +289,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="390" y="272" name="cardio_bouts(next deployment)">
+<table x="566" y="277" name="cardio_bouts(next deployment)">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -297,7 +300,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1057" y="462" name="resistance_tactics(next deployment)">
+<table x="1233" y="467" name="resistance_tactics(next deployment)">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -308,7 +311,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="719" y="461" name="model_series(next deployment)">
+<table x="895" y="466" name="model_series(next deployment)">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -319,7 +322,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="31" y="466" name="user_weight(next deployment)">
+<table x="207" y="471" name="user_weights (next deployment)">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -327,22 +330,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="kilograms" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="31" y="604" name="units_of_measure(next deployment)">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="user_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<row name="units" null="1" autoincrement="0">
+<row name="weight" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">

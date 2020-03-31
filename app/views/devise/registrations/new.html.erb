@@ -35,16 +35,24 @@
            <%= f.input :birthdate,
                         wrapper_html: { class: 'form-inline' },
                         required: true,
-                        start_year: Date.today.year - 90,
-                        end_year: Date.today.year  %>
+                        start_year: Date.today.year - 60,
+                        end_year: Date.today.year - 18  %>
           </div>
-          <div class="col-xs-4 col-md-2">
+          <div class="col-xs-6 col-md-3">
            <%= f.input :weight,
                         # wrapper_html: { class: 'form-inline' },
-                        required: true,
-                        hint: ('(nearest kg)')  %>
+                        required: true #,
+                        # hint: ('(nearest whole number)')
+                        %>
           </div>
-
+          <div class="col-xs-6 col-md-3">
+           <%= f.input :units_of_measure,
+                        label: "Weight Units",
+                        label_html: {class: 'form-control-label'},
+                        as: :radio_buttons,
+                        collection: ['kg', 'lbs'],
+                        required: true  %>
+          </div>
         </div>
         <div class="row">
           <div class="col-xs-12 col-md-6">

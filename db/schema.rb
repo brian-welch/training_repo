@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_05_111753) do
+ActiveRecord::Schema.define(version: 2020_03_23_155909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_111753) do
     t.string "name"
     t.float "mech_ad"
     t.integer "pulley_count"
-    t.integer "inherit_weight", default: 0
+    t.integer "inherit_weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_machines_on_brand_id"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_111753) do
     t.integer "weight"
     t.bigint "role_id"
     t.bigint "gender_id"
+    t.string "units_of_measure"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["gender_id"], name: "index_users_on_gender_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
