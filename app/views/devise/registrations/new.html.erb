@@ -35,15 +35,15 @@
            <%= f.input :birthdate,
                         wrapper_html: { class: 'form-inline' },
                         required: true,
-                        start_year: Date.today.year - 90,
-                        end_year: Date.today.year  %>
+                        start_year: Date.today.year - 60,
+                        end_year: Date.today.year - 18  %>
           </div>
           <div class="col-xs-6 col-md-3">
            <%= f.input :weight,
                         # wrapper_html: { class: 'form-inline' },
                         required: true #,
                         # hint: ('(nearest whole number)')
-                          %>
+                        %>
           </div>
           <div class="col-xs-6 col-md-3">
            <%= f.input :units_of_measure,
