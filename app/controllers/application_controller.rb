@@ -65,7 +65,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_user_units
-    @units = current_user.units_of_measure
+    user_signed_in? ? @units = current_user.units_of_measure :  @units = "kg/lbs"
   end
 
 end
