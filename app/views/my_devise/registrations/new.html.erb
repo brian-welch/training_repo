@@ -1,4 +1,4 @@
-<% @title = "Sign up for Training Repo" %>
+<% @title = "(my_devise)Sign up for Training Repo" %>
 
 <div class="container">
   <div class="col-xs-12 col-md-10 col-md-offset-1">
@@ -11,8 +11,7 @@
         <div class="row">
           <div class="col-xs-12 col-md-6">
             <%= f.input :first_name,
-                        input_html: { type: "search" },
-                        input_html: { autocomplete: 'off' },
+                        input_html: { type: "search", autocomplete: 'off' },
                         autofocus: true %>
           </div>
           <div class="col-xs-12 col-md-6">
@@ -35,7 +34,8 @@
            <%= f.input :birthdate,
                         wrapper_html: { class: 'form-inline' },
                         required: true,
-                        start_year: Date.today.year - 60,
+                        start_year: Date.today.year - 60, 
+
                         end_year: Date.today.year - 18  %>
           </div>
           <div class="col-xs-6 col-md-3">

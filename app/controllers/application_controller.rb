@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   # before the location can be stored.
   before_action :authenticate_user!
 
+  before_action :get_user_units
+
   add_flash_types :just_saved
 
   def after_sign_in_path_for(resource_or_scope)
@@ -60,6 +62,10 @@ class ApplicationController < ActionController::Base
     else
       @is_active_session = false
     end
+  end
+
+  def get_user_units
+    @units = current_user.units_of_measure
   end
 
 end
