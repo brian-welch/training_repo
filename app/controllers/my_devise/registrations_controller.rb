@@ -1,3 +1,4 @@
+
 class MyDevise::RegistrationsController < Devise::RegistrationsController
   before_action :sanitize_new_user_params
 
@@ -7,14 +8,10 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
 
   def create
   	super
-  	puts 
-  	puts
-  	p resource
-  	puts
-  	puts
-  	
 
-    # add custom create logic here, I'm going to save one of the params to another table eventually
+    if resource.save do |new_user|
+      # add custom create logic here, I'm going to save one of the params to another table eventually
+    end
   end
 
   def update
