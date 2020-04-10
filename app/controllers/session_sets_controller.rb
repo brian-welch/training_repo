@@ -70,7 +70,7 @@ class SessionSetsController < ApplicationController
 
 
   def approved_session_set_params
-    params.require(:session_set).permit(:weight_kg, :reps, :exercise_id, :exercise_name, :machine_id, :pulley_count, :training_session_id)
+    params.require(:session_set).permit(:weight, :reps, :exercise_id, :exercise_name, :machine_id, :pulley_count, :training_session_id)
   end
 
 end
