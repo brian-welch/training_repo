@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'user_weights/show'
+  get 'user_weights/new'
   devise_for :users,
              :controllers => { :registrations => "my_devise/registrations" }
 
@@ -23,5 +25,7 @@ Rails.application.routes.draw do
   resources :machines
 
   resources :exercises
+
+  resources :user_weights, only: [:new, :show]
 
 end
