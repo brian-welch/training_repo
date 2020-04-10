@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
-<!-- Active URL: https://kitt.lewagon.com/db/271 -->
+<!-- Active URL: https://kitt.lewagon.com/db/5932 -->
 <sql>
 <datatypes db="postgresql">
   <group label="Numeric" color="rgb(238,238,170)">
@@ -74,7 +74,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="roles" row="id" />
 </row>
-<row name="units_of_measure(next deployment)" null="1" autoincrement="0">
+<row name="units_of_measure" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
@@ -117,7 +117,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="exercises" row="id" />
 </row>
-<row name="weight_kg" null="1" autoincrement="0">
+<row name="weight" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="reps" null="1" autoincrement="0">
@@ -322,7 +322,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="207" y="471" name="user_weights (next deployment)">
+<table x="207" y="471" name="user_weights">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
