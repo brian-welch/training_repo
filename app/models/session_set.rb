@@ -3,7 +3,7 @@ class SessionSet < ApplicationRecord
   belongs_to :machine, optional: true#, foreign_key: :machine
   belongs_to :exercise
 
-  validates :weight_kg, presence: true
+  validates :weight, presence: true
   validates :reps, presence: true
   validates :pulley_count, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :machine, presence: true, if: :machine_id_required?
