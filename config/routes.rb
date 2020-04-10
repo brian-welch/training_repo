@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'user_weights/show'
+  get 'user_weights/new'
   devise_for :users,
              :controllers => { :registrations => "my_devise/registrations" }
 
