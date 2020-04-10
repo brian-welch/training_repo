@@ -26,4 +26,6 @@ Rails.application.routes.draw do
 
   resources :exercises
 
+  resources :user_weights, only: [:new, :show]
+
 end
