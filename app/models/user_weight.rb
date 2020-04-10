@@ -1,0 +1,2 @@
+class UserWeight < ApplicationRecord
+end
