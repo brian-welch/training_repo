@@ -70,7 +70,7 @@
               <div class="saved_set_data_box" >
                 <div class="set_order_marker" onclick="orderMessage();"><%= order_set_array[0] %></div>
                 <div class="set_data_weight">
-                  <%= "#{order_set_array[1].weight_kg}" %> <span>kg</span>
+                  <%= "#{order_set_array[1].weight}" %> <span><%= @units %></span>
                 </div>
                 <div class="set_data_reps">
                   <%= "#{order_set_array[1].reps}" %> <span>reps</span>
