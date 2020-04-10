@@ -31,11 +31,11 @@
         </tr>
         <tr>
           <td class="training_session_summary_key">Total Weight Lifted:</td>
-          <td class="training_session_summary_value"><%= @total_weight_session %> kg</td>
+          <td class="training_session_summary_value"><%= @total_weight_session %> <%= @units %></td>
         </tr>
         <tr>
-          <td class="training_session_summary_key">Kg Per Hour Pace:</td>
-          <td class="training_session_summary_value"><%= @kg_per_hour %></td>
+          <td class="training_session_summary_key"><%= @units.upcase %> Per Hour Pace:</td>
+          <td class="training_session_summary_value"><%= @weight_per_hour %></td>
         </tr>
       </table>
     </div>
