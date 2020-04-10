@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_073606) do
+ActiveRecord::Schema.define(version: 2020_04_10_100621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_073606) do
   end
 
   create_table "session_sets", force: :cascade do |t|
-    t.integer "weight_kg"
+    t.integer "weight"
     t.integer "reps"
     t.bigint "training_session_id"
     t.bigint "exercise_id"
@@ -99,6 +99,14 @@ ActiveRecord::Schema.define(version: 2020_04_05_073606) do
     t.datetime "updated_at", null: false
     t.index ["session_strategy_id"], name: "index_training_sessions_on_session_strategy_id"
     t.index ["user_id"], name: "index_training_sessions_on_user_id"
+  end
+
+  create_table "user_weights", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_weights_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -130,6 +138,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_073606) do
   add_foreign_key "session_sets", "training_sessions"
   add_foreign_key "training_sessions", "session_strategies"
   add_foreign_key "training_sessions", "users"
+  add_foreign_key "user_weights", "users"
   add_foreign_key "users", "genders"
   add_foreign_key "users", "roles"
 end
