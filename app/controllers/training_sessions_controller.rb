@@ -51,7 +51,7 @@ class TrainingSessionsController < ApplicationController
         # (((((set.weight + set.machine.inherit_weight) * unilat) + bodyweight) * set.reps) / mechanical_deductions(set)).to_i
       end
 
-      @kg_per_hour = ((@total_weight_session * 60) / total_min)
+      @weight_per_hour = ((@total_weight_session * 60) / total_min)
 
       all_session_sets_instances.map!.with_index {|set, i| x = []; x << (i + 1); x << set}
       temp = all_session_sets_instances.group_by {|x,y| y.exercise}

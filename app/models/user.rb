@@ -29,7 +29,6 @@ class User < ApplicationRecord
   validates :units_of_measure, presence: true
   validates :units_of_measure, inclusion: { in: %w(lbs kg),
     message: "%{value} is not a valid unit" }
-
   # after_create :send_welcome_email
 
 
