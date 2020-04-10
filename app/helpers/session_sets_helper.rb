@@ -79,22 +79,22 @@ module SessionSetsHelper
     machine_hash.map do |machine, sets|
       machine_name(machine) +
       sets.map do |set|
-        reps_kilos(set, last_id)
+        reps_weight(set, last_id)
       end.join("").html_safe
     end.join("").html_safe
   end
 
   def sets_without_machine(sets, last_id)
     sets.map do |set|
-      reps_kilos(set, last_id)
+      reps_weight(set, last_id)
     end.join("").html_safe
   end
 
-  def reps_kilos(set, last_id)
+  def reps_weight(set, last_id)
     classes = set.id == last_id ? "saved_set_data_box last_saved_set_border" : "saved_set_data_box"
     marker = set.id == last_id ? "<div class=\"last_saved_set_marker\"></div>" : ""
     weight = content_tag :div, class: "set_data_weight" do
-      "#{set.weight_kg} <span>kg</span>".html_safe
+      "#{set.weight} <span>#{@units}</span>".html_safe
     end
     reps = content_tag :div, class: "set_data_reps" do
       "#{set.reps} <span>reps</span>".html_safe
@@ -118,7 +118,7 @@ module SessionSetsHelper
       "Total:<br>".html_safe
     end
     sum = content_tag :span, class: "set_data_total_weight_sum" do
-      "#{total_weight(exercise_inst, sets)} kg *"
+      "#{total_weight(exercise_inst, sets)} #{@units} *"
     end
     content_tag :div, class: "save_set_data_total_weight" do
       label + sum
@@ -131,9 +131,9 @@ module SessionSetsHelper
     temp = 0
     temp += sets.sum do |set|
       if set.machine.nil?
-        (((set.weight_kg * unilat) + bodyweight) * set.reps) / set.pulley_count
+        (((set.weight * unilat) + bodyweight) * set.reps) / set.pulley_count
       else
-        (((((set.weight_kg + set.machine.inherit_weight) * unilat) + bodyweight) * set.reps) / (set.machine.mech_ad * set.machine.pulley_count * set.pulley_count))
+        (((((set.weight + set.machine.inherit_weight) * unilat) + bodyweight) * set.reps) / (set.machine.mech_ad * set.machine.pulley_count * set.pulley_count))
       end
     end
     return temp.round
