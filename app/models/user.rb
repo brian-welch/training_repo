@@ -19,12 +19,13 @@ class User < ApplicationRecord
   belongs_to :gender
   belongs_to :role
 
+  attr_accessor :weight
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :birthdate, presence: true
   validates :gender, presence: true
   validates :role, presence: true
-  validates :weight, presence: true
   validates :email, uniqueness: true
   validates :units_of_measure, presence: true
   validates :units_of_measure, inclusion: { in: %w(lbs kg),

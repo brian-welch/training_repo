@@ -9,9 +9,9 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   def create
   	super
 
-    if resource.save do |new_user|
-      # add custom create logic here, I'm going to save one of the params to another table eventually
-    end
+    # if resource.save do |new_user|
+    #   # add custom create logic here, I'm going to save one of the params to another table eventually
+    # end
   end
 
   def update
