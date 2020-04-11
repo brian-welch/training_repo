@@ -25,8 +25,4 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   end
 
 
-  def approved_new_user_params
-    params.require(:user).permit(:first_name, :last_name, :gender_id, :birthdate, :weight, :units_of_measure, :role_id)
-  end
-
 end  
