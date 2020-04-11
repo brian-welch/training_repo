@@ -126,7 +126,7 @@ module SessionSetsHelper
   end
 
   def total_weight(exercise_inst, sets)
-    bodyweight = exercise_inst.bodyweight == true ? current_user.weight : 0
+    bodyweight = exercise_inst.bodyweight == true ? current_user.get_user_weight : 0
     unilat = exercise_inst.unilateral == true ?  2 : 1
     temp = 0
     temp += sets.sum do |set|
@@ -151,6 +151,10 @@ module SessionSetsHelper
       end
     end
   end
+
+  # def get_user_weight(user)
+  #   UserWeight.find_by_id(user.id).last.weight
+  # end
 
   def get_sets_last_inactive_sesh_with_exercise(exercise)
 

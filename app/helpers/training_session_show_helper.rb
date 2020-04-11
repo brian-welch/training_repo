@@ -1,7 +1,7 @@
 module TrainingSessionShowHelper
 
   def total_weight_calculator_show_session(exercise_inst, machine_sets_order_arr)
-    bodyweight = exercise_inst.bodyweight == true ? current_user.weight : 0
+    bodyweight = exercise_inst.bodyweight == true ? current_user.get_user_weight : 0
     unilat = exercise_inst.unilateral == true ?  2 : 1
     total = 0
 

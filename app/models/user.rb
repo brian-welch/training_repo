@@ -35,6 +35,10 @@ class User < ApplicationRecord
 
 
 
+  def get_current_user_weight
+   UserWeight.where("user_id = ?", self.id).last.weight
+  end
+
   private
 
   def send_welcome_email
