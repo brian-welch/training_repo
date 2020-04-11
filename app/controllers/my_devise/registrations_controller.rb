@@ -9,9 +9,14 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   def create
   	super
 
-    # if resource.save do |new_user|
-    #   # add custom create logic here, I'm going to save one of the params to another table eventually
-    # end
+    if resource.save
+
+      new_user_weight = UserWeight.new(new_user_weight_param)
+      new_user_weight.user_id = resource.id
+      new_user_weight.save
+
+
+    end
   end
 
   def update
@@ -22,6 +27,10 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
 
   def sanitize_new_user_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :gender_id, :birthdate, :role_id, :units_of_measure])
+  end
+
+  def new_user_weight_param
+    params.require(:user).permit(:weight)
   end
 
 

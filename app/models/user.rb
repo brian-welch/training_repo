@@ -19,7 +19,8 @@ class User < ApplicationRecord
   belongs_to :gender
   belongs_to :role
 
-  attr_accessor :weight
+  attr_accessor :weight #to be used in saving weight to user_weights table
+  has_many :user_weights, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
