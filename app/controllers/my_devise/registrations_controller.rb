@@ -21,7 +21,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   protected
 
   def sanitize_new_user_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :gender_id, :birthdate, :weight, :role_id, :units_of_measure])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :gender_id, :birthdate, :role_id, :units_of_measure])
   end
 
 
