@@ -40,9 +40,8 @@ class TrainingSessionsController < ApplicationController
       @elapsed_time = "#{hours}hrs, #{minutes}min"
 
       @total_weight_session = all_session_sets_instances.sum do |set|
-
-        bodyweight = set.exercise.bodyweight == true ? current_user.weight : 0
-        unilat = set.exercise.unilateral == true ?  2 : 1
+        bodyweight = set.exercise.bodyweight ? current_user.get_relevant_user_weight(set) : 0
+        unilat = set.exercise.unilateral ?  2 : 1
         if set.machine.nil?
           ((((set.weight * unilat) + bodyweight) * set.reps) / mechanical_deductions(set)).to_i
         else
