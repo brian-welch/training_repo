@@ -10,6 +10,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   	super
 
     if resource.save
+      # populates weight table if user is saved correctly
       new_user_weight = UserWeight.new(new_user_weight_param)
       new_user_weight.user_id = resource.id
       new_user_weight.save

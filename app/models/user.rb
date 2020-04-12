@@ -39,6 +39,20 @@ class User < ApplicationRecord
    UserWeight.where("user_id = ?", self.id).last.weight
   end
 
+  def get_relevant_user_weight(set_input)
+    set = set_input.is_a?(Array) ? set_input[1] : set_input
+    relevant_weight = 0
+    all_weights = UserWeight.where("user_id = ?", self.id)
+
+    all_weights.map do |weight_record|
+      break if weight_record.updated_at.to_i > set.updated_at.to_i
+      relevant_weight = weight_record.weight
+    end
+
+    relevant_weight
+
+  end
+
   private
 
   def send_welcome_email
