@@ -95,7 +95,7 @@ class TrainingSessionsController < ApplicationController
   private
 
   def approved_training_session_params
-    params.require(:training_session).permit(:user_id, :session_strategy_id)
+    params.require(:training_session).permit(:user_id, :session_strategy_id, :notes)
   end
 
   def mechanical_deductions(set)
