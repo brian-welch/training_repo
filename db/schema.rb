@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_052115) do
+ActiveRecord::Schema.define(version: 2020_04_13_113544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_052115) do
     t.boolean "bodyweight", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "resistance_method_id"
+    t.index ["resistance_method_id"], name: "index_exercises_on_resistance_method_id"
   end
 
   create_table "genders", force: :cascade do |t|
@@ -61,6 +63,13 @@ ActiveRecord::Schema.define(version: 2020_04_13_052115) do
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_machines_on_brand_id"
     t.index ["name", "brand_id"], name: "index_machines_on_name_and_brand_id", unique: true
+  end
+
+  create_table "resistance_methods", force: :cascade do |t|
+    t.string "name"
+    t.string "instructions"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -133,6 +142,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_052115) do
 
   add_foreign_key "exercise_bodyparts", "bodyparts"
   add_foreign_key "exercise_bodyparts", "exercises"
+  add_foreign_key "exercises", "resistance_methods"
   add_foreign_key "session_sets", "exercises"
   add_foreign_key "session_sets", "machines"
   add_foreign_key "session_sets", "training_sessions"
