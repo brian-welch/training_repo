@@ -15,6 +15,13 @@
                           input_html: { style: "cursor: pointer;",
                                         class: "session_strategy_dropdown",
                                         onchange: "getSessionStrategyInfo(#{@all_session_strat_json}[this.value])" } %>
+        <%= f.input :notes,
+                    as: :text,
+                    input_html: {
+                      style: "height: 39px;",
+                      placeholder: "Free text field",
+                      class: "session-text-input"
+                    } %>
 
       </div>
       <hr>
