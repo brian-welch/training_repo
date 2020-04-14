@@ -7,7 +7,7 @@ def resistance_methods_list
 		{name: "selectorized machine", instructions: "A 'selectorized' machine are most common and refer a machine with an integrated stack of weights; which the user then selects the load to be lifted. If the machine you are using is not listed, use the 'placeholder' machine. Please contact us and let us know if you need a machine added'", unilateral: false},
 		{name: "plate-loaded machine", instructions: "A 'plated-loaded' machine does not have any integrated weight stack; free-weights are added to the machine akin to using barbells. Record the entire weight load, as you would with a barbell. If the machine you are using is not listed, use the 'placeholder' machine. Please contact us and let us know if you need a machine added'", unilateral: false},
 		{name: "bodyweight", instructions: "As simple as it comes; the app will use your current bodyweight automatically", unilateral: false},
-		{name: "bodyweight plus", instructions: "Record only the added free weight used; the app will add your current bodyweight automatically", unilateral: false},
+		{name: "bodyweight +weight", instructions: "Record only the added free weight used; the app will add your current bodyweight automatically", unilateral: false},
 	]
 end
 
