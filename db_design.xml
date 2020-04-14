@@ -78,7 +78,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1239" y="267" name="exercises">
+<table x="767" y="21" name="exercises">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -94,15 +94,17 @@
 <row name="machine" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="resistance_tactic_id(next deployment)" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="resistance_tactics(next deployment)" row="id" />
-</row>
+<row name="force_bilateral" null="1" autoincrement="0">
+<datatype>BOOLEAN</datatype>
+<default>NULL</default></row>
+<row name="mech_ad_override" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="921" y="19" name="session_sets">
+<table x="550" y="17" name="session_sets">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -120,21 +122,25 @@
 <row name="reps" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="machine_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="machines" row="id" />
-</row>
 <row name="pully_count" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="notes(next deployment)" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
+<row name="resistance_methods" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="resistance_methods" row="id" />
+</row>
+<row name="machine_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="machines" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="1327" y="167" name="bodyparts">
+<table x="1002" y="130" name="bodyparts">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -145,7 +151,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1264" y="56" name="exercise_bodyparts">
+<table x="941" y="20" name="exercise_bodyparts">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -215,14 +221,14 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="notes(next deployment)" null="1" autoincrement="0">
+<row name="notes" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="878" y="264" name="machines">
+<table x="892" y="351" name="machines">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -250,7 +256,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="860" y="547" name="brands">
+<table x="686" y="370" name="brands">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -261,7 +267,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="508" y="100" name="session_cardio_bouts(next deployment)">
+<table x="415" y="480" name="session_cardio_bouts(next deployment)">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -286,7 +292,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="566" y="277" name="cardio_bouts(next deployment)">
+<table x="473" y="680" name="cardio_bouts(next deployment)">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -297,18 +303,21 @@
 <part>id</part>
 </key>
 </table>
-<table x="1233" y="467" name="resistance_tactics(next deployment)">
+<table x="934" y="229" name="resistance_methods">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="instructions" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="895" y="466" name="model_series(next deployment)">
+<table x="865" y="578" name="model_series(next deployment)">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
