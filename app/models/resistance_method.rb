@@ -1,0 +1,2 @@
+class ResistanceMethod < ApplicationRecord
+end
