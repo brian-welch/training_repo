@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_113544) do
+ActiveRecord::Schema.define(version: 2020_04_18_061816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,8 +43,10 @@ ActiveRecord::Schema.define(version: 2020_04_13_113544) do
     t.boolean "bodyweight", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "resistance_method_id"
-    t.index ["resistance_method_id"], name: "index_exercises_on_resistance_method_id"
+    t.boolean "force_bilateral"
+    t.text "info"
+    t.float "m_mech_ad_override"
+    t.float "f_mech_ad_override"
   end
 
   create_table "genders", force: :cascade do |t|
@@ -142,7 +144,6 @@ ActiveRecord::Schema.define(version: 2020_04_13_113544) do
 
   add_foreign_key "exercise_bodyparts", "bodyparts"
   add_foreign_key "exercise_bodyparts", "exercises"
-  add_foreign_key "exercises", "resistance_methods"
   add_foreign_key "session_sets", "exercises"
   add_foreign_key "session_sets", "machines"
   add_foreign_key "session_sets", "training_sessions"
