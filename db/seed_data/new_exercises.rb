@@ -21,7 +21,7 @@ def new_exercises
 		{name: "Dips: Bench / Feet on Floor",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
 		{name: "Dips: Bench / Feet on Bench",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
 		{name: "Dips",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
-		{name: "Glute Kick-backs",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
+		{name: "Glute Kick-backs",  unilateral: true, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
 		{name: "Horizontal Rows: One Arm",  unilateral: true, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
 		{name: "Horizontal Rows: Underhand Grip",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
 		{name: "Horizontal Rows",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
