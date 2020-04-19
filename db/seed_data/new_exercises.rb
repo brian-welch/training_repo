@@ -18,8 +18,13 @@ def new_exercises
 		{name: "Dead Lifts: Stiff Legged",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
 		{name: "Dead Lifts: Sumo",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
 		{name: "Dead Lifts",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
-		{name: "Dips: Bench / Feet on Floor",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
-		{name: "Dips: Bench / Feet on Bench",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
+
+
+		{name: "Dips: Bench / Feet on Floor, Stright Legs",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: 2.095, f_mech_ad_override: 2.095, bodyweight: false},
+    {name: "Dips: Bench / Feet on Floor, Bent Legs",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: 1.692, f_mech_ad_override: 1.692, bodyweight: false},
+		{name: "Dips: Bench / Feet on Bench, Straight Legs",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: 1.419, f_mech_ad_override: 1.419, bodyweight: false},
+
+
 		{name: "Dips",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
 		{name: "Glute Kick-backs",  unilateral: true, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
 		{name: "Horizontal Rows: One Arm",  unilateral: true, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
@@ -63,6 +68,6 @@ def new_exercises
 		{name: "Tricep Extensions: Reverse Grip",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
 		{name: "Tricep Extensions",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
 		{name: "Tricep Extensions: One Arm",  unilateral: true, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
-		{name: "Walking Lunges",  unilateral: false, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
+		{name: "Walking Lunges",  unilateral: true, force_bilateral: nil, machine: false, info: "", m_mech_ad_override: nil, f_mech_ad_override: nil, bodyweight: false},
 	]
 end

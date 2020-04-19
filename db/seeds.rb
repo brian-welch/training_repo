@@ -40,67 +40,86 @@ puts "\nPopulating resistance_methods table"
 sleep 1
 
 plate_loaded = []
+sleep 0.25
 SessionSet.all.map{|x| plate_loaded << x if Exercise.find(x.exercise_id).name.include?("Plate")}
+sleep 1
 plate_loaded.each do |sesh_set|
 	sesh_set.resistance_method_id = ResistanceMethod.find_by_name("plate-loaded machine").id
   sesh_set.save!
 end
-
+sleep 1
 machine = []
+sleep 0.25
 SessionSet.all.map{|x| machine << x if Exercise.find(x.exercise_id).name.include?("Machine")}
+sleep 1
 machine.each do |sesh_set|
   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("selectorized machine").id
   sesh_set.save!
 end
-
+sleep 1
 barbell = []
+sleep 0.25
 SessionSet.all.map{|x| barbell << x if Exercise.find(x.exercise_id).name.include?("Barbell")}
+sleep 1
 barbell.each do |sesh_set|
   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("barbell").id
   sesh_set.save!
 end
-
+sleep 1
 dumbbell = []
+sleep 0.25
 SessionSet.all.map{|x| dumbbell << x if Exercise.find(x.exercise_id).name.include?("Dumbbell")}
+sleep 1
 dumbbell.each do |sesh_set|
   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("dumbbell").id
   sesh_set.save!
 end
-
+sleep 1
 bodyweight = []
+sleep 0.25
 SessionSet.all.map{|x| bodyweight << x if Exercise.find(x.exercise_id).name.include?("Bodyweight")}
+sleep 1
 bodyweight.each do |sesh_set|
   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("bodyweight").id
   sesh_set.save!
 end
-
+sleep 1
 cable = []
+sleep 0.25
 SessionSet.all.map{|x| cable << x if Exercise.find(x.exercise_id).name.include?("Cable")}
+sleep 1
 cable.each do |sesh_set|
   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("cable").id
   sesh_set.save!
 end
-
+sleep 1
 crossover = []
-SessionSet.all.map{|x| crossover << x if Exercise.find(x.exercise_id).name.include?("crossover")}
+sleep 0.25
+SessionSet.all.map{|x| crossover << x if Exercise.find(x.exercise_id).name.include?("Crossover")}
+sleep 1
 crossover.each do |sesh_set|
   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("crossover").id
   sesh_set.save!
 end
-
+sleep 1
 bodyweight_plus = []
+sleep 0.25
 SessionSet.all.map{|x| bodyweight_plus << x if Exercise.find(x.exercise_id).name.include?("Plus")}
+sleep 1
 bodyweight_plus.each do |sesh_set|
   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("bodyweight +weight").id
   sesh_set.save!
 end
+sleep 1
+
+
 
 =begin
 
-_____________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________
 
-BELOW IS THE ORIGINAL SEED CODE, FOR THE PURPOSE OF CREATING NEW EXERCISES, A NEW SEED CODE WAS CREATED ABOVE
-_____________________________________________________________________________________________________________
+BELOW IS THE ORIGINAL SEED CODE, FOR THE PURPOSE OF CREATING NEW EXERCISES AND CHANGING DB ENTRIES, A NEW SEED CODE WAS CREATED ABOVE
+__________________________________________________________________________________________________________________________________________
 
 =end
 
