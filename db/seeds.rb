@@ -11,27 +11,89 @@ require_relative 'seed_data/training_sessions.rb'
 require_relative 'seed_data/session_sets.rb'
 
 require_relative 'seed_data/new_exercises.rb'
+require_relative 'seed_data/new_exercise_bodyparts.rb'
 require_relative 'seed_data/resistance_methods.rb'
+require_relative 'db_data_changes/old_exercises_to_new.rb'
+require_relative 'db_data_changes/populate_resistance_methods_in_session_sets.rb'
 
 ## clears terminal window
 system 'clear'
 
 
+## adds arty farty title to terminal
+puts '*' * 23
+puts ' Seeding your database'
+puts '*' * 23
+puts '- ' * 30 + "\n"
+
+
+puts "\nPopulating resistance_methods table"
+sleep 1
+
+resistance_methods_list.each do |method|
+  ResistanceMethod.new(method).save!
+end
 
 
 
+puts "\nPopulating resistance_methods table"
+sleep 1
 
+plate_loaded = []
+SessionSet.all.map{|x| plate_loaded << x if Exercise.find(x.exercise_id).name.include?("Plate")}
+plate_loaded.each do |sesh_set|
+	sesh_set.resistance_method_id = ResistanceMethod.find_by_name("plate-loaded machine").id
+  sesh_set.save!
+end
 
+machine = []
+SessionSet.all.map{|x| machine << x if Exercise.find(x.exercise_id).name.include?("Machine")}
+machine.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("selectorized machine").id
+  sesh_set.save!
+end
 
+barbell = []
+SessionSet.all.map{|x| barbell << x if Exercise.find(x.exercise_id).name.include?("Barbell")}
+barbell.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("barbell").id
+  sesh_set.save!
+end
 
+dumbbell = []
+SessionSet.all.map{|x| dumbbell << x if Exercise.find(x.exercise_id).name.include?("Dumbbell")}
+dumbbell.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("dumbbell").id
+  sesh_set.save!
+end
 
+bodyweight = []
+SessionSet.all.map{|x| bodyweight << x if Exercise.find(x.exercise_id).name.include?("Bodyweight")}
+bodyweight.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("bodyweight").id
+  sesh_set.save!
+end
 
+cable = []
+SessionSet.all.map{|x| cable << x if Exercise.find(x.exercise_id).name.include?("Cable")}
+cable.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("cable").id
+  sesh_set.save!
+end
 
+crossover = []
+SessionSet.all.map{|x| crossover << x if Exercise.find(x.exercise_id).name.include?("crossover")}
+crossover.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("crossover").id
+  sesh_set.save!
+end
 
-
-
-
-
+bodyweight_plus = []
+SessionSet.all.map{|x| bodyweight_plus << x if Exercise.find(x.exercise_id).name.include?("Plus")}
+bodyweight_plus.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("bodyweight +weight").id
+  sesh_set.save!
+end
 
 =begin
 
