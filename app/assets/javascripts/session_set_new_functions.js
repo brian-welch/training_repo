@@ -25,9 +25,9 @@ function machineExerciseCheckId(){
   }
 };
 
-function machineExerciseCheckName(){
+function machineOrPulleyCheck(obj){
 
-  let keyword = $("#session_set_exercise_name").val().split(" ").pop();
+  let keyword = obj.selectedOptions[0].innerHTML.split(" ").pop().toLowerCase()
 
   function resetMachine(){
     $('#session_set_machine_id').val(null);
@@ -36,7 +36,7 @@ function machineExerciseCheckName(){
     $('#session_set_pulley_count').val(1);
   };
 
-  if (keyword.toLowerCase() == "machine" || keyword.toLowerCase() == "plate-loaded"){
+  if (keyword.toLowerCase() == "machine") {
     $('#machine_input_new_session_set').show(500);
     $('#pulley_input_new_session_set').hide(500);
     resetPulley();
