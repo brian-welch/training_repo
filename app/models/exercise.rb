@@ -1,6 +1,6 @@
 class Exercise < ApplicationRecord
-  has_many :exercise_bodyparts
-  has_many :bodyparts, through: :exercise_bodyparts
+  has_many :exercise_bodyparts, dependent: :destroy
+  has_many :bodyparts, through: :exercise_bodyparts, dependent: :destroy
 
   # validates :name, presence: true, if: :name_has_correct_ending?
 

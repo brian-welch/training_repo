@@ -4,21 +4,55 @@
     <h3><%= @active_tr_sesh_inst.session_strategy.name %></h3>
     <div class="dotted_hr"></div>
     <%= "<h3>0 sets on this session</h3>".html_safe if @all_sets_hash_by_exercise.count == 0 %>
-    <% @all_sets_hash_by_exercise.each_with_index do |(exercise_inst, sets), index| %>
-      <% args = { exercise_inst: exercise_inst,
+    <%# @all_sets_hash_by_exercise.each_with_index do |(exercise_inst, sets), index| %>
+
+      <%# args = { exercise_inst: exercise_inst,
                   sets: sets,
                   index: index,
-                  last_set_saved_id: @last_set_saved_id} %>
-      <%= render_session_sets args do |args| %>
+                  last_set_saved_id: @last_set_saved_id,
+                  all_resistance_methods: @all_resistance_methods_hash
+                } %>
+      <%#= render_session_sets args do |args| %>
+      <%# end %>
+
+      <%# prior_args = { exercise_inst: exercise_inst,
+                        sets: get_sets_last_inactive_sesh_with_exercise(exercise_inst),
+                        index: index,
+                        last_set_saved_id: @last_set_saved_id,
+                        all_resistance_methods: @all_resistance_methods_hash,
+                        archived: true
+                      } %>
+      <%#= render_prior_session_sets prior_args do |prior_args| %>
+      <%# end %>
+
+    <%# end %>
+
+
+    <% @all_sets_hash_by_exercise_and_resistance.each_with_index do |(exercise_and_resist_inst_array, sets), index| %>
+      <%
+        args = {
+          exercise_inst: exercise_and_resist_inst_array[0],
+          resist_inst: exercise_and_resist_inst_array[1],
+          sets: sets,
+          index: index,
+          last_set_saved_id: @last_set_saved_id
+        }
+        prior_args = {
+          exercise_inst: exercise_and_resist_inst_array[0],
+          resist_inst: exercise_and_resist_inst_array[1],
+          sets: get_sets_last_inactive_sesh_with_exercise(exercise_inst),
+          index: index,
+          last_set_saved_id: @last_set_saved_id,
+          archived: true
+        }
+      %>
+
+      <%= new_render_session_sets args do |args| %>
       <% end %>
 
-      <% prior_args = { exercise_inst: exercise_inst,
-                  sets: get_sets_last_inactive_sesh_with_exercise(exercise_inst),
-                  index: index,
-                  last_set_saved_id: @last_set_saved_id,
-                  archived: true } %>
-      <%= render_prior_session_sets prior_args do |prior_args| %>
+      <%= new_render_prior_session_sets prior_args do |prior_args| %>
       <% end %>
+
 
 
     <% end %>

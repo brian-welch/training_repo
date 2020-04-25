@@ -5,13 +5,16 @@ class SessionSetsController < ApplicationController
 
   def index
     if @active_tr_sesh_inst
+
       @title = "Saved Sets on #{current_user.first_name.capitalize}'s #{ordinal(@active_tr_sesh_inst.session_number)} Training Session on Training Repo"
 
-      @all_sets_current_instances = SessionSet.where(training_session: @active_tr_sesh_inst).reverse
+      all_sets_current_instances = SessionSet.where(training_session: @active_tr_sesh_inst).reverse
 
-      @all_sets_hash_by_exercise = @all_sets_current_instances.group_by { |set| set.exercise }
+      @all_sets_hash_by_exercise = all_sets_current_instances.group_by { |set| set.exercise }
 
-      @last_set_saved_id = @all_sets_current_instances.last.id if @all_sets_current_instances.count > 0
+      @all_sets_hash_by_exercise_and_resistance = all_sets_current_instances.group_by { |set| [set.exercise, set.resistance_method] }
+
+      @last_set_saved_id = all_sets_current_instances.last.id if all_sets_current_instances.count > 0
 
     else
       flash[:alert] = "You do not have any active training sessions.<br>You can review previous sessions here."
@@ -70,7 +73,7 @@ class SessionSetsController < ApplicationController
 
 
   def approved_session_set_params
-    params.require(:session_set).permit(:weight, :reps, :exercise_id, :exercise_name, :machine_id, :pulley_count, :training_session_id)
+    params.require(:session_set).permit(:weight, :reps, :exercise_id, :exercise_name, :machine_id, :pulley_count, :training_session_id, :resistance_method_id)
   end
 
 end

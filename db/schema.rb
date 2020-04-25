@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_052115) do
+ActiveRecord::Schema.define(version: 2020_04_22_163049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,10 @@ ActiveRecord::Schema.define(version: 2020_04_13_052115) do
     t.boolean "bodyweight", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "force_bilateral"
+    t.text "info"
+    t.float "m_mech_ad_override"
+    t.float "f_mech_ad_override"
   end
 
   create_table "genders", force: :cascade do |t|
@@ -63,6 +67,15 @@ ActiveRecord::Schema.define(version: 2020_04_13_052115) do
     t.index ["name", "brand_id"], name: "index_machines_on_name_and_brand_id", unique: true
   end
 
+  create_table "resistance_methods", force: :cascade do |t|
+    t.string "name"
+    t.string "instructions"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "unilateral"
+    t.boolean "bodyweight"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -78,8 +91,10 @@ ActiveRecord::Schema.define(version: 2020_04_13_052115) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "pulley_count", default: 1
+    t.bigint "resistance_method_id"
     t.index ["exercise_id"], name: "index_session_sets_on_exercise_id"
     t.index ["machine_id"], name: "index_session_sets_on_machine_id"
+    t.index ["resistance_method_id"], name: "index_session_sets_on_resistance_method_id"
     t.index ["training_session_id"], name: "index_session_sets_on_training_session_id"
   end
 
@@ -135,6 +150,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_052115) do
   add_foreign_key "exercise_bodyparts", "exercises"
   add_foreign_key "session_sets", "exercises"
   add_foreign_key "session_sets", "machines"
+  add_foreign_key "session_sets", "resistance_methods"
   add_foreign_key "session_sets", "training_sessions"
   add_foreign_key "training_sessions", "session_strategies"
   add_foreign_key "training_sessions", "users"

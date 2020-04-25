@@ -2,23 +2,26 @@ class SessionSet < ApplicationRecord
   belongs_to :training_session
   belongs_to :machine, optional: true#, foreign_key: :machine
   belongs_to :exercise
+  belongs_to :resistance_method
 
+  validates :resistance_method, presence: true
   validates :weight, presence: true
   validates :reps, presence: true
   validates :pulley_count, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :machine, presence: true, if: :machine_id_required?
 
   def machine_id_required?
-    if exercise
-      temp = exercise.name.split(" ").last.downcase
-      if temp == "machine" || temp == "plate-loaded"
-        return true
-      else
-        return false
-      end
-    else
-      return false
-    end
+#    if exercise
+    resistance_method.name.include?("machine") if resistance_method
+#      temp = exercise.name.split(" ").last.downcase
+#      if temp == "machine" || temp == "plate-loaded"
+#        return true
+#      else
+#        return false
+#      end
+#    else
+#      return false
+#    end
   end
 
   def exercise_name
