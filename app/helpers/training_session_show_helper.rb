@@ -20,4 +20,8 @@ module TrainingSessionShowHelper
     return total.round
   end
 
+  def pulley_check(exercise)
+    %w(cable crossover).include?(exercise.name.split(" ")[-1].downcase)
+  end
+
 end
