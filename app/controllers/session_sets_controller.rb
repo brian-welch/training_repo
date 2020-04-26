@@ -14,7 +14,7 @@ class SessionSetsController < ApplicationController
 
       @all_sets_hash_by_exercise_and_resistance = all_sets_current_instances.group_by { |set| [set.exercise, set.resistance_method] }
 
-      @last_set_saved_id = all_sets_current_instances.last.id if all_sets_current_instances.count > 0
+      @last_set_saved_id = all_sets_current_instances.first.id if all_sets_current_instances.count > 0
 
     else
       flash[:alert] = "You do not have any active training sessions.<br>You can review previous sessions here."
