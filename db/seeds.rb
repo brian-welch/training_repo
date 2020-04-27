@@ -116,9 +116,22 @@ puts '- ' * 30 + "\n"
 # sleep 1
 
 # new_exercises_list.each do |exercise|
-#   ResistanceMethod.new(exercise).save!
+#   Exercise.new(exercise).save!
 # end
 
+
+# puts "\nPopulate exercise_bodyparts table with new info"
+# sleep 1
+
+# new_exercise_bodyparts_list.each do |ex_body|
+
+#   ex_body[:bodyparts].each do |bodypart|
+#     ExerciseBodypart.create!(
+#       exercise: Exercise.find_by_name(ex_body[:name]),
+#       bodypart: Bodypart.find_by_name(bodypart)
+#       )
+#   end
+# end
 
 # puts "\nPopulate exercise_bodyparts table with new info"
 # sleep 1
