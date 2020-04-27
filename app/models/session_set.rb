@@ -12,7 +12,7 @@ class SessionSet < ApplicationRecord
 
   def machine_id_required?
 #    if exercise
-    resistance_method.name.include?("machine") if resistance_method
+    resistance_method.name.downcase.include?("machine") if resistance_method
 #      temp = exercise.name.split(" ").last.downcase
 #      if temp == "machine" || temp == "plate-loaded"
 #        return true

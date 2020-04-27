@@ -133,12 +133,31 @@ puts '- ' * 30 + "\n"
 #   end
 # end
 
+# puts "\nPopulate exercise_bodyparts table with new info"
+# sleep 1
+
+# new_exercise_bodyparts_list.each do |ex_body|
+#   ex_body[:bodyparts].each do |bodypart|
+#     ExerciseBodypart.create!(
+#       exercise: Exercise.find_by_name(ex_body[:name]),
+#       bodypart: Bodypart.find_by_name(bodypart)
+#       )
+#   end
+# end
 
 
+# puts "\nExchanging old exercises with the enw ones......  nervous!!"
+# sleep 1
+# puts
 
+# SessionSet.all.sort_by{|x|x.created_at}.each_with_index do |sesh_set, i|
 
+#   new_ex = Exercise.find_by_name(old_exercises_to_new[sesh_set.exercise.name])
+#   next if !new_ex
+#   sesh_set.exercise = Exercise.find_by_name(old_exercises_to_new[sesh_set.exercise.name])
+#   sesh_set.save!
 
-
+# end
 
 
 

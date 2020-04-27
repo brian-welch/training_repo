@@ -120,7 +120,17 @@ module SessionSetsHelper
 
   def sets_with_machine(sets, last_id)
     machine_hash = sets.group_by {|set| set.machine }
+    puts
+    puts
+    p machine_hash
+    puts
+    puts
     machine_hash.map do |machine, sets|
+      puts
+      puts
+      p machine
+      puts
+      puts
       machine_name(machine) +
       sets.map do |set|
         reps_weight(set, last_id)
@@ -259,9 +269,9 @@ module SessionSetsHelper
   #   UserWeight.find_by_id(user.id).last.weight
   # end
 
-  def get_sets_last_inactive_sesh_with_exercise(exercise)
-
-    temp =  SessionSet.where("exercise_id = ?", exercise.id).sort_by { |set| set.created_at }.select{|set| set if set.training_session.open == false}
+  def get_sets_last_inactive_sesh_with_exercise(exercise, resistance)
+    temp = SessionSet.where(:exercise => exercise, :resistance_method => resistance).sort_by { |set| set.created_at }.select{|set| set if set.training_session.open == false}
+    # temp = SessionSet.where("exercise_id = ?", exercise.id).sort_by { |set| set.created_at }.select{|set| set if set.training_session.open == false}
     temp = temp.select{|x| x.training_session_id == temp.last.training_session_id}
     return temp
   end
