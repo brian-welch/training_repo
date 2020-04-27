@@ -30,6 +30,10 @@
 
     <% @all_sets_hash_by_exercise_and_resistance.each_with_index do |(exercise_and_resist_inst_array, sets), index| %>
       <%
+      puts
+      p @all_sets_hash_by_exercise_and_resistance
+      puts
+
         exercise_inst = exercise_and_resist_inst_array[0]
         resist_inst = exercise_and_resist_inst_array[1]
         args = {
@@ -42,7 +46,7 @@
         prior_args = {
           exercise_inst: exercise_inst,
           resist_inst: resist_inst,
-          sets: get_sets_last_inactive_sesh_with_exercise(exercise_inst),
+          sets: get_sets_last_inactive_sesh_with_exercise(exercise_inst, resist_inst),
           index: index,
           last_set_saved_id: @last_set_saved_id,
           archived: true
