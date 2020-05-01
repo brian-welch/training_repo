@@ -14,8 +14,8 @@ class User < ApplicationRecord
          # :trackable,
          # :confirmable,
          # :lockable
-
-  has_many :session_sets
+  has_many :training_sessions
+  has_many :session_sets, through: :training_sessions
   belongs_to :gender
   belongs_to :role
 

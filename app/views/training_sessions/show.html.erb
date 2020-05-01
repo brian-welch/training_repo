@@ -23,7 +23,7 @@
       <table class="training_session_summary_table">
         <tr>
           <td class="training_session_summary_key">Date:</td>
-          <td class="training_session_summary_value"><%= local_time(@session_start_time, "%B %-d, %Y" ) %></td>
+          <td class="training_session_summary_value"><%= local_time(@session_date, "%B %-d, %Y" ) %></td>
         </tr>
         <tr>
           <td class="training_session_summary_key">Elapsed Time:</td>
@@ -40,44 +40,36 @@
       </table>
     </div>
 
-    <% @session_set_hash.each do |exercise, machine_pulley_sets_order_hash| %>
 
+    <% @exercise_hash.each do |exercise_resist_additional_array, set_inst_array| %>
+      <%
+        exercise_name                 = exercise_resist_additional_array[0].name
+        resistance_method_name        = exercise_resist_additional_array[1].name
+        machine_or_pulley_or_nothing  = exercise_resist_additional_array[2]
+      %>
       <div class="exercise_set_marker"></div>
 
       <div class="exercise_set_container">
 
         <div class="session_set_index_exercise_name">
-          <%= image_tag "icons_symbols/tr_check_a.svg", style: "height: 22px; position: relative; bottom: 1px;" %> <%= proper_string(exercise.name) %>
+          <%= image_tag "icons_symbols/tr_check_a.svg", style: "height: 22px; position: relative; bottom: 1px;" %> <%= "#{proper_string(exercise_name)} // #{proper_string(resistance_method_name)}" %>
+          <% if machine_or_pulley_or_nothing %>
+            <div class="session_set_index_machine_name">
+              <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %><%= "#{machine_or_pulley_or_nothing}" %>
+            </div>
+          <% end %>
         </div>
 
-          <% machine_pulley_sets_order_hash.each do |machine_pulley_inst, order_set_arrays| %>
-
-            <% if pulley_check(exercise) %>
-
-              <div class="session_set_index_machine_name">
-                <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %><%= "#{machine_pulley_inst} Pulley#{'s' if machine_pulley_inst > 1}" %>
+          <% set_inst_array.each do |order_set_arr| %>
+            <div class="saved_set_data_box" >
+              <div class="set_order_marker" onclick="orderMessage();"><%= order_set_arr[0] %></div>
+              <div class="set_data_weight">
+                <%= "#{order_set_arr[1].weight}" %> <span><%= @units %></span>
               </div>
-
-            <% elsif (!machine_pulley_inst.is_a? Integer) %>
-
-              <div class="session_set_index_machine_name">
-                <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %><%= proper_string(machine_pulley_inst.name) %> :: <%= proper_string(machine_pulley_inst.brand.name) %>
+              <div class="set_data_reps">
+                <%= "#{order_set_arr[1].reps}" %> <span>reps</span>
               </div>
-
-            <% end %>
-
-            <% order_set_arrays.each do |order_set_array| %>
-              <div class="saved_set_data_box" >
-                <div class="set_order_marker" onclick="orderMessage();"><%= order_set_array[0] %></div>
-                <div class="set_data_weight">
-                  <%= "#{order_set_array[1].weight}" %> <span><%= @units %></span>
-                </div>
-                <div class="set_data_reps">
-                  <%= "#{order_set_array[1].reps}" %> <span>reps</span>
-                </div>
-              </div>
-            <% end %>
-
+            </div>
           <% end %>
 
           <div class="save_set_data_total_weight">
@@ -85,7 +77,7 @@
               Total:
             </span>
             <span class="set_data_total_weight_sum">
-              <br><%= total_weight_calculator_show_session(exercise, machine_pulley_sets_order_hash) %> <%= @units %> *
+              <br><%= total_weight_lifted_in_order_sets_array(set_inst_array) %> <%= @units %> <span  onclick="calculationMessage();">ⓘ</span>
             </span>
           </div>
 
@@ -94,6 +86,7 @@
     <% end %>
 
 
-    <div class="total_weight_calculation_reminder">* Remember: The total weight is calculated including bodyweight when applicable and reductions for the mechanical advantage of machines. This produces a more reliable measure of total weight lifted when comparing different workout sessions.</div>
+
+<!--     <div class="total_weight_calculation_reminder">* Remember: The total weight is calculated including bodyweight when applicable and reductions for the mechanical advantage of machines or specific exercises. This produces a more reliable measure of total weight lifted when comparing different workout sessions and resistance methods.</div>-->
   </div>
 </div>

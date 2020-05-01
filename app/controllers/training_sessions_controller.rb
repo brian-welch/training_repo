@@ -1,4 +1,6 @@
 class TrainingSessionsController < ApplicationController
+    include ApplicationHelper
+    include CalculationsHelper
 
   before_action :set_training_session, only: [:show]
 
@@ -30,32 +32,20 @@ class TrainingSessionsController < ApplicationController
       redirect_to training_sessions_path
     else
       @title = "#{current_user.first_name.capitalize}'s Training Session Details on Training Repo"
-      all_session_sets_instances = SessionSet.where("training_session_id = ?", @training_session.id).sort_by {|set| set.created_at}
 
-      total_min = (@training_session.updated_at - @training_session.created_at).round / 60
-      hours = (total_min / 60).to_i
-      minutes = total_min % 60
+      # IDEA: in application controller, after signin do an after_action method to cache all user sets
+      session_set_inst_arr = SessionSet.where(:training_session => @training_session).sort_by{|set| set.created_at}
 
-      @session_start_time = @training_session.created_at
-      @elapsed_time = "#{hours}hrs, #{minutes}min"
+      @session_date         = @training_session.created_at
+      @elapsed_time         = session_elapsed_time(@training_session)
+      @total_weight_session = total_weight_lifted_in_sets_array(session_set_inst_arr)
+      @weight_per_hour      = weight_lifted_per_hour_during_session(@training_session, @total_weight_session)
 
-      @total_weight_session = all_session_sets_instances.sum do |set|
-        bodyweight = set.exercise.bodyweight ? current_user.get_relevant_user_weight(set) : 0
-        unilat = set.exercise.unilateral ?  2 : 1
-        if set.machine.nil?
-          ((((set.weight * unilat) + bodyweight) * set.reps) / mechanical_deductions(set)).to_i
-        else
-          (((((set.weight + set.machine.inherit_weight) * unilat) + bodyweight) * set.reps) / mechanical_deductions(set)).to_i
-        end
-        # (((((set.weight + set.machine.inherit_weight) * unilat) + bodyweight) * set.reps) / mechanical_deductions(set)).to_i
-      end
 
-      @weight_per_hour = ((@total_weight_session * 60) / total_min)
+      session_set_inst_arr.map!.with_index {|set, i| x = []; x << (i + 1); x << set}
 
-      all_session_sets_instances.map!.with_index {|set, i| x = []; x << (i + 1); x << set}
-      temp = all_session_sets_instances.group_by {|x,y| y.exercise}
-      # @session_set_hash = temp.map {|x,y| [x,y.group_by {|arr| arr[1].machine}]}
-      @session_set_hash = temp.map {|x,y| [x,y.group_by {|arr| !arr[1].machine.nil? ? arr[1].machine : arr[1].pulley_count}]}
+      @exercise_hash = session_set_inst_arr.group_by {|order,set| [set.exercise, set.resistance_method, get_machine_or_pulley_or_neither(set)]}
+
     end
   end
 
@@ -98,16 +88,27 @@ class TrainingSessionsController < ApplicationController
     params.require(:training_session).permit(:user_id, :session_strategy_id, :notes)
   end
 
-  def mechanical_deductions(set)
-    if !set.machine.nil?
-      (set.machine.mech_ad * set.machine.pulley_count * set.pulley_count)
-    else
-      return set.pulley_count
-    end
-  end
+  # def mechanical_deductions(set)
+  #   if !set.machine.nil?
+  #     (set.machine.mech_ad * set.machine.pulley_count * set.pulley_count)
+  #   else
+  #     return set.pulley_count
+  #   end
+  # end
 
   def set_training_session
     @training_session = TrainingSession.where("id = ? AND user_id = ? AND open = ?", params[:id], current_user.id, false)[0]
+  end
+
+  def get_machine_or_pulley_or_neither(set)
+    resist_name = set.resistance_method.name.downcase
+    if resist_name.include?("machine")
+      return "#{proper_string(set.machine.name)} by #{proper_string(set.machine.brand.name)}"
+    elsif resist_name.include?("cable"||"crossover")
+      return "#{set.pulley_count} #{set.pulley_count > 1 ? 'Pulleys' : 'Pulley'}"
+    else
+      return nil
+    end
   end
 
 end
