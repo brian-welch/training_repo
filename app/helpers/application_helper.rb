@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include ActiveSupport::Concern
 
   def title
     content_tag(:title, @title || "Training Repo: Scientific Workout Analytics")
@@ -6,11 +7,22 @@ module ApplicationHelper
 
 
   def mechanical_deductions(set)
-    if !set.machine.nil?
-      (set.machine.mech_ad * set.machine.pulley_count * set.pulley_count)
-    else
-      return set.pulley_count
-    end
+    mech_ad_value_1 = current_user.gender.name.downcase == "m" ? set.exercise.m_mech_ad_override : set.exercise.f_mech_ad_override
+    mech_ad_value_2 = set.machine ? (set.machine.mech_ad * set.machine.pulley_count) : 1
+    return (mech_ad_value_1 ? mech_ad_value_1 : 1) * mech_ad_value_2 * set.pulley_count
+    # if !set.machine.nil?
+    #   (set.machine.mech_ad * set.machine.pulley_count * set.pulley_count)
+    # else
+    #   return set.pulley_count
+    # end
+  end
+
+  def set_mech_ad(set)
+    mech_ad_value_1 = current_user.gender.name.downcase == "m" ? set.exercise.m_mech_ad_override : set.exercise.f_mech_ad_override
+    mech_ad_value_2 = set.machine ? (set.machine.mech_ad * set.machine.pulley_count) : 1
+    # mech_ad_value_3 = set.machine ? set.machine.pulley_count if set : 1
+    return (mech_ad_value_1 ? mech_ad_value_1 : 1) * mech_ad_value_2 * set.pulley_count
+    # mech_ad_value ? mech_ad_value : 1
   end
 
 
@@ -41,6 +53,10 @@ module ApplicationHelper
     else
       @is_active_session = false
     end
+  end
+
+  def is_unilateral?(exercise_inst, resist_inst)
+    (resist_inst.unilateral || exercise_inst.unilateral) && !exercise_inst.force_bilateral
   end
 
 end

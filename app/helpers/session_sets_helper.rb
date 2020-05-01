@@ -133,30 +133,27 @@ module SessionSetsHelper
     temp = 0
     temp += sets.sum do |set|
 
-      net_weight = set.weight/set_mech_ad(set)
+      # set.weight = set.weight/set_mech_ad(set)
       bodyweight = resist_inst.bodyweight ? current_user.get_relevant_user_weight(set) : 0
-
-
       unilat = is_unilateral?(exercise_inst, resist_inst) ? 2 : 1
 
       if set.machine.nil?
-
-        ((( net_weight * unilat) + bodyweight) * set.reps) / set.pulley_count
+        ((( set.weight * unilat) + bodyweight) * set.reps) / mechanical_deductions(set)
       else
-        (((((net_weight + set.machine.inherit_weight) * unilat) + bodyweight) * set.reps) / (set.machine.mech_ad * set.machine.pulley_count * set.pulley_count))
+        ((((set.weight + set.machine.inherit_weight) * unilat) + bodyweight) * set.reps) / mechanical_deductions(set)
       end
     end
     return temp.round
   end
 
-  def set_mech_ad(set)
-    mech_ad_value = current_user.gender.name.downcase == "m" ? set.exercise.m_mech_ad_override : set.exercise.f_mech_ad_override
-    mech_ad_value ? mech_ad_value : 1
-  end
+  # def set_mech_ad(set)
+  #   mech_ad_value = current_user.gender.name.downcase == "m" ? set.exercise.m_mech_ad_override : set.exercise.f_mech_ad_override
+  #   mech_ad_value ? mech_ad_value : 1
+  # end
 
-  def is_unilateral?(exercise_inst, resist_inst)
-    (resist_inst.unilateral || exercise_inst.unilateral) && !exercise_inst.force_bilateral
-  end
+  # def is_unilateral?(exercise_inst, resist_inst)
+  #   (resist_inst.unilateral || exercise_inst.unilateral) && !exercise_inst.force_bilateral
+  # end
 
   def set_of_this_button(exercise_inst, set, archived)
     if !archived
