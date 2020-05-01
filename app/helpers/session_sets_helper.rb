@@ -1,4 +1,5 @@
 module SessionSetsHelper
+  include CalculationsHelper
 
   def new_render_session_sets(args, &block)
     set_anchor_point(args[:sets].last.id) +
@@ -37,13 +38,11 @@ module SessionSetsHelper
     classes = !args[:archived] ? "exercise_set_container" : "exercise_set_container prior_saved_exercise"
     content_tag :div, class: classes,
         data: {"content-set-group" => (args[:index] + 1)} do
-      # exercise_name(args[:exercise_inst].name).html_safe +
       new_exercise_name(args).html_safe +
       if args[:archived]
         sets_date(args[:sets])
       end +
       new_sets_data(args) +
-      # total_weight_block(args[:exercise_inst], args[:sets]) +
       new_total_weight_block(args[:exercise_inst], args[:resist_inst], args[:sets]) +
       set_of_this_button(args[:exercise_inst], args[:sets].last, args[:archived])
     end
@@ -121,10 +120,11 @@ module SessionSetsHelper
       "Total:<br>".html_safe
     end
     sum = content_tag :span, class: "set_data_total_weight_sum" do
-      "#{new_total_weight(exercise_inst, resist_inst, sets)} #{@units} *"
+      "#{new_total_weight(exercise_inst, resist_inst, sets)} #{@units}"
     end
+    content_tag :span, "ⓘ", onclick: "calculationMessage();"
     content_tag :div, class: "save_set_data_total_weight" do
-      label + sum
+      label + sum + content_tag(:span, " ⓘ", class: "cursor_pointer", onclick: "calculationMessage()")
     end
   end
 
@@ -159,8 +159,9 @@ module SessionSetsHelper
     if !archived
       link_to new_session_set_path(
         exercise_id: exercise_inst.id,
-        machine: set.machine,
-        pulley_count: set.pulley_count) do
+        machine_id: set.machine,
+        pulley_count: set.pulley_count,
+        resistance_method_id: set.resistance_method_id) do
           content_tag :button, class: "btn btn-xs btn-info sesion_set_add_new_set_btn" do
             "<i class=\"fas fa-plus-circle\"></i> Set of This".html_safe
           end

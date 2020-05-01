@@ -1,4 +1,5 @@
 class SessionSetsController < ApplicationController
+  include CalculationsHelper
   before_action :make_exercise_json, only: [:new, :create]
   before_action :call_active_training_session_instance, only: [:index, :new, :create]
 
@@ -8,13 +9,14 @@ class SessionSetsController < ApplicationController
 
       @title = "Saved Sets on #{current_user.first_name.capitalize}'s #{ordinal(@active_tr_sesh_inst.session_number)} Training Session on Training Repo"
 
-      all_sets_current_instances = SessionSet.where(training_session: @active_tr_sesh_inst).reverse
+      sets_current_training_session = SessionSet.where(training_session: @active_tr_sesh_inst).reverse
 
-      @all_sets_hash_by_exercise = all_sets_current_instances.group_by { |set| set.exercise }
+      @all_sets_hash_by_exercise_and_resistance = sets_current_training_session.group_by { |set| [set.exercise, set.resistance_method] }
 
-      @all_sets_hash_by_exercise_and_resistance = all_sets_current_instances.group_by { |set| [set.exercise, set.resistance_method] }
+      @sesh_sets_hash_by_exercise_resist_additional = sets_current_training_session.group_by { |set| [set.exercise, set.resistance_method, get_machine_or_pulley_or_neither(set)] }
 
-      @last_set_saved_id = all_sets_current_instances.first.id if all_sets_current_instances.count > 0
+
+      @last_set_saved_id = sets_current_training_session.first.id if sets_current_training_session.count > 0
 
     else
       flash[:alert] = "You do not have any active training sessions.<br>You can review previous sessions here."
@@ -30,8 +32,11 @@ class SessionSetsController < ApplicationController
       @new_session_set = SessionSet.new(training_session: @active_tr_sesh_inst, exercise_id: params[:exercise_id])
       if params[:exercise_id]
         @new_session_set.exercise_id = params[:exercise_id]
-        if params[:machine]
-          @new_session_set.machine_id = params[:machine]
+        if params[:machine_id]
+          @new_session_set.machine_id = params[:machine_id]
+        end
+        if params[:resistance_method_id]
+          @new_session_set.resistance_method_id = params[:resistance_method_id].to_i
         end
         if params[:pulley_count].to_i > 1
           @new_session_set.pulley_count = params[:pulley_count].to_i
@@ -46,7 +51,6 @@ class SessionSetsController < ApplicationController
 
 
   def create
-    # byebug
     @new_session_set = SessionSet.new(approved_session_set_params)
 
     if @new_session_set.save
@@ -59,6 +63,18 @@ class SessionSetsController < ApplicationController
 
 
   private
+
+
+  def get_machine_or_pulley_or_neither(set)
+    resist_name = set.resistance_method.name.downcase
+    if resist_name.include?("machine")
+      return "#{proper_string(set.machine.name)} by #{proper_string(set.machine.brand.name)}"
+    elsif resist_name.include?("cable"||"crossover")
+      return "#{set.pulley_count} #{set.pulley_count > 1 ? 'Pulleys' : 'Pulley'}"
+    else
+      return nil
+    end
+  end
 
 
   def call_active_training_session_instance

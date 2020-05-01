@@ -1,32 +1,9 @@
 <div class="container">
   <div class="col-xs-12 col-md-8 col-md-offset-2">
     <h1>This Session's Sets</h1>
-    <h3><%= @active_tr_sesh_inst.session_strategy.name %></h3>
+    <h3>Strategy: <%= @active_tr_sesh_inst.session_strategy.name %></h3>
     <div class="dotted_hr"></div>
-    <%= "<h3>0 sets on this session</h3>".html_safe if @all_sets_hash_by_exercise.count == 0 %>
-    <%# @all_sets_hash_by_exercise.each_with_index do |(exercise_inst, sets), index| %>
-
-      <%# args = { exercise_inst: exercise_inst,
-                  sets: sets,
-                  index: index,
-                  last_set_saved_id: @last_set_saved_id,
-                  all_resistance_methods: @all_resistance_methods_hash
-                } %>
-      <%#= render_session_sets args do |args| %>
-      <%# end %>
-
-      <%# prior_args = { exercise_inst: exercise_inst,
-                        sets: get_sets_last_inactive_sesh_with_exercise(exercise_inst),
-                        index: index,
-                        last_set_saved_id: @last_set_saved_id,
-                        all_resistance_methods: @all_resistance_methods_hash,
-                        archived: true
-                      } %>
-      <%#= render_prior_session_sets prior_args do |prior_args| %>
-      <%# end %>
-
-    <%# end %>
-
+    <%= "<h3>0 sets on this session</h3>".html_safe if @all_sets_hash_by_exercise_and_resistance.count == 0 %>
 
     <% @all_sets_hash_by_exercise_and_resistance.each_with_index do |(exercise_and_resist_inst_array, sets), index| %>
       <%
@@ -59,8 +36,6 @@
       <%= new_render_prior_session_sets prior_args do |prior_args| %>
       <% end %>
 
-
-
     <% end %>
 
     <%= link_to new_session_set_path do %>
@@ -68,8 +43,6 @@
         <i class="fas fa-plus-circle"></i> New Exercise
       </button>
     <% end %>
-    <%= "<div class=\"total_weight_calculation_reminder\">* Remember: The total weight is calculated including bodyweight when applicable and reductions for the mechanical advantage of machines. This produces a more reliable measure of total weight lifted when comparing different workout sessions.</div>".html_safe if @all_sets_hash_by_exercise.count > 0 %>
-
   </div>
 </div>
 

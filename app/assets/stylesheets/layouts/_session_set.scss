@@ -31,6 +31,10 @@
   border-top: 2px dotted $site_primary;
 }
 
+.cursor_pointer {
+  cursor: pointer;
+}
+
 .latest_set_marker {
   color: $site_success;
   margin-left: 10px;

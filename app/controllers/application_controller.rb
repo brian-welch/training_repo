@@ -31,16 +31,6 @@ class ApplicationController < ActionController::Base
     return string.split(" ").map{|x| x.capitalize}.join(" ")
   end
 
-  private
-
-  # def storable_location?
-  #   request.get? && is_navigational_format? && !devise_controller? && !request.xhr?
-  # end
-  # def store_user_location!
-  #   # :user is the scope we are authenticating
-  #   store_location_for(:user, request.fullpath)
-  # end
-
   def user_is_active?
     return current_user.active
   end

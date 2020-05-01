@@ -1,6 +1,6 @@
 class TrainingSessionsController < ApplicationController
-    include ApplicationHelper
-    include CalculationsHelper
+  include ApplicationHelper
+  include CalculationsHelper
 
   before_action :set_training_session, only: [:show]
 
