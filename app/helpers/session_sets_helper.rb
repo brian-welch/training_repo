@@ -2,15 +2,28 @@ module SessionSetsHelper
   include CalculationsHelper
 
   def new_render_session_sets(args, &block)
-    set_anchor_point(args[:sets].last.id) +
-    exercise_toggle_tabs(args[:index] + 1) +
+    if !args[:archived]
+      set_anchor_point(args[:sets].last.id) +
+      exercise_toggle_tabs(args[:index] + 1)
+    end
     new_set_block(args)
+  end
+
+  def new_new_render_session_sets(args, &block)
+    temp = ''
+    if !args[:archived]
+      temp = set_anchor_point(args[:sets].last.id) + exercise_toggle_tabs(args[:index] + 1)
+    end
+    (temp + new_new_set_block(args)).html_safe
   end
 
   def new_render_prior_session_sets(args, &block)
     new_set_block(args)
   end
 
+  def new_new_render_prior_session_sets(args, &block)
+    new_new_set_block(args)
+  end
 
   def set_anchor_point(id)
     content_tag :div, class: "exercise_set_marker", id: "set-#{id}" do
@@ -48,11 +61,34 @@ module SessionSetsHelper
     end
   end
 
+
+  def new_new_set_block(args)
+    classes = !args[:archived] ? "exercise_set_container" : "exercise_set_container prior_saved_exercise"
+    content_tag :div, class: classes, data: {"content-set-group" => (args[:index] + 1)} do
+      (args[:archived] ? new_exercise_name(args) : exercise_name(args)).html_safe +
+      # (new_exercise_name(args) + (args[:archived] ? new_sets_date(args[:sets]) : '')).html_safe +
+      # if args[:archived]
+      #   sets_date(args[:sets])
+      # end +
+      new_new_sets_data(args) +
+      new_total_weight_block(args[:exercise_inst], args[:resist_inst], args[:sets]) +
+      set_of_this_button(args[:exercise_inst], args[:sets].last, args[:archived])
+    end
+  end
+
   def new_exercise_name(args)
     content_tag :div, class: "session_set_index_exercise_name" do
       image_tag("logo_and_branding/tr_check_a.svg",
         style: "height: 22px; position: relative; bottom: 1px;") +
-      " #{proper_string(args[:exercise_inst].name)}#{': ' + proper_string(args[:resist_inst].name)}"
+      " #{proper_string(args[:exercise_inst].name) + ' // ' + proper_string(args[:resist_inst].name) + new_sets_date(args[:sets])}".html_safe
+    end
+  end
+
+  def exercise_name(args)
+    content_tag :div, class: "session_set_index_exercise_name" do
+      image_tag("logo_and_branding/tr_check_a.svg",
+        style: "height: 22px; position: relative; bottom: 1px;") +
+      " #{proper_string(args[:exercise_inst].name)}#{' // ' + proper_string(args[:resist_inst].name)}"
     end
   end
 
@@ -66,12 +102,32 @@ module SessionSetsHelper
     end
   end
 
+  def new_sets_date(sets)
+    mssg_b = " First time doing this exercise! <i class=\"fas fa-grin-alt\"></i>"
+    mssg = sets.count.zero? ? mssg_b : "Last trained on: #{sets.last.created_at.to_date}"
+    content_tag :span, class: "prior_set_message" do
+      # image_tag("logo_and_branding/tr_spiral_c.svg",
+      #   style: "height: 18px; position: relative; bottom: 1px;") +
+      " #{mssg}".html_safe
+    end
+  end
+
   def new_sets_data(args)
     if args[:resist_inst].is_machine?
       sets_with_machine(args[:sets], args[:last_set_saved_id])
     else
       sets_without_machine(args[:sets], args[:last_set_saved_id])
     end
+  end
+
+  def new_new_sets_data(args)
+    # if args[:resist_inst].is_machine?
+    #   sets_with_machine(args[:sets], args[:last_set_saved_id])
+    # else
+    # sets_without_machine(args[:sets], args[:last_set_saved_id])
+
+    new_sets_without_machine(args[:additional], args[:sets], args[:last_set_saved_id])
+    # end
   end
 
   def sets_with_machine(sets, last_id)
@@ -87,6 +143,13 @@ module SessionSetsHelper
   end
 
   def sets_without_machine(sets, last_id)
+    sets.map do |set|
+      reps_weight(set, last_id)
+    end.join("").html_safe
+  end
+
+  def new_sets_without_machine(additional, sets, last_id)
+    (additional ? additional_name(additional) : "").html_safe +
     sets.map do |set|
       reps_weight(set, last_id)
     end.join("").html_safe
@@ -112,6 +175,14 @@ module SessionSetsHelper
       image_tag("logo_and_branding/tr_spiral_c.svg",
         style: "height: 18px; position: relative; bottom: 1px;") +
       " #{proper_string(machine.name)} :: #{proper_string(machine.brand.name)}"
+    end
+  end
+
+  def additional_name(additional)
+    content_tag :div, class: "session_set_index_machine_name" do
+      image_tag("logo_and_branding/tr_spiral_c.svg",
+        style: "height: 18px; position: relative; bottom: 1px;") +
+      " #{proper_string(additional)}"
     end
   end
 
@@ -165,7 +236,7 @@ module SessionSetsHelper
           content_tag :button, class: "btn btn-xs btn-info sesion_set_add_new_set_btn" do
             "<i class=\"fas fa-plus-circle\"></i> Set of This".html_safe
           end
-      end
+        end
     end
   end
 

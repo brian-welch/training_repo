@@ -15,11 +15,14 @@
 
   </head>
   <body>
+    <% set_is_active_session_instance_variable  %>
+    <% set_current_session_instance_variable if (!@current_session && @is_active_session) %>
+
     <%= render 'shared/desktop_navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>
-    <%= render 'shared/timer' if active_session? %>
+    <%= render 'shared/timer' if @is_active_session %>
     <%= render 'shared/mobile_navbar' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>

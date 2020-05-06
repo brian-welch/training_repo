@@ -42,17 +42,25 @@ module ApplicationHelper
   end
 
   def get_sets_last_inactive_sesh_with_exercise(exercise)
-    temp =  SessionSet.where("exercise_id = ?", exercise.id).select{|x| x if x.training_session.open == false}
+    temp =  SessionSet.where("exercise_id = ?", exercise.id).sort_by{|x|x.created_at}.select{|x| x if x.training_session.open == false}
     temp = temp.select{|x| x.training_session_id == temp.last.training_session_id}
     return temp
   end
 
-  def active_session?
+  def set_is_active_session_instance_variable
+    # sets boolean value for the instance variable '@is_active_session' and session key value pair
     if user_signed_in?
-      @is_active_session = TrainingSession.active_session_call(current_user).count == 0 ? false : true
+      @active_session_call = TrainingSession.active_session_call(current_user)
+      session[:is_active_session] = @active_session_call.count == 0 ? false : true
+      @is_active_session = session[:is_active_session].dup
     else
       @is_active_session = false
     end
+  end
+
+  def set_current_session_instance_variable
+    # sets a TrainingSession Instance in an instance variable '@current_session'
+    @current_session = @active_session_call[0]
   end
 
   def is_unilateral?(exercise_inst, resist_inst)

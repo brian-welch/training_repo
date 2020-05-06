@@ -9,14 +9,15 @@ class SessionSetsController < ApplicationController
 
       @title = "Saved Sets on #{current_user.first_name.capitalize}'s #{ordinal(@active_tr_sesh_inst.session_number)} Training Session on Training Repo"
 
-      sets_current_training_session = SessionSet.where(training_session: @active_tr_sesh_inst).reverse
+      sets_current_training_session = SessionSet.where(training_session: @active_tr_sesh_inst).sort_by{|set|set.updated_at}
 
       @all_sets_hash_by_exercise_and_resistance = sets_current_training_session.group_by { |set| [set.exercise, set.resistance_method] }
 
       @sesh_sets_hash_by_exercise_resist_additional = sets_current_training_session.group_by { |set| [set.exercise, set.resistance_method, get_machine_or_pulley_or_neither(set)] }
 
+      # @sesh_sets_hash_by_exercise_resist_additional.each{|key,value| p key}
 
-      @last_set_saved_id = sets_current_training_session.first.id if sets_current_training_session.count > 0
+      @last_set_saved_id = sets_current_training_session.last.id if sets_current_training_session.count > 0
 
     else
       flash[:alert] = "You do not have any active training sessions.<br>You can review previous sessions here."
@@ -68,11 +69,11 @@ class SessionSetsController < ApplicationController
   def get_machine_or_pulley_or_neither(set)
     resist_name = set.resistance_method.name.downcase
     if resist_name.include?("machine")
-      return "#{proper_string(set.machine.name)} by #{proper_string(set.machine.brand.name)}"
-    elsif resist_name.include?("cable"||"crossover")
-      return "#{set.pulley_count} #{set.pulley_count > 1 ? 'Pulleys' : 'Pulley'}"
+      "#{proper_string(set.machine.name)} by #{proper_string(set.machine.brand.name)}"
+    elsif resist_name.include?("cable") || resist_name.include?("crossover")
+      "#{set.pulley_count} #{set.pulley_count > 1 ? 'Pulleys' : 'Pulley'}"
     else
-      return nil
+      nil
     end
   end
 

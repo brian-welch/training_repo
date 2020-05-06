@@ -5,11 +5,8 @@
     <div class="dotted_hr"></div>
     <%= "<h3>0 sets on this session</h3>".html_safe if @all_sets_hash_by_exercise_and_resistance.count == 0 %>
 
-    <% @all_sets_hash_by_exercise_and_resistance.each_with_index do |(exercise_and_resist_inst_array, sets), index| %>
-      <%
-      puts
-      p @all_sets_hash_by_exercise_and_resistance
-      puts
+    <%# @all_sets_hash_by_exercise_and_resistance.each_with_index do |(exercise_and_resist_inst_array, sets), index| %>
+      <%#
 
         exercise_inst = exercise_and_resist_inst_array[0]
         resist_inst = exercise_and_resist_inst_array[1]
@@ -30,13 +27,44 @@
         }
       %>
 
-      <%= new_render_session_sets args do |args| %>
+      <%#= new_render_session_sets args do |args| %>
+      <%# end %>
+
+      <%#= new_render_session_sets prior_args do |prior_args| %>
+      <%# end %>
+
+    <%# end %>
+
+
+
+
+    <% @sesh_sets_hash_by_exercise_resist_additional.each_with_index do |(exercise_resist_additional_array, sets), index| %>
+      <%
+
+        exercise_inst = exercise_resist_additional_array[0]
+        resist_inst = exercise_resist_additional_array[1]
+        additional = exercise_resist_additional_array[2]
+        args = {
+          exercise_inst: exercise_inst,
+          resist_inst: resist_inst,
+          additional: additional,
+          sets: sets,
+          index: index,
+          last_set_saved_id: @last_set_saved_id,
+        }
+        prior_args = args.dup
+        prior_args[:sets] = get_sets_last_inactive_sesh_with_exercise(exercise_inst, resist_inst)
+        prior_args[:archived] = true
+      %>
+
+      <%= new_new_render_session_sets args do |args| %>
       <% end %>
 
-      <%= new_render_prior_session_sets prior_args do |prior_args| %>
+      <%= new_new_render_session_sets prior_args do |prior_args| %>
       <% end %>
 
     <% end %>
+
 
     <%= link_to new_session_set_path do %>
       <button class="btn btn-xs btn-info sesion_set_add_new_exercise_btn">

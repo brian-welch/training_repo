@@ -38,7 +38,7 @@ module CalculationsHelper
     # returns integer of duration of training session in minutes
     (sesh_inst.updated_at - sesh_inst.created_at).round / 60
   end
-  def session_elapsed_time(sesh_inst)
+  def get_session_duration(sesh_inst)
     # retuns a string with readable duration for the training_session:show summary header block
     minutes = session_total_minutes(sesh_inst)
     "#{(minutes / 60).to_i}hrs, #{minutes % 60}min"
