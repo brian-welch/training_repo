@@ -1,42 +1,30 @@
 module SessionSetsHelper
   include CalculationsHelper
 
-  def new_render_session_sets(args, &block)
-    if !args[:archived]
-      set_anchor_point(args[:sets].last.id) +
-      exercise_toggle_tabs(args[:index] + 1)
-    end
-    new_set_block(args)
-  end
-
-  def new_new_render_session_sets(args, &block)
+  def render_session_sets(args, &block)
+    # KEEP
     temp = ''
     if !args[:archived]
       temp = set_anchor_point(args[:sets].last.id) + exercise_toggle_tabs(args[:index] + 1)
     end
-    (temp + new_new_set_block(args)).html_safe
-  end
-
-  def new_render_prior_session_sets(args, &block)
-    new_set_block(args)
-  end
-
-  def new_new_render_prior_session_sets(args, &block)
-    new_new_set_block(args)
+    (temp + set_block(args)).html_safe
   end
 
   def set_anchor_point(id)
+    # KEEP
     content_tag :div, class: "exercise_set_marker", id: "set-#{id}" do
     end
   end
 
   def exercise_toggle_tabs(indexer)
+    # KEEP
     content_tag :div, class: "exercise_toggle_container" do
       tab_builder(indexer).join("").html_safe
     end
   end
 
   def tab_builder(indexer)
+    # KEEP
     labels = ["Current", "Previous"]
     active_class = ["active", ""]
     labels.map.with_index do |label, i|
@@ -47,108 +35,54 @@ module SessionSetsHelper
     end
   end
 
-  def new_set_block(args)
-    classes = !args[:archived] ? "exercise_set_container" : "exercise_set_container prior_saved_exercise"
-    content_tag :div, class: classes,
-        data: {"content-set-group" => (args[:index] + 1)} do
-      new_exercise_name(args).html_safe +
-      if args[:archived]
-        sets_date(args[:sets])
-      end +
-      new_sets_data(args) +
-      new_total_weight_block(args[:exercise_inst], args[:resist_inst], args[:sets]) +
-      set_of_this_button(args[:exercise_inst], args[:sets].last, args[:archived])
-    end
-  end
-
-
-  def new_new_set_block(args)
+  def set_block(args)
+    # KEEP
     classes = !args[:archived] ? "exercise_set_container" : "exercise_set_container prior_saved_exercise"
     content_tag :div, class: classes, data: {"content-set-group" => (args[:index] + 1)} do
-      (args[:archived] ? new_exercise_name(args) : exercise_name(args)).html_safe +
-      # (new_exercise_name(args) + (args[:archived] ? new_sets_date(args[:sets]) : '')).html_safe +
-      # if args[:archived]
-      #   sets_date(args[:sets])
-      # end +
-      new_new_sets_data(args) +
+      (args[:archived] ? prior_exercise_name(args) : exercise_name(args)).html_safe +
+      sets_data(args) +
       new_total_weight_block(args[:exercise_inst], args[:resist_inst], args[:sets]) +
       set_of_this_button(args[:exercise_inst], args[:sets].last, args[:archived])
     end
   end
 
-  def new_exercise_name(args)
+  def prior_exercise_name(args)
+    # KEEP
     content_tag :div, class: "session_set_index_exercise_name" do
-      image_tag("logo_and_branding/tr_check_a.svg",
-        style: "height: 22px; position: relative; bottom: 1px;") +
-      " #{proper_string(args[:exercise_inst].name) + ' // ' + proper_string(args[:resist_inst].name) + new_sets_date(args[:sets])}".html_safe
+      content_tag(:span, image_tag("logo_and_branding/tr_check_a.svg"), class: "icon_image_exercise_name") +
+      "#{proper_string(args[:exercise_inst].name) +
+      '<br><i class="fas fa-angle-double-right fa-fw" style="margin-right: 8px;" ></i>' +
+      proper_string(args[:resist_inst].name) + "#{(args[:resist_inst].bodyweight && args[:sets].count > 0) ? (' @ ' + current_user.get_relevant_user_weight(args[:sets][0]) + ' ' + @units) : ''}" +
+      '<br>' + sets_date(args[:sets])}".html_safe
     end
   end
 
   def exercise_name(args)
+    # KEEP
     content_tag :div, class: "session_set_index_exercise_name" do
-      image_tag("logo_and_branding/tr_check_a.svg",
-        style: "height: 22px; position: relative; bottom: 1px;") +
-      " #{proper_string(args[:exercise_inst].name)}#{' // ' + proper_string(args[:resist_inst].name)}"
+      content_tag(:span, image_tag("logo_and_branding/tr_check_a.svg"), class: "icon_image_exercise_name") +
+      "#{proper_string(args[:exercise_inst].name) + '<br><i class="fas fa-angle-double-right fa-fw" style="margin-right: 8px;" ></i>' + proper_string(args[:resist_inst].name)}".html_safe
     end
   end
 
   def sets_date(sets)
-    mssg_b = " First time doing this exercise! <i class=\"fas fa-grin-alt\"></i>"
-    mssg = sets.count.zero? ? mssg_b : " #{sets.last.created_at.to_date}"
-    content_tag :div, class: "session_set_index_machine_name" do
-      image_tag("logo_and_branding/tr_spiral_c.svg",
-        style: "height: 18px; position: relative; bottom: 1px;") +
-      " #{mssg}".html_safe
-    end
-  end
-
-  def new_sets_date(sets)
+    # KEEP
     mssg_b = " First time doing this exercise! <i class=\"fas fa-grin-alt\"></i>"
     mssg = sets.count.zero? ? mssg_b : "Last trained on: #{sets.last.created_at.to_date}"
     content_tag :span, class: "prior_set_message" do
       # image_tag("logo_and_branding/tr_spiral_c.svg",
       #   style: "height: 18px; position: relative; bottom: 1px;") +
-      " #{mssg}".html_safe
+      "#{mssg}".html_safe
     end
   end
 
-  def new_sets_data(args)
-    if args[:resist_inst].is_machine?
-      sets_with_machine(args[:sets], args[:last_set_saved_id])
-    else
-      sets_without_machine(args[:sets], args[:last_set_saved_id])
-    end
+  def sets_data(args)
+    # KEEP
+    sets_without_machine(args[:additional], args[:sets], args[:last_set_saved_id])
   end
 
-  def new_new_sets_data(args)
-    # if args[:resist_inst].is_machine?
-    #   sets_with_machine(args[:sets], args[:last_set_saved_id])
-    # else
-    # sets_without_machine(args[:sets], args[:last_set_saved_id])
-
-    new_sets_without_machine(args[:additional], args[:sets], args[:last_set_saved_id])
-    # end
-  end
-
-  def sets_with_machine(sets, last_id)
-    machine_hash = sets.group_by {|set| set.machine }
-
-    machine_hash.map do |machine, sets|
-
-      machine_name(machine) +
-      sets.map do |set|
-        reps_weight(set, last_id)
-      end.join("").html_safe
-    end.join("").html_safe
-  end
-
-  def sets_without_machine(sets, last_id)
-    sets.map do |set|
-      reps_weight(set, last_id)
-    end.join("").html_safe
-  end
-
-  def new_sets_without_machine(additional, sets, last_id)
+  def sets_without_machine(additional, sets, last_id)
+    # KEEP
     (additional ? additional_name(additional) : "").html_safe +
     sets.map do |set|
       reps_weight(set, last_id)
@@ -156,6 +90,7 @@ module SessionSetsHelper
   end
 
   def reps_weight(set, last_id)
+    # KEEP
     classes = set.id == last_id ? "saved_set_data_box last_saved_set_border" : "saved_set_data_box"
     marker = set.id == last_id ? "<div class=\"last_saved_set_marker\"></div>" : ""
     weight = content_tag :div, class: "set_data_weight" do
@@ -170,15 +105,8 @@ module SessionSetsHelper
     end
   end
 
-  def machine_name(machine)
-    content_tag :div, class: "session_set_index_machine_name" do
-      image_tag("logo_and_branding/tr_spiral_c.svg",
-        style: "height: 18px; position: relative; bottom: 1px;") +
-      " #{proper_string(machine.name)} :: #{proper_string(machine.brand.name)}"
-    end
-  end
-
   def additional_name(additional)
+    # KEEP
     content_tag :div, class: "session_set_index_machine_name" do
       image_tag("logo_and_branding/tr_spiral_c.svg",
         style: "height: 18px; position: relative; bottom: 1px;") +
@@ -187,24 +115,24 @@ module SessionSetsHelper
   end
 
   def new_total_weight_block(exercise_inst, resist_inst, sets)
+    # KEEP
     label = content_tag :span, class: "set_data_total_weight_title" do
       "Total:<br>".html_safe
     end
     sum = content_tag :span, class: "set_data_total_weight_sum" do
       "#{new_total_weight(exercise_inst, resist_inst, sets)} #{@units}"
     end
-    content_tag :span, "ⓘ", onclick: "calculationMessage();"
+    # content_tag :span, "ⓘ", onclick: "calculationMessage();"
     content_tag :div, class: "save_set_data_total_weight" do
       label + sum + content_tag(:span, " ⓘ", class: "cursor_pointer", onclick: "calculationMessage()")
     end
   end
 
   def new_total_weight(exercise_inst, resist_inst, sets)
-
+    # KEEP
+    # returns rounded integer of total weight lifted for an exercise & resistance
     temp = 0
     temp += sets.sum do |set|
-
-      # set.weight = set.weight/set_mech_ad(set)
       bodyweight = resist_inst.bodyweight ? current_user.get_relevant_user_weight(set) : 0
       unilat = is_unilateral?(exercise_inst, resist_inst) ? 2 : 1
 
@@ -217,16 +145,8 @@ module SessionSetsHelper
     return temp.round
   end
 
-  # def set_mech_ad(set)
-  #   mech_ad_value = current_user.gender.name.downcase == "m" ? set.exercise.m_mech_ad_override : set.exercise.f_mech_ad_override
-  #   mech_ad_value ? mech_ad_value : 1
-  # end
-
-  # def is_unilateral?(exercise_inst, resist_inst)
-  #   (resist_inst.unilateral || exercise_inst.unilateral) && !exercise_inst.force_bilateral
-  # end
-
   def set_of_this_button(exercise_inst, set, archived)
+    # KEEP
     if !archived
       link_to new_session_set_path(
         exercise_id: exercise_inst.id,
@@ -241,6 +161,7 @@ module SessionSetsHelper
   end
 
   def get_sets_last_inactive_sesh_with_exercise(exercise, resistance)
+    # KEEP
     temp = SessionSet.where(:exercise => exercise, :resistance_method => resistance).sort_by { |set| set.created_at }.select{|set| set if set.training_session.open == false}
     temp = temp.select{|x| x.training_session_id == temp.last.training_session_id}
     return temp

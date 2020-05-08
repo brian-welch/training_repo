@@ -15,7 +15,7 @@ module CalculationsHelper
   end
 
   def total_weight_lifted_in_sets_array(set_arr)
-    # returns a integer sum of the total weight lifted for a given array of sets
+    # returns an integer sum of the total weight lifted for a given array of sets
     set_arr.sum do |set|
       net_weight = set.machine ? set.weight + set.machine.inherit_weight : set.weight
       bodyweight = set.resistance_method.bodyweight ? current_user.get_relevant_user_weight(set) : 0
