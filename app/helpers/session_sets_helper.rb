@@ -41,8 +41,8 @@ module SessionSetsHelper
     content_tag :div, class: classes, data: {"content-set-group" => (args[:index] + 1)} do
       (args[:archived] ? prior_exercise_name(args) : exercise_name(args)).html_safe +
       sets_data(args) +
-      new_total_weight_block(args[:exercise_inst], args[:resist_inst], args[:sets]) +
-      set_of_this_button(args[:exercise_inst], args[:sets].last, args[:archived])
+      total_weight_block(args[:sets]) +
+      set_of_this_button(args[:exercise_inst], args[:sets].last)
     end
   end
 
@@ -114,43 +114,27 @@ module SessionSetsHelper
     end
   end
 
-  def new_total_weight_block(exercise_inst, resist_inst, sets)
+  def total_weight_block(sets)
     # KEEP
     label = content_tag :span, class: "set_data_total_weight_title" do
       "Total:<br>".html_safe
     end
     sum = content_tag :span, class: "set_data_total_weight_sum" do
-      "#{new_total_weight(exercise_inst, resist_inst, sets)} #{@units}"
+      # method: total_weight_lifted_in_sets_array located in CalculationsHelper
+      "#{total_weight_lifted_in_sets_array(sets)} #{@units}"
     end
-    # content_tag :span, "ⓘ", onclick: "calculationMessage();"
     content_tag :div, class: "save_set_data_total_weight" do
       label + sum + content_tag(:span, " ⓘ", class: "cursor_pointer", onclick: "calculationMessage()")
     end
   end
 
-  def new_total_weight(exercise_inst, resist_inst, sets)
-    # KEEP
-    # returns rounded integer of total weight lifted for an exercise & resistance
-    temp = 0
-    temp += sets.sum do |set|
-      bodyweight = resist_inst.bodyweight ? current_user.get_relevant_user_weight(set) : 0
-      unilat = is_unilateral?(exercise_inst, resist_inst) ? 2 : 1
 
-      if set.machine.nil?
-        ((( set.weight * unilat) + bodyweight) * set.reps) / mechanical_deductions(set)
-      else
-        ((((set.weight + set.machine.inherit_weight) * unilat) + bodyweight) * set.reps) / mechanical_deductions(set)
-      end
-    end
-    return temp.round
-  end
-
-  def set_of_this_button(exercise_inst, set, archived)
+  def set_of_this_button(exercise_inst, set)
     # KEEP
-    if !archived
+    if set
       link_to new_session_set_path(
-        exercise_id: exercise_inst.id,
-        machine_id: set.machine,
+        exercise_id: set.exercise_id,
+        machine_id: set.machine_id,
         pulley_count: set.pulley_count,
         resistance_method_id: set.resistance_method_id) do
           content_tag :button, class: "btn btn-xs btn-info sesion_set_add_new_set_btn" do
