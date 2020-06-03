@@ -107,9 +107,9 @@ module SessionSetsHelper
 
   def additional_name(additional)
     # KEEP
-    content_tag :div, class: "session_set_index_machine_name" do
+    content_tag :div, class: "session_set_index_machine_name", style: "margin: -10px 0 10px 52px;" do
       image_tag("logo_and_branding/tr_spiral_c.svg",
-        style: "height: 18px; position: relative; bottom: 1px;") +
+        style: "") +
       " #{proper_string(additional)}"
     end
   end

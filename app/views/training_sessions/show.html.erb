@@ -52,10 +52,10 @@
       <div class="exercise_set_container">
 
         <div class="session_set_index_exercise_name">
-          <%= image_tag "icons_symbols/tr_check_a.svg", style: "height: 22px; position: relative; bottom: 1px;" %> <%= "#{proper_string(exercise_name)} // #{proper_string(resistance_method_name)}" %>
+          <%= image_tag "icons_symbols/tr_check_a.svg",class: "exercise_name_check", style: "" %> <%= "#{proper_string(exercise_name)} // #{proper_string(resistance_method_name)}" %>
           <% if machine_or_pulley_or_nothing %>
             <div class="session_set_index_machine_name">
-              <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %><%= "#{machine_or_pulley_or_nothing}" %>
+              <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "" %><%= "#{machine_or_pulley_or_nothing}" %>
             </div>
           <% end %>
         </div>

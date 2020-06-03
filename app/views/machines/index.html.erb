@@ -13,13 +13,13 @@
       <% @brand_machine_hash.sort_by {|x,y| x }.each do |brand, machines| %>
         <div class="exercise_set_container">
           <div class="session_set_index_exercise_name">
-            <%= image_tag "icons_symbols/tr_check_a.svg", style: "height: 22px; position: relative; bottom: 1px;" %> <%= brand %><span style="position: relative; top: -0.5em; font-size: 80%;"> <i class="far fa-registered"></i></span>
+            <%= image_tag "icons_symbols/tr_check_a.svg", class: "exercise_name_check", style: "" %> <%= brand %><span style="position: relative; top: -0.5em; font-size: 80%;"> <i class="far fa-registered"></i></span>
+            <% machines.each do |machine| %>
+              <div class="session_set_index_machine_name">
+                <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "" %> <%= proper_string(machine.name) %>
+              </div>
+            <% end %>
           </div>
-          <% machines.each do |machine| %>
-            <div class="session_set_index_machine_name">
-              <%= image_tag "icons_symbols/tr_spiral_c.svg", style: "height: 18px; position: relative; bottom: 1px;" %> <%= proper_string(machine.name) %>
-            </div>
-          <% end %>
         </div>
       <% end %>
     <% end %>

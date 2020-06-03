@@ -102,11 +102,12 @@
 }
 
 .session_set_index_machine_name {
-  margin: 0 0 10px 0;
-  padding: 0 0 0 30px;
+  margin: 0 0 10px 26px;
   font-size: 0.85em;
   img {
-    margin: 0 5px 0 0;
+    height: 18px;
+    position: absolute;
+    margin: 0 0 1px -26px;
   }
 }
 
@@ -121,6 +122,11 @@
 }
 .session_set_index_exercise_name {
   margin: 0 0 10px 26px;
+  .exercise_name_check {
+    height: 22px;
+    position: absolute;
+    margin: 0 0 1px -26px;
+  }
 }
 
 .icon_image_exercise_name {
