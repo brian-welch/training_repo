@@ -15,10 +15,11 @@ module CalculationsHelper
   end
 
   def total_weight_lifted_in_sets_array(set_arr)
-    # returns a integer sum of the total weight lifted for a given array of sets
+    # returns an integer sum of the total weight lifted for a given array of sets
+    # Called in Training Session Show & SessionSet Index
     set_arr.sum do |set|
       net_weight = set.machine ? set.weight + set.machine.inherit_weight : set.weight
-      bodyweight = set.resistance_method.bodyweight ? current_user.get_relevant_user_weight(set) : 0
+      bodyweight = (set.resistance_method.bodyweight || set.exercise.bodyweight) ? current_user.get_relevant_user_weight(set) : 0
       unilat = is_unilateral?(set.exercise, set.resistance_method) ? 2 : 1
       ((((net_weight * unilat) + bodyweight) * set.reps) / mechanical_deductions(set)).to_i
     end
@@ -26,9 +27,10 @@ module CalculationsHelper
 
   def total_weight_lifted_in_order_sets_array(order_set_arr)
     # returns a integer sum of the total weight lifted for a given array of order sets arrays
+    # Called in Training Session Show
     order_set_arr.sum do |order,set|
       net_weight = set.machine ? set.weight + set.machine.inherit_weight : set.weight
-      bodyweight = set.resistance_method.bodyweight ? current_user.get_relevant_user_weight(set) : 0
+      bodyweight = (set.resistance_method.bodyweight || set.exercise.bodyweight) ? current_user.get_relevant_user_weight(set) : 0
       unilat = is_unilateral?(set.exercise, set.resistance_method) ? 2 : 1
       ((((net_weight * unilat) + bodyweight) * set.reps) / mechanical_deductions(set)).to_i
     end
@@ -38,7 +40,7 @@ module CalculationsHelper
     # returns integer of duration of training session in minutes
     (sesh_inst.updated_at - sesh_inst.created_at).round / 60
   end
-  def session_elapsed_time(sesh_inst)
+  def get_session_duration(sesh_inst)
     # retuns a string with readable duration for the training_session:show summary header block
     minutes = session_total_minutes(sesh_inst)
     "#{(minutes / 60).to_i}hrs, #{minutes % 60}min"

@@ -1,10 +1,10 @@
-module ElapsedTimeHelper
+module SessionTimerHelper
 
-  def elapsed_time(sesh)
-    ElapsedTime.new(sesh)
+  def initial_session_timer(sesh)
+    SessionTimer.new(sesh)
   end
 
-  class ElapsedTime
+  class SessionTimer
     def initialize(sesh)
       @total_seconds = (Time.now - sesh.created_at).round.to_i
     end

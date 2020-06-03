@@ -1,11 +1,5 @@
 <div class="hidden-sm hidden-md hidden-lg hidden-xl">
-<!--     <div class="timer_container_outer">
-      <div class="timer_container_inner">
-        <div class="timer_button_container">
-          <div class="timer_button_box">
-            <%#= image_tag "logo_and_branding/tr_timer_a.svg", width: "44", id: "stopwatch_toggle" %>
-          </div>
-        </div> -->
+
         <div class="timer_clock_container">
           <div class="timer_button_box">
             <%= image_tag "logo_and_branding/tr_timer_a.svg", width: "44", id: "stopwatch_toggle" %>
@@ -16,12 +10,11 @@
             </div>
           </div>
         </div>
-<!--       </div>
-    </div> -->
+
 </div>
 
 <script type="text/javascript">
-    var s = <%= elapsed_time(@current_session).sec %>;
-    var m = <%= elapsed_time(@current_session).min %>;
-    var h = <%= elapsed_time(@current_session).hour %>;
+    var s = <%= initial_session_timer(@current_session).sec %>;
+    var m = <%= initial_session_timer(@current_session).min %>;
+    var h = <%= initial_session_timer(@current_session).hour %>;
 </script>

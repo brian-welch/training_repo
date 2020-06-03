@@ -21,7 +21,7 @@
                           label: "Method",
                           requried: true,
                           input_html: { style: "padding-left: 30px;",
-                                        onchange: "machineOrPulleyCheck(this)"
+                                        onchange: "machineOrPulleyCheck(this); console.log(this.selectedOptions[0].innerHTML.split(" ").pop().toLowerCase())"
                                       } %>
 
         <div id="machine_input_new_session_set">
@@ -90,5 +90,7 @@
   </div>
 </div>
 <script>
+  //machineOrPulleyCheck($('#session_set_resistance_method_id'));
+  // machineOrPulleyCheck(document.getElementById("session_set_resistance_method_id"));
   // $(".form-group-invalid").show()
 </script>

@@ -1,12 +1,12 @@
 class TrainingSessionsController < ApplicationController
-    include ApplicationHelper
-    include CalculationsHelper
+  include ApplicationHelper
+  include CalculationsHelper
 
   before_action :set_training_session, only: [:show]
 
   def index
     @title = "#{current_user.first_name.capitalize}'s Session Histroy on Training Repo"
-    @all_my_sessions = TrainingSession.where(user: current_user).order("created_at ASC")
+    @all_my_sessions = TrainingSession.where(user: current_user, open: false).order("created_at ASC")
     @all_my_sessions_month_hash = @all_my_sessions.group_by {|sesh| [sesh.created_at.month, sesh.created_at.year]}
     @all_my_sessions_date_hash = @all_my_sessions.group_by {|sesh| sesh.created_at.strftime("%F")} # (&:created_at)
   end
@@ -37,7 +37,7 @@ class TrainingSessionsController < ApplicationController
       session_set_inst_arr = SessionSet.where(:training_session => @training_session).sort_by{|set| set.created_at}
 
       @session_date         = @training_session.created_at
-      @elapsed_time         = session_elapsed_time(@training_session)
+      @session_duration     = get_session_duration(@training_session)
       @total_weight_session = total_weight_lifted_in_sets_array(session_set_inst_arr)
       @weight_per_hour      = weight_lifted_per_hour_during_session(@training_session, @total_weight_session)
 
@@ -104,7 +104,7 @@ class TrainingSessionsController < ApplicationController
     resist_name = set.resistance_method.name.downcase
     if resist_name.include?("machine")
       return "#{proper_string(set.machine.name)} by #{proper_string(set.machine.brand.name)}"
-    elsif resist_name.include?("cable"||"crossover")
+    elsif resist_name.include?("cable") || resist_name.include?("crossover")
       return "#{set.pulley_count} #{set.pulley_count > 1 ? 'Pulleys' : 'Pulley'}"
     else
       return nil

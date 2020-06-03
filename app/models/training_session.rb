@@ -37,7 +37,8 @@ class TrainingSession < ApplicationRecord
     end
   end
 
-  private
+
+  # private
 
   def self.active_session_call(user)
     # returns an array
