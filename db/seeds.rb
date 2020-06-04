@@ -36,6 +36,14 @@ puts '- ' * 30 + "\n"
 
 
 
+
+
+
+
+
+
+
+
 # puts "\nAdding resistance_methods_id to all rows in session_sets table"
 # sleep 1
 
@@ -112,6 +120,13 @@ puts '- ' * 30 + "\n"
 # end
 # sleep 1
 
+
+
+
+
+
+
+
 # puts "\nCreating new exercises!!"
 # sleep 1
 
@@ -120,6 +135,13 @@ puts '- ' * 30 + "\n"
 # end
 
 
+
+
+
+
+
+
+
 # puts "\nPopulate exercise_bodyparts table with new info"
 # sleep 1
 
@@ -133,6 +155,16 @@ puts '- ' * 30 + "\n"
 #   end
 # end
 
+
+
+
+
+
+
+
+
+
+
 # puts "\nPopulate exercise_bodyparts table with new info"
 # sleep 1
 
@@ -144,6 +176,14 @@ puts '- ' * 30 + "\n"
 #       )
 #   end
 # end
+
+
+
+
+
+
+
+
 
 
 # puts "\nExchanging old exercises with the enw ones......  nervous!!"
@@ -163,6 +203,17 @@ puts '- ' * 30 + "\n"
 
 
 
+
+
+
+
+
+
+# puts "\nDeleting all depricated exercises.... still nervous!"
+# sleep 1
+# puts
+
+# Exercise.where("name LIKE ?", "% - %").sort_by{|x|x.id}.each{|x| x.destroy!}
 
 
 
