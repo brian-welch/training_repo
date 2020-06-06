@@ -27,98 +27,98 @@ puts '*' * 23
 puts '- ' * 30 + "\n"
 
 
-# puts "\nPopulating resistance_methods table"
-# sleep 1
-
-# resistance_methods_list.each do |method|
-#   ResistanceMethod.new(method).save!
-# end
-
-
-
-
-
-
+puts "\nPopulating resistance_methods table"
+sleep 1
+
+resistance_methods_list.each do |method|
+  ResistanceMethod.new(method).save!
+end
+
+
+
+
+
+
 
 
 
 
 
-# puts "\nAdding resistance_methods_id to all rows in session_sets table"
-# sleep 1
+puts "\nAdding resistance_methods_id to all rows in session_sets table"
+sleep 1
 
-# plate_loaded = []
-# sleep 0.25
-# SessionSet.all.map{|x| plate_loaded << x if Exercise.find(x.exercise_id).name.include?("Plate")}
-# sleep 1
-# plate_loaded.each do |sesh_set|
-# 	sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Plate-loaded Machine").id
-#   sesh_set.save!
-# end
-# sleep 1
-# machine = []
-# sleep 0.25
-# SessionSet.all.map{|x| machine << x if Exercise.find(x.exercise_id).name.include?("Machine")}
-# sleep 1
-# machine.each do |sesh_set|
-#   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Selectorized Machine").id
-#   sesh_set.save!
-# end
-# sleep 1
-# barbell = []
-# sleep 0.25
-# SessionSet.all.map{|x| barbell << x if Exercise.find(x.exercise_id).name.include?("Barbell")}
-# sleep 1
-# barbell.each do |sesh_set|
-#   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Barbell").id
-#   sesh_set.save!
-# end
-# sleep 1
-# dumbbell = []
-# sleep 0.25
-# SessionSet.all.map{|x| dumbbell << x if Exercise.find(x.exercise_id).name.include?("Dumbbell")}
-# sleep 1
-# dumbbell.each do |sesh_set|
-#   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Dumbbell").id
-#   sesh_set.save!
-# end
-# sleep 1
-# bodyweight = []
-# sleep 0.25
-# SessionSet.all.map{|x| bodyweight << x if Exercise.find(x.exercise_id).name.include?("Bodyweight")}
-# sleep 1
-# bodyweight.each do |sesh_set|
-#   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Bodyweight").id
-#   sesh_set.save!
-# end
-# sleep 1
-# cable = []
-# sleep 0.25
-# SessionSet.all.map{|x| cable << x if Exercise.find(x.exercise_id).name.include?("Cable")}
-# sleep 1
-# cable.each do |sesh_set|
-#   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Cable").id
-#   sesh_set.save!
-# end
-# sleep 1
-# crossover = []
-# sleep 0.25
-# SessionSet.all.map{|x| crossover << x if Exercise.find(x.exercise_id).name.include?("Crossover")}
-# sleep 1
-# crossover.each do |sesh_set|
-#   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Crossover").id
-#   sesh_set.save!
-# end
-# sleep 1
-# bodyweight_plus = []
-# sleep 0.25
-# SessionSet.all.map{|x| bodyweight_plus << x if Exercise.find(x.exercise_id).name.include?("Plus")}
-# sleep 1
-# bodyweight_plus.each do |sesh_set|
-#   sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Bodyweight +weight").id
-#   sesh_set.save!
-# end
-# sleep 1
+plate_loaded = []
+sleep 0.25
+SessionSet.all.map{|x| plate_loaded << x if Exercise.find(x.exercise_id).name.include?("Plate")}
+sleep 1
+plate_loaded.each do |sesh_set|
+	sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Plate-loaded Machine").id
+  sesh_set.save!
+end
+sleep 1
+machine = []
+sleep 0.25
+SessionSet.all.map{|x| machine << x if Exercise.find(x.exercise_id).name.include?("Machine")}
+sleep 1
+machine.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Selectorized Machine").id
+  sesh_set.save!
+end
+sleep 1
+barbell = []
+sleep 0.25
+SessionSet.all.map{|x| barbell << x if Exercise.find(x.exercise_id).name.include?("Barbell")}
+sleep 1
+barbell.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Barbell").id
+  sesh_set.save!
+end
+sleep 1
+dumbbell = []
+sleep 0.25
+SessionSet.all.map{|x| dumbbell << x if Exercise.find(x.exercise_id).name.include?("Dumbbell")}
+sleep 1
+dumbbell.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Dumbbell").id
+  sesh_set.save!
+end
+sleep 1
+bodyweight = []
+sleep 0.25
+SessionSet.all.map{|x| bodyweight << x if Exercise.find(x.exercise_id).name.include?("Bodyweight")}
+sleep 1
+bodyweight.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Bodyweight").id
+  sesh_set.save!
+end
+sleep 1
+cable = []
+sleep 0.25
+SessionSet.all.map{|x| cable << x if Exercise.find(x.exercise_id).name.include?("Cable")}
+sleep 1
+cable.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Cable").id
+  sesh_set.save!
+end
+sleep 1
+crossover = []
+sleep 0.25
+SessionSet.all.map{|x| crossover << x if Exercise.find(x.exercise_id).name.include?("Crossover")}
+sleep 1
+crossover.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Crossover").id
+  sesh_set.save!
+end
+sleep 1
+bodyweight_plus = []
+sleep 0.25
+SessionSet.all.map{|x| bodyweight_plus << x if Exercise.find(x.exercise_id).name.include?("Plus")}
+sleep 1
+bodyweight_plus.each do |sesh_set|
+  sesh_set.resistance_method_id = ResistanceMethod.find_by_name("Bodyweight +weight").id
+  sesh_set.save!
+end
+sleep 1
 
 
 
@@ -127,12 +127,12 @@ puts '- ' * 30 + "\n"
 
 
 
-# puts "\nCreating new exercises!!"
-# sleep 1
+puts "\nCreating new exercises!!"
+sleep 1
 
-# new_exercises_list.each do |exercise|
-#   Exercise.new(exercise).save!
-# end
+new_exercises_list.each do |exercise|
+  Exercise.new(exercise).save!
+end
 
 
 
@@ -142,18 +142,18 @@ puts '- ' * 30 + "\n"
 
 
 
-# puts "\nPopulate exercise_bodyparts table with new info"
-# sleep 1
+puts "\nPopulate exercise_bodyparts table with new info"
+sleep 1
 
-# new_exercise_bodyparts_list.each do |ex_body|
+new_exercise_bodyparts_list.each do |ex_body|
 
-#   ex_body[:bodyparts].each do |bodypart|
-#     ExerciseBodypart.create!(
-#       exercise: Exercise.find_by_name(ex_body[:name]),
-#       bodypart: Bodypart.find_by_name(bodypart)
-#       )
-#   end
-# end
+  ex_body[:bodyparts].each do |bodypart|
+    ExerciseBodypart.create!(
+      exercise: Exercise.find_by_name(ex_body[:name]),
+      bodypart: Bodypart.find_by_name(bodypart)
+      )
+  end
+end
 
 
 
@@ -165,17 +165,17 @@ puts '- ' * 30 + "\n"
 
 
 
-# puts "\nPopulate exercise_bodyparts table with new info"
-# sleep 1
+puts "\nPopulate exercise_bodyparts table with new info"
+sleep 1
 
-# new_exercise_bodyparts_list.each do |ex_body|
-#   ex_body[:bodyparts].each do |bodypart|
-#     ExerciseBodypart.create!(
-#       exercise: Exercise.find_by_name(ex_body[:name]),
-#       bodypart: Bodypart.find_by_name(bodypart)
-#       )
-#   end
-# end
+new_exercise_bodyparts_list.each do |ex_body|
+  ex_body[:bodyparts].each do |bodypart|
+    ExerciseBodypart.create!(
+      exercise: Exercise.find_by_name(ex_body[:name]),
+      bodypart: Bodypart.find_by_name(bodypart)
+      )
+  end
+end
 
 
 
@@ -186,18 +186,18 @@ puts '- ' * 30 + "\n"
 
 
 
-# puts "\nExchanging old exercises with the enw ones......  nervous!!"
-# sleep 1
-# puts
+puts "\nExchanging old exercises with the enw ones......  nervous!!"
+sleep 1
+puts
 
-# SessionSet.all.sort_by{|x|x.created_at}.each_with_index do |sesh_set, i|
+SessionSet.all.sort_by{|x|x.created_at}.each_with_index do |sesh_set, i|
 
-#   new_ex = Exercise.find_by_name(old_exercises_to_new[sesh_set.exercise.name])
-#   next if !new_ex
-#   sesh_set.exercise = Exercise.find_by_name(old_exercises_to_new[sesh_set.exercise.name])
-#   sesh_set.save!
+  new_ex = Exercise.find_by_name(old_exercises_to_new[sesh_set.exercise.name])
+  next if !new_ex
+  sesh_set.exercise = Exercise.find_by_name(old_exercises_to_new[sesh_set.exercise.name])
+  sesh_set.save!
 
-# end
+end
 
 
 
@@ -209,11 +209,14 @@ puts '- ' * 30 + "\n"
 
 
 
-# puts "\nDeleting all depricated exercises.... still nervous!"
-# sleep 1
-# puts
+puts "\nDeleting all depricated exercises.... still nervous!"
+sleep 1
+puts
 
-# Exercise.where("name LIKE ?", "% - %").sort_by{|x|x.id}.each{|x| x.destroy!}
+Exercise.where("name LIKE ?", "% - %").sort_by{|x|x.id}.each{|x| x.destroy!}
+
+
+
 
 
 
