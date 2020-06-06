@@ -19,7 +19,7 @@ def new_exercise_bodyparts_list
     {name: "Dead Lifts: Stiff Legged", bodyparts: ["Quads", "Hamstrings", "Adductors", "Abductors", "Hip Flexors", "Glutes", "Lower Back", "Forearms"]},
     {name: "Dead Lifts: Sumo", bodyparts: ["Quads", "Hamstrings", "Adductors", "Abductors", "Hip Flexors", "Glutes", "Lower Back", "Forearms"]},
     {name: "Dead Lifts", bodyparts: ["Quads", "Hamstrings", "Adductors", "Abductors", "Hip Flexors", "Glutes", "Lower Back", "Forearms"]},
-    {name: "Dips: Bench / Feet on Floor, Stright Legs", bodyparts: ["Lats", "Front Delts", "Rotator Cuff", "Triceps", "Pecs"]},
+    {name: "Dips: Bench / Feet on Floor, Straight Legs", bodyparts: ["Lats", "Front Delts", "Rotator Cuff", "Triceps", "Pecs"]},
     {name: "Dips: Bench / Feet on Floor, Bent Legs", bodyparts: ["Lats", "Front Delts", "Rotator Cuff", "Triceps", "Pecs"]},
     {name: "Dips: Bench / Feet on Bench, Straight Legs", bodyparts: ["Lats", "Front Delts", "Rotator Cuff", "Triceps", "Pecs"]},
     {name: "Dips", bodyparts: ["Lats", "Front Delts", "Rotator Cuff", "Triceps", "Pecs"]},
