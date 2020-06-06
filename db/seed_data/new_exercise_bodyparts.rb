@@ -1,5 +1,5 @@
 def new_exercise_bodyparts_list
-  return [
+  return {
     # {name: "Bench Press: Decline", bodyparts: ["Front Delts", "Triceps", "Pecs"]},
     # {name: "Bench Press: Flat", bodyparts: ["Front Delts", "Triceps", "Pecs"]},
     # {name: "Bench Press: Incline", bodyparts: ["Delts", "Front Delts", "Triceps", "Pecs"]},
