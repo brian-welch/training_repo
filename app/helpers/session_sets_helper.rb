@@ -52,7 +52,7 @@ module SessionSetsHelper
       content_tag(:span, image_tag("logo_and_branding/tr_check_a.svg"), class: "icon_image_exercise_name") +
       "#{proper_string(args[:exercise_inst].name) +
       '<br><i class="fas fa-angle-double-right fa-fw" style="margin-right: 8px;" ></i>' +
-      proper_string(args[:resist_inst].name) + "#{(args[:resist_inst].bodyweight && args[:sets].count > 0) ? (' @ ' + current_user.get_relevant_user_weight(args[:sets][0]) + ' ' + @units) : ''}" +
+      proper_string(args[:resist_inst].name) + "#{(args[:resist_inst].bodyweight && args[:sets].count > 0) ? (' @ ' + current_user.get_relevant_user_weight(args[:sets][0]).to_s + ' ' + @units) : ''}" +
       '<br>' + sets_date(args[:sets])}".html_safe
     end
   end
