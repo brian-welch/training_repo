@@ -72,12 +72,16 @@ class TrainingSessionsController < ApplicationController
   def update
     sesh_to_update = TrainingSession.find(params["id"].to_i)
     sesh_to_update.open = false
-
     if sesh_to_update.save
-      flash[:notice] = "You've just completed your #{ordinal(sesh_to_update.session_number)} session!"
+      if SessionSet.where(training_session: sesh_to_update).count > 0
+        flash[:notice] = "You've just completed your #{ordinal(sesh_to_update.session_number)} session!"
+      else
+        flash[:alert] = "Your training session didn't have any sets saved.<br>The session will be deleted."
+        TrainingSession.find(sesh_to_update.id).destroy!
+      end
       redirect_to training_sessions_path
     else
-      flash[:alert] = "Something Went Pair Shaped"
+      flash[:alert] = "Something Went Pair Shaped! <br> Contact Admin if you suspect a bug."
       redirect_to request.fullpath
     end
   end
