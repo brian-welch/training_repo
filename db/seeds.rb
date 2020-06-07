@@ -142,62 +142,36 @@ require_relative 'db_data_changes/populate_resistance_methods_in_session_sets.rb
 
 
 
-puts "\nPopulate exercise_bodyparts table with new info"
-sleep 1
+# puts "\nPopulate exercise_bodyparts table with new info"
+# sleep 1
 
-new_exercise_bodyparts_list.each do |ex_body|
+# new_exercise_bodyparts_list.each do |ex_body|
 
-  ex_body[:bodyparts].each do |bodypart|
-    ExerciseBodypart.create!(
-      exercise: Exercise.find_by_name(ex_body[:name]),
-      bodypart: Bodypart.find_by_name(bodypart)
-      )
-  end
-end
-
-
+#   ex_body[:bodyparts].each do |bodypart|
+#     ExerciseBodypart.create!(
+#       exercise: Exercise.find_by_name(ex_body[:name]),
+#       bodypart: Bodypart.find_by_name(bodypart)
+#       )
+#   end
+# end
 
 
 
 
 
 
+# puts "\nExchanging old exercises with the enw ones......  nervous!!"
+# sleep 1
+# puts
 
+# SessionSet.all.sort_by{|x|x.created_at}.each_with_index do |sesh_set, i|
 
+#   new_ex = Exercise.find_by_name(old_exercises_to_new[sesh_set.exercise.name])
+#   next if !new_ex
+#   sesh_set.exercise = Exercise.find_by_name(old_exercises_to_new[sesh_set.exercise.name])
+#   sesh_set.save!
 
-puts "\nPopulate exercise_bodyparts table with new info"
-sleep 1
-
-new_exercise_bodyparts_list.each do |ex_body|
-  ex_body[:bodyparts].each do |bodypart|
-    ExerciseBodypart.create!(
-      exercise: Exercise.find_by_name(ex_body[:name]),
-      bodypart: Bodypart.find_by_name(bodypart)
-      )
-  end
-end
-
-
-
-
-
-
-
-
-
-
-puts "\nExchanging old exercises with the enw ones......  nervous!!"
-sleep 1
-puts
-
-SessionSet.all.sort_by{|x|x.created_at}.each_with_index do |sesh_set, i|
-
-  new_ex = Exercise.find_by_name(old_exercises_to_new[sesh_set.exercise.name])
-  next if !new_ex
-  sesh_set.exercise = Exercise.find_by_name(old_exercises_to_new[sesh_set.exercise.name])
-  sesh_set.save!
-
-end
+# end
 
 
 
@@ -209,11 +183,11 @@ end
 
 
 
-puts "\nDeleting all depricated exercises.... still nervous!"
-sleep 1
-puts
+# puts "\nDeleting all depricated exercises.... still nervous!"
+# sleep 1
+# puts
 
-Exercise.where("name LIKE ?", "% - %").sort_by{|x|x.id}.each{|x| x.destroy!}
+# Exercise.where("name LIKE ?", "% - %").sort_by{|x|x.id}.each{|x| x.destroy!}
 
 
 
