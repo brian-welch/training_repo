@@ -1,0 +1,2 @@
+class SessionCardioMethod < ApplicationRecord
+end

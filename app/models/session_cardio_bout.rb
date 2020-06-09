@@ -1,0 +1,2 @@
+class SessionCardioBout < ApplicationRecord
+end
