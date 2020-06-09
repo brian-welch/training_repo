@@ -61,6 +61,7 @@ class TrainingSessionsController < ApplicationController
 
       if new_training_session.save
         flash[:notice] = "Your #{ordinal(new_sesh_number)} session has started!<br>Get to it!"
+        flash[:notice] = "Your #{ordinal(new_sesh_number)} session has started!<br>Get to it!"
         redirect_to session_sets_path
       else
         flash[:alert] = "Something Went Pair Shaped"
