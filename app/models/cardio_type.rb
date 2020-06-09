@@ -1,0 +1,2 @@
+class CardioType < ApplicationRecord
+end

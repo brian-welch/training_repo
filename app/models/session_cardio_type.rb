@@ -1,2 +1,0 @@
-class SessionCardioType < ApplicationRecord
-end

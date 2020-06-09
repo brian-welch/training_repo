@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SessionCardioMethodTest < ActiveSupport::TestCase
+class CardioMethodTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
