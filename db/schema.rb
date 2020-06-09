@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_163049) do
+ActiveRecord::Schema.define(version: 2020_06_09_091142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 2020_04_22_163049) do
   end
 
   create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cardio_methods", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cardio_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -80,6 +92,20 @@ ActiveRecord::Schema.define(version: 2020_04_22_163049) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "session_cardio_bouts", force: :cascade do |t|
+    t.bigint "training_session_id"
+    t.bigint "cardio_type_id"
+    t.bigint "cardio_method_id"
+    t.integer "time"
+    t.float "distance"
+    t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cardio_method_id"], name: "index_session_cardio_bouts_on_cardio_method_id"
+    t.index ["cardio_type_id"], name: "index_session_cardio_bouts_on_cardio_type_id"
+    t.index ["training_session_id"], name: "index_session_cardio_bouts_on_training_session_id"
   end
 
   create_table "session_sets", force: :cascade do |t|
@@ -148,6 +174,9 @@ ActiveRecord::Schema.define(version: 2020_04_22_163049) do
 
   add_foreign_key "exercise_bodyparts", "bodyparts"
   add_foreign_key "exercise_bodyparts", "exercises"
+  add_foreign_key "session_cardio_bouts", "cardio_methods"
+  add_foreign_key "session_cardio_bouts", "cardio_types"
+  add_foreign_key "session_cardio_bouts", "training_sessions"
   add_foreign_key "session_sets", "exercises"
   add_foreign_key "session_sets", "machines"
   add_foreign_key "session_sets", "resistance_methods"
