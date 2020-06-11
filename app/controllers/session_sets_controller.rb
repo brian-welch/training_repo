@@ -20,7 +20,7 @@ class SessionSetsController < ApplicationController
       @last_set_saved_id = sets_current_training_session.last.id if sets_current_training_session.count > 0
 
     else
-      flash[:alert] = "You do not have any active training sessions.<br>You can review previous sessions here."
+      flash[:info_1] = "You do not have any active training sessions.<br>You can review previous sessions here."
       redirect_to training_sessions_path
     end
   end
@@ -45,7 +45,7 @@ class SessionSetsController < ApplicationController
       end
       @title = "Adding a New Set to #{current_user.first_name.capitalize}'s #{ordinal(@active_tr_sesh_inst.session_number)} Session on Training Repo"
     else
-      flash[:alert] = "You do not have any active training sessions.<br>You must first start a new training session before adding sets."
+      flash[:info_1] = "You do not have any active training sessions.<br>You must first start a new training session before adding sets."
       redirect_to my_tr_path
     end
   end
@@ -57,7 +57,7 @@ class SessionSetsController < ApplicationController
     if @new_session_set.save
       redirect_to session_sets_path(anchor: "set-#{@new_session_set.id}")
     else
-      flash[:alert] = "Something went sideways...<br>Was that an exercise from<br>the database list?"
+      flash[:warning_1] = "Something went sideways...<br>Was that an exercise from<br>the database list?"
       render :new
     end
   end

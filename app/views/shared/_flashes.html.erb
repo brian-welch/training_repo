@@ -1,15 +1,7 @@
-<% if notice %>
-  <div class="alert alert-info alert-dismissible desktop_flash_position" role="alert">
-    <button type="button" class="close tr_flash_close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="far fa-window-close"></i></span></button>
-    <%= notice.html_safe %>
-  </div>
-<% end %>
-<% if alert %>
-  <div class="alert alert-warning alert-dismissible desktop_flash_position" role="alert">
-    <button type="button" class="close tr_flash_close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="far fa-window-close"></i></span></button>
-    <%= alert.html_safe %>
-  </div>
-<% end %>
-<% if just_saved %>
-    <%= just_saved.html_safe %>
-<% end %>
+<div class="flash_container desktop_flash_position ">
+    <% flash.each do |flash_type, flash_message| %>
+      <%=  build_flashes(flash_type.to_s, flash_message) %>
+    <% end %>
+</div>
+
+

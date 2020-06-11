@@ -12,7 +12,7 @@ class MachinesController < ApplicationController
       redirect_to inactive_path
     elsif requester_role != "admin"
       if requester_role != "pt"
-        flash[:alert] = "You do not have permissions to add new machnines.<br>Please contact the admin or your personal trainer to add machines."
+        flash[:warning_1] = "You do not have permissions to add new machnines.<br>Please contact the admin or your personal trainer to add machines."
         redirect_to machines_path
       end
     else
@@ -27,13 +27,13 @@ class MachinesController < ApplicationController
     #@new_machine.inherit_weight = 0 if @new_machine.inherit_weight == nil
 
     if @new_machine.save
-      flash[:notice] = "<u>#{@new_machine.name}</u> by \"#{@new_machine.brand.name}\" has been added to the database!"
+      flash[:success_1] = "<u>#{@new_machine.name}</u> by \"#{@new_machine.brand.name}\" has been added to the database!"
       redirect_to machines_path
     else
       if @new_machine.brand.nil?
-        flash[:alert] = "'Placeholder' is not a real brand."
+        flash[:info_1] = "'Placeholder' is not a real brand."
       else
-        flash[:alert] = "Something Went Pair Shaped"
+        flash[:warning_1] = "Something Went Pair Shaped"
       end
       render :new
     end
