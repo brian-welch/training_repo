@@ -40,4 +40,38 @@ module ApplicationHelper
     (resist_inst.unilateral || exercise_inst.unilateral) && !exercise_inst.force_bilateral
   end
 
+
+
+  def build_flashes(flash_name_instance, message)
+    # Rendered/called in shared flash view
+    # Using my expanded flash structure and naming 4 instances of 5 different flash messages
+    # success, info, warning, danger and special
+    flash_name = flash_name_instance.split("_")[0]
+    content_tag :div, class: "alert alert-dismissible flash flash_#{flash_name}", role: "alert"  do
+      close_button_outer + message.html_safe if message
+    end
+  end
+
+  def close_button_outer
+    content_tag(:button, close_button_inner, type: "button", class: "close tr_flash_close", aria: {label: "Close"}, data: {dismiss: "alert"})
+  end
+
+  def close_button_inner
+    content_tag(:span, fontawesome_icon, aria: {hidden: "true"})
+  end
+
+  def fontawesome_icon
+    content_tag(:i, "", class: "far fa-window-close")
+  end
+
 end
+
+
+
+
+
+
+
+
+
+

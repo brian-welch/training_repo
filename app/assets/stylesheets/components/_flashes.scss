@@ -1,0 +1,30 @@
+.flash {
+  margin: 0;
+  text-align: center;
+  color: white;
+}
+
+.flash_success {
+  background:   $flash_success_bg;
+  border-color: $flash_success_border;
+}
+
+.flash_info {
+  background:   $flash_info_bg;
+  border-color: $flash_info_border;
+}
+
+.flash_warning {
+  background:   $flash_warning_bg;
+  border-color: $flash_warning_border;
+}
+
+.flash_danger {
+  background:   $flash_danger_bg;
+  border-color: $flash_danger_border;
+}
+
+.flash_special {
+  background:   $flash_special_bg;
+  border-color: $flash_special_border;
+}

@@ -15,7 +15,7 @@ class TrainingSessionsController < ApplicationController
     if !user_is_active?
       redirect_to inactive_path
     elsif TrainingSession.active_session_number(current_user.id)
-      flash[:alert] = "You already have any active training sessions.<br>You must end the session or save a set."
+      flash[:info_1] = "You already have any active training sessions.<br>You must end the session or save a set."
       redirect_to session_sets_path
     else
       @title = "#{current_user.first_name.capitalize}'s Starting a New Trianing Session on Training Repo"
@@ -28,7 +28,7 @@ class TrainingSessionsController < ApplicationController
 
   def show
     if @training_session.nil?
-      flash[:alert] = "This was not a link to a valid training session."
+      flash[:warning_1] = "This was not a link to a valid training session."
       redirect_to training_sessions_path
     else
       @title = "#{current_user.first_name.capitalize}'s Training Session Details on Training Repo"
@@ -52,7 +52,7 @@ class TrainingSessionsController < ApplicationController
   def create
 
     if TrainingSession.active_session_number(current_user.id)
-      flash[:alert] = "You already have any active training sessions.<br>You must end the session or save a set."
+      flash[:warning_1] = "You already have any active training sessions.<br>You must end the session or save a set."
       redirect_to session_sets_path
     else
       new_training_session = TrainingSession.new(approved_training_session_params)
@@ -60,11 +60,10 @@ class TrainingSessionsController < ApplicationController
       new_training_session.session_number = new_sesh_number
 
       if new_training_session.save
-        flash[:notice] = "Your #{ordinal(new_sesh_number)} session has started!<br>Get to it!"
-        flash[:notice] = "Your #{ordinal(new_sesh_number)} session has started!<br>Get to it!"
+        flash[:success_1] = "Your #{ordinal(new_sesh_number)} session has started!<br>Get to it!"
         redirect_to session_sets_path
       else
-        flash[:alert] = "Something Went Pair Shaped"
+        flash[:warning_1] = "Something Went Pair Shaped"
         render "training_sessions/new"
       end
     end
@@ -75,14 +74,14 @@ class TrainingSessionsController < ApplicationController
     sesh_to_update.open = false
     if sesh_to_update.save
       if SessionSet.where(training_session: sesh_to_update).count > 0
-        flash[:notice] = "You've just completed your #{ordinal(sesh_to_update.session_number)} session!"
+        flash[:success_1] = "You've just completed your #{ordinal(sesh_to_update.session_number)} session!"
       else
-        flash[:alert] = "Your training session didn't have any sets saved.<br>The session will be deleted."
+        flash[:danger_1] = "Your training session didn't have any sets saved.<br>The session will not be saved."
         TrainingSession.find(sesh_to_update.id).destroy!
       end
       redirect_to training_sessions_path
     else
-      flash[:alert] = "Something Went Pair Shaped! <br> Contact Admin if you suspect a bug."
+      flash[:warning_1] = "Something Went Pair Shaped! <br> Contact Admin if you suspect a bug."
       redirect_to request.fullpath
     end
   end

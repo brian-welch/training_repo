@@ -9,12 +9,33 @@
 // $gray_var:       #000000;
 // $light-gray_var: #F4F4F4;
 
-$site_danger:     rgba(224,89,40,1);       // $brand-danger
+$site_danger:     rgba(224, 89, 40, 1);       // $brand-danger
 $site_primary:    rgba(58,130,180,1);      // $brand-primary
 $site_info:       #FDB631;                 // $brand-info
 $site_warning:    #E67E22;                 // $brand-warning
 $site_success:    rgba(37,210,0,1);        // $brand-success
 $site_background: #000000;                 // $body-bg
+
+
+// MY OWN FLASH COLOR SCHEME
+
+$flash_success_bg:      rgba(8,146,1,1);
+$flash_success_border:  rgba(187,228,185,1);
+
+$flash_info_bg:         rgba(208,196,0,1);
+$flash_info_border:     rgba(233,229,165,1);
+
+$flash_warning_bg:        rgba(220,121,2,1);
+$flash_warning_border:    rgba(236,214,188,1);
+
+$flash_danger_bg:      rgba(210,0,0,1);
+$flash_danger_border:  rgba(231,171,171,1);
+
+$flash_special_bg:      rgba(160,0,255,1);
+$flash_special_border:  rgba(217,188,234,1);
+
+
+
 // $site_textcolor:  rgba(198, 236, 255, 1);  // $text-color
 // $site_textcolor:  rgba(108, 149, 178, 1);  // $text-color
 $site_textcolor:  rgba(58,130,180, 1);  // $text-color

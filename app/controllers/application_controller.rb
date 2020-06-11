@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :get_user_units
 
-  add_flash_types :just_saved
+  add_flash_types   :success_1,  :success_2,  :success_3,  :success_4,
+                    :info_1,     :info_2,     :info_3,     :info_4,
+                    :warning_1,  :warning_2,  :warning_3,  :warning_4,
+                    :danger_1,   :danger_2,   :danger_3,   :danger_4,
+                    :special_1,  :special_2,  :special_3,  :special_4
 
   def after_sign_in_path_for(resource_or_scope)
     # stored_location_for(resource_or_scope) || super

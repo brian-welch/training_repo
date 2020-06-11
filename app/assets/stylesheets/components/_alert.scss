@@ -12,6 +12,11 @@
     opacity: 1 !important;
   }
 }
+
+.alert-success {
+  background: $site_success;
+}
+
 .alert-info {
   background: $site_success;
 }

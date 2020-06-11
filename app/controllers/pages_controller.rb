@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
   def inactive
     if user_is_active?
-      flash[:notice] = "Your account is currently active!"
+      flash[:success_1] = "Your account is currently active!"
       redirect_to my_tr_path
     end
   end
