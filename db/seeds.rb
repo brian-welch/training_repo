@@ -1,30 +1,64 @@
 require 'json'
 require 'open-uri'
 require 'nokogiri'
-require_relative 'seed_data/session_strategies.rb'
-require_relative 'seed_data/exercise_bodyparts.rb'
-require_relative 'seed_data/exercises.rb'
-require_relative 'seed_data/users.rb'
-require_relative 'seed_data/brands.rb'
-require_relative 'seed_data/machines.rb'
-require_relative 'seed_data/training_sessions.rb'
-require_relative 'seed_data/session_sets.rb'
+# require_relative 'seed_data/session_strategies.rb'
+# require_relative 'seed_data/exercise_bodyparts.rb'
+# require_relative 'seed_data/exercises.rb'
+# require_relative 'seed_data/users.rb'
+# require_relative 'seed_data/brands.rb'
+# require_relative 'seed_data/machines.rb'
+# require_relative 'seed_data/training_sessions.rb'
+# require_relative 'seed_data/session_sets.rb'
 
-require_relative 'seed_data/new_exercises.rb'
-require_relative 'seed_data/new_exercise_bodyparts.rb'
-require_relative 'seed_data/resistance_methods.rb'
-require_relative 'db_data_changes/old_exercises_to_new.rb'
-require_relative 'db_data_changes/populate_resistance_methods_in_session_sets.rb'
+# require_relative 'seed_data/new_exercises.rb'
+# require_relative 'seed_data/new_exercise_bodyparts.rb'
+# require_relative 'seed_data/resistance_methods.rb'
+# require_relative 'db_data_changes/old_exercises_to_new.rb'
+# require_relative 'db_data_changes/populate_resistance_methods_in_session_sets.rb'
 
-## clears terminal window
-# system 'clear'
+require_relative 'seed_data/cardio_types.rb'
+require_relative 'seed_data/cardio_methods.rb'
 
 
-# ## adds arty farty title to terminal
-# puts '*' * 23
-# puts ' Seeding your database'
-# puts '*' * 23
-# puts '- ' * 30 + "\n"
+# clears terminal window
+system 'clear'
+sleep 3
+
+
+## adds arty farty title to terminal
+puts '*' * 23
+puts ' Seeding your database'
+puts '*' * 23
+puts '- ' * 30 + "\n"
+sleep 3
+
+
+puts "\nPopulating cardio_types table"
+sleep 3
+
+cardio_types_list.map do |type|
+  CardioType.new(name: type).save!
+end
+
+
+puts "\nPopulating cardio_methods table"
+sleep 3
+
+cardio_methods_list.map do |c_method|
+  CardioMethod.new(name: c_method).save!
+end
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # puts "\nPopulating resistance_methods table"
@@ -33,9 +67,6 @@ require_relative 'db_data_changes/populate_resistance_methods_in_session_sets.rb
 # resistance_methods_list.each do |method|
 #   ResistanceMethod.new(method).save!
 # end
-
-
-
 
 
 
