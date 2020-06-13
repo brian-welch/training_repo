@@ -1,10 +1,14 @@
 def cardio_types_list
   return [
     "Jogging",
+    "Biking",
+    "Walking",
     "Swimming",
-    "Hiking",
+    "Running Intervals",
+    "Eliptical Machine",
+    "StairMaster",
     "Rowing",
-    "Eliptical",
-    "Stair Climbing",
+    "Sports Activity",
+    "Aerobics Class"
   ]
 end

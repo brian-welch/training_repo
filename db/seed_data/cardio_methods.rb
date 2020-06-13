@@ -1,7 +1,9 @@
 def cardio_methods_list
   return [
     "Treadmill",
-    "Outdoors"
+    "Outdoors",
+    "Ocean/Lake",
+    "Swimming Pool",
     "Exercise Bike",
     "Rowing Machine",
     "Eliptical Machine",

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  # get 'session_cardio_bout/index'
+  # get 'session_cardio_bout/new'
+  # get 'session_cardio_bout/create'
   get 'user_weights/show'
   get 'user_weights/new'
   devise_for :users,
@@ -18,7 +21,8 @@ Rails.application.routes.draw do
   get 'my_tr', to: 'dashboards#index', as: "my_tr"
 
   resources :training_sessions
-  resources :session_sets
+  resources :session_sets, only: [:index, :new, :create]
+  resources :session_cardio_bouts, only: [:index, :new, :create]
   resources :session_strategies
 
   resources :brands

@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3  col-md-4 col-md-offset-4">
+    <h1> <%= image_tag "logo_and_branding/tr_spiral_with_hand_dumbbell_a.svg", width: "50", style: "position:relative; bottom: 5px;" %> Add Cardio Bout!</h1>
+    <%= simple_form_for [@new_session_cardio_bout], html: { autocomplete: "off" } do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+
+        <div class="simple_form_select_arrow"></div>
+        <%= f.association :cardio_type,
+                          label: "Cardio Type",
+                          required: true,
+                          error: "Cardio Type must be selected from the database",
+                          input_html: { style: "padding-left: 30px;",
+                                      } %>
+
+        <div class="simple_form_select_arrow"></div>
+        <%= f.association :cardio_method,
+                          label: "Cardio Method",
+                          requried: true,
+                          input_html: { style: "padding-left: 30px;",
+                                      } %>
+
+        <div class="col-xs-6">
+            <%= f.input :distance,
+                        label: @units.capitalize,
+                        required: true %>
+        </div>
+
+        <div class="col-xs-6">
+            <%= f.input :time,
+                        required: true %>
+        </div>
+
+        <%= f.association :training_session,
+                    as: :hidden,
+                    input_html: {  } %>
+      </div>
+      <div class="col-xs-12"><hr></div>
+      <div class="form-actions col-xs-12">
+        <%= f.button :submit, "Save", class: "btn-primary" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
