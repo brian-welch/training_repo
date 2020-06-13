@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   get 'my_tr', to: 'dashboards#index', as: "my_tr"
 
   resources :training_sessions
-  resources :session_sets
-  resources :session_cardio_bouts
+  resources :session_sets, only: [:index, :new, :create]
+  resources :session_cardio_bouts, only: [:index, :new, :create]
   resources :session_strategies
 
   resources :brands
