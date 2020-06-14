@@ -31,6 +31,7 @@ class SessionCardioBoutsController < ApplicationController
   end
 
   def create
+    @params = params
   end
 
   def call_active_training_session_instance
