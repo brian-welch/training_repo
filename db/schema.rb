@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_164959) do
+ActiveRecord::Schema.define(version: 2020_06_14_071816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -166,8 +166,6 @@ ActiveRecord::Schema.define(version: 2020_06_13_164959) do
     t.bigint "role_id", default: 12
     t.bigint "gender_id"
     t.string "units_of_measure"
-    t.string "weight_units"
-    t.string "distance_units"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["gender_id"], name: "index_users_on_gender_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

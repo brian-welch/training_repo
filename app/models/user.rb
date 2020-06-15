@@ -22,21 +22,17 @@ class User < ApplicationRecord
   attr_accessor :weight #to be used in saving weight to user_weights table
   has_many :user_weights, dependent: :destroy
 
-  attr_accessor :units_of_measure #to be used in saving weight to user_weights table
-
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :birthdate, presence: true
   validates :gender, presence: true
   validates :role, presence: true
   validates :email, uniqueness: true
+
   validates :units_of_measure, presence: true
   validates :units_of_measure, inclusion: { in: %w(metric imperial),
     message: "%{value} is not a valid unit" }
   # after_create :send_welcome_email
-
-  # validate :units_validator
-
 
 
   def get_current_user_weight
