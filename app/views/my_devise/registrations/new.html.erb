@@ -25,34 +25,38 @@
                         required: true %>
           </div>
           <div class="col-xs-4 col-sm-2 col-md-2">
+          <!--div class="simple_form_select_arrow"></div>-->
             <%= f.association :gender,
                         as: :select,
                         required: true %>
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-6 col-md-6">
+          <div class="col-xs-12 col-md-5">
            <%= f.input :birthdate,
                         wrapper_html: { class: 'form-inline' },
                         required: true,
-                        start_year: Date.today.year - 60, 
+                        start_year: Date.today.year - 60,
 
                         end_year: Date.today.year - 18  %>
           </div>
           <div class="col-xs-6 col-md-3">
            <%= f.input :weight,
-                        as: :integer,
+                        label: "Your Weight",
+                        as: :integer
                         # wrapper_html: { class: 'form-inline' },
-                        required: true #,
                         %>
           </div>
-          <div class="col-xs-6 col-md-3">
+          <div class="col-xs-6 col-md-4">
+
            <%= f.input :units_of_measure,
-                        label: "Weight Units",
+                        label: "Measure Units",
                         label_html: {class: 'form-control-label'},
-                        as: :radio_buttons,
-                        collection: ['kg', 'lbs'],
-                        required: true  %>
+                        # as: :radio_buttons,
+                        collection: ['metric', 'imperial'],
+                        required: true,
+                        hint: "(f you aren't immediately certain what this implies, then this app may not be for you.)".html_safe
+                        %>
           </div>
         </div>
         <div class="row">

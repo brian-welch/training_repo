@@ -1,3 +1,8 @@
+/* collection of CSS fixes that over-write existing/imported libraries */
 #machine_input_new_session_set, #machine_input_new_session_cardio_bout, #pulley_input_new_session_set {
   transition: none !important;
+}
+
+.form-text.text-muted {
+  margin: 0;
 }

@@ -28,15 +28,15 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validates :role, presence: true
   validates :email, uniqueness: true
+
   validates :units_of_measure, presence: true
-  validates :units_of_measure, inclusion: { in: %w(lbs kg),
+  validates :units_of_measure, inclusion: { in: %w(metric imperial),
     message: "%{value} is not a valid unit" }
   # after_create :send_welcome_email
 
 
-
   def get_current_user_weight
-   UserWeight.where("user_id = ?", self.id).last.weight
+   UserWeight.where("user_id = ?", self.id).sort_by{|x|x.created_at}.last.weight
   end
 
   def get_relevant_user_weight(set_input)
@@ -58,5 +58,6 @@ class User < ApplicationRecord
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
   end
+
 
 end

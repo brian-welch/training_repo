@@ -44,6 +44,8 @@ class ApplicationController < ActionController::Base
   def get_user_units
     # sets weight units for a signed in user
     user_signed_in? ? @units = current_user.units_of_measure :  @units = "kg/lbs"
+    @weight_units = current_user.units_of_measure == "metric" ? "kg" : "lbs" if user_signed_in?
+    @distance_units = current_user.units_of_measure == "metric" ? "km" : "miles" if user_signed_in?
   end
 
 end
