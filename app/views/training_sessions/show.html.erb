@@ -31,10 +31,10 @@
         </tr>
         <tr>
           <td class="training_session_summary_key">Total Weight Lifted:</td>
-          <td class="training_session_summary_value"><%= @total_weight_session %> <%= @units %></td>
+          <td class="training_session_summary_value"><%= @total_weight_session %> <%= @weight_units %></td>
         </tr>
         <tr>
-          <td class="training_session_summary_key"><%= @units.upcase %> Per Hour Pace:</td>
+          <td class="training_session_summary_key"><%= @weight_units.upcase %> Per Hour Pace:</td>
           <td class="training_session_summary_value"><%= @weight_per_hour %></td>
         </tr>
       </table>
@@ -63,7 +63,7 @@
             <div class="saved_set_data_box" >
               <div class="set_order_marker" onclick="orderMessage();"><%= order_set_arr[0] %></div>
               <div class="set_data_weight">
-                <%= "#{order_set_arr[1].weight}" %> <span><%= @units %></span>
+                <%= "#{order_set_arr[1].weight}" %> <span><%= @weight_units %></span>
                 <% if order_set_arr[1].exercise.bodyweight || order_set_arr[1].resistance_method.bodyweight %>
                   <div class="includes_bodyeight_marker" style="">+body<br>weight</div>
                 <% end %>
@@ -79,7 +79,7 @@
               Total:
             </span>
             <span class="set_data_total_weight_sum">
-              <br><%= total_weight_lifted_in_order_sets_array(set_inst_array) %> <%= @units %> <span  onclick="calculationMessage();">ⓘ</span>
+              <br><%= total_weight_lifted_in_order_sets_array(set_inst_array) %> <%= @weight_units %> <span  onclick="calculationMessage();">ⓘ</span>
             </span>
           </div>
 

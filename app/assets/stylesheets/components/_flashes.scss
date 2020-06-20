@@ -9,12 +9,17 @@
   border-color: $flash_success_border;
 }
 
+.flash_notice {
+  background: $flash_notice_bg;
+  border-color: $flash_notice_border;
+}
+
 .flash_info {
   background:   $flash_info_bg;
   border-color: $flash_info_border;
 }
 
-.flash_warning {
+.flash_warning, .flash_alert {
   background:   $flash_warning_bg;
   border-color: $flash_warning_border;
 }

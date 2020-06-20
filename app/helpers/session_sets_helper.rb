@@ -52,7 +52,7 @@ module SessionSetsHelper
       content_tag(:span, image_tag("logo_and_branding/tr_check_a.svg"), class: "icon_image_exercise_name") +
       "#{proper_string(args[:exercise_inst].name) +
       '<br><i class="fas fa-angle-double-right fa-fw" style="margin-right: 8px;" ></i>' +
-      proper_string(args[:resist_inst].name) + "#{(args[:resist_inst].bodyweight && args[:sets].count > 0) ? (' @ ' + current_user.get_relevant_user_weight(args[:sets][0]).to_s + ' ' + @units) : ''}" +
+      proper_string(args[:resist_inst].name) + "#{(args[:resist_inst].bodyweight && args[:sets].count > 0) ? (' @ ' + current_user.get_relevant_user_weight(args[:sets][0]).to_s + ' ' + @weight_units) : ''}" +
       '<br>' + sets_date(args[:sets])}".html_safe
     end
   end
@@ -94,7 +94,7 @@ module SessionSetsHelper
     classes = set.id == last_id ? "saved_set_data_box last_saved_set_border" : "saved_set_data_box"
     marker = set.id == last_id ? "<div class=\"last_saved_set_marker\"></div>" : ""
     weight = content_tag :div, class: "set_data_weight" do
-      "#{set.weight} <span>#{@units}</span>".html_safe
+      "#{set.weight} <span>#{@weight_units}</span>".html_safe
     end
     reps = content_tag :div, class: "set_data_reps" do
       "#{set.reps} <span>reps</span>".html_safe
@@ -121,7 +121,7 @@ module SessionSetsHelper
     end
     sum = content_tag :span, class: "set_data_total_weight_sum" do
       # method: total_weight_lifted_in_sets_array located in CalculationsHelper
-      "#{total_weight_lifted_in_sets_array(sets)} #{@units}"
+      "#{total_weight_lifted_in_sets_array(sets)} #{@weight_units}"
     end
     content_tag :div, class: "save_set_data_total_weight" do
       label + sum + content_tag(:span, " ⓘ", class: "cursor_pointer", onclick: "calculationMessage()")

@@ -10,8 +10,10 @@
   </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
     		<div class="dashboard_block_container">
-    			<h3>Tonage</h3>
+    			<h3 style="text-align: center;">Cumulative Tonage <%= "[#{@weight_units}]" %></h3>
     			<div class="dotted_hr"></div>
+          <div style="font-size: 0.7em; text-align: center; font-style: italic;">(this is placeholder data only for development purposes)</div>
+          <div class="dotted_hr"></div>
     			<canvas id="chartTest"></canvas>
     		</div>
     	</div>
@@ -26,16 +28,16 @@
 		    let massPopChart = new Chart(myChart, {
 		      type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
 		      data:{
-		        labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+		        labels:['Legs', 'Back', 'Chest', 'Shoulders', 'Triceps', 'Biceps'],
 		        datasets:[{
-		          label:'Population',
+		          <%= "label: '#{@weight_units.upcase}',".html_safe %>
 		          data:[
-		            617594,
-		            181045,
-		            153060,
-		            106519,
-		            105162,
-		            95072
+		            615000,
+		            475000,
+		            400000,
+		            325000,
+		            375000,
+		            250000,
 		          ],
 		          //backgroundColor:'green',
 		          backgroundColor:[
@@ -54,23 +56,38 @@
 		        }]
 		      },
 		      options:{
+            scales: {
+              // xAxes: [{
+              //   ticks: {
+              //     maxRotation: 90,
+              //     minRotation: 80
+              //   }
+              // }],
+              yAxes: [{
+                ticks: {
+                  min: 0,
+                  // max: 100,
+                  // stepSize: 20,
+                }
+              }]
+            },
 /*		        title:{
 		          display:true,
 		          text:'Largest Cities In Massachusetts',
 		          fontSize:25
-		        },
-		        legend:{
-		          display:true,
-		          position:'right',
-		          labels:{
-		            fontColor:'#000'
-		          }
 		        },*/
+		        legend:{
+		          display:false,
+		          // position:'right',
+		          // labels:{
+		          //   fontColor:'#000'
+		          // }
+		        },
 		        layout:{
 		          padding:{
 		            left:0,
 		            right:0,
-		            bottom:100,
+		            bottom:115,
 		            top:0
 		          }
 		        },

@@ -6,7 +6,7 @@
 
       <div class="form-inputs">
 
-        <div class="simple_form_select_arrow"></div>
+        <!--<div class="simple_form_select_arrow"></div>-->
         <%= f.input :exercise_name,
                           label: "Exercise",
                           required: true,
@@ -16,7 +16,7 @@
                                         data: { autocomplete_source: exercises_path}
                                       } %>
 
-        <div class="simple_form_select_arrow"></div>
+        <!--<div class="simple_form_select_arrow"></div>-->
         <%= f.association :resistance_method,
                           label: "Method",
                           requried: true,
@@ -25,7 +25,7 @@
                                       } %>
 
         <div id="machine_input_new_session_set">
-          <div class="simple_form_select_arrow"></div>
+          <!--<div class="simple_form_select_arrow"></div>-->
           <%= f.association :machine,
                             required: true,
                             error: "Machine must be selected from the list",
@@ -68,7 +68,7 @@
 
         <div class="col-xs-6">
             <%= f.input :weight,
-                        label: @units.capitalize,
+                        label: @weight_units.capitalize,
                         required: true %>
         </div>
 

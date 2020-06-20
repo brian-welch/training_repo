@@ -6,24 +6,26 @@
 
       <div class="form-inputs">
 
-        <div class="simple_form_select_arrow"></div>
+        <!--<div class="simple_form_select_arrow"></div>-->
         <%= f.association :cardio_type,
                           label: "Cardio Type",
+                          collection: @cardio_types,
                           required: true,
                           error: "Cardio Type must be selected from the database",
                           input_html: { style: "padding-left: 30px;",
                                       } %>
 
-        <div class="simple_form_select_arrow"></div>
+        <!--<div class="simple_form_select_arrow"></div>-->
         <%= f.association :cardio_method,
                           label: "Cardio Method",
+                          collection: @cardio_methods,
                           requried: true,
                           input_html: { style: "padding-left: 30px;",
                                       } %>
 
         <div class="col-xs-6">
             <%= f.input :distance,
-                        label: @units.capitalize,
+                        label: @distance_units.capitalize,
                         required: true %>
         </div>
 

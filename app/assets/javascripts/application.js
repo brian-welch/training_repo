@@ -48,11 +48,12 @@ $(document).ready(function() {
     show_hide_session_timer();
   });
 
-  session_timer_start();
 
   if(location.pathname == "/session_sets/new") {
     machineOrPulleyCheck(document.getElementById("session_set_resistance_method_id"));
   }
+
+  $(".form-group.select, .session_set_exercise_name").before('<div class="simple_form_select_arrow"></div>');
 
 
 });

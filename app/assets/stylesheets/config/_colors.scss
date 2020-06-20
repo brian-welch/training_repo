@@ -22,8 +22,11 @@ $site_background: #000000;                 // $body-bg
 $flash_success_bg:      rgba(8,146,1,1);
 $flash_success_border:  rgba(187,228,185,1);
 
-$flash_info_bg:         rgba(208,196,0,1);
-$flash_info_border:     rgba(233,229,165,1);
+$flash_info_bg:         $site_primary;
+$flash_info_border:     rgba(130,177,209,1);
+
+$flash_notice_bg:         $site_primary;
+$flash_notice_border:     lighten($site_primary, 10%);
 
 $flash_warning_bg:        rgba(220,121,2,1);
 $flash_warning_border:    rgba(236,214,188,1);

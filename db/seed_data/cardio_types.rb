@@ -9,6 +9,7 @@ def cardio_types_list
     "StairMaster",
     "Rowing",
     "Sports Activity",
-    "Aerobics Class"
+    "Aerobics Class",
+    "Warm up"
   ]
 end
