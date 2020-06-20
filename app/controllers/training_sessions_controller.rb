@@ -23,6 +23,7 @@ class TrainingSessionsController < ApplicationController
       all_session_strat_hash = SessionStrategy.all_session_strat_hash
       @first_session_strat = all_session_strat_hash.first
       @all_session_strat_json = all_session_strat_hash.to_json
+      @session_strategies = SessionStrategy.all.sort_by{|x| x.name}
     end
   end
 

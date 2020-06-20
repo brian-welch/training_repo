@@ -36,7 +36,7 @@ sleep 3
 puts "\nPopulating cardio_types table"
 sleep 3
 
-cardio_types_list.map do |type|
+cardio_types_list.sort.map do |type|
   CardioType.new(name: type).save!
 end
 
@@ -44,13 +44,20 @@ end
 puts "\nPopulating cardio_methods table"
 sleep 3
 
-cardio_methods_list.map do |c_method|
+cardio_methods_list.sort.map do |c_method|
   CardioMethod.new(name: c_method).save!
 end
 
 
+puts "\nPAdding new Exercises"
+sleep 3
 
+new_ex = [{id: nil, name: "Abdominal Crunches: Lying", unilateral: nil, machine: false, bodyweight: true, force_bilateral: nil, info: nil, m_mech_ad_override: 2, f_mech_ad_override: 2}, {id: nil, name: "Abdominal Crunches: Machine or Cable / Upright", unilateral: nil, machine: false, bodyweight: false, force_bilateral: nil, info: nil, m_mech_ad_override: nil, f_mech_ad_override: nil},{id: nil, name: "Abdominal Crunches: Machine or Cable / Lying", unilateral: nil, machine: false, bodyweight: true, force_bilateral: nil, info: nil, m_mech_ad_override: 2, f_mech_ad_override: 2},]
 
+new_ex.each do |new_ex|
+  x = Exercise.new(new_ex)
+  x.save!
+end
 
 
 

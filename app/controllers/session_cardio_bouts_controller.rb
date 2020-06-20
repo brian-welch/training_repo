@@ -11,6 +11,8 @@ class SessionCardioBoutsController < ApplicationController
       redirect_to inactive_path
     elsif @active_tr_sesh_inst
       @new_session_cardio_bout = SessionCardioBout.new(training_session: @active_tr_sesh_inst, cardio_type_id: params[:cardio_type_id])
+      @cardio_types = CardioType.all.sort_by{|x| x.name}
+      @cardio_methods = CardioMethod.all.sort_by{|x| x.name}
       if params[:cardio_type_id]
         @new_session_set.cardio_type_id = params[:cardio_type_id]
         if params[:distance]

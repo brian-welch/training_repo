@@ -8,6 +8,9 @@ module SessionTimerHelper
     def initialize(sesh)
       @total_seconds = (Time.now - sesh.created_at).round.to_i
     end
+    def total_seconds
+      @total_seconds
+    end
     def hour
       @total_seconds / 3600
     end

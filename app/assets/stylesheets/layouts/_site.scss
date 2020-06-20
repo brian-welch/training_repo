@@ -127,7 +127,11 @@ select {
   }
 }
 
+.simple_form_select_arrow {
+
+}
 .simple_form_select_arrow::after {
+  /*.simple_form_select_arrow::after,*/
   color: $site_primary;
   border-top-left-radius: 1px;
   border-bottom-left-radius: 1px;
@@ -145,10 +149,12 @@ select {
   content: "⧨";
 }
 
+
+
 .form-group {
   input, small, select, div, text {
     margin: 0 0 0 10px;
-    width: calc(100% - 10px)
+    width: calc(100% - 10px);
   }
   input[type=checkbox] {
     margin: 0 0 0 10px;
@@ -164,6 +170,10 @@ select {
   }
   select {
     padding-left: 25px;
+  }
+  select.date {
+    padding: 6px 12px;
+    text-align: center;
   }
   input, select {
     border-top-left-radius: 5px 50% !important;

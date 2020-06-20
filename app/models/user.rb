@@ -31,7 +31,7 @@ class User < ApplicationRecord
 
   validates :units_of_measure, presence: true
   validates :units_of_measure, inclusion: { in: %w(metric imperial),
-    message: "%{value} is not a valid unit" }
+    message: "Must be either metric or imperial" }
   # after_create :send_welcome_email
 
 

@@ -14,7 +14,13 @@
 </div>
 
 <script type="text/javascript">
-    var s = <%= initial_session_timer(@current_session).sec %>;
-    var m = <%= initial_session_timer(@current_session).min %>;
-    var h = <%= initial_session_timer(@current_session).hour %>;
+
+  let s = <%= initial_session_timer(@current_session).sec %>;
+  let m = <%= initial_session_timer(@current_session).min %>;
+  let h = <%= initial_session_timer(@current_session).hour %>;
+
+  document.addEventListener("DOMContentLoaded", function(event) {
+    session_timer_start();
+  });
+
 </script>
