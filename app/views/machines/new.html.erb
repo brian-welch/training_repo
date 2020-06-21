@@ -21,8 +21,7 @@
         <div class="col-xs-12">
           <%= f.input :mech_ad,
                       label: "Mechanical Advantage",
-                      hint: "<em>(a whole number or decimal using '.')</em>".html_safe,
-                      error: "Mechanical Advantage must be given",
+                      hint: "<em>A whole number or decimal using '.'<br>It is very rare that this value is under 1.0</em>".html_safe,
                       input_html: { style: "width: 30%;" } %>
           <%= link_to "https://www.sophia.org/tutorials/simple-machines-levers--2", target: "new", style: "font-style: italic;" do %>
             <button class="btn-xs new_menu_info_button" type="button" style="font-size: 0.8em;">
