@@ -51,4 +51,17 @@ module CalculationsHelper
     (total_weight * 60) / session_total_minutes(sesh_inst)
   end
 
+  def get_machine_or_pulley_or_neither(set)
+    # returns a string if the set is on a machine or involves either a cable or crossover, otherwise returns nil
+    # Called in session_sets_controller:index, training_sessions_controller:show
+    resist_name = set.resistance_method.name.downcase
+    if resist_name.include?("machine")
+      "#{proper_string(set.machine.name)} by #{proper_string(set.machine.brand.name)}"
+    elsif resist_name.include?("cable") || resist_name.include?("crossover")
+      "#{set.pulley_count} #{set.pulley_count > 1 ? 'Pulleys' : 'Pulley'}"
+    else
+      nil
+    end
+  end
+
 end

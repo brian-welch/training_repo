@@ -106,6 +106,7 @@ class TrainingSessionsController < ApplicationController
   end
 
   def get_machine_or_pulley_or_neither(set)
+    # returns a string if the set is on a machine or involves either a cable or crossover, otherwise returns nil
     resist_name = set.resistance_method.name.downcase
     if resist_name.include?("machine")
       return "#{proper_string(set.machine.name)} by #{proper_string(set.machine.brand.name)}"

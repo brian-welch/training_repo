@@ -12,6 +12,7 @@ class SessionSetsController < ApplicationController
       sets_current_training_session = SessionSet.where(training_session: @active_tr_sesh_inst).sort_by{|set|set.updated_at}
 
       @all_sets_hash_by_exercise_and_resistance = sets_current_training_session.group_by { |set| [set.exercise, set.resistance_method] }
+      # @all_sets_hash_by_exercise_and_resistance is a depricated variable
 
       @sesh_sets_hash_by_exercise_resist_additional = sets_current_training_session.group_by { |set| [set.exercise, set.resistance_method, get_machine_or_pulley_or_neither(set)] }
 
@@ -64,18 +65,6 @@ class SessionSetsController < ApplicationController
 
 
   private
-
-
-  def get_machine_or_pulley_or_neither(set)
-    resist_name = set.resistance_method.name.downcase
-    if resist_name.include?("machine")
-      "#{proper_string(set.machine.name)} by #{proper_string(set.machine.brand.name)}"
-    elsif resist_name.include?("cable") || resist_name.include?("crossover")
-      "#{set.pulley_count} #{set.pulley_count > 1 ? 'Pulleys' : 'Pulley'}"
-    else
-      nil
-    end
-  end
 
 
   def call_active_training_session_instance
