@@ -56,7 +56,8 @@ module CalculationsHelper
     # Called in session_sets_controller:index, training_sessions_controller:show
     resist_name = set.resistance_method.name.downcase
     if resist_name.include?("machine")
-      "#{proper_string(set.machine.name)} by #{proper_string(set.machine.brand.name)}"
+      set.machine
+      # "#{proper_string(set.machine.name)} by #{proper_string(set.machine.brand.name)}"
     elsif resist_name.include?("cable") || resist_name.include?("crossover")
       "#{set.pulley_count} #{set.pulley_count > 1 ? 'Pulleys' : 'Pulley'}"
     else

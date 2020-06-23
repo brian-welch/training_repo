@@ -50,10 +50,10 @@ module SessionSetsHelper
     # KEEP
     content_tag :div, class: "session_set_index_exercise_name" do
       content_tag(:span, image_tag("logo_and_branding/tr_check_a.svg"), class: "icon_image_exercise_name") +
-      "#{proper_string(args[:exercise_inst].name) +
-      '<br><i class="fas fa-angle-double-right fa-fw" style="margin-right: 8px;" ></i>' +
+      "#{proper_string(args[:exercise_inst].name) + prior_sets_date(args[:sets]) +
+      '<i class="fas fa-angle-double-right fa-fw" style="margin-right: 8px;" ></i>' +
       proper_string(args[:resist_inst].name) + "#{(args[:resist_inst].bodyweight && args[:sets].count > 0) ? (' @ ' + current_user.get_relevant_user_weight(args[:sets][0]).to_s + ' ' + @weight_units) : ''}" +
-      '<br>' + sets_date(args[:sets])}".html_safe
+      '<br>'}".html_safe
     end
   end
 
@@ -65,11 +65,11 @@ module SessionSetsHelper
     end
   end
 
-  def sets_date(sets)
+  def prior_sets_date(sets)
     # KEEP
-    mssg_b = " First time doing this exercise! <i class=\"fas fa-grin-alt\"></i>"
-    mssg = sets.count.zero? ? mssg_b : "Last trained on: #{sets.last.created_at.to_date}"
-    content_tag :span, class: "prior_set_message" do
+    mssg_b = " First time with this exercise combination <i class=\"fas fa-grin-alt\"></i>"
+    mssg = sets.count.zero? ? mssg_b : "On: #{sets.last.created_at.to_date}"
+    content_tag :div, class: "prior_set_message" do
       # image_tag("logo_and_branding/tr_spiral_c.svg",
       #   style: "height: 18px; position: relative; bottom: 1px;") +
       "#{mssg}".html_safe
@@ -78,16 +78,22 @@ module SessionSetsHelper
 
   def sets_data(args)
     # KEEP
-    sets_without_machine(args[:additional], args[:sets], args[:last_set_saved_id])
+    mpn = args[:machine_pulley_nil]
+    temp = mpn.is_a?(Machine) ? mpn.name : mpn
+    # sets_without_machine(args[:additional], args[:sets], args[:last_set_saved_id])
+     (mpn ? additional_name(temp) : "").html_safe +
+     args[:sets].map do |set|
+       reps_weight(set, args[:last_set_saved_id])
+     end.join("").html_safe
   end
 
-  def sets_without_machine(additional, sets, last_id)
-    # KEEP
-    (additional ? additional_name(additional) : "").html_safe +
-    sets.map do |set|
-      reps_weight(set, last_id)
-    end.join("").html_safe
-  end
+  # def sets_without_machine(additional, sets, last_id)
+  #   # KEEP
+  #   (additional ? additional_name(additional) : "").html_safe +
+  #   sets.map do |set|
+  #     reps_weight(set, last_id)
+  #   end.join("").html_safe
+  # end
 
   def reps_weight(set, last_id)
     # KEEP
@@ -144,9 +150,10 @@ module SessionSetsHelper
     end
   end
 
-  def get_sets_last_inactive_sesh_with_exercise(exercise, resistance)
+  def get_sets_last_inactive_sesh_with_exercise(exercise, resistance, machine_pulley_nil)
     # KEEP
-    temp = SessionSet.where(:exercise => exercise, :resistance_method => resistance).sort_by { |set| set.created_at }.select{|set| set if set.training_session.open == false}
+    machine = machine_pulley_nil.is_a?(Machine) ? machine_pulley_nil : nil
+    temp = SessionSet.where(:exercise => exercise, :resistance_method => resistance, :machine => machine).sort_by { |set| set.created_at }.select{|set| set if set.training_session.open == false}
     temp = temp.select{|x| x.training_session_id == temp.last.training_session_id}
     return temp
   end
