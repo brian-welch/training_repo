@@ -7,29 +7,27 @@
 
     <% @sesh_sets_hash_by_exercise_resist_additional.each_with_index do |(exercise_resist_additional_array, sets), index| %>
       <%
-        exercise_inst = exercise_resist_additional_array[0]
-        resist_inst = exercise_resist_additional_array[1]
-        additional = exercise_resist_additional_array[2]
+        exercise_inst       = exercise_resist_additional_array[0]
+        resist_inst         = exercise_resist_additional_array[1]
+        machine_pulley_nil  = exercise_resist_additional_array[2]
+        # additional          = "#{proper_string(machine_pulley_nil.name)} by #{proper_string(machine_pulley_nil.brand.name)}"
         args = {
           exercise_inst: exercise_inst,
           resist_inst: resist_inst,
-          additional: additional,
+          machine_pulley_nil: machine_pulley_nil,
+          # additional: additional,
           sets: sets,
           index: index,
           last_set_saved_id: @last_set_saved_id,
         }
         prior_args = args.dup
-        prior_args[:sets] = get_sets_last_inactive_sesh_with_exercise(exercise_inst, resist_inst)
+        prior_args[:sets] = get_sets_last_inactive_sesh_with_exercise(exercise_inst, resist_inst, machine_pulley_nil)
         prior_args[:archived] = true
       %>
 
-      <%#= render_session_sets args do |args| %>
-      <%# end %>
-
       <%= render_session_sets(args) %>
 
-      <%= render_session_sets prior_args do |prior_args| %>
-      <% end %>
+      <%= render_session_sets(prior_args) %>
 
     <% end %>
 
