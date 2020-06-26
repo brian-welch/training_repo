@@ -67,9 +67,9 @@ class SessionSetsController < ApplicationController
   private
 
 
-  def call_active_training_session_instance
-    @active_tr_sesh_inst = TrainingSession.active_session_instance(current_user.id)
-  end
+  # def call_active_training_session_instance
+  #   @active_tr_sesh_inst = TrainingSession.active_session_instance(current_user.id)
+  # end
 
 
   def make_exercise_json

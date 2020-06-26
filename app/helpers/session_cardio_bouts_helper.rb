@@ -1,0 +1,2 @@
+module SessionCardioBoutsHelper
+end

@@ -49,7 +49,7 @@ cardio_methods_list.sort.map do |c_method|
 end
 
 
-puts "\nPAdding new Exercises"
+puts "\nAdding new Exercises"
 sleep 3
 
 new_ex = [{id: nil, name: "Abdominal Crunches: Lying", unilateral: nil, machine: false, bodyweight: true, force_bilateral: nil, info: nil, m_mech_ad_override: 2, f_mech_ad_override: 2}, {id: nil, name: "Abdominal Crunches: Machine or Cable / Upright", unilateral: nil, machine: false, bodyweight: false, force_bilateral: nil, info: nil, m_mech_ad_override: nil, f_mech_ad_override: nil},{id: nil, name: "Abdominal Crunches: Machine or Cable / Lying", unilateral: nil, machine: false, bodyweight: true, force_bilateral: nil, info: nil, m_mech_ad_override: 2, f_mech_ad_override: 2},]
