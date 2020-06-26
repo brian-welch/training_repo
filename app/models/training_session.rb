@@ -19,7 +19,7 @@ class TrainingSession < ApplicationRecord
 
 
   def self.next_session_number(user)
-    previous_sesh = previous_session_call(user)
+    previous_sesh = all_privious_sessions_call(user)
 
     if previous_sesh.count == 0
       return 1
@@ -45,7 +45,7 @@ class TrainingSession < ApplicationRecord
     self.where("user_id = ? AND open = ?", user, true)
   end
 
-  def self.previous_session_call(user)
+  def self.all_privious_sessions_call(user)
     # returns an array
     self.where("user_id = ? AND open = ?", user, false)
   end

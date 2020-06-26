@@ -34,6 +34,9 @@ class ApplicationController < ActionController::Base
     return string.split(" ").map{|x| x.capitalize}.join(" ")
   end
 
+  def call_active_training_session_instance
+    @active_tr_sesh_inst = TrainingSession.active_session_instance(current_user.id)
+  end
 
   private
 

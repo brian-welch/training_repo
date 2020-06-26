@@ -1,2 +1,22 @@
-<h1>SessionCardioBouts#index</h1>
-<p>Find me in app/views/session_cardio_bout/index.html.erb</p>
+<div class="container">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <h1>This Session's Cardio Bouts</h1>
+    <h3>Session Strategy: <%= @active_tr_sesh_inst.session_strategy.name %></h3>
+    <div class="dotted_hr"></div>
+    <%= "<h3>0 cardio bouts on this session</h3>".html_safe if @all_cardio_bouts_this_session.count == 0 %>
+
+    <% @all_cardio_bouts_this_session.each_with_index do |cardio_bout| %>
+      <div>
+        <h3><%= cardio_bout.cardio_type.name %></h3>
+      </div>
+    <% end %>
+
+
+
+    <%= link_to new_session_cardio_bout_path do %>
+      <button class="btn btn-xs btn-info sesion_set_add_new_exercise_btn">
+        <i class="fas fa-plus-circle"></i> New Exercise
+      </button>
+    <% end %>
+  </div>
+</div>

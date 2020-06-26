@@ -5,4 +5,5 @@ class SessionCardioBout < ApplicationRecord
 
   validates :time, presence: true
   validates :distance, presence: true
+
 end
