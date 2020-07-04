@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_14_071816) do
+ActiveRecord::Schema.define(version: 2020_06_30_102737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,17 @@ ActiveRecord::Schema.define(version: 2020_06_14_071816) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "max_hr"
+    t.string "resistance_level"
+    t.float "incline_degrees"
+    t.float "average_speed"
+    t.integer "estimated_calories"
+    t.integer "steps"
+    t.integer "floors"
+    t.float "vertical_distance"
+    t.integer "mets"
+    t.float "laps"
+    t.float "calories"
     t.index ["cardio_method_id"], name: "index_session_cardio_bouts_on_cardio_method_id"
     t.index ["cardio_type_id"], name: "index_session_cardio_bouts_on_cardio_type_id"
     t.index ["training_session_id"], name: "index_session_cardio_bouts_on_training_session_id"
